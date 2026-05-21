@@ -1,0 +1,83 @@
+---
+sidebar_position: 6
+title: Changelog
+---
+
+# Changelog
+
+All notable changes to LOSPOR are documented here.
+
+---
+
+## [0.3.0] — 2026-05-21
+
+### GDPR — Data minimisation
+- **Removed staff names** — surgeon, anaesthesiologist, and nurse name fields removed from the preoperative form. Replaced by a free-text **Team notes** field with a privacy warning.
+- **Removed exact surgery date** — the date field is replaced by a month/year selector. No calendar date is stored.
+- **Anonymous case codes** — format changed from `DDMMYYYY-NN` to `YYYY-NNNN` (e.g. `2026-0001`).
+- **Patient identity never stored** — the printable protocol leaves identity fields blank for hand-writing after printing. The print-time name/ID dialog has been removed.
+- **Institution decoupled from Case** — institution is now stored on the user account only.
+
+### GDPR — Consent and transparency
+- **Consent screen** — shown on first login; must be accepted before using the app.
+- **Terms checkbox on registration** — new accounts must accept the Terms of Use and Medical Disclaimer.
+- **Privacy Policy page** (`/privacy`) and **Terms of Service page** (`/terms`) — accessible without login.
+- **Footer links** — Terms · Privacy · Open source · AGPL-3.0 added throughout the app.
+
+### GDPR — Rights (Articles 15 & 17)
+- **Data export** — Settings → Privacy & Data → Download my data (JSON, Article 15).
+- **Account deletion** — Settings → Privacy & Data → Delete my account (soft-delete + 30-day hard-delete, Article 17).
+
+### Security
+- **DB-backed JWT revocation** — revoked tokens survive server restarts.
+- **Constant-time login check** — prevents email enumeration via response timing.
+- **Last login tracking** — displayed in Settings → Privacy & Data.
+- **Soft-delete** — deleted accounts cannot log in.
+- **Server-side PII detection** — free-text fields are checked for EGN, long digit sequences, date patterns, email addresses, and name patterns. Returns a clear 400 error and logs to the audit trail.
+
+### AI advisor
+- **Migrated to Mistral La Plateforme (EU)** — EU-hosted inference with GDPR DPA. Groq removed.
+- **Free-text fields stripped** — only structured clinical fields are sent; notes and free-text are never forwarded.
+- **Opt-in per case** — disabled by default; enabled via a toggle in the preop form.
+
+### Features
+- **Settings → Privacy & Data** — last login, data export, account deletion.
+- **GuardedTextarea** — live character counter and blur warning for EGN/MRN patterns on free-text inputs.
+- **Admin / HOD case access** — admins and heads of department can view and edit cases owned by any member.
+
+### Fixes
+- **Timetable timezone** — times were shifting by the UTC offset on every reload; fixed by using UTC methods when reading stored times.
+- **Autosave schema coercion** — HTML inputs return strings; API schemas now coerce string values, preventing Zod 400 errors mid-typing.
+- **Autosave no longer locks cases** — postop autosave no longer promotes the case to COMPLETE; only the final submit button does.
+- **PDF empty 3rd page** — footer text overflow fixed.
+
+---
+
+## [0.2.0] — 2026-05-20
+
+### Security
+- Admin approval for new registrations
+- Completed cases locked (403 on edit)
+- Rate limiting on registration, login, AI advice, ICD search, custom terms
+- AI endpoint hardening (16 KB cap, Zod validation, no PHI forwarded)
+- Security headers (X-Frame-Options, CSP, etc.)
+- Session invalidation on logout (in-memory JWT blocklist)
+- Supabase PostgREST API disabled
+
+### Features
+- Audit log for case events and AI advice
+- Institution-scoped custom terms
+
+### Validation
+- Full Zod schemas for preop / intraop / postop API routes
+
+### Fixes
+- Broken UTF-8 characters across the app
+- Register page institution picker on LAN access
+- `public/logo.png` (1.5 MB) removed in favour of `logo.webp` (26 KB)
+
+---
+
+## [0.1.0] — 2026-04-01
+
+Initial release. Preoperative, intraoperative, and postoperative data entry. PDF export. ICD-11 diagnosis search with Bulgarian translation. AI pre-operative advisor. Guided tour. Dark mode. Bilingual (English / Bulgarian).

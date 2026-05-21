@@ -21,7 +21,7 @@ Enter the patient's:
 
 - **Diagnosis** — search by ICD-11 code or free text. The ICD-11 WHO classification is available in English and Bulgarian.
 - **Planned procedure** — the surgical procedure to be performed
-- **Surgeon name**, **Anaesthesiologist name**, **Anaesthesia nurse name**
+- **Team notes** *(optional)* — free text for roles, theatre number, or any case-specific reminders. Do not enter names or ID numbers here.
 
 ## Comorbidities
 
@@ -77,6 +77,16 @@ Add individual lab results (Hb, Hct, PLT, INR, creatinine, electrolytes, glucose
 ## Premedication
 
 Record evening and morning premedication if prescribed.
+
+## AI pre-operative advisor
+
+At the bottom of the preoperative form, you can optionally enable the **AI clinical analysis** for this case. It is **disabled by default**.
+
+When enabled, click the **AI Clinical Analysis** button to receive a structured pre-operative assessment covering ASA classification, technique recommendation, airway management, preparation, and drug considerations.
+
+:::info Privacy
+Only structured clinical fields are sent to the AI provider (Mistral La Plateforme, EU-hosted). Free-text fields (team notes, airway notes, family history details) are never forwarded. Your consent is recorded in the audit log.
+:::
 
 ## Saving
 

@@ -21,6 +21,7 @@ const sidebars: SidebarsConfig = {
     "admin-guide",
     "self-hosting",
     "data-research",
+    "changelog",
   ],
 }
 

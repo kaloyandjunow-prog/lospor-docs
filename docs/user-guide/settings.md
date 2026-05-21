@@ -46,6 +46,23 @@ The HOD role grants:
 - Visibility of all cases in your institution
 - Ability to assign cases to other members instantly (without their acceptance)
 
+## Privacy & Data
+
+The **Privacy & Data** section is available in the settings modal for all users.
+
+### Last login
+Displays the date and time of your most recent successful login.
+
+### Export my data
+Downloads a JSON file containing your account details, all your cases (with preop/intraop/postop records), and your audit log entries. This fulfils your right of access under **GDPR Article 15**.
+
+### Delete my account
+Permanently deactivates your account. Type `DELETE` in the confirmation field and click **Confirm deletion**. Your account is deactivated immediately; all data is permanently deleted within 30 days. This fulfils your right to erasure under **GDPR Article 17**.
+
+:::warning Irreversible
+Account deletion cannot be undone. Download your data first if you need to keep a copy.
+:::
+
 ## Profile
 
-Your name, institution, and email are displayed at the top of the settings dropdown. Profile editing is not currently available through the UI — contact your administrator if you need to update your details.
+Your name, institution, and email are displayed at the top of the settings dropdown. You can edit your institution directly from the dropdown — click **Edit** next to the institution name and search for a new one.

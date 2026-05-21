@@ -13,14 +13,15 @@ title: Getting Started
    - First and last name
    - Professional title (e.g. Dr., Assoc. Prof.)
    - Email address
-   - Password (minimum 8 characters)
-   - **Institution** — select your hospital from the list (Bulgarian NHIF institutions are included)
-4. Click **Create account**
+   - Password (minimum 8 characters, must include uppercase, number, and special character)
+   - **Country** and **Institution** — institution is optional; Bulgarian NHIF institutions are included
+4. Accept the **Terms of Use, Privacy Policy, and Medical Disclaimer** (required)
+5. Click **Create account**
 
-You will be logged in immediately with the **Member** role.
+Your account will be **pending admin approval**. You will see a message when you try to log in. Once approved, you can access the app.
 
-:::info Institution not in the list?
-If your institution is not listed, contact your system administrator. The institution list is based on the Bulgarian NHIF register.
+:::info First login — consent screen
+On your first login after approval, a consent screen appears summarising what LOSPOR is and is not. You must confirm you understand before proceeding.
 :::
 
 ## Logging in

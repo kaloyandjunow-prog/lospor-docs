@@ -20,7 +20,7 @@ LOSPOR collects structured perioperative data entered by anaesthesiologists:
 - Laboratory results
 
 ### Intraoperative data
-- Date, start time, end time, duration
+- Month/year, start time, end time, duration (no exact calendar date stored)
 - Anaesthesia technique(s)
 - Airway device and tools
 - Ventilation mode
@@ -47,17 +47,17 @@ LOSPOR collects structured perioperative data entered by anaesthesiologists:
 The following are **never uploaded or stored**:
 - Patient name
 - Patient ID number / hospital file number
-- Surgeon name
-- Anaesthesiologist name (only the user account that created the record is linked)
-- Anaesthesia nurse name
+- Exact date of surgery (only month and year)
+- Surgeon name, anaesthesiologist name, anaesthesia nurse name
+- Any free-text content that triggers the PII detector (EGN, 7+ digit sequences, date patterns, email addresses, two capitalised words)
 
-When the protocol is printed, the patient's name and ID number are entered locally in the browser and printed directly — they are never sent to the server.
+The printed protocol leaves patient identity fields blank — they are filled in by hand after printing and never sent to the server.
 
 ## Anonymisation
 
-Each case is assigned an automatically generated **case code** (format: DDMMYYYY-NN). This code appears on the printed protocol and is the only identifier stored in the database.
+Each case is assigned an automatically generated **case code** (format: `YYYY-NNNN`, e.g. `2026-0001`). This code appears on the printed protocol and is the only identifier stored in the database.
 
-The case is linked to a **user ID** (internal, not exposed in research queries) and an **institution ID** (anonymised as a code in research outputs).
+The case is linked to a **user ID** (internal, not exposed in research queries).
 
 ## Research access
 
@@ -77,11 +77,20 @@ The research browser is planned for release in 2026. Until then, researchers int
 
 LOSPOR is designed to comply with the General Data Protection Regulation (EU) 2016/679:
 
-- **Data minimisation** — only clinically necessary data is collected; patient identity is excluded
-- **Purpose limitation** — data is collected for clinical documentation and quality improvement
-- **Storage limitation** — data is stored only as long as clinically and legally required
-- **Security** — all data is encrypted in transit (HTTPS) and at rest (Supabase encryption)
-- **EU data residency** — data is stored in the EU (Supabase Frankfurt region)
+- **Data minimisation** — only clinically necessary structured data is collected; patient identity is excluded by design
+- **Purpose limitation** — data is collected for personal learning, portfolio, and audit
+- **Storage limitation** — data is retained until the user deletes their account
+- **Security** — all data is encrypted in transit (HTTPS) and at rest; JWT tokens are revoked on logout with DB-backed revocation
+- **EU data residency** — all sub-processors are EU-hosted: Supabase (Frankfurt), Vercel (EU), Mistral AI (France)
+- **Server-side PII detection** — free-text fields are checked server-side for common identifiers (EGN, long digit sequences, date patterns, email addresses, name patterns) and rejected with a clear error message
+
+### Your GDPR rights
+
+| Right | How to exercise it |
+|-------|--------------------|
+| **Access (Article 15)** | Settings → Privacy & Data → Download my data |
+| **Erasure (Article 17)** | Settings → Privacy & Data → Delete my account |
+| **Other requests** | Email kaloyandjunow@gmail.com |
 
 Institutions self-hosting LOSPOR are responsible for their own GDPR compliance, including maintaining a Data Processing Register and notifying patients if required by local regulations.
 

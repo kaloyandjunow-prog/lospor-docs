@@ -7,16 +7,16 @@ title: Intraoperative Form
 
 The intraoperative form is where you document the anaesthesia in real time — or fill it in retrospectively. The centrepiece is the **live intraoperative timetable**.
 
-## Date and timing
+## Month/year and timing
 
-- **Date** — defaults to today, can be changed
+- **Month / Year** — select the month and year of the procedure. No exact date is stored.
 - **Start time** — click **Start Case** to stamp the current time automatically, or type it manually (HH:MM format)
 - **End time** — click **End Case** when the procedure finishes, or enter manually
 
 When **Start Case** is clicked, a live orange clock bar appears in the timetable and the case status changes to **In theatre** on the dashboard.
 
 :::tip Midnight crossing
-If the case crosses midnight (e.g. starts at 23:30, ends at 01:45), LOSPOR automatically detects this and records the correct date for the end time. You can also manually select the next day using the date picker next to the end time.
+If the case crosses midnight (e.g. starts at 23:30, ends at 01:45), click the **+1 day** button next to the end time to indicate the case ran into the following day.
 :::
 
 ## Anaesthesia technique

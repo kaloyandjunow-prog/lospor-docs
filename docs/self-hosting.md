@@ -43,6 +43,9 @@ DIRECT_URL="postgresql://postgres.<ref>:<pass>@aws-<region>.pooler.supabase.com:
 NEXTAUTH_SECRET="your-random-secret"   # openssl rand -base64 32
 NEXTAUTH_URL="https://your-domain.com"
 
+# Optional — AI pre-operative advisor (EU-hosted, Mistral La Plateforme; free tier available)
+MISTRAL_API_KEY="your-mistral-api-key"
+
 # Optional — for ICD-11 diagnosis search
 WHO_ICD_CLIENT_ID="your-who-client-id"
 WHO_ICD_CLIENT_SECRET="your-who-client-secret"
@@ -76,10 +79,10 @@ npx tsx prisma/seed.ts
 
 ## 6 — Seed ICD-11 Bulgarian translations (optional)
 
-If you want Bulgarian-language ICD-11 codes in the search, run the translation seeder. This requires either a Groq API key (free) or an Anthropic API key (~$1 for the full dataset):
+If you want Bulgarian-language ICD-11 codes in the search, run the translation seeder. This requires a **Mistral API key** (free tier is sufficient):
 
 ```bash
-# Add ANTHROPIC_API_KEY or GROQ_API_KEY to .env first
+# Add MISTRAL_API_KEY to .env first
 npx tsx prisma/seed-icd11-bg.ts
 ```
 

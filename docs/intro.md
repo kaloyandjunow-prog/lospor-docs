@@ -6,7 +6,7 @@ title: Introduction
 
 # LOSPOR — Large Open Source Perioperative Register
 
-LOSPOR is a free, open-source web application for anaesthesiologists to record perioperative data and generate standardised anaesthesia protocols. It is designed for clinical use in Bulgaria and is available in both **English** and **Bulgarian**.
+LOSPOR is a free, open-source **personal anaesthetic case log** for learning, portfolio, and reflection. It is designed for anaesthesiologists and is available in both **English** and **Bulgarian**.
 
 ## What does it do?
 
@@ -33,7 +33,7 @@ Clinician registers → Opens new case → Fills preop form
   → Protocol generated → PDF printed → Anonymised data stored
 ```
 
-Patient-identifiable information (name, ID number) is entered **only at print time** and is never uploaded or stored in the database.
+Patient-identifiable information is **never stored**. The printed protocol leaves patient identity fields blank — fill them in by hand after printing.
 
 ## Try it
 
@@ -45,10 +45,17 @@ Use the **?** button in the top-right corner to launch the guided tour, or open 
 
 LOSPOR is licensed under the **AGPL-3.0** licence. The source code is available on [GitHub](https://github.com/kaloyandjunow-prog/lospor-app). You are free to self-host it for your institution — see the [Self-hosting guide](/self-hosting).
 
+## What LOSPOR is and isn't
+
+**Is:** A personal log for anaesthesiologists to record anonymised cases, track learning, and generate a printable case summary.
+
+**Is not:** A clinical record system, a patient management tool, or a certified medical device.
+
 ## Privacy & GDPR
 
 LOSPOR is designed with GDPR compliance in mind:
 - Patient names and ID numbers are **never stored** in the database
-- Each case is linked only to an anonymised case code
-- All data is stored in the EU (Supabase, Frankfurt region)
+- Each case is linked only to an anonymised case code (e.g. `2026-0001`)
+- All data is stored in the EU (Supabase, Vercel, Mistral AI — all EU-region)
 - Users must be authenticated to access any data
+- GDPR rights (data export, account deletion) are available under Settings → Privacy & Data
