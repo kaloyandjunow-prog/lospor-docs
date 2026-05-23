@@ -26,8 +26,7 @@ Below the statistics, all your cases are listed in reverse chronological order. 
 - **Diagnosis** — the working diagnosis
 - **ASA badge** — ASA classification (colour-coded: I–II green, III amber, IV–VI red)
 - **Disposition badge** — WARD / PACU / ICU if the case is complete
-- **Case code** — the unique identifier (format: DDMMYYYY-NN)
-- **Date** — the date of the procedure
+- **Case code** — the unique identifier (format: YYYY-NNNN, e.g. `2026-0042`)
 
 Click any row to open or continue the case.
 

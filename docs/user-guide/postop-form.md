@@ -63,8 +63,21 @@ These instructions appear in **full text** on the printed protocol — not abbre
 
 ## Completing the case
 
-Click **Complete case** to finalise all three forms and generate the protocol. The case status changes to **Case finished** on the dashboard.
+Click **Go to Summary** to submit the postoperative form. This opens the case summary with the printable protocol — but the case is **not yet finalised**.
 
-:::warning Cannot undo
-Once a case is marked complete, editing requires reopening it. Always verify all data before completing.
+### 30-minute review window
+
+After submitting postop, a **30-minute review period** begins. During this time:
+
+- A countdown banner is shown at every step (preop, intraop, postop, and summary)
+- You can click **Preop**, **Intraop**, or **Postop** in the banner to navigate back and correct any data
+- Changes save automatically
+- The timer continues running even if you leave the page and return
+
+When the review period ends (or you click **Close Now**), the case is permanently finalised:
+- Status changes to **Case finished** on the dashboard
+- No further editing is possible
+
+:::tip
+Use the review window to verify the printed protocol looks correct before closing. The print / save PDF function is available immediately in the summary view.
 :::

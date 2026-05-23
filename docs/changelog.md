@@ -9,6 +9,26 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [0.4.0] — 2026-05-24
+
+### Features
+- **30-minute review window** — submitting the postoperative form now opens a 30-minute review period instead of immediately locking the case. A countdown banner is visible at every step. Navigate back to preop, intraop, or postop to correct any data. The case auto-closes when the timer expires or you click **Close Now**. The timer persists if you leave and return to the page.
+- **Expanded lab catalogue** — the preoperative Labs section now includes 100+ perioperative-relevant tests across nine categories: Haematology, Coagulation, Electrolytes, Biochemistry, Liver, Cardiac, Blood Gas, Thyroid, and Inflammatory/Other. Tests are shown in collapsible category rows.
+- **Lab reference ranges** — each entered result is compared to a reference interval and flagged as normal (green) or out of range (amber). No clinical action is implied; the flag is informational only.
+- **Lab search** — type in the search box above the catalogue to filter tests instantly.
+- **AI lab scan** — click **Scan lab report** to upload a photo of a printed lab result. Mistral AI reads the image and extracts test names, values, and units. A preview panel shows the extracted results; select which ones to add. A GDPR notice is shown above the upload button at all times.
+- **HOD access restricted to own institution** — Heads of department can view and edit only cases belonging to members of their own institution. Case transfers are also restricted to within-institution recipients. Admin access remains global.
+
+### Fixes
+- **Autosave error on case reopen** — returning to the intraop form after navigating away caused a validation error and autosave failure. Fixed.
+- **Postop data blank on reopen** — reopening a case that had already been submitted through postop showed empty postop fields. All data is now restored.
+- **Review window resets on navigation** — leaving and returning to the summary page restarted the 30-minute timer from scratch. The timer now resumes from the correct remaining time.
+- **Parallel fluid lane disappears** — inline-discontinuing one of two same-category parallel fluids caused the discontinued lane to vanish from the timetable. Fixed.
+- **Lab results cut off in print** — entering more than 12 or so lab results caused them to overflow and be clipped in the printed protocol. The summary now uses a multi-column layout with a compact font so up to ~40 results fit on the page.
+- **Summary cards too narrow on first open** — the printable summary was narrower than expected on the first open during case entry. Fixed.
+
+---
+
 ## [0.3.0] — 2026-05-21
 
 ### GDPR — Data minimisation

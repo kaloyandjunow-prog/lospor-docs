@@ -12,8 +12,8 @@ LOSPOR has three user roles:
 | Role | Capabilities |
 |------|-------------|
 | **Member** (default) | Record and view their own cases only |
-| **Head of Department (HOD)** | View all cases in their institution; instantly assign cases to members |
-| **Admin** | All HOD capabilities across all institutions; approve role requests; manage users |
+| **Head of Department (HOD)** | View and edit all cases in their institution; transfer cases to any member of their institution |
+| **Admin** | View and edit all cases across all institutions; approve role requests; manage users |
 
 ## Requesting HOD role
 
@@ -25,13 +25,13 @@ The administrator will review and approve or reject the request.
 
 ## HOD capabilities
 
-### Viewing institutional cases
+### Viewing and editing institutional cases
 
-As an HOD, the dashboard shows **all cases in your institution**, not just your own. The case owner's name is shown on each row.
+As an HOD, the dashboard shows **all cases in your institution**, not just your own. The case owner's name is shown on each row. You can open and edit any case in your institution.
 
-### Assigning cases
+### Transferring cases
 
-You can assign any case in your institution to any member, instantly and without requiring their acceptance:
+You can transfer any case in your institution to any member of the **same institution**, instantly and without requiring their acceptance:
 
 1. Find the case on your dashboard
 2. Click the **Hand over / Assign** button
