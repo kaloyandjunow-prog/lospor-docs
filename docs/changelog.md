@@ -9,6 +9,14 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [0.4.2] — 2026-05-24
+
+### Features
+- **Full Bulgarian UI translation** — every user-visible string in the interface now adapts to the selected language. All previously hardcoded English labels, section headers, button text, error messages, and status indicators across the admin panel, case entry wizard, register page, settings, guided tour, and preoperative form have been converted to translatable keys. Switching to Bulgarian in Settings → Language now translates the entire app.
+- **Vercel Analytics** — anonymous page-view tracking added. No personal data is collected.
+
+---
+
 ## [0.4.1] — 2026-05-24
 
 ### Fixes
