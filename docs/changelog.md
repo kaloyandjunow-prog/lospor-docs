@@ -9,6 +9,13 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [0.4.1] — 2026-05-24
+
+### Fixes
+- **Terms and Privacy links not opening when logged in** — clicking Terms or Privacy in the app footer redirected back to the dashboard. Fixed.
+
+---
+
 ## [0.4.0] — 2026-05-24
 
 ### Features
