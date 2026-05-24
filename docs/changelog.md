@@ -15,6 +15,11 @@ All notable changes to LOSPOR are documented here.
 - **Full Bulgarian UI translation** — every user-visible string in the interface now adapts to the selected language. All previously hardcoded English labels, section headers, button text, error messages, and status indicators across the admin panel, case entry wizard, register page, settings, guided tour, and preoperative form have been converted to translatable keys. Switching to Bulgarian in Settings → Language now translates the entire app.
 - **Vercel Analytics** — anonymous page-view tracking added. No personal data is collected.
 
+### Security / compliance
+- **AI disclaimer corrected** — the AI advisor no longer uses "clinical decision support" language. The disclaimer now clearly states that the output is an informational summary, does not constitute clinical advice, and that the responsible anaesthesiologist retains full clinical responsibility.
+- **Lab scan upload warning strengthened** — the GDPR notice above the upload button now explicitly instructs users to crop patient names, date of birth, ID numbers, and other identifiers out of the image before uploading.
+- **PII detection best-effort notice** — the Privacy Policy now clarifies that automatic pattern detection is best-effort. Users remain responsible for not entering patient-identifiable information in free-text fields.
+
 ---
 
 ## [0.4.1] — 2026-05-24
