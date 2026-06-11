@@ -28,10 +28,13 @@ The total is calculated automatically and displayed with a colour indicator:
 
 ## Recovery vitals
 
+- **Systolic blood pressure** (mmHg)
+- **Diastolic blood pressure** (mmHg)
+- **Heart rate** (bpm)
+- **SpO₂** (%)
 - **Temperature** (°C)
 - **Pain NRS** — Numeric Rating Scale 0–10 (slider)
 - **PONV** — Postoperative nausea and vomiting (Yes/No)
-- **Time in PACU** — minutes spent in the recovery room
 
 ## Postoperative state at discharge (disposition)
 

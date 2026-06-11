@@ -35,7 +35,7 @@ The second page contains:
 - **Current medications**
 - **Allergies** — including latex allergy flag
 - **Laboratory results**
-- **Postoperative recovery** — Aldrete score (all criteria + total), temperature, pain NRS, PONV, time in PACU
+- **Postoperative recovery** — Aldrete score (all criteria + total), recovery vitals (BP, HR, SpO₂, temperature), pain NRS, PONV
 - **Disposition** — WARD / PACU / ICU with notes
 - **Handover instructions** — full text of all ticked items
 - **Signature lines** — anaesthesiologist, anaesthesia nurse, surgeon

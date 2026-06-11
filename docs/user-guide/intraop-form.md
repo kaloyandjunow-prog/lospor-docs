@@ -73,6 +73,12 @@ Click a column in the **vital signs graph** to enter or edit values for that tim
 
 The graph updates in real time as you enter data.
 
+**AI monitor scan:** click the camera icon to upload or photograph your anaesthesia monitor screen. Mistral AI reads the display and extracts visible vital signs values into the entry fields. Review before saving.
+
+:::info Privacy
+Monitor images are sent to Mistral AI (EU-hosted) for text extraction and are not stored beyond the request. Avoid uploading images that show patient-identifying information.
+:::
+
 ### Drugs (bolus)
 
 Click **+ Drug** in the timetable to log a bolus drug administration:
@@ -116,4 +122,10 @@ Free text field for intraoperative complications. Common complications (hypotens
 
 ## Saving
 
-The intraoperative form auto-saves every 30 seconds and whenever significant changes are made. When complete, click **Save & continue** to proceed to the postoperative form.
+The intraoperative form auto-saves continuously. When complete, click **Save & continue** to proceed to the postoperative form.
+
+## Mobile
+
+On mobile, the intraoperative form uses the same tab-based layout (Overview, Anaesthesia, Timetable/Chart). The timetable adapts to screen width automatically — all controls remain fully reachable on a phone screen.
+
+The **Log** tab is designed for fast, thumb-friendly event capture. Vital signs entry opens a dedicated sheet with large input fields. Drug and fluid logging use bottom sheets with preset options and confirmation actions.

@@ -9,6 +9,49 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [1.0.1] — 2026-06-11
+
+### Mobile improvements
+- **Settings redesign** — settings is now two-level: a Profile screen (name, institution, edit institution from a DB list) and a Settings screen (UI: theme/language/preop layout; Automation: auto-fill vitals/BP/HR/background refresh; Privacy & Data: policy/terms/about/export/delete). Admin console visible to admins only. Sign out is a separate persistent button.
+- **Inline procedure and diagnosis search** — mobile search fields now use inline dropdown autocomplete instead of full-screen sheets. Procedure results display the clinical group as the primary label and the code and domain below it, matching the web app.
+- **AI monitor scan** — fixed on native Android; camera images now correctly pass base64 to the vitals-scan endpoint.
+- **AI advisor removed from case summary** — the AI pre-operative advisor button is available only in the preop form. It was incorrectly appearing on the case summary screen.
+- **Case status chain completed** — mobile dashboard and case summary now reflect the full seven-step status chain: Draft → In Consultation → Awaiting Allocation → In Theatre → Awaiting Post-op → Awaiting Review → Case Finished.
+
+### Lab scan improvements
+- **Library-anchored extraction** — the AI lab scan now only returns tests from the LOSPOR catalogue. Unknown or phantom test names (e.g. "absolute leucocyte count") are silently discarded server-side.
+- **Normalised units** — all extracted results are mapped to canonical units: Hb in g/L, Hct as a decimal ratio, glucose in mmol/L, and so on. Unit normalisation is enforced server-side regardless of how the value appears in the source image.
+- **Custom lab results removed** — free-form custom lab entries have been removed. All results must come from the catalogue, ensuring consistent units and reference ranges.
+
+### PWA fixes
+- **Timetable autosize on PWA** — vital-sign input fields, blood pressure popup, and drug dose controls in the intraoperative timetable now adapt to the browser window width. Previously they overflowed off the right edge of the screen.
+- **Dark mode colour-scheme error fixed** — `darkMode: "class"` is now set in the Tailwind config, preventing a `Cannot manually set color scheme` console error on the PWA.
+
+### Legal
+- **Privacy Policy updated to v1.1** — sub-processors section now explicitly covers Mistral AI image processing for lab scan and monitor scan. Effective date updated to June 2026.
+- **Terms of Service updated to v1.1** — new section 3a documents user obligations when using AI image scanning features. Effective date updated to June 2026.
+- **AGPL-3.0 LICENSE added to mobile app** — `lospor-mobile/LICENSE` created. Copyright (C) 2026 Kaloyan Dzhunov.
+
+---
+
+## [1.0.0] - 2026-05-26
+
+### Dashboard and mobile navigation
+- **Dashboard defaults to all accessible cases** - the web and mobile dashboards now open to the full case history in reverse chronological order instead of hiding older cases behind a Today filter.
+- **Clickable dashboard statistics** - dashboard statistics can now act as case-list filters. The selected scope is visible and resettable.
+- **Mobile clinical toolbar** - the mobile dashboard now uses a compact LOSPOR toolbar with dashboard, new-case, and settings actions instead of an ambiguous plus-only workflow.
+- **Visible mobile case scope rail** - mobile case scopes are shown as a quiet horizontal rail with counts: All, Today, Month, Active, Drafts, Awaiting postop, Complete, and Handovers.
+
+### Mobile preoperative workflow
+- **Preop section dashboard** - mobile new-case and edit-preop workflows now start with a section dashboard summary. Tapping a section opens a focused full-screen editor instead of forcing one long scroll.
+- **Shared clinical number entry** - age, height, weight, mouth opening, thyromental distance, and other numeric clinical fields now use a reusable wheel/chip/stepper-style control with manual fallback.
+- **Decimal input fixed** - comma decimals such as `8,5` and dot decimals such as `8.5` are accepted safely. Empty or invalid numeric input no longer becomes `NaN`.
+- **Mobile AI lab scan** - mobile preop labs can now use camera or gallery upload, call the existing Mistral lab reader, review extracted results, and add selected rows. Manual entry remains available.
+- **Medication search duplicate-key warning fixed** - duplicate labels from drug search results no longer produce React duplicate-key warnings.
+- **Continue to intraop validation fixed** - invalid mobile preop submission now shows the missing fields instead of jumping back to the top of the form.
+
+---
+
 ## [0.4.2] — 2026-05-24
 
 ### Features

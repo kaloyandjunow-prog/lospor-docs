@@ -7,6 +7,12 @@ title: Preoperative Form
 
 The preoperative form captures all pre-anaesthesia assessment data. It is the first step in every case.
 
+## Mobile section dashboard
+
+On mobile, the preoperative form opens with a **section dashboard**. It shows seven sections — Patient, Case, Meds & Safety, Airway, Vitals, Risk, and Labs — with a completion indicator for each. Tap any section to open its focused editor. Use **Back to sections** to return to the overview.
+
+A sticky **section rail** at the top lets you jump between sections without going back to the dashboard. A side scroll indicator marks your position in longer sections.
+
 ## Patient demographics
 
 Enter the patient's:
@@ -17,11 +23,22 @@ Enter the patient's:
 
 **IBW (Ideal Body Weight)** and **ABW (Adjusted Body Weight)** are calculated automatically from height, weight, and sex. These are important for drug dosing in obese patients.
 
+### Mobile numeric entry
+
+On mobile, numeric fields use different controls depending on clinical context:
+
+- **Age, height, weight, and airway distances** — an iOS-style wheel picker for fast scrolling, with an optional custom keypad for precise entry.
+- **Vitals (blood pressure, heart rate, SpO₂, etc.)** — minus/plus steppers with a thin slider, plus a custom keypad accessible by tapping the value.
+
+Both comma (`8,5`) and dot (`8.5`) decimals are accepted.
+
 ## Case details
 
-- **Diagnosis** — search by ICD-11 code or free text. The ICD-11 WHO classification is available in English and Bulgarian.
-- **Planned procedure** — the surgical procedure to be performed
+- **Diagnosis** — search by ICD-11 code or free text. The ICD-11 WHO classification is available in English and Bulgarian. Results show the clinical group name as the primary label and the ICD code below it.
+- **Planned procedure** — search for the surgical procedure. Results show the procedure group as the primary label and the procedure code and domain below it.
 - **Team notes** *(optional)* — free text for roles, theatre number, or any case-specific reminders. Do not enter names or ID numbers here.
+
+On mobile, both searches use **inline dropdown autocomplete** — results appear below the search field without opening a separate screen.
 
 ## Comorbidities
 
@@ -76,10 +93,10 @@ The Labs section contains a catalogue of 100+ perioperative-relevant tests organ
 
 | Category | Examples |
 |----------|---------|
-| Haematology | Hb, Hct, WBC, Platelets, MCV, full differential |
+| Haematology | Hb (g/L), Hct (ratio), WBC, Platelets, MCV, full differential |
 | Coagulation | PT/INR, aPTT, Fibrinogen, D-dimer |
 | Electrolytes | Na⁺, K⁺, Cl⁻, Ca²⁺, Mg²⁺, Phosphate |
-| Biochemistry | Creatinine, eGFR, Glucose, HbA1c, Lactate |
+| Biochemistry | Creatinine, eGFR, Glucose (mmol/L), HbA1c, Lactate |
 | Liver | ALT, AST, ALP, GGT, Bilirubin, Albumin |
 | Cardiac | Troponin, CK-MB, BNP, NT-proBNP |
 | Blood Gas | pH, PaO₂, PaCO₂, HCO₃⁻, BE, SaO₂ |
@@ -92,7 +109,13 @@ The Labs section contains a catalogue of 100+ perioperative-relevant tests organ
 
 **Reference ranges:** each result is compared to a standard reference interval. Values within range are shown in green; out-of-range values are flagged in amber with the value bolded. The flag is informational — clinical interpretation is always the clinician's responsibility.
 
-**AI lab scan:** click **Scan lab report** to upload a photo or scan of a printed laboratory result. Mistral AI reads the image and extracts test names, values, and units into a preview panel. Check the results you want to import and click **Add selected**. Tests already in your list are skipped automatically.
+### AI lab scan
+
+Click **Scan lab report** to upload a photo or scan of a printed laboratory result. Mistral AI reads the image and extracts test names, values, and units into a preview panel. Check the results you want to import and click **Add selected**. Tests already in your list are skipped automatically.
+
+The AI scan recognises only tests in the LOSPOR catalogue and normalises all values to canonical units (e.g. Hb in g/L, glucose in mmol/L). Any result the AI extracts that does not match a catalogue entry is silently discarded — only recognised, correctly-named results are shown in the review panel.
+
+On mobile, **Scan lab report** supports both camera capture and gallery upload. Extracted values are shown in a review sheet before anything is added to the case. Manual lab search and value entry remain available.
 
 :::info Privacy
 Lab images are sent to Mistral AI (EU-hosted) for text extraction. Avoid uploading images that show patient names or ID numbers. A notice is displayed above the upload button as a reminder.
@@ -116,4 +139,4 @@ Only structured clinical fields are sent to the AI provider (Mistral La Platefor
 
 ## Saving
 
-The preoperative form auto-saves as you type. When all mandatory fields are complete, click **Save & continue** to move to the intraoperative form. Mandatory fields are: age, sex, height, weight, diagnosis, planned procedure, and ASA score.
+The preoperative form auto-saves as you type. When all mandatory fields are complete, click **Save & continue** or **Continue to intraoperative** to move to the intraoperative form. If required fields are missing, the app shows which fields need attention.

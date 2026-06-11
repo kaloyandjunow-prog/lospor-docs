@@ -17,7 +17,7 @@ LOSPOR has three user roles:
 
 ## Requesting HOD role
 
-1. Go to **Settings** (⚙ icon) → **Security & Access**
+1. Go to **Settings** (⚙ icon) → **Settings** → scroll to **Security & Access**
 2. Click **Request Head of Department role**
 3. Your request is submitted to the LOSPOR administrator
 
