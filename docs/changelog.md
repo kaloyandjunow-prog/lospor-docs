@@ -9,6 +9,24 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [1.1.0] — 2026-06-15
+
+### Notifications
+- **Case reminders** — both the app and the PWA can now remind you to chart vitals during an active case. Turn it on in **Settings → Notifications**, choose how often you're reminded (3/5/10/15 min), and send a test notification to confirm it's working. The reminder resets each time you record a set of vitals. In the installed app these fire even when it's in the background; in the PWA they work while it's open (over HTTPS).
+
+### Intraoperative charting — reliability & safety
+- The timetable is now backed by an immutable event log, so **nothing is lost** when two people document the same case at once, and offline entries can't be duplicated when they sync.
+- **Edits and deletions keep their full history** under the hood (better for audit and medico-legal review), while the chart still shows the clean, current picture.
+- **Infusion rate changes display correctly** — the chart and pills show the right rate before and after each change.
+
+### Account security
+- Hardened login throttling and sign-out (a token is properly invalidated server-side when you log out), and tightened a few access-control edge cases.
+
+### Note
+- Wording across the app and site changed from "GDPR compliant" to "designed with GDPR principles" pending a formal legal review.
+
+---
+
 ## [1.0.1] — 2026-06-11
 
 ### Mobile improvements

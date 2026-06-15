@@ -104,3 +104,18 @@ If you are the head of your anaesthesia department, you can request the **HOD** 
 The HOD role grants:
 - Visibility of all cases in your institution
 - Ability to assign cases to other members instantly (without their acceptance)
+
+---
+
+## Notifications (case reminders)
+
+Open Settings → **Settings** → **Notifications** to turn on **Case reminders**.
+When enabled, LOSPOR reminds you to chart vitals during an active case at the
+interval you choose (3, 5, 10, or 15 minutes); the timer resets each time you
+record a set of vitals. Use **Send test notification** to confirm notifications
+are allowed on your device.
+
+- In the installed app, reminders fire even when the app is in the background.
+- In the browser PWA, reminders work while it is open, and require the site to be
+  opened over **HTTPS** (the status line tells you if notifications are blocked,
+  e.g. on an insecure address).
