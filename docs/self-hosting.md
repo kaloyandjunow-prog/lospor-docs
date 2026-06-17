@@ -63,10 +63,10 @@ openssl rand -base64 32
 
 Register at [icd.who.int/icdapi](https://icd.who.int/icdapi) — it is free and no credit card is required. These credentials enable the ICD-11 diagnosis search in the preoperative form.
 
-## 4 — Push the database schema
+## 4 — Apply the database schema
 
 ```bash
-npx prisma db push
+npx prisma migrate deploy
 ```
 
 This creates all the required tables in your database.
@@ -120,7 +120,7 @@ To update to a newer version of LOSPOR:
 ```bash
 git pull origin main
 npm install
-npx prisma db push   # apply any new schema changes
+npx prisma migrate deploy   # apply tracked migrations (production-safe)
 ```
 
 Commit and push to trigger a Vercel redeployment.

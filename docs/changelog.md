@@ -9,6 +9,21 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [1.1.1] — 2026-06-17
+
+### Fixed
+- **Browser/PWA intraoperative saves** that use the newer sync headers or the `PUT` method (edits/deletes, conflict-detected saves, offline replay) no longer fail in the browser. The installed app was unaffected.
+- **Finalised cases are now fully locked** — intraoperative entries can't be edited or deleted once a case is finalised.
+- **Case codes now use the current calendar year** (e.g. `2026-0001`), resetting each January per user.
+- Offline intraoperative entries are kept and retried through a temporary sign-in expiry instead of being dropped.
+
+### Changed
+- Softened remaining "GDPR compliance" wording to "GDPR principles/considerations" in the documentation.
+- Self-hosting docs now use `prisma migrate deploy` (production-safe) for schema updates instead of `db push`.
+- Corrected the stored-data list (removed "time in recovery room," which is no longer collected).
+
+---
+
 ## [1.1.0] — 2026-06-15
 
 ### Notifications

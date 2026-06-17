@@ -53,7 +53,7 @@ LOSPOR is licensed under the **AGPL-3.0** licence. The source code is available 
 
 ## Privacy & GDPR
 
-LOSPOR is designed with GDPR compliance in mind:
+LOSPOR is designed with GDPR principles in mind:
 - Patient names and ID numbers are **never stored** in the database
 - Each case is linked only to an anonymised case code (e.g. `2026-0001`)
 - All data is stored in the EU (Supabase, Vercel, Mistral AI — all EU-region)

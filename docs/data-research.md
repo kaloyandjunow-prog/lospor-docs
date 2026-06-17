@@ -38,7 +38,6 @@ LOSPOR collects structured perioperative data entered by anaesthesiologists:
 ### Postoperative data
 - Aldrete score (all five criteria + total)
 - Recovery vitals: temperature, pain NRS, PONV
-- Time in recovery room
 - Disposition: Ward / PACU / ICU
 - Handover instructions
 
@@ -73,7 +72,7 @@ Access to the research browser will require registration and approval. Researche
 The research browser is planned for release in 2026. Until then, researchers interested in the dataset may contact the LOSPOR team directly.
 :::
 
-## GDPR compliance
+## GDPR considerations
 
 LOSPOR is designed to comply with the General Data Protection Regulation (EU) 2016/679:
 
