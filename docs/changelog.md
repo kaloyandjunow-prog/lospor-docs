@@ -16,6 +16,10 @@ All notable changes to LOSPOR are documented here.
 - **Finalised cases are now fully locked** — intraoperative entries can't be edited or deleted once a case is finalised.
 - **Case codes now use the current calendar year** (e.g. `2026-0001`), resetting each January per user.
 - Offline intraoperative entries are kept and retried through a temporary sign-in expiry instead of being dropped.
+- **Department-head view scoped to your own institution** — a Head of Department now sees only cases from their institution, not every case in the system.
+- **"Undo finalise" now works on mobile** and uses a consistent **30-minute** window across the app and server.
+- Hardened sign-in so a failed login can't reveal whether an email address has an account.
+- Fixed the desktop "Ongoing cases" shortcut, which could fail to list active cases.
 
 ### Changed
 - Softened remaining "GDPR compliance" wording to "GDPR principles/considerations" in the documentation.
