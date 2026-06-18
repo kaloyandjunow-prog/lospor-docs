@@ -9,6 +9,18 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [1.2.0] — 2026-06-18
+
+### Changed
+- **Clinical data is now stored as queryable database rows.** Diagnoses, procedures,
+  comorbidities, lab results, vascular accesses, vitals, and the multi-select fields
+  (positions, techniques, airway, ventilation, handover) — previously held only as
+  JSON — are now also written as proper rows, making research and data export much
+  more powerful. **No change to what data is collected or how you enter it**, and no
+  change to how the apps perform.
+
+---
+
 ## [1.1.1] — 2026-06-17
 
 ### Fixed
