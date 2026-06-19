@@ -34,7 +34,7 @@ Both comma (`8,5`) and dot (`8.5`) decimals are accepted.
 
 ## Case details
 
-- **Diagnosis** — search by ICD-10 code or free text. The local ICD-10 database is available in English and Bulgarian. Results show the clinical group name as the primary label and the ICD code below it.
+- **Diagnosis** — search by ICD-10 code, English label, Bulgarian label, or clinical synonym. The local ICD-10 database is enriched with ICD-10CM clinical synonyms (e.g. searching "heart attack" returns I21 Acute myocardial infarction). Results show the clinical group name as the primary label and the ICD code below it.
 - **Planned procedure** — search for the surgical procedure. Results show the procedure group as the primary label and the procedure code and domain below it.
 - **Team notes** *(optional)* — free text for roles, theatre number, or any case-specific reminders. Do not enter names or ID numbers here.
 

@@ -79,12 +79,20 @@ The graph updates in real time as you enter data.
 Monitor images are sent to Mistral AI (EU-hosted) for text extraction and are not stored beyond the request. Avoid uploading images that show patient-identifying information.
 :::
 
+### Gas management
+
+Record the fresh gas flow and composition:
+- **FGF** — fresh gas flow in L/min
+- **Carrier gas** — Air or N₂O (oxygen is always implicit)
+- **FiO₂** — inspired oxygen fraction (%)
+
 ### Drugs (bolus)
 
 Click **+ Drug** in the timetable to log a bolus drug administration:
-- Drug name (from a preset list or free text)
+- Drug name (searchable from the drug catalogue)
 - Dose and unit (mg, mcg, mL, etc.)
 - The bolus appears as a vertical marker at the selected time point
+- Each drug event stores the **ATC code** for the administered drug, enabling research queries by pharmacological class
 
 ### Infusions
 

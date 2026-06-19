@@ -11,13 +11,13 @@ LOSPOR collects structured perioperative data entered by anaesthesiologists:
 
 ### Preoperative data
 - Patient demographics: age, sex, height, weight, BMI, blood type
-- Diagnosis (ICD-10 code + label)
-- Planned procedure
+- Diagnosis (ICD-10 code + label, searchable by clinical synonym via ICD-10CM enrichment)
+- Planned procedure (PCS code + group)
 - Comorbidities (ICD-10 codes)
 - Risk scores: ASA, RCRI, Apfel, STOP-BANG
 - Airway assessment parameters
 - Preoperative vital signs
-- Laboratory results
+- Laboratory results (LOINC-coded, canonical SI units, reference ranges, abnormal flags)
 
 ### Intraoperative data
 - Month/year, start time, end time, duration (no exact calendar date stored)
@@ -26,8 +26,9 @@ LOSPOR collects structured perioperative data entered by anaesthesiologists:
 - Ventilation mode
 - Monitoring modalities
 - Vascular access
+- Gas management: fresh gas flow (L/min), carrier gas (Air/N₂O), FiO₂ (%)
 - Vital signs timetable (BP, HR, SpO₂, EtCO₂ at 5-minute intervals)
-- Drugs administered (name, dose, unit, time)
+- Drugs administered (name, dose, unit, time, **ATC code**)
 - Continuous infusions (name, rate, start/end time)
 - Volatile agents (name, start/end time)
 - IV fluids (type, volume, start/end time)
@@ -37,7 +38,7 @@ LOSPOR collects structured perioperative data entered by anaesthesiologists:
 
 ### Postoperative data
 - Aldrete score (all five criteria + total)
-- Recovery vitals: temperature, pain NRS, PONV
+- Recovery vitals: systolic BP, diastolic BP, heart rate, SpO₂, temperature, pain NRS, PONV
 - Disposition: Ward / PACU / ICU
 - Handover instructions
 
@@ -51,6 +52,12 @@ The following are **never uploaded or stored**:
 - Any free-text content that triggers the PII detector (EGN, 7+ digit sequences, date patterns, email addresses, two capitalised words)
 
 The printed protocol leaves patient identity fields blank — they are filled in by hand after printing and never sent to the server.
+
+## Audit trail and snapshots
+
+Every change to a preoperative or postoperative field is recorded individually in the audit log: what field changed, from what value, to what value, by whom, and when. This supports medico-legal review without exposing patient identity.
+
+When a case is finalised (status: Case Finished), a full-case snapshot is stored as a single immutable record. Research datasets can reference this snapshot to ensure reproducibility — the snapshot is updated if the case is un-finalised and re-finalised.
 
 ## Anonymisation
 
