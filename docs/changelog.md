@@ -17,7 +17,7 @@ All notable changes to LOSPOR are documented here.
 - **Lab results are now numerically coded.** Each lab result is stored with its LOINC code, canonical SI unit, reference range, and an automatically computed abnormal flag (low / normal / high / critical). Blood gas results use mmHg throughout.
 - **Drug coding with ATC.** The drug classification tree (ATC, ~6,300 codes) is now seeded into the database. Intraoperative drug events and preoperative medication entries gain ATC codes for research queries.
 - **Field-level audit trail.** Every preoperative and postoperative field change is now recorded individually — what changed, from what value, to what value, by whom, and when.
-- **Finalisation snapshots.** When a case is finalised (COMPLETE), an immutable snapshot of the full case is stored. Research datasets can cite the snapshot to ensure reproducibility.
+- **Finalisation snapshots.** When a case is finalised (COMPLETE), a full-case snapshot is stored (one row per case, updated on re-finalization). Research datasets can cite the snapshot to ensure reproducibility.
 - **Comorbidities coded in ICD-10.** Comorbidity entries now carry an ICD-10 code alongside the free-text label, making them queryable across cases by standard code.
 
 ---
