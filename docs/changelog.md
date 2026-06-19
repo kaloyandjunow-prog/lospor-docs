@@ -9,6 +9,16 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [2.1.1] — 2026-06-19
+
+- **Release hardening.** Aligned web, PWA, and mobile metadata to v2.1.1.
+- **Access control.** `HEAD_OF_DEPT` users without an institution now fall back to their own cases only; they no longer match other null-institution users.
+- **PII protection.** The backend now uses a central clinical free-text PII gate across preop, intraop, postop, and event-save paths.
+- **CORS.** Production deployments now require an explicit `CORS_ALLOW_ORIGIN`; Vercel production no longer silently falls back to `*`.
+- **Bulgarian ICD-10.** Diagnosis and comorbidity search now stores stable ICD-10 codes with English/Bulgarian label snapshots and displays `labelBg` in Bulgarian UI.
+- **Mobile privacy.** Mobile/PWA settings include a clear local clinical cache action for offline drafts and queued saves.
+- **Wording.** Documentation now uses “de-identified/pseudonymised” and describes the OMOP export as partial/OMOP-inspired until full concept mapping is complete.
+
 ## [2.1.0] — 2026-06-19
 
 ### Added
@@ -254,3 +264,4 @@ All notable changes to LOSPOR are documented here.
 ## [0.1.0] — 2026-04-01
 
 Initial release. Preoperative, intraoperative, and postoperative data entry. PDF export. ICD-11 diagnosis search with Bulgarian translation. AI pre-operative advisor. Guided tour. Dark mode. Bilingual (English / Bulgarian).
+
