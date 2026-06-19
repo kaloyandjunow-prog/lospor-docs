@@ -9,6 +9,21 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [2.1.0] — 2026-06-19
+
+### Added
+- **Institution ID on cases.** New cases now store the creating user's institution directly on the case record, improving research attribution and eliminating re-attribution risk if a case is later transferred to a user from a different institution.
+- **Drug ID linkage.** Intraoperative drug events now resolve the Drug catalogue entry (by ATC code) and store `drugId` on the event row, enabling precise drug record linkage beyond ATC code string matching.
+- **OMOP export: drug events from event log.** Drug exposure in the OMOP CDM export now reads from the `CaseEvent` table (type=drug, status=active) — the canonical append-only event log — instead of parsing the legacy `keyEvents` JSON blob. ATC codes appear in `drug_source_concept_id`.
+- **OMOP export: lab results.** Lab measurements are now included in the OMOP `measurement` table using LOINC-coded, canonical-unit rows from the `LabResult` table. Previously lab results were absent from the OMOP export.
+- **OMOP export: institution care site.** `care_site_source_value` in `visit_occurrence` now uses the case-level `institutionId` (populated from v2.1+) with fallback to the user's institution name.
+- **Bulgarian diagnosis and comorbidity search.** Searching for diagnoses or comorbidities in the Bulgarian-language version of the web and mobile app now correctly queries `labelBg` (Bulgarian ICD-10 labels) in addition to `labelEn`. Previously, Cyrillic queries returned no results because the `locale` parameter was not forwarded to the search API from the comorbidities field (web) or either field (mobile).
+
+### Changed
+- OMOP export `source_version` updated from `1.0.0` to `2.1.0`.
+
+---
+
 ## [2.0.1] — 2026-06-19
 
 ### Fixed

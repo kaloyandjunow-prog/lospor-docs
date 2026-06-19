@@ -53,6 +53,29 @@ The following are **never uploaded or stored**:
 
 The printed protocol leaves patient identity fields blank — they are filled in by hand after printing and never sent to the server.
 
+## Research data quality
+
+LOSPOR stores clinical data in two layers:
+
+**Authoritative JSON columns** — the canonical source of truth for everything you entered. These are always complete and used for display, printing, and export.
+
+**Queryable SQL rows** — structured rows derived from the JSON and maintained automatically after every save. These power research queries, OMOP exports, and cross-case filtering without JSON parsing.
+
+| Clinical data | SQL table | Key columns |
+|---------------|-----------|-------------|
+| Diagnoses | `PreopDiagnosis` | `code` (ICD-10), `label`, `ordinal` |
+| Comorbidities | `Comorbidity` | `icd10Code`, `label` |
+| Lab results | `LabResult` | `loincCode`, `valueNum`, `unitCanon`, `abnormalFlag` |
+| Procedures | `PreopProcedure` | `code`, `group`, `domain` |
+| Medications | `Medication` | `atcCode`, `inn`, `nameRaw` |
+| Intraop events | `CaseEvent` | `type`, `timestamp`, `atcCode`, `drugId`, `systolic`, `diastolic`, etc. |
+| Vascular access | `VascularAccess` | `site`, `size` |
+| Selections | `CaseSelection` | `section`, `category`, `value` |
+
+Drug events in `CaseEvent` carry both the ATC code (pharmacological class) and a `drugId` FK to the Drug catalogue, enabling precise drug record linkage. Lab results carry LOINC codes and are normalised to canonical SI units (e.g. Hb in g/L, glucose in mmol/L).
+
+Each case also stores the **institution ID** at creation time, enabling institution-level research queries without relying on the user's current institution (which may change).
+
 ## Audit trail and snapshots
 
 Every change to a preoperative or postoperative field is recorded individually in the audit log: what field changed, from what value, to what value, by whom, and when. This supports medico-legal review without exposing patient identity.
