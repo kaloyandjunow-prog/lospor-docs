@@ -27,7 +27,6 @@ Create a free project at [supabase.com](https://supabase.com). After creating th
 
 1. Go to **Project Settings** → **Database** → **Connection String**
 2. Copy the **Transaction** pooler URI (port 6543) — this is your `DATABASE_URL`
-3. Copy the **Direct** connection URI (port 5432) — this is your `DIRECT_URL`
 
 ## 3 — Configure environment variables
 
@@ -39,7 +38,6 @@ cp .env.example .env
 
 ```env
 DATABASE_URL="postgresql://postgres.<ref>:<pass>@aws-<region>.pooler.supabase.com:6543/postgres"
-DIRECT_URL="postgresql://postgres.<ref>:<pass>@aws-<region>.pooler.supabase.com:5432/postgres"
 NEXTAUTH_SECRET="your-random-secret"   # openssl rand -base64 32
 NEXTAUTH_URL="https://your-domain.com"
 
@@ -99,7 +97,7 @@ The app will be available at `http://localhost:3000`.
 
 1. Push your code to a GitHub repository (private is fine)
 2. Import the project at [vercel.com](https://vercel.com)
-3. Set all environment variables in the Vercel dashboard
+3. Set the following environment variables in the Vercel dashboard — **only** `DATABASE_URL` (the transaction pooler, port 6543), `NEXTAUTH_SECRET`, `NEXTAUTH_URL`, and optionally the Mistral keys. Do **not** set `DIRECT_URL` in Vercel — Prisma's migration engine picks it up and tries the direct connection (port 5432), which is not reachable from Vercel's servers.
 4. Deploy
 
 Vercel automatically handles SSL, CDN, and zero-downtime deployments.

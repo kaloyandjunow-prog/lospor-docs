@@ -9,6 +9,19 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [2.0.1] — 2026-06-19
+
+### Fixed
+- **CORS preflight now accepts all intraop sync headers.** The `x-lospor-intraop-updated-at` and `x-lospor-force-update` headers were missing from the `Access-Control-Allow-Headers` list, causing mobile conflict-detection saves to fail with a CORS error.
+- **Plain-text medication sync.** Preoperative medication lists entered as comma- or newline-separated text on mobile are now parsed correctly instead of being silently dropped.
+- **ATC codes on intraoperative drug events.** The event writer now persists `atcCode` and `drugRoute` to the `CaseEvent` table; previously these columns were populated in the schema but never written.
+- **Search index performance.** Added `pg_trgm` GIN indexes on ICD-10 labels, synonyms, and drug names so diagnosis and drug searches use index scans instead of full table scans across 100k+ rows.
+
+### Internal
+- Vocabulary seed script switched to bulk `INSERT … ON CONFLICT` batches, cutting a full live re-seed from ~4 hours to ~15 minutes.
+
+---
+
 ## [2.0.0] — 2026-06-19
 
 ### Changed — Database Optimization
