@@ -48,9 +48,6 @@ MISTRAL_API_KEY="your-mistral-api-key"
 MISTRAL_API_BASE="https://api.mistral.ai/v1"   # optional — override for compatible providers
 MISTRAL_MODEL="open-mistral-7b"                 # optional — override model
 
-# Optional — for ICD-11 diagnosis search
-WHO_ICD_CLIENT_ID="your-who-client-id"
-WHO_ICD_CLIENT_SECRET="your-who-client-secret"
 ```
 
 ### Generate NEXTAUTH_SECRET
@@ -58,10 +55,6 @@ WHO_ICD_CLIENT_SECRET="your-who-client-secret"
 ```bash
 openssl rand -base64 32
 ```
-
-### WHO ICD-11 API credentials (optional)
-
-Register at [icd.who.int/icdapi](https://icd.who.int/icdapi) — it is free and no credit card is required. These credentials enable the ICD-11 diagnosis search in the preoperative form.
 
 ## 4 — Apply the database schema
 
@@ -79,16 +72,20 @@ The Bulgarian NHIF institution list is already included. To seed it:
 npx tsx prisma/seed.ts
 ```
 
-## 6 — Seed ICD-11 Bulgarian translations (optional)
+## 6 — Seed ICD-10 vocabulary (required for diagnosis search)
 
-If you want Bulgarian-language ICD-11 codes in the search, run the translation seeder. This requires a **Mistral API key** (free tier is sufficient):
+Diagnosis and comorbidity search requires the ICD-10 vocabulary to be seeded.
+Download the vocabulary bundle from [athena.ohdsi.org](https://athena.ohdsi.org/vocabulary/list)
+(select at minimum: ICD10, ICD10CM, ATC) and place the CSV files in a local folder.
+Then run:
 
 ```bash
-# Add MISTRAL_API_KEY to .env first
-npx tsx prisma/seed-icd11-bg.ts
+npx tsx scripts/seed-vocabularies.ts --vocab-dir /path/to/athena-csvs
+npx tsx scripts/seed-lab-loinc.ts
 ```
 
-The seeder is resumable — you can run it multiple times and it will skip already-translated codes.
+Both scripts are idempotent and safe to re-run. Bulgarian ICD-10 labels are loaded
+from an Excel file matching `ICD10_*.xlsx` in the same folder (official MZ export).
 
 ## 7 — Run in development
 

@@ -9,6 +9,19 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [2.0.0] — 2026-06-19
+
+### Changed — Database Optimization
+
+- **ICD-10 diagnosis and comorbidity search.** The previous ICD-11 search required a live connection to the WHO API and used AI-translated Bulgarian labels. Diagnosis and comorbidity search now queries a local ICD-10 database seeded from the WHO international classification with official Bulgarian Ministry of Health labels — faster, offline-capable, and aligned with Bulgarian NHIF clinical coding.
+- **Lab results are now numerically coded.** Each lab result is stored with its LOINC code, canonical SI unit, reference range, and an automatically computed abnormal flag (low / normal / high / critical). Blood gas results use mmHg throughout.
+- **Drug coding with ATC.** The drug classification tree (ATC, ~6,300 codes) is now seeded into the database. Intraoperative drug events and preoperative medication entries gain ATC codes for research queries.
+- **Field-level audit trail.** Every preoperative and postoperative field change is now recorded individually — what changed, from what value, to what value, by whom, and when.
+- **Finalisation snapshots.** When a case is finalised (COMPLETE), an immutable snapshot of the full case is stored. Research datasets can cite the snapshot to ensure reproducibility.
+- **Comorbidities coded in ICD-10.** Comorbidity entries now carry an ICD-10 code alongside the free-text label, making them queryable across cases by standard code.
+
+---
+
 ## [1.2.0] — 2026-06-18
 
 ### Changed

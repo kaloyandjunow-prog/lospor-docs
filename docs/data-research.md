@@ -11,7 +11,7 @@ LOSPOR collects structured perioperative data entered by anaesthesiologists:
 
 ### Preoperative data
 - Patient demographics: age, sex, height, weight, BMI, blood type
-- Diagnosis (ICD-11 code + label)
+- Diagnosis (ICD-10 code + label)
 - Planned procedure
 - Comorbidities (ICD-10 codes)
 - Risk scores: ASA, RCRI, Apfel, STOP-BANG
