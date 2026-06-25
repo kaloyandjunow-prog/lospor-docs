@@ -23,14 +23,14 @@ At the end, LOSPOR automatically generates a **printable two-page anaesthesia pr
 - **Anaesthesiologists** recording cases and generating protocols
 - **Anaesthesia nurses** contributing to case records
 - **Heads of department** overseeing institutional cases and assigning staff
-- **Researchers** accessing the anonymised perioperative dataset
+- **Researchers** accessing the de-identified / pseudonymised perioperative dataset
 
 ## How does it work?
 
 ```
 Clinician registers → Opens new case → Fills preop form
   → Fills intraop form (live timetable) → Fills postop form
-  → Protocol generated → PDF printed → Anonymised data stored
+  → Protocol generated → PDF printed → De-identified data stored
 ```
 
 Patient-identifiable information is **never stored**. The printed protocol leaves patient identity fields blank — fill them in by hand after printing.
@@ -47,7 +47,7 @@ LOSPOR is licensed under the **AGPL-3.0** licence. The source code is available 
 
 ## What LOSPOR is and isn't
 
-**Is:** A personal log for anaesthesiologists to record anonymised cases, track learning, and generate a printable case summary.
+**Is:** A personal log for anaesthesiologists to record cases without direct patient identifiers, track learning, and generate a printable case summary.
 
 **Is not:** A clinical record system, a patient management tool, or a certified medical device.
 
@@ -55,7 +55,7 @@ LOSPOR is licensed under the **AGPL-3.0** licence. The source code is available 
 
 LOSPOR is designed with GDPR principles in mind:
 - Patient names and ID numbers are **never stored** in the database
-- Each case is linked only to an anonymised case code (e.g. `2026-0001`)
+- Each case is shown by a pseudonymised case code (e.g. `2026-0001`); internal user, institution, and timestamp linkage is retained for access control, audit, and research governance
 - All data is stored in the EU (Supabase, Vercel, Mistral AI — all EU-region)
 - Users must be authenticated to access any data
 - GDPR rights (data export, account deletion) are available under Settings → Privacy & Data

@@ -5,126 +5,136 @@ title: Data & Research
 
 # Data & Research
 
+LOSPOR v3.0 stores perioperative data for clinical documentation, audit, personal portfolio, and de-identified / pseudonymised research datasets. The web app owns the canonical PostgreSQL/API contract; mobile and PWA clients map their payloads into the same field names and libraries before persistence.
+
 ## What data does LOSPOR collect?
 
-LOSPOR collects structured perioperative data entered by anaesthesiologists:
-
 ### Preoperative data
-- Patient demographics: age, sex, height, weight, BMI, blood type
-- Diagnosis (ICD-10 code + label, searchable by clinical synonym via ICD-10CM enrichment)
-- Planned procedure (PCS code + group)
-- Comorbidities (ICD-10 codes)
-- Risk scores: ASA, RCRI, Apfel, STOP-BANG
-- Airway assessment parameters
-- Preoperative vital signs
-- Laboratory results (LOINC-coded, canonical SI units, reference ranges, abnormal flags)
+- Demographics: age, sex, height, weight, BMI, blood group, Rh factor.
+- Diagnosis: ICD-10 code with English and Bulgarian labels.
+- Planned procedure: procedure code/group/domain and description.
+- Comorbidities: ICD-10-coded tags with English/Bulgarian labels.
+- Medication history and medication allergy rows, including `Medication.kind = CURRENT` or `ALLERGY`.
+- Risk scores: ASA, RCRI, Apfel, STOP-BANG, and their component inputs.
+- Airway assessment: Mallampati, mouth opening, thyromental distance, neck mobility, ULBT, Cormack-Lehane, difficult-airway history, and airway features.
+- Free-text clinical notes where needed: team notes, physical exam report, difficult-airway notes. These are character-limited and PII-checked server-side.
+- Vitals: BP, HR, SpO2, temperature, respiratory rate, including unable-to-obtain flags where available.
+- Laboratory results: canonical lab name, value, parsed numeric value, canonical unit, LOINC code, reference range, abnormal flag, source, and timestamp where available.
 
 ### Intraoperative data
-- Month/year, start time, end time, duration (no exact calendar date stored)
-- Anaesthesia technique(s)
-- Airway device and tools
-- Ventilation mode
-- Monitoring modalities
-- Vascular access
-- Gas management: fresh gas flow (L/min), carrier gas (Air/N₂O), FiO₂ (%)
-- Vital signs timetable (BP, HR, SpO₂, EtCO₂ at 5-minute intervals)
-- Drugs administered (name, dose, unit, time, **ATC code**)
-- Continuous infusions (name, rate, start/end time)
-- Volatile agents (name, start/end time)
-- IV fluids (type, volume, start/end time)
-- Fluid balance summary
-- Patient position
-- Complications
+- Timing: month/year, start time, end time, duration.
+- Techniques, position, airway devices/tools, ventilation modes, monitoring modalities.
+- Vascular access rows with site, size, unit, depth, lumens, and pre-existing flag.
+- Premedication rows for evening/morning entries.
+- Append-only event timeline: vitals, serum/peripheral glucose, bolus drugs, infusion starts/rate changes/stops, fluid starts/stops, inhalational agent starts/stops, fresh gas flow changes, and clinical events.
+- Fresh gas flow over time: FGF L/min, carrier gas, FiO2, calculated FiAir, and calculated FiN2O. FiO2 is clamped to 21-100%; O2-only is FiO2 100%.
+- Fluids, urine, blood products, complications, and event notes.
 
 ### Postoperative data
-- Aldrete score (all five criteria + total)
-- Recovery vitals: systolic BP, diastolic BP, heart rate, SpO₂, temperature, pain NRS, PONV
-- Disposition: Ward / PACU / ICU
-- Handover instructions
+- Aldrete score components and total.
+- Recovery vitals: systolic BP, diastolic BP, heart rate, SpO2, temperature.
+- Pain NRS, PONV, disposition, handover checklist, complications, and notes.
 
-## What is NOT stored?
+## What is not stored?
 
-The following are **never uploaded or stored**:
-- Patient name
-- Patient ID number / hospital file number
-- Exact date of surgery (only month and year)
-- Surgeon name, anaesthesiologist name, anaesthesia nurse name
-- Any free-text content that triggers the PII detector (EGN, 7+ digit sequences, date patterns, email addresses, two capitalised words)
+The following are intentionally never uploaded or stored:
+- Patient name.
+- Patient national ID / EGN.
+- Hospital file number or patient ID number.
+- Exact date of surgery; month/year and clinical timestamps are used instead.
+- Surgeon, anaesthesiologist, or nurse names as structured fields.
+- Free text that triggers the server-side PII detector.
 
-The printed protocol leaves patient identity fields blank — they are filled in by hand after printing and never sent to the server.
+The printable protocol leaves patient identity fields blank. Clinicians fill those fields by hand after printing if needed for the local paper record.
 
-## Research data quality
+## Canonical libraries
 
-LOSPOR stores clinical data in two layers:
+LOSPOR v3.0 uses shared backend libraries rather than app-specific hardcoded lists.
 
-**Authoritative JSON columns** — the canonical source of truth for everything you entered. These are always complete and used for display, printing, and export.
+| Library | Source of truth | Used for |
+|---|---|---|
+| ICD-10 | `Icd10Code`, `Icd10Synonym` | diagnoses and comorbidities |
+| Labs/LOINC | `LabLoinc` and canonical lab code | AI scan, manual labs, export |
+| Drugs/ATC/INN | `Atc`, `Drug`, option-library drug rows | medication history, allergies, intraop drugs/infusions |
+| App options | `OptionLibrary` | techniques, airway, ventilation, monitoring, position, fluids, events, disposition, handover, numeric ranges |
+| Athena/OMOP vocabulary | `OmopConcept`, `OmopVocabulary`, relationships, ancestors, synonyms | local standard concept resolution |
+| Concept map | `ConceptMap` | source code/label preservation, mapping method/confidence, review state, and OMOP concept IDs where known |
 
-**Queryable SQL rows** — structured rows derived from the JSON and maintained automatically after every save. These power research queries, OMOP exports, and cross-case filtering without JSON parsing.
+ICD-10 English and Bulgarian labels are metadata for the same ICD code. They are not duplicate clinical concepts.
 
-| Clinical data | SQL table | Key columns |
-|---------------|-----------|-------------|
-| Diagnoses | `PreopDiagnosis` | `code` (ICD-10), `label`, `ordinal` |
-| Comorbidities | `Comorbidity` | `icd10Code`, `label` |
-| Lab results | `LabResult` | `loincCode`, `valueNum`, `unitCanon`, `abnormalFlag` |
-| Procedures | `PreopProcedure` | `code`, `group`, `domain` |
-| Medications | `Medication` | `atcCode`, `inn`, `nameRaw` |
-| Intraop events | `CaseEvent` | `type`, `timestamp`, `atcCode`, `drugId`, `systolic`, `diastolic`, etc. |
-| Vascular access | `VascularAccess` | `site`, `size` |
-| Selections | `CaseSelection` | `section`, `category`, `value` |
+## Research data layers
 
-Drug events in `CaseEvent` carry both the ATC code (pharmacological class) and a `drugId` FK to the Drug catalogue, enabling precise drug record linkage. Lab results carry LOINC codes and are normalised to canonical SI units (e.g. Hb in g/L, glucose in mmol/L).
+LOSPOR keeps compatibility JSON/cache data for the apps, but research queries should use normalized rows where available.
 
-Each case also stores the **institution ID** at creation time, enabling institution-level research queries without relying on the user's current institution (which may change).
+| Clinical data | SQL table | Research columns |
+|---|---|---|
+| Diagnoses | `PreopDiagnosis` | ICD code, labels, source vocabulary/code, OMOP concept ID if mapped |
+| Procedures | `PreopProcedure` | code, group, domain, source mapping |
+| Comorbidities | `Comorbidity` | ICD-10 code, labels, source mapping |
+| Labs | `LabResult` | valueNum, unitCanon, LOINC, ranges, abnormal flag, source mapping |
+| Medications/allergies | `Medication` | kind, drugId, INN, ATC, dose, route, source mapping |
+| Vascular access | `VascularAccess` | site, size, unit, depth, lumens, pre-existing flag |
+| Premedication | `PremedicationAdministration` | phase, raw name, INN, ATC, dose, route |
+| Complications | `CaseComplication` | section, label, note, timestamp, source mapping |
+| Selections | `CaseSelection` | section, category, value, source mapping |
+| Intraop timeline | `CaseEvent` | event type, timestamp, typed vitals/gas/drug/fluid/agent columns, provenance |
+| Missingness | `ClinicalFieldStatus` | fieldKey, presence, source, sourceVersion |
 
-## Audit trail and snapshots
+`CaseEvent` is append-only. Edits supersede older rows and deletes tombstone rows, so the current chart can be projected from active rows while preserving history for audit.
 
-Every change to a preoperative or postoperative field is recorded individually in the audit log: what field changed, from what value, to what value, by whom, and when. This supports medico-legal review without exposing patient identity.
+## Missingness and provenance
 
-When a case is finalised (status: Case Finished), a full-case snapshot is stored as a single immutable record. Research datasets can reference this snapshot to ensure reproducibility — the snapshot is updated if the case is un-finalised and re-finalised.
+Research exports must distinguish blank data from negative data. `ClinicalFieldStatus` records whether key fields are:
 
-## Anonymisation
+- `PRESENT`
+- `ABSENT`
+- `UNKNOWN`
+- `NOT_APPLICABLE`
+- `NOT_DOCUMENTED`
 
-Each case is assigned an automatically generated **case code** (format: `YYYY-NNNN`, e.g. `2026-0001`). This code appears on the printed protocol and is the only identifier stored in the database.
+Normalized rows also carry source/provenance metadata such as user input, web/mobile source, AI scan, backfill, migration, or relational sync where available. v3.0 field-status coverage is intentionally broad so normalized rows can serve as the research/export authority while UI JSON remains a compatibility cache.
 
-The case is linked to a **user ID** (internal, not exposed in research queries).
+## OMOP export
+
+The OMOP export is an OMOP CDM v5.4-oriented research export. It now reads normalized rows and active event rows instead of raw legacy blobs.
+
+The export includes:
+- visit occurrence with institution/care-site source value
+- condition occurrence from diagnoses and comorbidities
+- procedure occurrence from planned procedures and vascular access
+- measurement rows for preop/postop vitals, labs, intraop vitals, glucose, and gas settings
+- drug exposure rows for medications, bolus drugs, premedication, agents, and infusions where applicable
+- observations for ASA, scores, selections, complications, handover, disposition, and other app-local concepts
+
+Known OMOP concept IDs are stored/exported where confidently mapped. Filtered Athena CSV import can enrich LOINC, ICD-10, and ATC mappings through local OMOP vocabulary tables without storing the full Athena bundle. Otherwise LOSPOR exports source vocabulary, source code, and source labels with an explicit source-only/unmapped status. Fake OMOP IDs are not used.
+
+Each export includes a manifest with app/schema version, concept-map version, row counts, mapping summary, de-identification notes, and quality warnings. App exports warn rather than block when source-only mappings, missing field-status rows, exact timestamps, or institution linkage are present.
+
+## De-identification / pseudonymisation
+
+Each case receives a generated case code such as `2026-0001`. This is the visible case-level pseudonym used in the UI and exports.
+
+Internally, LOSPOR stores operational linkage needed for access control, audit, governance, and research quality: user ID, institution ID, timestamps, role/audit information, and finalisation snapshots. These are not patient identifiers, but they mean LOSPOR data should be described as de-identified / pseudonymised, not fully anonymised.
+
+## Data quality tools
+
+The v3.0 backend includes tooling for release and research checks:
+
+- `scripts/seed-vocabularies.ts` seeds ICD-10, ICD-10CM synonyms, ATC, and Drug rows.
+- `scripts/seed-athena-vocabularies.ts --filtered-lospor` imports only LOSPOR-needed local Athena/OMOP rows for vocabulary-backed mapping.
+- `scripts/seed-lab-loinc.ts` seeds the canonical lab/LOINC catalogue.
+- `scripts/seed-option-library.ts` seeds shared app option libraries.
+- `scripts/seed-concept-maps.ts` seeds local bilingual concept maps and enriches them from Athena when available.
+- `scripts/backfill-relational.ts` rebuilds normalized rows and typed event columns from existing cases.
+- `scripts/data-quality-report.ts` reports relational drift, unmapped/source-only concepts, invalid ranges, impossible timestamps, and missing key research fields.
+- `scripts/wipe-dev-clinical-data.ts` can wipe dev clinical data while preserving accounts, institutions, vocabularies, option libraries, and configuration.
 
 ## Research access
 
-A **LOSPOR Research Browser** application is currently in development. It will provide:
-- Read-only access to the anonymised dataset
-- Filtering by procedure type, ASA class, technique, date range, institution code
-- Aggregate statistics and distributions
-- CSV export of filtered datasets
-
-Access to the research browser will require registration and approval. Researchers will agree to data use terms before accessing the dataset.
-
-:::info Coming soon
-The research browser is planned for release in 2026. Until then, researchers interested in the dataset may contact the LOSPOR team directly.
-:::
-
-## GDPR considerations
-
-LOSPOR is designed to comply with the General Data Protection Regulation (EU) 2016/679:
-
-- **Data minimisation** — only clinically necessary structured data is collected; patient identity is excluded by design
-- **Purpose limitation** — data is collected for personal learning, portfolio, and audit
-- **Storage limitation** — data is retained until the user deletes their account
-- **Security** — all data is encrypted in transit (HTTPS) and at rest; JWT tokens are revoked on logout with DB-backed revocation
-- **EU data residency** — all sub-processors are EU-hosted: Supabase (Frankfurt), Vercel (EU), Mistral AI (France)
-- **Server-side PII detection** — free-text fields are checked server-side for common identifiers (EGN, long digit sequences, date patterns, email addresses, name patterns) and rejected with a clear error message
-
-### Your GDPR rights
-
-| Right | How to exercise it |
-|-------|--------------------|
-| **Access (Article 15)** | Settings → Privacy & Data → Download my data |
-| **Erasure (Article 17)** | Settings → Privacy & Data → Delete my account |
-| **Other requests** | Email kaloyandjunow@gmail.com |
-
-Institutions self-hosting LOSPOR are responsible for their own GDPR compliance, including maintaining a Data Processing Register and notifying patients if required by local regulations.
+A LOSPOR Research Browser is planned. Until then, research exports should be generated by approved administrators using the web export tools and the data quality report.
 
 ## Citing LOSPOR
 
-If you use LOSPOR data in a publication, please cite:
+If you use LOSPOR data in a publication, cite:
 
-> LOSPOR — Large Open Source Perioperative Register. Available at https://lospor.org. Licensed under AGPL-3.0.
+> LOSPOR - Large Open Source Perioperative Register. Available at https://lospor.org. Licensed under AGPL-3.0.

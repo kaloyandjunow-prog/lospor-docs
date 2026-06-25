@@ -82,13 +82,52 @@ Then run:
 
 ```bash
 npx tsx scripts/seed-vocabularies.ts --vocab-dir /path/to/athena-csvs
+npx tsx scripts/seed-athena-vocabularies.ts --vocab-dir /path/to/athena-csvs --filtered-lospor
 npx tsx scripts/seed-lab-loinc.ts
 ```
 
-Both scripts are idempotent and safe to re-run. Bulgarian ICD-10 labels are loaded
+These scripts are idempotent and safe to re-run. Bulgarian ICD-10 labels are loaded
 from an Excel file matching `ICD10_*.xlsx` in the same folder (official MZ export).
 
-## 7 — Run in development
+Run Athena import locally or from a trusted maintenance machine. Do not run it
+from Vercel build hooks, serverless API routes, app startup, or deployed runtime.
+The deployed app only reads already-seeded Supabase tables. Filtered import is
+recommended for Supabase because full Athena can consume many GB of database
+storage once indexes are included.
+
+## 7 — Seed the option library (required)
+
+Every intraop/preop/postop picker and clinical number-control catalogue is served
+from a database table that starts out **empty** after step 4: position,
+technique, vascular access, airway management, monitoring, premedication drugs,
+intraop drugs, infusions, inhalational agents, fluids, clinical events, sex,
+blood group, airway grades, disposition, handover items, and numeric range
+specifications. Without this step the app loads, but clinical pickers will fall
+back to cached/bundled data or appear blank depending on the client state.
+
+```bash
+npx tsx scripts/seed-option-library.ts
+```
+
+Idempotent and safe to re-run.
+## v3.0 concept maps, backfill, and quality report
+
+LOSPOR v3.0 also needs the local concept map and relational research rows to be prepared after the option library is seeded:
+
+```bash
+npx tsx scripts/seed-concept-maps.ts
+npx tsx scripts/backfill-relational.ts
+npx tsx scripts/data-quality-report.ts
+```
+
+`seed-concept-maps` preserves ICD-10 English/Bulgarian labels, LOINC, ATC, INN, app-local option values, mapping method/confidence, review state, and known OMOP concept IDs where the filtered local Athena import provides confident standard mappings. `backfill-relational` rebuilds normalized research rows from existing cases. `data-quality-report` is read-only and reports Athena import coverage, relational drift, unmapped/source-only concepts, invalid ranges, future timestamps, export linkage warnings, and missing key research fields.
+
+If seeding fails with a `LibraryCategory` enum error, do not edit an already
+applied migration file. Apply the tracked additive enum migration with
+`npx prisma migrate deploy`, then re-run the seed. Prisma validates migration
+checksums, so historical migration files must stay unchanged once applied.
+
+## 8 — Run in development
 
 ```bash
 npm run dev
@@ -96,7 +135,7 @@ npm run dev
 
 The app will be available at `http://localhost:3000`.
 
-## 8 — Deploy to Vercel
+## 9 — Deploy to Vercel
 
 1. Push your code to a GitHub repository (private is fine)
 2. Import the project at [vercel.com](https://vercel.com)
@@ -108,7 +147,7 @@ The app will be available at `http://localhost:3000`.
 
 Vercel automatically handles SSL, CDN, and zero-downtime deployments.
 
-## 9 — Custom domain
+## 10 — Custom domain
 
 In Vercel, go to **Settings** → **Domains** and add your domain. Configure the DNS records as directed by Vercel.
 
@@ -122,6 +161,10 @@ To update to a newer version of LOSPOR:
 git pull origin main
 npm install
 npx prisma migrate deploy   # apply tracked migrations (production-safe)
+npx tsx scripts/seed-option-library.ts
+npx tsx scripts/seed-concept-maps.ts
+npx tsx scripts/backfill-relational.ts
+npx tsx scripts/data-quality-report.ts
 ```
 
 Commit and push to trigger a Vercel redeployment.

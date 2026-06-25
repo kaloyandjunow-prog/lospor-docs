@@ -60,20 +60,20 @@ Admin roles cannot be changed through the UI.
 
 ## OMOP CDM export
 
-LOSPOR can export the anonymised dataset in OMOP CDM v5.4 format for research use. The export is available to admins only.
+LOSPOR can export the de-identified / pseudonymised dataset in OMOP CDM v5.4 format for research use. The export is available to admins only.
 
 1. Open the **Admin** panel (shield icon in the navigation bar)
 2. Scroll to the **Research export** section
 3. Click **Export JSON** for a full OMOP bundle, or **Export CSV** for a flat multi-table CSV
 
-The export contains: `visit_occurrence`, `condition_occurrence` (diagnoses and comorbidities in ICD-10), `drug_exposure` (intraoperative drugs with ATC code), `measurement` (preoperative vitals and LOINC-coded lab results), `procedure_occurrence`, and `observation` (ASA, RCRI, Apfel, STOP-BANG, airway assessment, fluid totals, postop disposition).
+The export contains: `visit_occurrence`, `condition_occurrence`, `drug_exposure`, `measurement`, `procedure_occurrence`, and `observation`. v3.0 export reads normalized rows and active `CaseEvent` rows, including diagnoses, comorbidities, labs, vitals, intraop glucose, gas settings, bolus drugs, infusions, agents, vascular access, selections, complications, recovery vitals, Aldrete subscores, and provenance/version metadata.
 
-:::info Anonymisation
-`person_id` is a deterministic hash of the internal case ID — no patient identifiers are stored or exported. All data is at case level; month/year only, no exact surgery date.
+:::info De-identification / pseudonymisation
+`person_id` is a deterministic hash of the internal case ID. Direct patient identifiers are not stored or exported. Operational user, institution, and timestamp linkage may exist internally for access control, audit, and governance; research exports are case-level and use month/year only, not exact surgery date.
 :::
 
 :::note Research quality
-Drug exposure is sourced from the intraoperative event log (ATC-coded where available). Lab measurements include LOINC codes and canonical SI units. `condition_concept_id` and `drug_concept_id` are `0` where OMOP standard vocabulary mapping is not yet available; the source ICD-10 / ATC code is always in the `*_source_value` column.
+Drug exposure is sourced from the intraoperative event log and normalized medication rows. Known OMOP concept IDs are exported where confidently mapped through `ConceptMap`; source-only values preserve ICD-10, LOINC, ATC, INN, or LOSPOR option codes/labels instead of using fake concept IDs.
 :::
 
 ## First administrator

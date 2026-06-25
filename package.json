@@ -1,6 +1,6 @@
 {
   "name": "lospor-docs",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "private": true,
   "scripts": {
     "start": "docusaurus start",
@@ -9,6 +9,9 @@
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve"
+  },
+  "overrides": {
+    "serialize-javascript": "^7.0.6"
   },
   "dependencies": {
     "@docusaurus/core": "^3.10.1",

@@ -9,7 +9,11 @@ const config: Config = {
   url: "https://docs.lospor.org",
   baseUrl: "/",
   onBrokenLinks: "warn",
-  onBrokenMarkdownLinks: "warn",
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    },
+  },
   i18n: { defaultLocale: "en", locales: ["en"] },
 
   presets: [
@@ -64,7 +68,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Â© ${new Date().getFullYear()} LOSPOR Â· AGPL-3.0 licence Â· GDPR compliant`,
+      copyright: `© ${new Date().getFullYear()} LOSPOR · AGPL-3.0 licence · designed with GDPR principles`,
     },
     prism: {
       theme: prismThemes.github,
