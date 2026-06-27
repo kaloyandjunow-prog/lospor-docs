@@ -9,6 +9,14 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [3.2.1] - 2026-06-27
+
+### Fixed
+- Background relational sync (the research-facing mirror of diagnoses, procedures, labs, medications, complications, etc.) was silently failing after every case save with a P2028 timeout. The fix is the same as the v3.2.0 intraop fix: all database writes that used an interactive transaction have been converted to sequential writes. Case data was never affected — the JSON columns are always authoritative. Affects all three save surfaces: preop, intraop, and postop.
+- Preop data entry occasionally showed a conflict dialog immediately after opening a case. This was a client-side race: the URL contained the case ID before the case data finished loading, so an autosave could fire before the conflict-timestamp reference was initialised. The client now silently recovers by adopting the server's current version on first contact and retrying without user intervention.
+
+---
+
 ## [3.2.0] - 2026-06-27
 
 ### Added
