@@ -44,9 +44,9 @@ DIRECT_URL="postgresql://postgres.<ref>:<pass>@aws-<region>.pooler.supabase.com:
 NEXTAUTH_SECRET="your-random-secret"   # openssl rand -base64 32
 NEXTAUTH_URL="https://your-domain.com"
 
-# Optional — AI pre-operative advisor and lab scan (EU-hosted, Mistral La Plateforme; free tier available)
+# Optional — AI pre-operative advisor and lab scan (Mistral La Plateforme; free tier available)
 MISTRAL_API_KEY="your-mistral-api-key"
-MISTRAL_API_BASE="https://api.mistral.ai/v1"   # optional — override for compatible providers
+MISTRAL_API_BASE="https://api.mistral.ai/v1"   # optional — regional overrides fall back to the global base if inference is not allowed
 MISTRAL_MODEL="open-mistral-7b"                 # optional — override model
 
 ```

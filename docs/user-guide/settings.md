@@ -48,6 +48,9 @@ Choose **Light** or **Dark** mode. Dark mode is the default.
 
 ### Automation
 
+#### Favourite intraoperative drugs and infusions
+Choose up to 8 favourite bolus drugs and up to 8 favourite infusions. These are synced in your user profile and appear as the first action in the mobile/PWA intraoperative drug and infusion pickers.
+
 #### Auto-fill vitals
 When enabled, the previous vital signs reading is used as a starting point for the next entry.
 
@@ -78,7 +81,7 @@ Provides a way to report issues to the LOSPOR team.
 Downloads a JSON file containing your account details, all your cases (with preop/intraop/postop records), and your audit log entries. This fulfils your right of access under **GDPR Article 15**.
 
 #### Delete my account
-Permanently deactivates your account. Type `DELETE` in the confirmation field and click **Confirm deletion**. Your account is deactivated immediately; all data is permanently deleted within 30 days. This fulfils your right to erasure under **GDPR Article 17**.
+Disables your account access immediately. Type `DELETE` in the confirmation field and click **Confirm deletion**. The presented mobile token is revoked, and further deletion or anonymisation is processed according to the retention policy.
 
 :::warning Irreversible
 Account deletion cannot be undone. Download your data first if you need to keep a copy.

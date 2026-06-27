@@ -76,7 +76,7 @@ The graph updates in real time as you enter data.
 **AI monitor scan:** click the camera icon to upload or photograph your anaesthesia monitor screen. Mistral AI reads the display and extracts visible vital signs values into the entry fields. Review before saving.
 
 :::info Privacy
-Monitor images are sent to Mistral AI (EU-hosted) for text extraction and are not stored beyond the request. Avoid uploading images that show patient-identifying information.
+Monitor images are sent to the configured AI provider for text extraction and are not stored by LOSPOR beyond the request. Avoid uploading images that show patient-identifying information.
 :::
 
 ### Gas management
@@ -89,14 +89,17 @@ Record the fresh gas flow and composition:
 ### Drugs (bolus)
 
 Click **+ Drug** in the timetable to log a bolus drug administration:
-- Drug name (searchable from the drug catalogue)
+- Scenario pills for common workflows such as induction, relaxants, local/regional anaesthesia, opioids, vasoactive drugs, PONV/GI, obstetrics, and rescue drugs
+- Favourite drugs selected in Settings
+- Browse-all search across the canonical drug catalogue
 - Dose and unit (mg, mcg, mL, etc.)
+- Route-specific controls where applicable; for example IV lidocaine is entered as a dose, while local/neuraxial/peripheral block lidocaine uses concentration and volume
 - The bolus appears as a vertical marker at the selected time point
 - Each drug event stores the **ATC code** for the administered drug, enabling research queries by pharmacological class
 
 ### Infusions
 
-Add a continuous infusion with start time, end time, drug name, rate, and unit. It appears as a hatched bar spanning the infusion duration.
+Add a continuous infusion with start time, end time, drug name, rate, and unit. Mobile/PWA uses the same scenario/favourites/browse pattern as bolus drugs. It appears as a hatched bar spanning the infusion duration.
 
 ### Volatile agents
 

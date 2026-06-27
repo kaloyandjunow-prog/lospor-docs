@@ -9,6 +9,21 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [3.1.0] - 2026-06-25
+
+### Security and privacy hardening
+- Web API writes that use cookie authentication now require same-origin `Origin`/`Referer` validation; bearer-token mobile/PWA calls remain supported.
+- Clinical PII validation is field-aware for event rows, so controlled clinical labels are not blocked by the name heuristic while free-text notes remain protected.
+- AI lab-reading upload limits now check the actual parsed base64 payload.
+- Login flows no longer query pending-account state after a failed sign-in attempt, and the legacy pending-check endpoint returns a generic response.
+- Account deletion wording now reflects the implemented behavior: immediate access disable and token revocation, with further deletion/anonymisation handled by retention policy.
+- PWA documentation now calls out the weaker browser `localStorage` storage model and logout cache clearing.
+- Deployment examples use `pwa.lospor.org` for the mobile PWA.
+- Mistral requests for lab scan, vitals scan, and AI advisor now retry against the global API base if a configured regional endpoint rejects inference with `regional_inference_not_allowed` (`code: 1914`).
+- AI privacy wording now refers to the configured AI provider rather than promising a fixed regional inference path.
+- Mobile/PWA bolus drug and infusion pickers now use scenario-based cockpit menus with synced favourite drugs/infusions in user preferences.
+- Route-specific drug profiles are respected on mobile/PWA, including lidocaine dose mode for IV and concentration/volume mode for regional routes.
+
 ## [3.0.0] - 2026-06-25
 
 ### Why this is v3.0
@@ -260,7 +275,7 @@ This release is larger than the planned 2.3 line. It changes the canonical datab
 
 ### GDPR вЂ” Rights (Articles 15 & 17)
 - **Data export** вЂ” Settings в†’ Privacy & Data в†’ Download my data (JSON, Article 15).
-- **Account deletion** вЂ” Settings в†’ Privacy & Data в†’ Delete my account (soft-delete + 30-day hard-delete, Article 17).
+- **Account deletion** - Settings - Privacy & Data - Delete my account (soft-delete/access-disable flow; later deletion or anonymisation follows retention policy).
 
 ### Security
 - **DB-backed JWT revocation** вЂ” revoked tokens survive server restarts.

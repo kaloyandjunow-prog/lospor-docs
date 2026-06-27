@@ -118,7 +118,7 @@ The AI scan recognises only tests in the LOSPOR catalogue and normalises all val
 On mobile, **Scan lab report** supports both camera capture and gallery upload. Extracted values are shown in a review sheet before anything is added to the case. Manual lab search and value entry remain available.
 
 :::info Privacy
-Lab images are sent to Mistral AI (EU-hosted) for text extraction. Avoid uploading images that show patient names or ID numbers. A notice is displayed above the upload button as a reminder.
+Lab images are sent to the configured AI provider for text extraction. Avoid uploading images that show patient names or ID numbers. A notice is displayed above the upload button as a reminder.
 :::
 
 All entered lab results appear in the printed protocol.
@@ -134,7 +134,7 @@ At the bottom of the preoperative form, you can optionally enable the **AI clini
 When enabled, click the **AI Clinical Analysis** button to receive a structured pre-operative assessment covering ASA classification, technique recommendation, airway management, preparation, and drug considerations.
 
 :::info Privacy
-Only structured clinical fields are sent to the AI provider (Mistral La Plateforme, EU-hosted). Free-text fields (team notes, airway notes, family history details) are never forwarded. Your consent is recorded in the audit log.
+Only structured clinical fields are sent to the configured AI provider. Free-text fields (team notes, airway notes, family history details) are never forwarded. Your consent is recorded in the audit log.
 :::
 
 ## Saving
