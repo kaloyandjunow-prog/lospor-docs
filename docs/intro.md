@@ -56,6 +56,6 @@ LOSPOR is licensed under the **AGPL-3.0** licence. The source code is available 
 LOSPOR is designed with GDPR principles in mind:
 - Patient names and ID numbers are **never stored** in the database
 - Each case is shown by a pseudonymised case code (e.g. `2026-0001`); internal user, institution, and timestamp linkage is retained for access control, audit, and research governance
-- All data is stored in the EU (Supabase, Vercel, Mistral AI — all EU-region)
+- LOSPOR targets GDPR-oriented deployment. The hosting region, database region, AI inference region, and sub-processors depend on the deployed configuration. The default configuration uses EU-region providers (Supabase, Vercel, Mistral La Plateforme), but regional AI inference may fall back to global endpoints if the configured region is unavailable.
 - Users must be authenticated to access any data
 - GDPR rights (data export, account deletion) are available under Settings → Privacy & Data
