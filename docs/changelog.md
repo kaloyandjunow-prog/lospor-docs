@@ -9,6 +9,13 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [3.4.6] - 2026-06-28
+
+### Fixed
+- **Mobile — No "Sync failed" on case reopen** — Reopening an intraop case on mobile (or the Expo PWA) no longer shows a "Sync failed" badge and no longer triggers a spurious 409 in the API logs. The fluid totals aggregation effect was firing immediately on component mount — before the case data loaded — with an empty timetable and no conflict timestamp, causing the server to reject the request. The effect is now guarded by the `caseLoaded` flag (consistent with all other autosave effects in the same screen) and skips its first post-load fire to avoid writing data that was just read from the database.
+
+---
+
 ## [3.4.5] - 2026-06-28
 
 ### Fixed
