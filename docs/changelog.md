@@ -9,6 +9,16 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [3.4.5] - 2026-06-28
+
+### Fixed
+- **PII validation error display** — Entering a patient name or other identifiable text in a clinical text field now shows the specific rejection reason from the server (e.g. "Possible name detected in field: intraopComplications") instead of a generic "Auto-save failed" or "Saved locally" message. This applies to the new-case form, the intraop form, and the postop form on both web and mobile.
+- **Mobile — Drug autofill** — Selecting a drug in the intraop timetable now pre-fills the dose input with the library-suggested dose (weight-based or flat, per the option library `doseCalc` profile). Previously the dose field was always empty on mobile; the calculation was only working on the web app.
+- **Mobile — Drug category landing** — Re-opening the drug picker after an addition now shows the top-level clinical category grid (Induction, Opioids, Relaxants, etc.) instead of jumping straight into the previously-selected subcategory's drug list.
+- **Intraop — Agent and fluid delete buttons** — The × button on anaesthetic agent segments and fluid rows was invisible on touch devices (PWA, tablet, phone browser) because it was hidden behind a CSS hover rule that does not fire on touch screens. It is now always visible on touch devices.
+
+---
+
 ## [3.4.4] - 2026-06-28
 
 ### Fixed
