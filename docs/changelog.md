@@ -9,6 +9,80 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [3.4.4] - 2026-06-28
+
+### Fixed
+- **Intraop — Finalize case** — "Close Now" in the case summary now shows a readable message when the case cannot be finalized (e.g. "No anaesthesia technique recorded", "Aldrete score missing"). Previously the button appeared to do nothing on an incomplete case.
+- **Intraop — Event log delete** — The × button in the event log is now visible on touch screens (PWA) and correctly removes the corresponding fluid or infusion bar from the timetable when clicked. Previously only the log entry was removed while the visual bar remained in the chart.
+- **Intraop — Fluid add** — Clicking a fluid name in the picker now adds it immediately with the library default volume and closes the menu. Previously a separate dose confirmation panel opened which was easy to miss on touch, causing users to tap the same fluid multiple times and add duplicates.
+- **Intraop — Agent switching** — Switching anaesthetic agents (e.g. sevoflurane → desflurane) now clips the outgoing agent bar at the switch point and starts the new agent from there. Previously the old agent bar was deleted entirely. Switching is now a single tap — the agent starts with the library default concentration immediately.
+- **Intraop — Drug chip** — Clicking an existing drug chip now opens the drug picker so another drug can be added at the same time column. Previously the click had no visible effect.
+- **Intraop — Drug dose rounding** — Bolus doses are now rounded to the library-configured step (e.g. propofol rounds to multiples of 10 mg) even when the pre-filled dose is manually adjusted before confirming. Previously manual adjustments bypassed rounding.
+- **Mobile — Autosave race condition** — Selecting a technique, position, or monitoring option on the mobile intraop screen no longer reverts if an autosave was in flight at the moment of selection. The mobile postop form no longer resets to server values immediately after a save completes.
+
+---
+
+## [3.4.3] - 2026-06-28
+
+### Changed
+- **Admin export wording** — The OMOP export card now reads "pseudonymised case-level hashes" instead of "anonymous hashes", consistent with the GDPR wording used throughout the application and privacy documentation.
+
+### Fixed
+- **OMOP export quality gate** — Exports now block (HTTP 422) if the batch contains non-finalized cases, cases with missing finalization snapshots, cases edited after finalization, or impossible intraop timestamps (end before start). Administrators can override with `?force=true`; the override is recorded in the export manifest. The severity of two existing checks was also upgraded: `NO_FIELD_STATUS_ROWS` from warning to error, `REDACTED_FREE_TEXT_PRESENT` from info to warning.
+- **Documentation encoding** — Encoding artefacts (вЂ, в†) caused by copy-pasted smart quotes have been corrected throughout the documentation.
+
+---
+
+## [3.4.2] - 2026-06-28
+
+### Added
+- **Data dictionary** — Research documentation now includes a field-level data dictionary covering all clinical fields, their types, units, valid ranges, and research notes.
+- **OMOP quality warnings** — Four new error-level quality checks: non-finalized cases in the export batch, missing finalization snapshots, relational drift (case edited after finalization), and impossible intraop timestamps.
+
+---
+
+## [3.4.1] - 2026-06-28
+
+### Fixed
+- **AI Advisor** — The AI risk advisory button now flushes any pending autosave before showing the consent prompt. Previously, accepting consent before the autosave completed caused the `aiOptIn` flag to be overwritten back to `null` by the in-flight save, requiring the button to be pressed twice.
+- **Serverless stability** — Audit log writes and relational sync calls no longer risk truncating the Vercel function response. These background calls now run after the HTTP response is sent using `after()`.
+
+---
+
+## [3.4.0] - 2026-06-28
+
+### Security
+- **AI trust boundary** — Mistral AI requests are now proxied server-side. The API key is no longer present in the browser bundle. All AI features (lab scan, vitals scan, AI advisor) require an authenticated session on the server.
+- **CORS hardening** — CORS policy is now configured and enforced in one place, eliminating minor inconsistencies between API routes.
+
+### Added
+- **Mobile idempotency** — Creating a case on mobile while offline and retrying on reconnect no longer creates a duplicate. The server matches the local draft identifier and returns the existing case.
+
+---
+
+## [3.3.1] - 2026-06-28
+
+### Fixed
+- **PWA auth redirect loop** — A minimal service worker clears stale cached redirects that sent some PWA users to the login page even when already authenticated.
+- The PWA manifest and service worker are now exempted from the authentication middleware so they can always be fetched without a session.
+- Navigation buttons now show press-down feedback on touch screens.
+
+---
+
+## [3.3.0] - 2026-06-27
+
+### Added
+- **Case review bar** — A compact status bar at the top of the case detail page shows completion of preop, intraop, and postop at a glance with direct links to each section.
+
+### Fixed
+- **Allergy and medication lists** — Drug names in the allergy and current medications lists were being corrupted to `[object Object]` on save. Fixed.
+
+### Security
+- Authentication middleware and session handling hardening pass.
+- Corrected 401/404 response behaviour for unauthenticated routes.
+
+---
+
 ## [3.2.1] - 2026-06-27
 
 ### Fixed
