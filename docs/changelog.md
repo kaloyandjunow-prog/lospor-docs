@@ -9,6 +9,15 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [3.4.7] - 2026-06-28
+
+### Fixed
+- **Mobile — Drug autofill and rounding in main drug sheet** — The main "Add drug" sheet (`DrugSheet`) now pre-fills the dose from the option library's `doseCalc` profile (IBW-based weight calculation for induction agents, flat doses for others) and rounds the confirmed dose to the library's `roundTo` increment (e.g. Propofol rounds to the nearest 10 mg). Previously only the inline timetable-column picker had this logic; the refactored DrugSheet path had none. Patient height, weight, and sex are now forwarded from preop data into the dose calculation.
+- **Mobile — No "Sync failed" after adding a timetable event** — Adding a timetable event (drug, fluid, vital) could produce a spurious "Sync failed" badge because `POST /events` updates `intraop.updatedAt` via `rebuildProjection`, and a concurrent fluid-totals `PATCH` with the old baseline timestamp was then rejected with a 409. The mobile now retries the `PATCH` exactly once using the server's current timestamp returned in the 409 response body, silently resolving the conflict without user intervention.
+- **Mobile — Timetable shows events on reopen when timestamps are in the past** — If timetable events were saved with backdated timestamps (or the case is reviewed hours after the events occurred), the timetable viewport auto-scrolled to the current time and left the events off-screen. The auto-scroll now detects when events are more than 30 minutes before the current time and scrolls to show the events instead of showing an empty recent area.
+
+---
+
 ## [3.4.6] - 2026-06-28
 
 ### Fixed
