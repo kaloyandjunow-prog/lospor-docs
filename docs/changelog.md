@@ -9,6 +9,21 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [4.0.0] - 2026-07-03
+
+### Added
+- **Email verification** — After registering, you receive a verification email (valid 24 hours). Click the link and you can sign in right away; waiting for admin approval is no longer required.
+- **Password reset** — Use **Forgot password?** on the login page (web, PWA, and mobile app) to receive a reset link valid for 1 hour.
+
+### Changed
+- **Faster, more reliable intraop timetable** — Tab switching and timetable scrolling are noticeably faster, button press feedback is back, and quick sequences like adding an infusion and immediately undoing it no longer show a brief "Sync error".
+- **Privacy Policy and Terms updated to v4.0** — Brevo (EU) is listed as the email delivery sub-processor and account-email processing is described; the account section reflects email verification.
+
+### Under the hood
+- The mobile intraop and preop screens were restructured into small, tested modules (mobile test suite grew from 95 to 228 tests; web from 133 to 147), continuous integration now runs on every change, shared clinical logic moved into a common `@lospor/core` package, and case finalization now refuses to complete if research-grade data mirroring fails.
+
+---
+
 ## [3.4.7] - 2026-06-28
 
 ### Fixed

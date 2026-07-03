@@ -18,15 +18,19 @@ title: Getting Started
 4. Accept the **Terms of Use, Privacy Policy, and Medical Disclaimer** (required)
 5. Click **Create account**
 
-Your account will be **pending admin approval**. You will see a message when you try to log in. Once approved, you can access the app.
+You will receive a **verification email** with a link (valid for 24 hours). Click it to verify your email address — you can log in as soon as your email is verified. If the email doesn't arrive, check your spam folder or request a new link from the login page.
 
 :::info First login — consent screen
-On your first login after approval, a consent screen appears summarising what LOSPOR is and is not. You must confirm you understand before proceeding.
+On your first login after verification, a consent screen appears summarising what LOSPOR is and is not. You must confirm you understand before proceeding.
 :::
 
 ## Logging in
 
 Visit **[app.lospor.org](https://app.lospor.org)** and enter your email and password.
+
+## Forgot your password?
+
+Click **Forgot password?** on the login page and enter your email. You will receive a reset link (valid for 1 hour) that lets you choose a new password.
 
 ## First steps
 

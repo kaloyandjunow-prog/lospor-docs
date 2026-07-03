@@ -93,7 +93,7 @@ Account deletion cannot be undone. Download your data first if you need to keep 
 
 Visible to administrators only. Provides access to:
 
-- **Pending registrations** — approve or reject new user accounts
+- **Registrations** — review recently registered accounts (accounts activate via email verification; admin approval is no longer required for login)
 - **User management** — view roles, assign HOD status
 - **Institution management** — add or edit institutions
 
