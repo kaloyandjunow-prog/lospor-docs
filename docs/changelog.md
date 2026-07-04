@@ -9,7 +9,12 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
-## [4.0.1] - 2026-07-04
+## [4.1.0] - 2026-07-05
+
+### Added
+- **Full Bulgarian translation pass** across both apps — dashboard, preop, intraop, postop, case detail, settings, admin, and the printed anaesthesia protocol now display correctly in Bulgarian.
+- **Bulgarian Privacy Policy and Terms of Service** pages.
+- The complications picker on web now shows Bulgarian category titles for the first time, and shares its complication list with the mobile app so both stay in sync going forward.
 
 ### Fixed
 - **Email addresses are case-insensitive everywhere** — registration, login, password reset, and verification emails now treat `Doctor@example.com` and `doctor@example.com` as the same address. If you previously had trouble logging in due to capitalization, it is resolved.
