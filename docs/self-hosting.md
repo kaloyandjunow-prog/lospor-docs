@@ -110,9 +110,9 @@ npx tsx scripts/seed-option-library.ts
 ```
 
 Idempotent and safe to re-run.
-## v3.0 concept maps, backfill, and quality report
+## Concept maps, backfill, and quality report
 
-LOSPOR v3.0 also needs the local concept map and relational research rows to be prepared after the option library is seeded:
+LOSPOR also needs the local concept map and relational research rows to be prepared after the option library is seeded:
 
 ```bash
 npx tsx scripts/seed-concept-maps.ts

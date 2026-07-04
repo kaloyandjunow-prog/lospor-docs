@@ -66,7 +66,7 @@ LOSPOR can export the de-identified / pseudonymised dataset in OMOP CDM v5.4 for
 2. Scroll to the **Research export** section
 3. Click **Export JSON** for a full OMOP bundle, or **Export CSV** for a flat multi-table CSV
 
-The export contains: `visit_occurrence`, `condition_occurrence`, `drug_exposure`, `measurement`, `procedure_occurrence`, and `observation`. v3.0 export reads normalized rows and active `CaseEvent` rows, including diagnoses, comorbidities, labs, vitals, intraop glucose, gas settings, bolus drugs, infusions, agents, vascular access, selections, complications, recovery vitals, Aldrete subscores, and provenance/version metadata.
+The export contains: `visit_occurrence`, `condition_occurrence`, `drug_exposure`, `measurement`, `procedure_occurrence`, and `observation`. The export reads normalized rows and active `CaseEvent` rows, including diagnoses, comorbidities, labs, vitals, intraop glucose, gas settings, bolus drugs, infusions, agents, vascular access, selections, complications, recovery vitals, Aldrete subscores, and provenance/version metadata.
 
 :::info De-identification / pseudonymisation
 `person_id` is a deterministic hash of the internal case ID. Direct patient identifiers are not stored or exported. Operational user, institution, and timestamp linkage may exist internally for access control, audit, and governance; research exports are case-level and use month/year only, not exact surgery date.

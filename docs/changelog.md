@@ -9,6 +9,15 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [4.0.1] - 2026-07-04
+
+### Fixed
+- **Email addresses are case-insensitive everywhere** — registration, login, password reset, and verification emails now treat `Doctor@example.com` and `doctor@example.com` as the same address. If you previously had trouble logging in due to capitalization, it is resolved.
+- Added missing Bulgarian translations for the intraop auto-fill "Backfill on reopen" setting.
+- Documentation refreshed (removed stale version references).
+
+---
+
 ## [4.0.0] - 2026-07-03
 
 ### Added

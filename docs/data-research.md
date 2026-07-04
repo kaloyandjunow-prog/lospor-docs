@@ -5,7 +5,7 @@ title: Data & Research
 
 # Data & Research
 
-LOSPOR v3.0 stores perioperative data for clinical documentation, audit, personal portfolio, and de-identified / pseudonymised research datasets. The web app owns the canonical PostgreSQL/API contract; mobile and PWA clients map their payloads into the same field names and libraries before persistence.
+LOSPOR stores perioperative data for clinical documentation, audit, personal portfolio, and de-identified / pseudonymised research datasets. The web app owns the canonical PostgreSQL/API contract; mobile and PWA clients map their payloads into the same field names and libraries before persistence.
 
 ## What data does LOSPOR collect?
 
@@ -49,7 +49,7 @@ The printable protocol leaves patient identity fields blank. Clinicians fill tho
 
 ## Canonical libraries
 
-LOSPOR v3.0 uses shared backend libraries rather than app-specific hardcoded lists.
+LOSPOR uses shared backend libraries rather than app-specific hardcoded lists.
 
 | Library | Source of truth | Used for |
 |---|---|---|
@@ -92,7 +92,7 @@ Research exports must distinguish blank data from negative data. `ClinicalFieldS
 - `NOT_APPLICABLE`
 - `NOT_DOCUMENTED`
 
-Normalized rows also carry source/provenance metadata such as user input, web/mobile source, AI scan, backfill, migration, or relational sync where available. v3.0 field-status coverage is intentionally broad so normalized rows can serve as the research/export authority while UI JSON remains a compatibility cache.
+Normalized rows also carry source/provenance metadata such as user input, web/mobile source, AI scan, backfill, migration, or relational sync where available. Field-status coverage is intentionally broad so normalized rows can serve as the research/export authority while UI JSON remains a compatibility cache.
 
 ## OMOP export
 
@@ -118,7 +118,7 @@ Internally, LOSPOR stores operational linkage needed for access control, audit, 
 
 ## Data quality tools
 
-The v3.0 backend includes tooling for release and research checks:
+The backend includes tooling for release and research checks:
 
 - `scripts/seed-vocabularies.ts` seeds ICD-10, ICD-10CM synonyms, ATC, and Drug rows.
 - `scripts/seed-athena-vocabularies.ts --filtered-lospor` imports only LOSPOR-needed local Athena/OMOP rows for vocabulary-backed mapping.
