@@ -9,6 +9,15 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [4.1.1] - 2026-07-05
+
+### Fixed
+- Airway device, vascular access, and premedication selections in the mobile intraop screen no longer flicker and revert after tapping.
+- Rapid drug/event entry in the mobile intraop timetable no longer silently drops an item under fast back-to-back taps.
+- Preop data (age, height, weight, diagnosis, comorbidities, etc.) is no longer silently lost when closing and reopening a case shortly after editing.
+- Account deletion wording corrected on both apps' Bulgarian text to accurately describe what happens (access disabled immediately, further deletion/anonymisation per retention policy) instead of overstating it.
+- Cleaned up remaining text-encoding corruption in the mobile app.
+
 ## [4.1.0] - 2026-07-05
 
 ### Added
