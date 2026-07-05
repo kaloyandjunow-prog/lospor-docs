@@ -9,6 +9,12 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [4.1.3] - 2026-07-05
+
+Version alignment across all LOSPOR repos — no functional changes beyond v4.1.2.
+
+---
+
 ## [4.1.2] - 2026-07-05
 
 ### Fixed
