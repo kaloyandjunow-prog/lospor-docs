@@ -9,6 +9,18 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [4.1.2] - 2026-07-05
+
+### Fixed
+- Resolved a production incident where an exhausted database connection pool was causing widespread slowness and errors across the app.
+- Removing an event from the intraop log no longer produces an error.
+- Stopping an infusion, agent, or fluid, and changing an infusion or agent's rate, no longer feels stuck or unresponsive.
+- Ending a case with multiple active infusions, agents, or fluids finishes faster.
+- Changing a volatile agent's percentage no longer shortens its bar on the intraop timeline.
+- Adding vitals now closes the entry screen immediately, matching how adding a drug, infusion, or fluid already worked.
+
+---
+
 ## [4.1.1] - 2026-07-05
 
 ### Fixed
