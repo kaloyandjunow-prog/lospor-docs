@@ -9,6 +9,15 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [4.1.4] - 2026-07-05
+
+### Fixed
+- Airway devices with sub-options (LMA, oral/nasal ETT, double-lumen tube, endobronchial tube) can be re-edited again — reopening one now clears its options so you re-pick from scratch, instead of getting stuck open.
+- Changing an infusion's rate now applies from the point you change it onward, instead of retroactively for the whole case.
+- Adding vitals no longer intermittently fails and requires a manual "Sync retry".
+
+---
+
 ## [4.1.3] - 2026-07-05
 
 Version alignment across all LOSPOR repos — no functional changes beyond v4.1.2.
