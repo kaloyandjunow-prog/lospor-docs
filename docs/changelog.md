@@ -16,6 +16,9 @@ All notable changes to LOSPOR are documented here.
 - Changing an infusion's rate now applies from the point you change it onward, instead of retroactively for the whole case.
 - Adding vitals no longer intermittently fails and requires a manual "Sync retry".
 
+### Changed
+- Adding or ending a fluid now saves once instead of twice — the running fluid totals are calculated on the server from the fluids you record, so the app no longer sends a separate, redundant total each time.
+
 ---
 
 ## [4.1.3] - 2026-07-05
