@@ -9,6 +9,14 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [4.1.5] - 2026-07-05
+
+### Fixed
+- Mobile/PWA preop section-overview floating button now uses a real icon instead of corrupted text.
+- Version alignment to 4.1.5 across all four LOSPOR repos.
+
+---
+
 ## [4.1.4] - 2026-07-05
 
 ### Fixed
