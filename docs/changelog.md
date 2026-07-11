@@ -9,6 +9,18 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [5.0.0] - 2026-07-11
+
+### Added
+- The web app can now save without a connection: saves are kept locally in the browser and sync automatically when the connection returns, with a clear "saved locally" indicator and a discard control in privacy settings.
+
+### Changed
+- Saving, offline queues, and conflict handling across the web and mobile apps now run on one shared, tested engine — the same defenses everywhere, so a fix reaches both apps at once.
+- Preop and postop saves are field-level: only what you changed is sent, so two clinicians editing different parts of the same case no longer overwrite each other.
+- Editing the same case in two browser tabs no longer risks silently overwriting your own newer changes.
+
+---
+
 ## [4.1.6] - 2026-07-11
 
 ### Fixed
