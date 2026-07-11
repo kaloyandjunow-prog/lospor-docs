@@ -9,6 +9,17 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [4.1.6] - 2026-07-11
+
+### Fixed
+- Rapid intraop entries no longer race or overwrite each other — vitals, drugs, and events entered in quick succession now save one at a time and all persist, instead of colliding under fast documentation.
+- An intraop save that got stuck as "failed" (needing a manual "Sync retry") after the case was also edited on the web now recovers automatically.
+
+### Changed
+- Version alignment to 4.1.6 across all four LOSPOR repos. This release's fix is mobile-only; the web app and API are unchanged.
+
+---
+
 ## [4.1.5] - 2026-07-05
 
 ### Fixed
