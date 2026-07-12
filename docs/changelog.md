@@ -9,6 +9,22 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [5.1.0] - 2026-07-13
+
+Hardening release following an external code review of v5.0.0.
+
+### Added
+- Adding intraoperative entries (drugs, fluids, vitals, events) now works offline on the web app too — they are kept in the browser and sent automatically on reconnect. Removing or editing existing timeline items still needs a connection.
+- Resetting your password now signs you out everywhere: existing web sessions and mobile logins stop working within a few minutes of the reset.
+- Signing out on a shared computer warns you if unsynced saves exist and removes them from the device, so they can never mix with another user's session.
+
+### Fixed
+- Vitals edited on the web timetable now keep a single stored identity per time column — re-editing a value replaces it cleanly instead of occasionally showing an older value after a refresh.
+- Offline saves that conflicted with a newer edit no longer get stuck retrying forever — they merge automatically, field by field.
+- A long-standing storage overlap that could make a queued offline save and queued offline events overwrite each other has been eliminated (existing queued data migrates automatically).
+
+---
+
 ## [5.0.0] - 2026-07-12
 
 ### Added
