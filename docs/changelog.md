@@ -12,12 +12,17 @@ All notable changes to LOSPOR are documented here.
 ## [5.0.0] - 2026-07-11
 
 ### Added
-- The web app can now save without a connection: saves are kept locally in the browser and sync automatically when the connection returns, with a clear "saved locally" indicator and a discard control in privacy settings.
+- The web app can now save without a connection: saves are kept locally in the browser and sync automatically when the connection returns, with a clear "saved locally" indicator, a global "saves waiting" badge in the header, and a discard control in privacy settings.
+- Mobile settings gain an "Unsaved events" screen: intraop events the server rejected are kept on-device and can now be reviewed instead of sitting invisible.
+
+### Fixed
+- Vitals typed into the web intraop timetable could silently disappear from the stored chart once the case had other logged events. Web vitals are now stored the same robust way mobile stores them.
 
 ### Changed
 - Saving, offline queues, and conflict handling across the web and mobile apps now run on one shared, tested engine — the same defenses everywhere, so a fix reaches both apps at once.
 - Preop and postop saves are field-level: only what you changed is sent, so two clinicians editing different parts of the same case no longer overwrite each other.
 - Editing the same case in two browser tabs no longer risks silently overwriting your own newer changes.
+- Taps on toggles and pills save near-instantly; retries back off politely while the connection is down and resume immediately when it returns.
 
 ---
 
