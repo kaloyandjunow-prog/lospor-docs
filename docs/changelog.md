@@ -9,7 +9,7 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
-## [5.0.0] - 2026-07-11
+## [5.0.0] - 2026-07-12
 
 ### Added
 - The web app can now save without a connection: saves are kept locally in the browser and sync automatically when the connection returns, with a clear "saved locally" indicator, a global "saves waiting" badge in the header, and a discard control in privacy settings.

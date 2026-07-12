@@ -139,4 +139,8 @@ Only structured clinical fields are sent to the configured AI provider. Free-tex
 
 ## Saving
 
-The preoperative form auto-saves as you type. When all mandatory fields are complete, click **Save & continue** or **Continue to intraoperative** to move to the intraoperative form. If required fields are missing, the app shows which fields need attention.
+The preoperative form auto-saves as you work: taps on pills, toggles, and checkboxes save almost immediately, while typed fields save about a second and a half after you stop typing. Only the fields you actually changed are sent, so two clinicians editing different parts of the same case no longer overwrite each other.
+
+If the connection drops, your changes are kept locally and sync automatically when it returns — a "saves waiting" badge appears in the header (web) or the sync indicator shows queued (mobile) until everything has reached the server.
+
+When all mandatory fields are complete, click **Save & continue** or **Continue to intraoperative** to move to the intraoperative form. If required fields are missing, the app shows which fields need attention.

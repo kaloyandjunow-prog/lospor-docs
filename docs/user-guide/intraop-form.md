@@ -133,7 +133,9 @@ Free text field for intraoperative complications. Common complications (hypotens
 
 ## Saving
 
-The intraoperative form auto-saves continuously. When complete, click **Save & continue** to proceed to the postoperative form.
+The intraoperative form auto-saves continuously. Vital signs entered in the timetable are stored the same robust way on web and mobile — each 5-minute column is persisted as its own record the moment you finish typing it, so nothing depends on leaving the page open. If the connection drops, changes queue locally and sync automatically when it returns.
+
+When complete, click **Save & continue** to proceed to the postoperative form.
 
 ## Mobile
 

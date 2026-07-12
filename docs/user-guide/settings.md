@@ -51,6 +51,12 @@ Choose **Light** or **Dark** mode. Dark mode is the default.
 #### Favourite intraoperative drugs and infusions
 Choose up to 8 favourite bolus drugs and up to 8 favourite infusions. These are synced in your user profile and appear as the first action in the mobile/PWA intraoperative drug and infusion pickers.
 
+### Offline data
+
+- **Web — offline save queue** *(Privacy tab)*: saves made without a connection wait in the browser until they sync; the counter shows how many, and a discard control removes them permanently (server-synced cases are unaffected).
+- **Mobile — Unsaved events** *(Privacy & Data)*: intraoperative events the server permanently rejected are kept on the device so no clinical data is silently lost; this screen lets you review and clear them.
+- **Mobile — Clear local clinical cache** *(Privacy & Data)*: removes offline drafts and queued saves from the device only.
+
 #### Auto-fill vitals
 When enabled, the previous vital signs reading is used as a starting point for the next entry.
 

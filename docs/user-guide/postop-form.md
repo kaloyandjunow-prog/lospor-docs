@@ -74,7 +74,7 @@ After submitting postop, a **30-minute review period** begins. During this time:
 
 - A countdown banner is shown at every step (preop, intraop, postop, and summary)
 - You can click **Preop**, **Intraop**, or **Postop** in the banner to navigate back and correct any data
-- Changes save automatically
+- Changes save automatically — only the fields you changed are sent, and saves made without a connection are kept locally and synced when it returns
 - The timer continues running even if you leave the page and return
 
 When the review period ends (or you click **Close Now**), the case is permanently finalised:
