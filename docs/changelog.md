@@ -19,6 +19,7 @@ Hardening release following an external code review of v5.0.0.
 - Signing out on a shared computer warns you if unsynced saves exist and removes them from the device, so they can never mix with another user's session.
 
 ### Fixed
+- Adding a drug, fluid, vital, or event to a case on the web no longer occasionally shows a false "edit conflict" prompt (or makes autosave appear to fight itself) when you are the only person editing.
 - Vitals edited on the web timetable now keep a single stored identity per time column — re-editing a value replaces it cleanly instead of occasionally showing an older value after a refresh.
 - Offline saves that conflicted with a newer edit no longer get stuck retrying forever — they merge automatically, field by field.
 - A long-standing storage overlap that could make a queued offline save and queued offline events overwrite each other has been eliminated (existing queued data migrates automatically).
