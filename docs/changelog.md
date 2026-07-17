@@ -9,6 +9,10 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [5.2.0] - Unreleased
+
+_In development._ The case summary now looks and reads the same on mobile, on the web, and on the printed protocol — all three are built from one shared model — and the printable A4 protocol is being redesigned around the intraoperative timetable.
+
 ## [5.1.0] - 2026-07-13
 
 Hardening release following an external code review of v5.0.0.
