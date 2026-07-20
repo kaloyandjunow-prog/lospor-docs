@@ -9,9 +9,24 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
-## [5.2.0] - Unreleased
+## [5.2.0] - 2026-07-20
 
-_In development._ The case summary now looks and reads the same on mobile, on the web, and on the printed protocol — all three are built from one shared model — and the printable A4 protocol is being redesigned around the intraoperative timetable.
+The case summary now looks and reads the same on mobile, on the web, and on the printed protocol — all three are built from one shared model — and the printable A4 protocol has been redesigned around the intraoperative timetable.
+
+### Added
+- A completely redesigned printable anaesthesia record: a clean A4 paper layout where the vitals graph, the numeric vitals table, and every treatment lane (agent, infusion, gas/FGF, fluids, patient position) line up on the same time columns, with clinical events flagged on the chart and every dose shown as a **numbered pin (① ② ③ …) at its exact administration time**, resolved in a drug administration log (time · drug · dose · totals) — like a classic paper record.
+- Long cases chart **like paper records do**: up to ~5 hours is one full-height chart; longer cases continue onto a second half-height chart on the same page at the same time scale — nothing repeats and nothing gets squeezed. The record stays exactly two A4 pages for cases up to ~24 hours.
+- A **"Print case" flow**: the summary page is now a clean review of the case; on the web, printing lives on a dedicated print page for **finished** cases — offered automatically when you close a case, and available from a Print case button. The print page always shows the record as white paper, whatever your theme, and can hand you the finished A4 PDF built on the server.
+- **Printing on a phone never leaves the app**: Print case (long-press a finished case, or the print action on the case screen) downloads the ready-made A4 PDF in the background — showing a "Generating PDF…" state — and then opens your phone's normal share sheet, so you can view it in your PDF app, save it, send it, or print it. No browser, no print dialog, no web app on your phone.
+- **A read-only timetable viewer for finished cases**: tapping the summary timetable on a closed case opens the printed record's chart in the app — traces, event flags, numbered drug pins, the vitals table and all lanes, with the drug administration log below. Cases still in progress open the live intraoperative screen as before.
+- **Pinch-to-zoom on that viewer**: pinch, or use the − / + buttons, to move between detail levels. Zoomed in you see every 5-minute reading; zoomed out the vitals table thins to the coarser printed sampling (a badge shows the current interval). The graph traces, drugs, events and lanes always show every recorded point at every zoom level — zooming never hides data, and the printed record is unaffected.
+- Patient position changes can now be logged with a time (web intraop event picker) and appear as a Position lane on the printed record.
+- The case summary and its timetable now follow your **theme** — dark in dark mode, paper-light in light mode — while the printed record and PDF deliberately stay white. The record's own labels are **fully translated into Bulgarian**, and the PDF is generated in the language you are using.
+
+### Fixed
+- Heads of department and administrators can now print a case they do not personally own. Previously the print page and PDF returned "Not found" for them.
+
+---
 
 ## [5.1.0] - 2026-07-13
 

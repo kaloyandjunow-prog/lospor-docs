@@ -66,7 +66,7 @@ These instructions appear in **full text** on the printed protocol — not abbre
 
 ## Completing the case
 
-Click **Go to Summary** to submit the postoperative form. This opens the case summary with the printable protocol — but the case is **not yet finalised**.
+Click **Go to Summary** to submit the postoperative form. This opens the **case summary** — a continuous review of the whole case (including the intraoperative chart) — but the case is **not yet finalised**.
 
 ### 30-minute review window
 
@@ -80,7 +80,8 @@ After submitting postop, a **30-minute review period** begins. During this time:
 When the review period ends (or you click **Close Now**), the case is permanently finalised:
 - Status changes to **Case finished** on the dashboard
 - No further editing is possible
+- LOSPOR prompts **"Print case?"** — on the web this opens a dedicated print page; on a phone the record is downloaded as a PDF and handed to your share sheet. Also reachable any time via the **Print case** button on the case list/summary, or long-press on mobile. See [Protocol & Printing](./printing.md).
 
 :::tip
-Use the review window to verify the printed protocol looks correct before closing. The print / save PDF function is available immediately in the summary view.
+Use the review window to verify the summary looks correct before closing. Once the case is finished, the two-page record is one click away.
 :::

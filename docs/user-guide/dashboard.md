@@ -61,6 +61,13 @@ Click any row to open or continue the case.
 | **Awaiting review** | Post-op submitted; within the 30-minute review window |
 | **Case finished** | All three forms complete and review window closed |
 
+## Finished cases
+
+A finished case is read-only, but two actions remain available from the case list:
+
+- **Print case** — on the web, a button on the case row and summary; on mobile, **long-press** the case in the list. See [Protocol & Printing](./printing.md).
+- **View the timetable** — opening a finished case and tapping its summary timetable shows the printed record's chart in a read-only viewer (on mobile, with pinch-to-zoom). The live intraoperative screen is only for cases still in progress.
+
 ## Ongoing cases
 
 The **Ongoing cases** button in the top navigation bar shows a badge with the count of your active (non-complete) cases. Clicking it opens a dropdown with quick links to continue each case.

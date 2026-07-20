@@ -141,4 +141,6 @@ When complete, click **Save & continue** to proceed to the postoperative form.
 
 On mobile, the intraoperative form uses the same tab-based layout (Overview, Anaesthesia, Timetable/Chart). The timetable adapts to screen width automatically — all controls remain fully reachable on a phone screen.
 
+This live screen is for cases **in progress**. Once a case is finished it is locked, and opening its timetable from the case summary shows a **read-only viewer** instead — the printed record's chart, with pinch-to-zoom. See [Protocol & Printing](./printing.md#viewing-the-chart-on-a-phone).
+
 The **Log** tab is designed for fast, thumb-friendly event capture. Vital signs entry opens a dedicated sheet with large input fields. Drug and fluid logging use bottom sheets with preset options and confirmation actions.

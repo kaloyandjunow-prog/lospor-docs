@@ -16,7 +16,7 @@ LOSPOR guides the anaesthesiologist through three forms for each case:
 2. **Intraoperative record** — real-time timetable of vital signs, drugs, agents, infusions, and fluids
 3. **Postoperative recovery** — Aldrete score, pain, disposition, and handover instructions
 
-At the end, LOSPOR automatically generates a **printable two-page anaesthesia protocol** (PDF) containing all entered data in a standardised, professionally laid out document.
+At the end, LOSPOR produces a **two-page anaesthesia protocol** containing all entered data in a standardised, professionally laid out document — print it straight from the browser, or download it as a ready-made A4 PDF (which is what the mobile app shares to your phone's PDF viewer or printer).
 
 ## Who is it for?
 
@@ -30,7 +30,7 @@ At the end, LOSPOR automatically generates a **printable two-page anaesthesia pr
 ```
 Clinician registers → Opens new case → Fills preop form
   → Fills intraop form (live timetable) → Fills postop form
-  → Protocol generated → PDF printed → De-identified data stored
+  → Protocol generated → printed or shared as PDF → De-identified data stored
 ```
 
 Patient-identifiable information is **never stored**. The printed protocol leaves patient identity fields blank — fill them in by hand after printing.
