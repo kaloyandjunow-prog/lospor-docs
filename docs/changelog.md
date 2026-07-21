@@ -9,6 +9,22 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [5.4.0] - 2026-07-21
+
+Start and end times are now recorded as real moments in time, with the timezone they were entered in. This matters beyond the two visible faults it fixes: a time that cannot be placed on a real timeline cannot be compared between cases, between sites, or against anything else recorded during the anaesthetic — and the register's research value rests on exactly that.
+
+### Fixed
+- **The start time could lock itself to 00:00 with no way to correct it.** On the web app: open a case, reach the intraoperative screen, change anything at all — ticking a monitor was enough — then leave and come back, and the start time showed a locked "00:00". The record had no way to say "not started yet", so the first save wrote midnight as a stand-in; every later check then read that as a genuine start. Simply recording one entry on the chart could do the same. A case that has not been started is now genuinely blank, and the field stays editable until you set a time.
+- **The chart could begin at the wrong time, and the previous fix for it was never working here.** Start times were stored as a bare clock reading — "08:00", with nothing to say where in the world that was — while everything charted against them is an absolute moment. Combining the two put the start of the chart out by the local time difference from UTC: three hours in Bulgaria in summer. The correction released in 5.3.0 measured that disagreement, judged the record inconsistent, and silently reverted to the old behaviour every single time. It would only ever have worked in a country on UTC. Both apps now record the timezone alongside the time, so the chart begins where you said the case began.
+- **A case running across a daylight-saving change reported the wrong length**, because the duration was taken from the clock face rather than from time actually elapsed. In October that hid an hour; in March it invented one.
+- Finishing a case is now genuinely blocked when no start time was recorded — that safeguard existed but could never trigger.
+- The research export no longer records a placeholder date as the day of surgery.
+
+### A note on existing records
+Cases recorded before this release are **left exactly as they are**. Their timezone was never stored, so converting them would mean guessing — and a guessed timestamp is worse than an acknowledged gap, because afterwards it is indistinguishable from a real one. They keep their current behaviour and remain clearly identifiable as predating the change.
+
+---
+
 ## [5.3.0] - 2026-07-21
 
 An external review of the code produced around twenty-five findings; every one that was checked proved genuine, and they are fixed here. Alongside that, the intraoperative chart on the web app was brought back into line with the phone, which had quietly become the better-behaved of the two.
