@@ -9,6 +9,24 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [5.2.1] - 2026-07-21
+
+A correctness release. Two saving faults were found and fixed, one of which could lose data you had already entered.
+
+### Fixed
+- **Saving no longer clears fields you did not touch.** LOSPOR saves only what changed, but the server was treating any field left out of a save as though you had deliberately emptied it. Editing one value in the preoperative or postoperative form could therefore blank others in the same section. If a case looks like it has lost a height, weight or age that you know you entered, this is why.
+- **Autosave no longer fails while you are still typing a number.** Entering a height sent the value mid-entry; the server refused anything below 30 cm and rejected the *whole* save, so every other field you had just edited was discarded with it. Values that are still out of range are now set aside on their own, everything else saves normally, and the form tells you which value was not accepted instead of leaving it on screen looking stored.
+- The height, weight and age pickers now offer only values the record can actually accept.
+- On the live intraoperative chart, entering a start time later in the day is no longer read as "this case started yesterday" — which used to march the now-marker forward, grow the chart by an hour every few seconds, and could fill the record with observations that were never taken.
+
+### Changed
+- **The research export now includes the two tables standard OMOP tools require** (`PERSON` and `OBSERVATION_PERIOD`). Exports could previously not be loaded directly into ATLAS or ACHILLES without building them by hand. Year of birth is derived from age at operation, with month and day left explicitly unknown rather than invented; race and ethnicity are marked as not collected.
+- **The pseudonymous person identifier is now generated as the export manifest always described it** (SHA-256), and is wide enough that two unrelated cases cannot be assigned the same identifier as the register grows. The manifest also now states plainly that one person is recorded per case, so the same patient across two operations appears as two people — an intended consequence of storing no patient identifier, and a limitation to declare in any study protocol.
+- The export's data-contract version moves to `3.5.0` to signal the new tables to anyone consuming earlier exports.
+- The mobile sign-in screens show the full LOSPOR mark, and chart labels are translated in Bulgarian.
+
+---
+
 ## [5.2.0] - 2026-07-20
 
 The case summary now looks and reads the same on mobile, on the web, and on the printed protocol — all three are built from one shared model — and the printable A4 protocol has been redesigned around the intraoperative timetable.
