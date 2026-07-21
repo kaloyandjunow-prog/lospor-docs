@@ -9,6 +9,12 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [5.3.0] - Unreleased
+
+_In development._
+
+---
+
 ## [5.2.1] - 2026-07-21
 
 A correctness release. Two saving faults were found and fixed, one of which could lose data you had already entered.
