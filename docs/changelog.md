@@ -9,9 +9,25 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
-## [5.3.0] - Unreleased
+## [5.3.0] - 2026-07-21
 
-_In development._
+An external review of the code produced around twenty-five findings; every one that was checked proved genuine, and they are fixed here. Alongside that, the intraoperative chart on the web app was brought back into line with the phone, which had quietly become the better-behaved of the two.
+
+### Fixed
+- **Handing a case to a colleague could fail with an error.** Case numbers are counted per person and everyone's begin at `0001`, so if the colleague receiving the case already had that number, the transfer was refused outright. The case is now renumbered into their sequence when — and only when — the number is genuinely taken, and the number it arrived with is kept on record so a printed copy can still be traced.
+- **A deleted account kept working until its sign-in expired.** Deletion now takes effect immediately, and a change of role applies on the next action rather than the next sign-in.
+- **The chart could begin at a different time depending on which device you opened it on.** If you started a case at 08:25 but entered a start time of 08:00, the web app drew the chart from 08:00 and the phone from 08:25. Nobody charts at the moment of induction — there is a patient to attend to — so the time you enter is now the beginning of the chart everywhere. Existing records can be realigned.
+- **Changes made on one device did not appear on the other.** The live-update mechanism could not function on the hosting platform at all, and the web app had no fallback, so it had simply never worked in production.
+- **A typing slip in a number field quietly erased the value.** Entering something that is not a number stored an empty value and said nothing. Such entries are now refused and named, like any other value out of range.
+- **Rows on the intraoperative chart showed internal labels** such as `intraop.timetable.drugs` in place of "Drugs", because the translations were missing entirely.
+- The welcome tour no longer appears on top of the settings window.
+
+### Changed
+- **The drug, infusion, fluid, gas and agent menus on the web app now match the phone exactly** — the same eight clinical categories and the same favourites, rather than the flat search list the web app had drifted into. Adding a fluid or starting an agent on the web used to record the first suggested amount immediately, without showing it to you; both now ask you to confirm the dose, as the phone always has. The menus are now defined once and shared, so they cannot drift apart again.
+- **Typing in a drug by hand on the web chart has been removed.** It was never intended to be there, and it recorded names that no shared drug library could recognise — which is precisely the kind of entry that cannot be analysed later.
+- **Sex is recorded as unknown when it was not asked**, instead of quietly defaulting. "Not recorded" and "recorded as other" are different facts, and treating them as one distorts any figure calculated from the register.
+- Favourite drugs and infusions can be edited from the web app as well as the phone.
+- Accounts are permanently anonymised 30 days after deletion is requested. Audit records outlive the account deliberately — they are the evidence that the account existed and what it did.
 
 ---
 
