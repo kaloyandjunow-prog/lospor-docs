@@ -9,6 +9,20 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [5.4.1] - 2026-07-22
+
+A correctness release, prompted by a report from the ward. One of the faults could destroy a complete preoperative assessment, so it is worth reading even if you skip the rest.
+
+### Fixed
+- **A single out-of-range value could lose an entire preoperative assessment.** On the web app the height slider could be dragged below 30 cm, which is the lowest the record accepts. Saving a *new* case was all-or-nothing, so that one value made the whole save fail — and because the case had never been created, there was no draft to return to. Going back to the dashboard lost everything that had been typed. Creating a case now behaves the way editing one already did: the value it cannot accept is set aside and named, and everything else is kept.
+- **Four measurements offered values the record refuses.** Systolic pressure could be set as low as 1 when the minimum accepted is 40; diastolic 1 against 20; heart rate 1 against 10; and temperature 0 against 25 °C. Dragging any of those sliders to the bottom produced a reading that silently would not save. Every control is now limited to what the record actually accepts, on both the web app and the phone.
+- **A refused value now says so, where you typed it.** Previously it was dropped in silence and the form went on looking saved. The field is now outlined and states what it will accept — "must be 30–250 cm" rather than "invalid" — and the message stays until the value is corrected, so it cannot be missed by moving on quickly.
+
+### A note on how this was found
+The four measurement faults above were not in the original report. They surfaced when the picker limits were checked automatically against what the record accepts — a check that now runs on every change, so the two cannot drift apart again unnoticed.
+
+---
+
 ## [5.4.0] - 2026-07-21
 
 Start and end times are now recorded as real moments in time, with the timezone they were entered in. This matters beyond the two visible faults it fixes: a time that cannot be placed on a real timeline cannot be compared between cases, between sites, or against anything else recorded during the anaesthetic — and the register's research value rests on exactly that.
