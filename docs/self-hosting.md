@@ -44,6 +44,9 @@ DIRECT_URL="postgresql://postgres.<ref>:<pass>@aws-<region>.pooler.supabase.com:
 NEXTAUTH_SECRET="your-random-secret"   # openssl rand -base64 32
 NEXTAUTH_URL="https://your-domain.com"
 
+# Authorises the nightly retention job (see "Data retention" below)
+CRON_SECRET="your-random-secret"       # openssl rand -hex 32
+
 # Optional — AI pre-operative advisor and lab scan (Mistral La Plateforme; free tier available)
 MISTRAL_API_KEY="your-mistral-api-key"
 MISTRAL_API_BASE="https://api.mistral.ai/v1"   # optional — regional overrides fall back to the global base if inference is not allowed
@@ -143,9 +146,39 @@ The app will be available at `http://localhost:3000`.
    - `DATABASE_URL` — transaction pooler, **port 6543** (used by the app at runtime)
    - `DIRECT_URL` — session mode pooler, **port 5432 at the same pooler hostname** (used by Prisma's migration engine, which requires persistent prepared statements). Use `aws-<region>.pooler.supabase.com:5432` — **not** `db.<ref>.supabase.co:5432`, which is the direct connection and is unreachable from Vercel.
    - `NEXTAUTH_SECRET`, `NEXTAUTH_URL`, and optionally the Mistral keys.
+   - `CRON_SECRET` — see **Data retention** below. Vercel generates this for you when it picks up the cron in `vercel.json`; check it exists under **Settings → Environment Variables** after the first deploy.
 4. Deploy
 
 Vercel automatically handles SSL, CDN, and zero-downtime deployments.
+
+## Data retention
+
+`vercel.json` declares a nightly job (03:00) that anonymises accounts deleted more than 30 days ago and clears spent rate-limit counters. It is what makes the deletion promise in the privacy policy actually happen, rather than leaving deleted accounts in place indefinitely.
+
+It is authorised with `CRON_SECRET`, sent by Vercel as `Authorization: Bearer <secret>`. **The endpoint refuses to run when the secret is unset** — so a missing value fails safely, but silently: nothing is ever purged and there is no error to notice.
+
+Two things catch people out:
+
+- Environment variables only reach a function **at deploy time**. Adding `CRON_SECRET` in the dashboard does nothing until you redeploy.
+- A `403` from the endpoint means the secret is missing or wrong, not that the job failed.
+
+Verify it after deploying:
+
+```bash
+curl -s -H "Authorization: Bearer $CRON_SECRET" https://your-domain.com/api/internal/purge-deleted
+```
+
+A working job returns its tally, for example:
+
+```json
+{"ok":true,"retentionDays":30,"scanned":0,"anonymised":0,"rateLimitRowsRemoved":28}
+```
+
+Note this runs the purge for real — it is not a dry run. `anonymised` counts accounts that passed the 30-day window; `scanned` counts those examined. Anonymisation is irreversible.
+
+Cases are deliberately **kept** when an account is anonymised: they hold no patient identifiers by design and are the register's research value. Audit entries are kept too, still referencing the now-anonymous id, which is why `AuditLog.userId` is not a foreign key — a purge must never erase the record of what happened.
+
+If you are self-hosting somewhere other than Vercel, there is no cron for you: call the endpoint yourself from `cron`, a systemd timer, or any scheduler, with the same bearer header.
 
 ## 10 — Custom domain
 
