@@ -9,6 +9,12 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [5.4.2] - 2026-07-22
+
+A small fix on top of 5.4.1: whole-number weights could not be entered. Raising the weight minimum to half a kilogram in the previous release, without also adjusting the step, meant the field would only accept half-kilo values — so a round number like 105 kg was refused, offering 104.5 and 105.5 as the nearest options. Weight now accepts both whole and half kilograms.
+
+---
+
 ## [5.4.1] - 2026-07-22
 
 A correctness release, prompted by a report from the ward. One of the faults could destroy a complete preoperative assessment, so it is worth reading even if you skip the rest.

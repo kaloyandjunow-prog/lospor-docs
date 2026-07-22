@@ -1,6 +1,6 @@
 {
   "name": "lospor-docs",
-  "version": "5.4.1",
+  "version": "5.4.2",
   "private": true,
   "scripts": {
     "start": "docusaurus start",
