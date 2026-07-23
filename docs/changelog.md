@@ -9,6 +9,23 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [5.6.1] - 2026-07-24
+
+### Shared records and stricter checks
+
+- Web and mobile now read the same Core definitions for case details,
+  intraoperative events, and timetable data.
+- Old or malformed saved timetable rows are checked before display instead of
+  being trusted as valid clinical data.
+- Mobile's automated lint check now fails on every warning, including warnings
+  hidden by an inline suppression comment.
+- The intraoperative mobile screen keeps unchanged tab and sheet inputs stable
+  to avoid unnecessary rerendering.
+- No database migration is required.
+
+See [Application architecture](./architecture.md) for repository ownership and
+the shared-contract boundary.
+
 ## [5.6.0] - 2026-07-23
 
 ### Autosave Manager
