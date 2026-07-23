@@ -58,13 +58,21 @@ Choose up to 8 favourite bolus drugs and up to 8 favourite infusions. These are 
 - **Mobile — Clear local clinical cache** *(Privacy & Data)*: removes offline drafts and queued saves from the device only.
 
 #### Auto-fill vitals
-When enabled, the previous vital signs reading is used as a starting point for the next entry.
+Master switch for automatic intraoperative vital carry-forward. When enabled,
+LOSPOR copies the previous EtCO2, SpO2, and temperature into each missed empty
+5-minute timetable column as time advances.
 
-#### Auto-fill blood pressure
-Pre-fills the systolic and diastolic fields from the most recent reading.
+#### Auto-fill BP & HR
+Child option that requires **Auto-fill vitals**. It also carries forward
+systolic blood pressure, diastolic blood pressure, and heart rate.
 
-#### Auto-fill heart rate
-Pre-fills the heart rate field from the most recent reading.
+#### Backfill on reopen
+Child option that requires **Auto-fill vitals**. When an in-progress case is
+reopened, LOSPOR fills empty timetable columns between the last recorded vitals
+and the current time.
+
+Turning off **Auto-fill vitals** also turns off the child options on web and
+mobile, so hidden stale settings cannot generate observations later.
 
 #### Background refresh
 Keeps the case list and active case updated in the background.

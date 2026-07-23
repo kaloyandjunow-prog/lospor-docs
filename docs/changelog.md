@@ -9,6 +9,23 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [5.5.1] - 2026-07-23
+
+Auto-fill vitals is now canonical across the web app and mobile app.
+
+### Fixed
+- Turning off **Auto-fill vitals** also turns off the BP/HR carry-forward and
+  backfill-on-reopen child options, so stale hidden settings cannot reactivate
+  later.
+- Background backfill no longer runs unless the master auto-fill option is on.
+- Missed 5-minute columns after a browser/app resume are planned consistently
+  through the shared core helper.
+
+### Release
+- Web, mobile, core, and docs are aligned on the common `5.5.1` release line.
+
+---
+
 ## [5.5.0] - 2026-07-23
 
 The release line is aligned across the web app, mobile app, core package, and
