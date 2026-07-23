@@ -9,6 +9,23 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [5.6.0] - 2026-07-23
+
+### Autosave Manager
+
+- Mobile, PWA, and web now use one save coordinator. Every change is recorded
+  locally before the app tries to send it.
+- Saves for one case are sent in order. If another device changed the same
+  section first, the app adopts the new revision and retries the small changed
+  fields once.
+- Timetable additions, edits, and deletions are separate durable operations.
+  The apps no longer replace the whole timeline to remove or edit one item.
+- Reopening a case restores unsent work over the latest server copy.
+- A case cannot be finalized while changes are still waiting to sync.
+- The database adds monotonic revision counters for preop, intraop, and postop.
+
+See [How autosave works](./autosave-manager.md) for the recovery rules.
+
 ## [5.5.1] - 2026-07-23
 
 Auto-fill vitals is now canonical across the web app and mobile app.

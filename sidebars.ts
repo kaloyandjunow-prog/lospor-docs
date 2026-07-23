@@ -20,6 +20,7 @@ const sidebars: SidebarsConfig = {
     },
     "admin-guide",
     "self-hosting",
+    "autosave-manager",
     "data-research",
     "changelog",
   ],
