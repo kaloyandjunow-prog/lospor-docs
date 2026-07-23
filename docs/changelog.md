@@ -9,6 +9,14 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [5.5.0] - 2026-07-23
+
+The release line is aligned across the web app, mobile app, core package, and
+documentation. The current mobile live-refresh docs now describe the production
+version-polling path rather than the removed SSE stream.
+
+---
+
 ## [5.4.2] - 2026-07-22
 
 A small fix on top of 5.4.1: whole-number weights could not be entered. Raising the weight minimum to half a kilogram in the previous release, without also adjusting the step, meant the field would only accept half-kilo values — so a round number like 105 kg was refused, offering 104.5 and 105.5 as the nearest options. Weight now accepts both whole and half kilograms.
