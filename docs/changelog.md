@@ -9,6 +9,27 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [6.0.0] - Unreleased
+
+### One clinical rule set
+
+- Web, PWA, and mobile now use Core for case payloads, validation, readiness,
+  finalization, timetable projection, active-item reconstruction, totals, and
+  clinician-facing case stages.
+- Option-library metadata is checked through strict shared readers. Invalid
+  dose, route, range, weight-basis, and event metadata is no longer trusted by
+  one client while another applies a different fallback.
+- Units, default monitoring, vital autofill, and intraoperative favourites
+  follow the signed-in account. Exact offline edits are merged over the newest
+  account settings when connectivity returns.
+- Favourites use stable option identities, so display-label or translation
+  changes do not lose the saved choice.
+- Database/API ownership remains in the web repository. Core stays a pure
+  TypeScript clinical library, and no database migration is required.
+
+See [Application architecture](./architecture.md) for the ownership boundary
+and release order.
+
 ## [5.6.1] - 2026-07-24
 
 ### Shared records and stricter checks
