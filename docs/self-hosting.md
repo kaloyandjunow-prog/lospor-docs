@@ -3,213 +3,148 @@ sidebar_position: 4
 title: Self-hosting
 ---
 
-# Self-hosting Guide
+# Self-hosting
 
-LOSPOR can be self-hosted by any institution on their own infrastructure. The application is a standard Next.js app backed by a PostgreSQL database.
+LOSPOR v7 uses two Node.js services and one PostgreSQL database. They may run
+on one physical server:
+
+- `lospor-api`, default port `3002`
+- `lospor-app`, default port `3000`
+- PostgreSQL
+
+The mobile app is installed on phones; it is not a third server.
 
 ## Requirements
 
-- **Node.js** 18 or later
-- **PostgreSQL** database (Supabase recommended — free tier is sufficient)
-- A **Vercel** account (free Hobby tier is sufficient) or any server running Node.js
+- Node.js 20 or later
+- PostgreSQL
+- the `lospor-api` and `lospor-app` repositories
+- a tagged `@lospor/core` version used by both services
 
-## 1 — Get the code
+## 1. Configure the API
 
-```bash
-git clone https://github.com/kaloyandjunow-prog/lospor-app.git
-cd lospor-app
-npm install
-```
-
-## 2 — Set up the database
-
-Create a free project at [supabase.com](https://supabase.com). After creating the project:
-
-1. Go to **Project Settings** → **Database** → **Connection String**
-2. Copy the **Transaction** pooler URI (port 6543) — this is your `DATABASE_URL`
-
-## 3 — Configure environment variables
-
-Copy `.env.example` to `.env` and fill in your values:
-
-```bash
-cp .env.example .env
-```
+In `lospor-api`, create `.env.local` from `.env.example`. At minimum set:
 
 ```env
-# Transaction pooler — used by the app at runtime (port 6543)
-DATABASE_URL="postgresql://postgres.<ref>:<pass>@aws-<region>.pooler.supabase.com:6543/postgres"
-# Session mode pooler — used by Prisma migrations (port 5432, same hostname as DATABASE_URL)
-DIRECT_URL="postgresql://postgres.<ref>:<pass>@aws-<region>.pooler.supabase.com:5432/postgres"
-NEXTAUTH_SECRET="your-random-secret"   # openssl rand -base64 32
-NEXTAUTH_URL="https://your-domain.com"
-
-# Authorises the nightly retention job (see "Data retention" below)
-CRON_SECRET="your-random-secret"       # openssl rand -hex 32
-
-# Optional — AI pre-operative advisor and lab scan (Mistral La Plateforme; free tier available)
-MISTRAL_API_KEY="your-mistral-api-key"
-MISTRAL_API_BASE="https://api.mistral.ai/v1"   # optional — regional overrides fall back to the global base if inference is not allowed
-MISTRAL_MODEL="open-mistral-7b"                 # optional — override model
-
+DATABASE_URL="postgresql://..."
+DIRECT_URL="postgresql://..."
+LOSPOR_AUTH_SECRET="a-long-random-secret"
+NEXTAUTH_SECRET="the-same-secret"
+LOSPOR_WEB_URL="http://localhost:3000"
+CORS_ALLOW_ORIGINS="http://localhost:3000,http://localhost:3001"
 ```
 
-### Generate NEXTAUTH_SECRET
+Keep `NEXTAUTH_SECRET` equal to `LOSPOR_AUTH_SECRET` during the V6
+compatibility period so existing mobile bearer tokens can be verified.
+
+Optional API settings cover Brevo email, Mistral AI, OMOP pseudonymization,
+PDF browser location, catalog snapshots, and the retention cron.
+
+## 2. Prepare the database
+
+Database commands run only from `lospor-api`:
 
 ```bash
-openssl rand -base64 32
-```
-
-## 4 — Apply the database schema
-
-```bash
+cd lospor-api
+npm ci
 npx prisma migrate deploy
+npm run db:seed
+npm run seed:icd10-bg
+npm run seed:athena
+npm run seed:concept-maps
 ```
 
-This creates all the required tables in your database.
+Large Athena imports should run from a trusted maintenance machine, not from a
+serverless build hook. The seed and backfill scripts are idempotent unless
+their own help text states otherwise.
 
-## 5 — Seed institutions (optional)
-
-The Bulgarian NHIF institution list is already included. To seed it:
-
-```bash
-npx tsx prisma/seed.ts
-```
-
-## 6 — Seed ICD-10 vocabulary (required for diagnosis search)
-
-Diagnosis and comorbidity search requires the ICD-10 vocabulary to be seeded.
-Download the vocabulary bundle from [athena.ohdsi.org](https://athena.ohdsi.org/vocabulary/list)
-(select at minimum: ICD10, ICD10CM, ATC) and place the CSV files in a local folder.
-Then run:
+## 3. Start the API
 
 ```bash
-npx tsx scripts/seed-vocabularies.ts --vocab-dir /path/to/athena-csvs
-npx tsx scripts/seed-athena-vocabularies.ts --vocab-dir /path/to/athena-csvs --filtered-lospor
-npx tsx scripts/seed-lab-loinc.ts
-```
-
-These scripts are idempotent and safe to re-run. Bulgarian ICD-10 labels are loaded
-from an Excel file matching `ICD10_*.xlsx` in the same folder (official MZ export).
-
-Run Athena import locally or from a trusted maintenance machine. Do not run it
-from Vercel build hooks, serverless API routes, app startup, or deployed runtime.
-The deployed app only reads already-seeded Supabase tables. Filtered import is
-recommended for Supabase because full Athena can consume many GB of database
-storage once indexes are included.
-
-## 7 — Seed the option library (required)
-
-Every intraop/preop/postop picker and clinical number-control catalogue is served
-from a database table that starts out **empty** after step 4: position,
-technique, vascular access, airway management, monitoring, premedication drugs,
-intraop drugs, infusions, inhalational agents, fluids, clinical events, sex,
-blood group, airway grades, disposition, handover items, and numeric range
-specifications. Without this step the app loads, but clinical pickers will fall
-back to cached/bundled data or appear blank depending on the client state.
-
-```bash
-npx tsx scripts/seed-option-library.ts
-```
-
-Idempotent and safe to re-run.
-## Concept maps, backfill, and quality report
-
-LOSPOR also needs the local concept map and relational research rows to be prepared after the option library is seeded:
-
-```bash
-npx tsx scripts/seed-concept-maps.ts
-npx tsx scripts/backfill-relational.ts
-npx tsx scripts/data-quality-report.ts
-```
-
-`seed-concept-maps` preserves ICD-10 English/Bulgarian labels, LOINC, ATC, INN, app-local option values, mapping method/confidence, review state, and known OMOP concept IDs where the filtered local Athena import provides confident standard mappings. `backfill-relational` rebuilds normalized research rows from existing cases. `data-quality-report` is read-only and reports Athena import coverage, relational drift, unmapped/source-only concepts, invalid ranges, future timestamps, export linkage warnings, and missing key research fields.
-
-If seeding fails with a `LibraryCategory` enum error, do not edit an already
-applied migration file. Apply the tracked additive enum migration with
-`npx prisma migrate deploy`, then re-run the seed. Prisma validates migration
-checksums, so historical migration files must stay unchanged once applied.
-
-## 8 — Run in development
-
-```bash
+cd lospor-api
 npm run dev
 ```
 
-The app will be available at `http://localhost:3000`.
+Verify:
 
-## 9 — Deploy to Vercel
+```bash
+curl http://localhost:3002/health/live
+curl http://localhost:3002/health/ready
+curl http://localhost:3002/v1/capabilities
+```
 
-1. Push your code to a GitHub repository (private is fine)
-2. Import the project at [vercel.com](https://vercel.com)
-3. Set the following environment variables in the Vercel dashboard. You need both `DATABASE_URL` and `DIRECT_URL`:
-   - `DATABASE_URL` — transaction pooler, **port 6543** (used by the app at runtime)
-   - `DIRECT_URL` — session mode pooler, **port 5432 at the same pooler hostname** (used by Prisma's migration engine, which requires persistent prepared statements). Use `aws-<region>.pooler.supabase.com:5432` — **not** `db.<ref>.supabase.co:5432`, which is the direct connection and is unreachable from Vercel.
-   - `NEXTAUTH_SECRET`, `NEXTAUTH_URL`, and optionally the Mistral keys.
-   - `CRON_SECRET` — see **Data retention** below. Vercel generates this for you when it picks up the cron in `vercel.json`; check it exists under **Settings → Environment Variables** after the first deploy.
-4. Deploy
+`live` proves the process is running. `ready` also checks the database.
 
-Vercel automatically handles SSL, CDN, and zero-downtime deployments.
+## 4. Configure and start web
+
+In `lospor-app/.env.local`:
+
+```env
+LOSPOR_API_INTERNAL_URL="http://localhost:3002"
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+```
+
+Then:
+
+```bash
+cd lospor-app
+npm ci
+npm run dev
+```
+
+Open `http://localhost:3000`. Web has no database credentials.
+
+## 5. Connect Expo locally
+
+Set the phone-reachable LAN address in `lospor-mobile/.env.local`:
+
+```env
+EXPO_PUBLIC_API_BASE="http://192.168.x.x:3002"
+```
+
+The phone and server must be on the same network. Restart Expo with a cleared
+cache after changing this value.
+
+## Vercel deployment
+
+Create two Vercel projects:
+
+1. `lospor-api` at `api.lospor.org`, with database, auth, email, AI, CORS,
+   retention, and OMOP secrets.
+2. `lospor-app` at `app.lospor.org`, with
+   `LOSPOR_API_INTERNAL_URL=https://api.lospor.org`.
+
+Only the API project runs `prisma migrate deploy` and the retention cron. Web
+must never receive `DATABASE_URL`, `DIRECT_URL`, or the API signing secret.
+
+Deploy API first, verify health and login, then deploy web. Configure mobile
+and PWA with:
+
+```env
+EXPO_PUBLIC_API_BASE="https://api.lospor.org"
+```
+
+## Updates and rollback
+
+Back up PostgreSQL before migrations. Deploy in this order: Core, API, web,
+then mobile/PWA. Keep the previous API and web artifacts available until the
+new clients have completed a cross-device case test.
+
+The web `/api/*` proxy supports V6 clients for the documented compatibility
+window. Removing it early would break old installed applications.
 
 ## Data retention
 
-`vercel.json` declares a nightly job (03:00) that anonymises accounts deleted more than 30 days ago and clears spent rate-limit counters. It is what makes the deletion promise in the privacy policy actually happen, rather than leaving deleted accounts in place indefinitely.
+The API's `vercel.json` calls `/v1/internal/purge-deleted` nightly. Non-Vercel
+installations must call the same endpoint from their scheduler with:
 
-It is authorised with `CRON_SECRET`, sent by Vercel as `Authorization: Bearer <secret>`. **The endpoint refuses to run when the secret is unset** — so a missing value fails safely, but silently: nothing is ever purged and there is no error to notice.
-
-Two things catch people out:
-
-- Environment variables only reach a function **at deploy time**. Adding `CRON_SECRET` in the dashboard does nothing until you redeploy.
-- A `403` from the endpoint means the secret is missing or wrong, not that the job failed.
-
-Verify it after deploying:
-
-```bash
-curl -s -H "Authorization: Bearer $CRON_SECRET" https://your-domain.com/api/internal/purge-deleted
+```text
+Authorization: Bearer <CRON_SECRET>
 ```
 
-A working job returns its tally, for example:
-
-```json
-{"ok":true,"retentionDays":30,"scanned":0,"anonymised":0,"rateLimitRowsRemoved":28}
-```
-
-Note this runs the purge for real — it is not a dry run. `anonymised` counts accounts that passed the 30-day window; `scanned` counts those examined. Anonymisation is irreversible.
-
-Cases are deliberately **kept** when an account is anonymised: they hold no patient identifiers by design and are the register's research value. Audit entries are kept too, still referencing the now-anonymous id, which is why `AuditLog.userId` is not a foreign key — a purge must never erase the record of what happened.
-
-If you are self-hosting somewhere other than Vercel, there is no cron for you: call the endpoint yourself from `cron`, a systemd timer, or any scheduler, with the same bearer header.
-
-## 10 — Custom domain
-
-In Vercel, go to **Settings** → **Domains** and add your domain. Configure the DNS records as directed by Vercel.
-
-Update `NEXTAUTH_URL` to your production domain and redeploy.
-
-## Updating
-
-To update to a newer version of LOSPOR:
-
-```bash
-git pull origin main
-npm install
-npx prisma migrate deploy   # apply tracked migrations (production-safe)
-npx tsx scripts/seed-option-library.ts
-npx tsx scripts/seed-concept-maps.ts
-npx tsx scripts/backfill-relational.ts
-npx tsx scripts/data-quality-report.ts
-```
-
-Commit and push to trigger a Vercel redeployment.
-
-## Creating the first admin
-
-After registering your first account, promote it to admin directly in the Supabase table editor:
-
-1. Supabase → **Table Editor** → `User` table
-2. Find your user row → set `role` to `ADMIN`
-3. Refresh the app — the Admin panel appears in the navigation bar
+The endpoint refuses to run when the secret is absent or wrong.
 
 ## Licence
 
-LOSPOR is licensed under **AGPL-3.0**. Self-hosted installations must make their source code available to users if modified. The unmodified code is already open source at GitHub.
+LOSPOR is AGPL-3.0-or-later. Organizations that modify and provide the
+networked software must meet the license's source-availability requirements.

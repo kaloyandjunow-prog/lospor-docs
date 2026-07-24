@@ -4,95 +4,95 @@ title: Application architecture
 
 # Application architecture
 
-LOSPOR is split into four repositories with clear ownership:
+LOSPOR v7 is split into five repositories:
 
-- **Web (`lospor-app`)** owns the canonical database schema and API.
-- **Mobile/PWA (`lospor-mobile`)** owns the Expo clinical interface.
-- **Core (`lospor-core`)** owns platform-neutral clinical rules, sync logic,
-  and data contracts used by both apps.
-- **Docs (`lospor-docs`)** explains user, administrator, and developer
-  behavior.
+- **API (`lospor-api`)** owns HTTP behavior, authentication, PostgreSQL,
+  Prisma migrations, email, AI providers, PDF rendering, audit data, and OMOP
+  persistence/export.
+- **Web (`lospor-app`)** owns the Next.js browser interface. It has no database
+  credentials and does not import Prisma.
+- **Mobile/PWA (`lospor-mobile`)** owns the Expo clinical interface and offline
+  device storage.
+- **Core (`lospor-core`)** owns framework-free clinical rules, catalogs,
+  validation, synchronization protocols, and shared data contracts.
+- **Docs (`lospor-docs`)** owns user, administrator, and developer guidance.
 
-## Shared data contracts
+## Request flow
 
-Core defines the shape of case details, intraoperative events, and timetable
-snapshots once. Web and mobile import those definitions. A field change is
-therefore checked in both apps by their TypeScript builds.
+New clients use the versioned API directly:
 
-Runtime parsers sit at storage and network boundaries. They accept supported
-legacy representations, such as an infusion rate stored as text or a number,
-and reject malformed rows before application code uses them.
+```text
+Web / Mobile / PWA -> https://api.lospor.org/v1 -> PostgreSQL
+```
+
+During the V6 compatibility period, requests to the old web address are
+forwarded without reimplementing the endpoint:
+
+```text
+V6 client -> https://app.lospor.org/api/* -> https://api.lospor.org/v1/*
+```
+
+The compatibility proxy is intended to remain for 12 months after the V7
+production release. It gives installed mobile versions time to update. It does
+not mean every old behavior is copied into the web application.
+
+## Authentication
+
+The API is the authority for login and account state. Native clients use a
+signed bearer token. Browser clients use the same API-owned session token in
+an HttpOnly cookie. Role changes, account deletion, password resets, and token
+revocation are checked against the live account.
+
+The first V7 release supports first-party LOSPOR clients. The API is structured
+and documented for future integrations, but third-party client registration
+and scoped credentials are not enabled yet.
 
 ## Shared clinical domain
 
-From v6.0.0, Core also owns the pure rules that must produce the same answer
-on every client:
+Core owns rules that must produce the same clinical answer on every client:
 
-- the complete clinical option catalog, aliases, trees, profiles, and bundled
-  offline fallback;
-- laboratory lookup and range classification, ICD-10 body systems, ASA
-  suggestions, and semantic risk bands;
-- canonical preoperative and postoperative save payloads;
-- clinical number limits, enum values, section completion, readiness,
-  finalization warnings, Aldrete, and handover checks;
-- monitoring defaults, airway requirements, and technique normalization;
-- event-log to timetable projection and the reverse legacy conversion;
-- active infusion, fluid, gas, and agent reconstruction;
-- semantic event descriptions, drug/infusion totals, and timetable summaries;
-- persisted case statuses and clinician-facing derived stages;
-- stable option identities and strict option metadata readers;
-- account policy, search-result contracts, and measurement display metadata;
-  and
-- framework-free option caching, case-lock leases, polling, revisions,
-  conflicts, and autosave decisions.
+- clinical catalogs, aliases, trees, profiles, and offline fallback;
+- laboratories, ICD-10 systems, ASA suggestions, and risk bands;
+- clinical limits, validation, readiness, finalization, Aldrete, and handover;
+- monitoring, airway, technique, and option metadata;
+- timetable projection, active infusions/fluids/gases/agents, totals, and
+  semantic event descriptions;
+- status derivation, account policy, search contracts, units, and summaries;
+- option caching, locks, polling, revision/conflict handling, and autosave
+  decisions; and
+- API version, capability, error, health, and session contracts.
 
-Web and mobile keep thin adapters where their representations genuinely
-differ. For example, Core calculates an infusion rate as a number, while the
-mobile editing control may display it as text. Formatting, translations,
-colors, animations, and component state remain client concerns.
+Core has no React, Expo, Next.js, Prisma, storage, or network implementation.
+Clients keep translations, layout, animation, haptics, and device storage. The
+API keeps database queries and external service adapters.
 
-## Clinical settings across devices
+## Deployment boundary
 
-Display units, default monitoring, vital-sign autofill, and intraoperative
-drug and infusion favourites belong to the signed-in account. Theme, language,
-layout, and notifications remain local to each device.
+Web and API are separate deployable services. A web outage does not remove the
+API used by installed mobile clients. An API or database outage still prevents
+server synchronization, but mobile can retain queued work through its offline
+system and send it when service returns.
 
-Both clients keep a small local clinical-settings snapshot so settings work
-offline. An offline change records the exact fields changed, rather than only
-marking the whole snapshot as dirty. On reconnect, those fields are applied
-over the newest account settings. This prevents one offline unit change from
-overwriting an unrelated setting changed on another device.
-
-Favourites are stored with a stable option identity rather than their visible
-label. Renaming or translating an option therefore does not silently remove it
-from a clinician's favourites.
-
-## Status ownership
-
-The database stores only the canonical persistence statuses: `DRAFT`,
-`IN_PROGRESS`, `AWAITING_REVIEW`, and `COMPLETE`. Extra workflow labels such
-as `AWAITING_ALLOCATION` and `AWAITING_POSTOP` are derived display stages.
-They are never written as database statuses.
+The API currently supports Vercel/serverless deployment and sets
+`output: standalone` for a future local Node/container installation. A local
+institution can later run API, web, and PostgreSQL on one physical server; they
+are separate processes, not necessarily separate machines.
 
 ## Release order
 
-Core must be published and tagged before web and mobile are changed to depend
-on that tag. Clean installs of either client must use the same Core release
-that their source imports. The v6.0.0 domain change does not require a database
-migration.
+1. Publish and tag Core v7.
+2. Update API, web, and mobile to the Core v7 tag and verify clean installs.
+3. Apply API-owned database migrations.
+4. Deploy the API and verify live/ready health checks and `/v1/capabilities`.
+5. Deploy web with its API origin.
+6. Release PWA/mobile after end-to-end compatibility tests.
 
-The web repository still owns deployment because it contains the API and
-database adapters. Moving pure shared logic to Core does not make Core a
-server, and it does not make mobile dependent on local source folders at
-runtime.
+The V6 tags remain the rollback baseline. A release must never point npm at a
+developer's local sibling directory.
 
-## What stays outside Core
+## Enforced boundaries
 
-Core has no React components, Expo APIs, Next.js routes, Prisma client, or
-database connection. UI remains in each app, and the web repository remains the
-single owner of persistence and HTTP behavior. This keeps Core reusable and
-prevents a shared package from becoming a second backend.
-
-Translations, colors, layout, animations, haptics, device storage, database
-queries, authentication, email, AI providers, OMOP persistence, and network
-requests stay in their owning application.
+Repository checks reject Prisma, database, or authentication implementations
+inside web and reject browser/device storage code inside API. API route and
+OpenAPI coverage tests prevent an endpoint from being added without appearing
+in the generated contract.

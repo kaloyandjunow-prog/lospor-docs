@@ -9,6 +9,26 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [7.0.0] - In development
+
+### Dedicated API service
+
+- Database, authentication, email, AI, PDF, audit, OMOP, maintenance jobs,
+  migrations, and HTTP routes now live in the new `lospor-api` repository.
+- Web is a database-free browser interface. Mobile and PWA call the versioned
+  `/v1` API directly.
+- The old web `/api/*` address remains as a forwarding compatibility path for
+  V6 clients during the 12-month transition.
+- API live/ready checks, capability discovery, request IDs, generated OpenAPI,
+  and repository boundary checks were added.
+- Core now defines shared API/session/error capability contracts without
+  becoming a server or gaining database/network code.
+- The API can run serverlessly today and produces a standalone Node build for
+  future institution-hosted deployments.
+
+See [Application architecture](./architecture.md), [API](./api.md), and
+[Self-hosting](./self-hosting.md).
+
 ## [6.0.0] - Unreleased
 
 ### One clinical rule set
