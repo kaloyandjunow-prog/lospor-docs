@@ -16,6 +16,13 @@ All notable changes to LOSPOR are documented here.
 - Web, PWA, and mobile now use Core for case payloads, validation, readiness,
   finalization, timetable projection, active-item reconstruction, totals, and
   clinician-facing case stages.
+- The full clinical option catalog, offline fallback, laboratory rules,
+  ICD-10 systems, ASA/risk bands, airway/monitoring decisions,
+  Aldrete/handover rules, event descriptions, and timetable summaries now
+  have one Core implementation.
+- Option caching, case locks, polling, revision/conflict headers, account
+  policy, and typed search results share pure Core controllers while each app
+  keeps its own storage and network adapters.
 - Option-library metadata is checked through strict shared readers. Invalid
   dose, route, range, weight-basis, and event metadata is no longer trusted by
   one client while another applies a different fallback.
@@ -26,6 +33,22 @@ All notable changes to LOSPOR are documented here.
   changes do not lose the saved choice.
 - Database/API ownership remains in the web repository. Core stays a pure
   TypeScript clinical library, and no database migration is required.
+- Privacy-rejected fields now remain visible locally with a specific reason.
+  Safe sibling fields still save, unchanged rejected text is not retried in a
+  loop, and editing the affected field retries it.
+- Uppercase Bulgarian ICD-10 labels selected from the coded catalogue no
+  longer look like patient names to the privacy filter. Strong EGN, ID-number,
+  date, and email checks remain active.
+- Web gas bars show every FGF and O2/Air or O2/N2O change at the correct
+  five-minute column, use the same rounded edges as the other running bars,
+  and describe gas events in readable language.
+- Intraoperative timelines now persist one exact start/end instant plus the
+  case timezone. Timing saves are ordered before events, and legacy wall-clock
+  values are no longer guessed into dates or allowed to create future vitals.
+- A dry-run anomaly report and separately guarded tombstone repair command are
+  available for reviewing older shifted duplicate events.
+- Automated guards now reject copied catalogs, threshold functions, aliases,
+  and hardcoded timetable intervals before they can reach a release.
 
 See [Application architecture](./architecture.md) for the ownership boundary
 and release order.

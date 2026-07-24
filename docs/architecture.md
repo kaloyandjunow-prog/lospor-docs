@@ -28,14 +28,23 @@ and reject malformed rows before application code uses them.
 From v6.0.0, Core also owns the pure rules that must produce the same answer
 on every client:
 
+- the complete clinical option catalog, aliases, trees, profiles, and bundled
+  offline fallback;
+- laboratory lookup and range classification, ICD-10 body systems, ASA
+  suggestions, and semantic risk bands;
 - canonical preoperative and postoperative save payloads;
-- clinical number limits, enum values, readiness, and finalization checks;
+- clinical number limits, enum values, section completion, readiness,
+  finalization warnings, Aldrete, and handover checks;
+- monitoring defaults, airway requirements, and technique normalization;
 - event-log to timetable projection and the reverse legacy conversion;
 - active infusion, fluid, gas, and agent reconstruction;
-- drug and infusion totals plus printable timetable summaries;
+- semantic event descriptions, drug/infusion totals, and timetable summaries;
 - persisted case statuses and clinician-facing derived stages;
-- stable option identities and strict option metadata readers; and
-- account-level clinical preference normalization and merge rules.
+- stable option identities and strict option metadata readers;
+- account policy, search-result contracts, and measurement display metadata;
+  and
+- framework-free option caching, case-lock leases, polling, revisions,
+  conflicts, and autosave decisions.
 
 Web and mobile keep thin adapters where their representations genuinely
 differ. For example, Core calculates an infusion rate as a number, while the
@@ -72,9 +81,18 @@ on that tag. Clean installs of either client must use the same Core release
 that their source imports. The v6.0.0 domain change does not require a database
 migration.
 
+The web repository still owns deployment because it contains the API and
+database adapters. Moving pure shared logic to Core does not make Core a
+server, and it does not make mobile dependent on local source folders at
+runtime.
+
 ## What stays outside Core
 
 Core has no React components, Expo APIs, Next.js routes, Prisma client, or
 database connection. UI remains in each app, and the web repository remains the
 single owner of persistence and HTTP behavior. This keeps Core reusable and
 prevents a shared package from becoming a second backend.
+
+Translations, colors, layout, animations, haptics, device storage, database
+queries, authentication, email, AI providers, OMOP persistence, and network
+requests stay in their owning application.
