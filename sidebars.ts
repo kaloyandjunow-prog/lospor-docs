@@ -20,6 +20,7 @@ const sidebars: SidebarsConfig = {
     },
     "admin-guide",
     "self-hosting",
+    "release-v7",
     "architecture",
     "api",
     "autosave-manager",

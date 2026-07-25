@@ -9,7 +9,7 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
-## [7.0.0] - In development
+## [7.0.0] - 2026-07-25
 
 ### Dedicated API service
 
@@ -25,11 +25,15 @@ All notable changes to LOSPOR are documented here.
   becoming a server or gaining database/network code.
 - The API can run serverlessly today and produces a standalone Node build for
   future institution-hosted deployments.
+- Mobile/PWA clinical queues now use durable storage suitable for full case
+  data. Intraoperative taps are stored before network debouncing, older queued
+  work migrates automatically, and the dashboard recovers automatically when
+  Wi-Fi returns.
 
 See [Application architecture](./architecture.md), [API](./api.md), and
 [Self-hosting](./self-hosting.md).
 
-## [6.0.0] - Unreleased
+## [6.0.0] - 2026-07-24
 
 ### One clinical rule set
 
