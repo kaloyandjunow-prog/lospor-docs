@@ -5,7 +5,7 @@ title: Data & Research
 
 # Data & Research
 
-LOSPOR stores perioperative data for clinical documentation, audit, personal portfolio, and de-identified / pseudonymised research datasets. The web app owns the canonical PostgreSQL/API contract; mobile and PWA clients map their payloads into the same field names and libraries before persistence.
+LOSPOR stores perioperative data for clinical documentation, audit, personal portfolio, and de-identified / pseudonymised research datasets. The dedicated `lospor-api` service owns the canonical PostgreSQL/API contract; web, mobile, and PWA clients map their payloads into the same field names and libraries before persistence.
 
 ## What data does LOSPOR collect?
 
@@ -109,6 +109,12 @@ The export includes:
 Known OMOP concept IDs are stored/exported where confidently mapped. Filtered Athena CSV import can enrich LOINC, ICD-10, and ATC mappings through local OMOP vocabulary tables without storing the full Athena bundle. Otherwise LOSPOR exports source vocabulary, source code, and source labels with an explicit source-only/unmapped status. Fake OMOP IDs are not used.
 
 Each export includes a manifest with app/schema version, concept-map version, row counts, mapping summary, de-identification notes, and quality warnings. App exports warn rather than block when source-only mappings, missing field-status rows, exact timestamps, or institution linkage are present.
+
+An OMOP request that matches more than 5000 cases is rejected with HTTP 422
+and reports the matching count, limit, and `complete: false`. LOSPOR never
+returns the first 5000 cases as if they were the full research dataset. Narrow
+the export or use the future resumable institution-to-datacentre export
+workflow for larger cohorts.
 
 ## De-identification / pseudonymisation
 

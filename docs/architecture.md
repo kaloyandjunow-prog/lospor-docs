@@ -66,6 +66,18 @@ Core has no React, Expo, Next.js, Prisma, storage, or network implementation.
 Clients keep translations, layout, animation, haptics, and device storage. The
 API keeps database queries and external service adapters.
 
+## Locking and offline safety
+
+The API acquires case-editing leases with one atomic PostgreSQL operation. Two
+devices cannot both be told that they acquired the same available lease.
+Clients may deliberately remain usable when the lock endpoint is temporarily
+unreachable; revision checks still reject stale writes before they overwrite
+newer server data.
+
+Offline storage is platform-specific. Native mobile uses the application's
+private filesystem. PWA uses IndexedDB so new-case drafts survive reloads and
+can synchronize after connectivity returns.
+
 ## Deployment boundary
 
 Web and API are separate deployable services. A web outage does not remove the
@@ -93,6 +105,9 @@ developer's local sibling directory.
 ## Enforced boundaries
 
 Repository checks reject Prisma, database, or authentication implementations
-inside web and reject browser/device storage code inside API. API route and
-OpenAPI coverage tests prevent an endpoint from being added without appearing
-in the generated contract.
+inside web and reject browser/device storage code inside API. API contract
+tests require every implemented public operation to have explicit parameters,
+request bodies, success responses, errors, authentication, and revision or
+idempotency headers where applicable. A cross-repository release gate verifies
+clean installs, a real PostgreSQL migration and integration suite, API and
+client builds, browser flows, PWA offline recovery, and the Android export.

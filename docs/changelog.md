@@ -9,6 +9,29 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [7.0.1] - 2026-07-25
+
+### Reliability
+
+- Case-editing leases are acquired atomically in PostgreSQL, preventing two
+  simultaneous clients from both being told that they own the same lock.
+- New-case drafts use IndexedDB in the PWA and the private filesystem on
+  native mobile, preserving offline work across reloads.
+- OMOP exports over 5,000 matching cases fail before producing a partial
+  research file and report the matching count and limit.
+- Personal data export is a streamed ZIP containing all account-owned records
+  and exact counts instead of silently truncating cases or audit history.
+- Email-verification links return to the configured web application after the
+  dedicated API verifies the token.
+- The generated OpenAPI contract explicitly describes every supported public
+  API operation. Internal maintenance operations are retained only in a
+  private inventory.
+- A cross-repository release gate verifies a real PostgreSQL migration,
+  concurrent locking, exports, API and client builds, browser workflows, PWA
+  offline recovery, and Android export before release tags are created.
+
+---
+
 ## [7.0.0] - 2026-07-25
 
 ### Dedicated API service

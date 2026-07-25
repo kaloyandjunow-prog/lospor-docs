@@ -92,7 +92,13 @@ Shows the current app version and links to the documentation site.
 Provides a way to report issues to the LOSPOR team.
 
 #### Export my data
-Downloads a JSON file containing your account details, all your cases (with preop/intraop/postop records), and your audit log entries. This fulfils your right of access under **GDPR Article 15**.
+Downloads one ZIP archive containing a manifest, your account details, every
+case with its clinical and audit relations, complete audit history, role
+requests, and case-transfer history. The API pages through large accounts
+internally rather than silently stopping at a fixed row limit. Password hashes,
+authentication tokens, temporary locks, and rate-limit records are excluded
+and listed in the manifest. This fulfils your right of access under **GDPR
+Article 15**.
 
 #### Delete my account
 Disables your account access immediately. Type `DELETE` in the confirmation field and click **Confirm deletion**. The presented mobile token is revoked, and further deletion or anonymisation is processed according to the retention policy.

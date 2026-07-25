@@ -15,6 +15,13 @@ PWA before the API is healthy on its production domain.
 3. Tag and push `lospor-api`, `lospor-app`, `lospor-mobile`, and
    `lospor-docs`.
 
+For reliability releases, run the cross-repository release gate before creating
+tags. It checks out the selected Core, API, web, mobile/PWA, and documentation
+refs; performs clean installs; migrates a temporary PostgreSQL database; runs
+the real concurrency and export tests; builds every repository; exercises the
+critical web flow and PWA offline draft recovery; and produces an Android
+export. A failed gate blocks tags and deployment.
+
 ## API deployment
 
 Create a separate Vercel project from `lospor-api`. Configure its database,
