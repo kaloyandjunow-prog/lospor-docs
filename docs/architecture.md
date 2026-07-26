@@ -4,7 +4,7 @@ title: Application architecture
 
 # Application architecture
 
-LOSPOR v7 is split into five repositories:
+LOSPOR v7 is split into six repositories:
 
 - **API (`lospor-api`)** owns HTTP behavior, authentication, PostgreSQL,
   Prisma migrations, email, AI providers, PDF rendering, audit data, and OMOP
@@ -15,6 +15,7 @@ LOSPOR v7 is split into five repositories:
   device storage.
 - **Core (`lospor-core`)** owns framework-free clinical rules, catalogs,
   validation, synchronization protocols, and shared data contracts.
+- **Database (`lospor-browser`)** owns the standalone research, quality, and benchmarking interface. It has no database credentials and consumes only governed API projections.
 - **Docs (`lospor-docs`)** owns user, administrator, and developer guidance.
 
 ## Request flow
@@ -23,6 +24,7 @@ New clients use the versioned API directly:
 
 ```text
 Web / Mobile / PWA -> https://api.lospor.org/v1 -> PostgreSQL
+Database Browser -> https://api.lospor.org/v1/research -> PostgreSQL
 ```
 
 During the V6 compatibility period, requests to the old web address are
@@ -80,7 +82,7 @@ can synchronize after connectivity returns.
 
 ## Deployment boundary
 
-Web and API are separate deployable services. A web outage does not remove the
+Clinical web, Database Browser, and API are separate deployable services. A web outage does not remove the
 API used by installed mobile clients. An API or database outage still prevents
 server synchronization, but mobile can retain queued work through its offline
 system and send it when service returns.

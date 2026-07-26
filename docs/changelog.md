@@ -9,6 +9,21 @@ All notable changes to LOSPOR are documented here.
 
 ---
 
+## [7.1.0] - 2026-07-27
+
+- Added a separate `lospor-browser` product for governed cohort building,
+  comparisons, pseudonymous case review, data quality, benchmarking, saved
+  cohorts, exports, and research access administration.
+- Added provider-independent research contracts to Core and a complete
+  `/v1/research/*` API with explicit scope, small-cell suppression, auditing,
+  export checksums, and OpenAPI coverage.
+- Added additive persistence for research access grants, saved cohorts, and
+  export history.
+- Added the canonical Core clinical display registry with 950
+  clinician-reviewed English/Bulgarian terms shared by API, web, PWA/mobile,
+  Database, and exports.
+
+---
 ## [7.0.1] - 2026-07-25
 
 ### Reliability

@@ -25,6 +25,7 @@ const sidebars: SidebarsConfig = {
     "api",
     "autosave-manager",
     "data-research",
+    "research-browser",
     "changelog",
   ],
 }

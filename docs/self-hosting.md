@@ -5,11 +5,12 @@ title: Self-hosting
 
 # Self-hosting
 
-LOSPOR v7 uses two Node.js services and one PostgreSQL database. They may run
+LOSPOR v7 uses three Node.js services and one PostgreSQL database. They may run
 on one physical server:
 
 - `lospor-api`, default port `3002`
 - `lospor-app`, default port `3000`
+- `lospor-browser`, default port `3003`
 - PostgreSQL
 
 The mobile app is installed on phones; it is not a third server.
@@ -31,7 +32,7 @@ DIRECT_URL="postgresql://..."
 LOSPOR_AUTH_SECRET="a-long-random-secret"
 NEXTAUTH_SECRET="the-same-secret"
 LOSPOR_WEB_URL="http://localhost:3000"
-CORS_ALLOW_ORIGINS="http://localhost:3000,http://localhost:3001"
+CORS_ALLOW_ORIGINS="http://localhost:3000,http://localhost:3001,http://localhost:3003"
 ```
 
 Keep `NEXTAUTH_SECRET` equal to `LOSPOR_AUTH_SECRET` during the V6
@@ -94,7 +95,27 @@ npm run dev
 
 Open `http://localhost:3000`. Web has no database credentials.
 
-## 5. Connect Expo locally
+## 5. Configure and start the Research Browser
+
+In `lospor-browser/.env.local`:
+
+```env
+LOSPOR_API_INTERNAL_URL="http://localhost:3002"
+NEXT_PUBLIC_DATABASE_URL="http://localhost:3003"
+LOSPOR_DATABASE_ORIGIN="http://localhost:3003"
+```
+
+Apply the additive research migration only to the intended local database, then run:
+
+```bash
+cd lospor-browser
+npm ci
+npm run dev
+```
+
+Open `http://localhost:3003`. The browser has no database credentials.
+
+## 6. Connect Expo locally
 
 Set the phone-reachable LAN address in `lospor-mobile/.env.local`:
 
@@ -107,11 +128,12 @@ cache after changing this value.
 
 ## Vercel deployment
 
-Create two Vercel projects:
+Create three Vercel projects:
 
 1. `lospor-api` at `api.lospor.org`, with database, auth, email, AI, CORS,
    retention, and OMOP secrets.
-2. `lospor-app` at `app.lospor.org`, with
+2. `lospor-browser` at `database.lospor.org`, with `LOSPOR_API_INTERNAL_URL=https://api.lospor.org` and `LOSPOR_DATABASE_ORIGIN=https://database.lospor.org`. The API also sets `LOSPOR_DATABASE_URL=https://database.lospor.org` and includes it in `CORS_ALLOW_ORIGINS`.
+3. `lospor-app` at `app.lospor.org`, with
    `LOSPOR_API_INTERNAL_URL=https://api.lospor.org`.
 
 Only the API project runs `prisma migrate deploy` and the retention cron. Web
