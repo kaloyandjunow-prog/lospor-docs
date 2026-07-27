@@ -8,6 +8,12 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## [7.2.1] - 2026-07-27
+
+- All six repositories now install with zero npm audit findings.
+- GitHub Actions use Node.js 24-compatible releases and run project checks on Node.js 24.
+- API, web, mobile/PWA, Database, and documentation carry traceable maintenance versions.
+
 ## [7.2.0] - 2026-07-27
 
 - Research permissions now retain a separate institution scope for aggregate
