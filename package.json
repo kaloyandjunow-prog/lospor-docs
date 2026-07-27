@@ -1,14 +1,15 @@
 {
   "name": "lospor-docs",
-  "version": "7.1.0",
+  "version": "7.2.0",
   "private": true,
   "scripts": {
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
+    "deploy": "npm run build && wrangler deploy",
     "clear": "docusaurus clear",
-    "serve": "docusaurus serve"
+    "serve": "docusaurus serve",
+    "preview": "npm run build && wrangler dev"
   },
   "overrides": {
     "serialize-javascript": "^7.0.6"
@@ -26,7 +27,8 @@
     "@docusaurus/module-type-aliases": "^3.10.1",
     "@docusaurus/tsconfig": "^3.10.1",
     "@docusaurus/types": "^3.10.1",
-    "typescript": "~5.6.2"
+    "typescript": "~5.6.2",
+    "wrangler": "^4.114.0"
   },
   "engines": {
     "node": ">=18.0"

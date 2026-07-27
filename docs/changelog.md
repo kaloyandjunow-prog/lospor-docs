@@ -8,6 +8,32 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## [7.2.0] - 2026-07-27
+
+- Research permissions now retain a separate institution scope for aggregate
+  queries, case inspection, standard export, and OMOP export. A permission
+  granted for one hospital cannot escape into another grant's scope.
+- Aggregate-only researchers no longer receive pseudonymous case rows. The
+  Database hides and server-guards case and export surfaces independently.
+- One disclosure-control policy now protects query, comparison, benchmark,
+  distribution, and quality results using valid observation denominators and
+  both sides of binary rates. Protected totals are shown as ranges without
+  leaking hidden numerator or denominator values.
+- Research exports are immutable background jobs. Creation freezes the cohort,
+  action scope, source cutoff, source version, and a transactionally captured,
+  hashed case-revision manifest. Source drift fails visibly instead of silently
+  omitting cases. Completion stores one checksummed artifact in filesystem
+  storage for local/self-hosted use or S3-compatible object storage for
+  serverless deployments.
+- OMOP CSV exports are ZIP archives containing a manifest and one CSV per OMOP
+  table. Existing pre-artifact export records are marked legacy and must be
+  recreated rather than silently regenerated from current data.
+- API CI runs migrations and real PostgreSQL lock/governance integration tests.
+  Browser coverage includes aggregate-only navigation, protected count ranges,
+  authenticated API navigation, and immutable export job states.
+
+---
+
 
 ## [7.1.0] - 2026-07-27
 
