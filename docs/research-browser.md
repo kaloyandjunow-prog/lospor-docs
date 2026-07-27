@@ -22,8 +22,9 @@ connects directly to PostgreSQL and never accepts arbitrary SQL.
   relational drift, and impossible timelines;
 - benchmark authorized institutions and periods with small-cell suppression;
 - save private or institution-shared cohorts;
-- create complete CSV, JSON, and permission-controlled OMOP exports with row
-  counts, SHA-256 checksums, history, and audit records; and
+- export all matching pseudonymous summary rows as CSV/JSON, or create
+  permission-controlled OMOP exports, with row counts, SHA-256 checksums,
+  immutable artifacts, history, and audit records; and
 - manage explicit researcher scope and export permissions.
 
 The interface is available in English and Bulgarian.
@@ -36,9 +37,14 @@ The interface is available in English and Bulgarian.
 - `RESEARCHER` requires one or more active `ResearchAccessGrant` records.
 - Ordinary clinical members cannot enter the Research Browser.
 
-Aggregated benchmark cells containing one to four cases are suppressed. Case
-inspection is limited to the same authorized scope and returns a safe
-projection rather than the operational clinical record.
+Permissions keep separate institution scopes for aggregate queries, case
+inspection, standard export, and OMOP export. A grant for one institution never
+widens a different action into another institution. Aggregate-only users see
+protected count ranges and never receive case rows. Small valid denominators,
+rare positive outcomes, and rare complementary outcomes are suppressed across
+queries, comparisons, benchmarks, distributions, and quality reports. Case
+inspection returns a safe projection rather than the operational clinical
+record.
 
 ## Data sources
 
@@ -85,6 +91,17 @@ the private-LAN port `3003` exception exists only in development.
 
 Research queries, comparisons, case inspection, benchmarks, cohort changes,
 grants, and exports are recorded in the API audit log. Export history stores
-the complete cohort definition, result count, status, and checksum. Files are
-regenerated from that immutable request metadata rather than relying on a
-serverless filesystem.
+the normalized cohort definition, exact action scope, source cutoff and
+version, transactionally captured case revisions, revision-manifest hash,
+generation timestamp, row count, immutable artifact key, and artifact checksum.
+If a captured case changes before generation, the export fails rather than
+claiming that a partial file is complete. Downloads retrieve the stored
+artifact; they never rerun the query against the current database.
+
+CSV and JSON research exports contain every matching pseudonymous summary row,
+but they are not a copy of every clinical variable in the source case. OMOP
+exports contain the mapped research tables described in their manifest.
+
+Local and self-hosted installations may use private filesystem artifact
+storage. Serverless deployments must use an S3-compatible private bucket; the
+API refuses filesystem research storage on Vercel.

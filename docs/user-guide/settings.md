@@ -97,8 +97,8 @@ case with its clinical and audit relations, complete audit history, role
 requests, and case-transfer history. The API pages through large accounts
 internally rather than silently stopping at a fixed row limit. Password hashes,
 authentication tokens, temporary locks, and rate-limit records are excluded
-and listed in the manifest. This fulfils your right of access under **GDPR
-Article 15**.
+and listed in the manifest. This archive supports the preparation of a response
+to a right-of-access request under **GDPR Article 15**.
 
 #### Delete my account
 Disables your account access immediately. Type `DELETE` in the confirmation field and click **Confirm deletion**. The presented mobile token is revoked, and further deletion or anonymisation is processed according to the retention policy.
