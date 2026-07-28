@@ -8,6 +8,18 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## [7.3.0] - 2026-07-28
+
+- Finalization and clinical writes now serialize on one PostgreSQL case lock,
+  preventing completed snapshots from racing with section or event saves.
+- Research export manifest v2 tracks parent, event, relational, and section
+  revisions; research exports now accept finalized-only cohorts.
+- OMOP generation maps each page once, private working files are cleaned, and
+  downloadable artifacts expire after 30 days while audit metadata remains.
+- Database Browser v0.3.0 shows artifact expiry and disables unavailable files.
+- The API release tag now starts the exact cross-repository release gate.
+
+---
 ## [7.2.1] - 2026-07-27
 
 - All six repositories now install with zero npm audit findings.
