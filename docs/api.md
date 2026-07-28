@@ -23,7 +23,7 @@ Browser clients use an API-owned HttpOnly session cookie. Revision,
 idempotency, source, and lock headers are fully described in OpenAPI and remain
 part of the shared Core sync protocol.
 
-The v7.2.1 OpenAPI document explicitly describes every supported client,
+The v7.3.0 OpenAPI document explicitly describes every supported client,
 administrator, maintenance, and health operation: parameters, request bodies,
 response bodies, downloads, headers, authentication, and endpoint errors.
 Generation fails if a route lacks a contract or a stale contract lacks a
@@ -42,6 +42,20 @@ transport itself is unavailable, clients deliberately remain editable so
 clinical work can continue; monotonic section revisions still prevent a stale
 save from silently replacing newer server data.
 
+## Clinical write serialization
+
+Finalization and every authoritative section/event write lock the same parent
+case row inside a direct PostgreSQL transaction. Once finalization has that
+lock, a concurrent write waits and then fails after the case becomes complete;
+if the write got the lock first, finalization waits and snapshots its result.
+Database triggers enforce the completed-case guard even if application code is
+bypassed.
+
+Each case has monotonic clinical, event, and relational revisions in addition
+to section revisions. Research manifest v2 stores all of them, so a child-row
+change cannot pass export snapshot validation merely because a parent timestamp
+was unchanged.
+
 ## Export completeness
 
 OMOP batches above 5000 matching cases return HTTP 422 with
@@ -49,14 +63,16 @@ OMOP batches above 5000 matching cases return HTTP 422 with
 streamed ZIP with a manifest and cursor-paged NDJSON records.
 
 Governed Research Browser exports are background jobs. Their creation record
-freezes the normalized cohort definition, action-specific institution scope,
-database cutoff, source version, and exact case revisions. Revision capture uses
+accept only finalized-case cohorts. Their creation record freezes the normalized
+cohort definition, action-specific institution scope, database cutoff, source
+version, and exact parent, event, relational, and section revisions. Revision capture uses
 a repeatable-read transaction and stores a manifest hash. If a captured case
 changes before artifact generation, the job fails visibly and must be recreated
 instead of silently omitting that case. A completed job stores one immutable
 checksummed artifact; later downloads stream that artifact
 instead of querying the live database again. OMOP CSV is a ZIP containing a
-manifest and separate table CSV files.
+manifest and separate table CSV files. OMOP pages are mapped once and written
+through private working objects rather than repeatedly loading the cohort.
 
 Use `RESEARCH_EXPORT_STORAGE_DRIVER=filesystem` only for local or self-hosted
 private storage. Vercel requires `RESEARCH_EXPORT_STORAGE_DRIVER=s3` plus a

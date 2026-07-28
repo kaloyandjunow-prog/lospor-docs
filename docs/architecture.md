@@ -95,11 +95,12 @@ are separate processes, not necessarily separate machines.
 ## Release order
 
 1. Publish and tag Core v7.
-2. Update API, web, and mobile to the Core v7 tag and verify clean installs.
+2. Update API, web, mobile/PWA, and Database Browser to the Core tag and verify clean installs.
 3. Apply API-owned database migrations.
 4. Deploy the API and verify live/ready health checks and `/v1/capabilities`.
-5. Deploy web with its API origin.
+5. Deploy web and Database Browser with their API origin.
 6. Release PWA/mobile after end-to-end compatibility tests.
+7. Push the API release tag last so its versioned cross-repository manifest runs the automatic release gate.
 
 The V6 tags remain the rollback baseline. A release must never point npm at a
 developer's local sibling directory.

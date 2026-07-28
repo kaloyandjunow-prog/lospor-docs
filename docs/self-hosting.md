@@ -19,8 +19,8 @@ The mobile app is installed on phones; it is not a third server.
 
 - Node.js 20 or later
 - PostgreSQL
-- the `lospor-api` and `lospor-app` repositories
-- a tagged `@lospor/core` version used by both services
+- the `lospor-api`, `lospor-app`, `lospor-browser`, and `lospor-mobile` repositories
+- one tagged `@lospor/core` version used by every consumer
 
 ## 1. Configure the API
 
@@ -33,7 +33,16 @@ LOSPOR_AUTH_SECRET="a-long-random-secret"
 NEXTAUTH_SECRET="the-same-secret"
 LOSPOR_WEB_URL="http://localhost:3000"
 CORS_ALLOW_ORIGINS="http://localhost:3000,http://localhost:3001,http://localhost:3003"
+RESEARCH_EXPORT_STORAGE_DRIVER="filesystem"
+RESEARCH_EXPORT_STORAGE_DIR=".data/research-exports"
+RESEARCH_EXPORT_WORKER_SECRET="another-long-random-secret"
+RESEARCH_EXPORT_RETENTION_DAYS="30"
 ```
+
+`DIRECT_URL` must be a direct/session connection that supports PostgreSQL row
+locks and transactions; do not point it at a transaction-only pooler. Keep the
+research export directory private and include it in encrypted server backups
+only if your institutional retention policy requires that.
 
 Keep `NEXTAUTH_SECRET` equal to `LOSPOR_AUTH_SECRET` during the V6
 compatibility period so existing mobile bearer tokens can be verified.
@@ -136,7 +145,8 @@ Create three Vercel projects:
 3. `lospor-app` at `app.lospor.org`, with
    `LOSPOR_API_INTERNAL_URL=https://api.lospor.org`.
 
-Only the API project runs `prisma migrate deploy` and the retention cron. Web
+Only the API project runs `prisma migrate deploy`, account-retention jobs,
+and the research export worker/cleanup schedule. Web
 must never receive `DATABASE_URL`, `DIRECT_URL`, or the API signing secret.
 
 Deploy API first, verify health and login, then deploy web. Configure mobile
@@ -149,7 +159,7 @@ EXPO_PUBLIC_API_BASE="https://api.lospor.org"
 ## Updates and rollback
 
 Back up PostgreSQL before migrations. Deploy in this order: Core, API, web,
-then mobile/PWA. Keep the previous API and web artifacts available until the
+Database Browser, then mobile/PWA. Keep the previous API and web artifacts available until the
 new clients have completed a cross-device case test.
 
 The web `/api/*` proxy supports V6 clients for the documented compatibility
@@ -165,6 +175,13 @@ Authorization: Bearer <CRON_SECRET>
 ```
 
 The endpoint refuses to run when the secret is absent or wrong.
+
+Non-Vercel installations must also schedule
+`/v1/internal/research-exports/process` with
+`Authorization: Bearer <RESEARCH_EXPORT_WORKER_SECRET>`. That job processes
+queued exports, removes abandoned private working objects, and deletes
+downloadable artifacts after `RESEARCH_EXPORT_RETENTION_DAYS`. Export metadata
+and checksums remain for audit and reproducibility.
 
 ## Licence
 

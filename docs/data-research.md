@@ -108,7 +108,7 @@ The export includes:
 
 Known OMOP concept IDs are stored/exported where confidently mapped. Filtered Athena CSV import can enrich LOINC, ICD-10, and ATC mappings through local OMOP vocabulary tables without storing the full Athena bundle. Otherwise LOSPOR exports source vocabulary, source code, and source labels with an explicit source-only/unmapped status. Fake OMOP IDs are not used.
 
-Each export includes a manifest with app/schema version, concept-map version, row counts, mapping summary, de-identification notes, and quality warnings. App exports warn rather than block when source-only mappings, missing field-status rows, exact timestamps, or institution linkage are present.
+Each export includes a manifest with app/schema version, concept-map version, row counts, mapping summary, de-identification notes, and quality warnings. Governed export manifest v2 also freezes the parent clinical/event/relational revisions and every section revision for each finalized case. App exports warn rather than block when source-only mappings, missing field-status rows, exact timestamps, or institution linkage are present. Downloadable research artifacts are retained for 30 days by default; their checksum, row count, source version, and audit history remain after the file expires.
 
 An OMOP request that matches more than 5000 cases is rejected with HTTP 422
 and reports the matching count, limit, and `complete: false`. LOSPOR never

@@ -96,7 +96,13 @@ version, transactionally captured case revisions, revision-manifest hash,
 generation timestamp, row count, immutable artifact key, and artifact checksum.
 If a captured case changes before generation, the export fails rather than
 claiming that a partial file is complete. Downloads retrieve the stored
-artifact; they never rerun the query against the current database.
+artifact; they never rerun the query against the current database. Only
+finalized-case cohorts may be exported. Manifest v2 includes parent clinical,
+event, relational, and section revisions, so child-row changes are detected.
+
+Download files are retained for 30 days by default. The Browser shows the
+expiry time, disables expired or unavailable downloads, and keeps the checksum,
+row count, and generation history visible after the artifact is deleted.
 
 CSV and JSON research exports contain every matching pseudonymous summary row,
 but they are not a copy of every clinical variable in the source case. OMOP

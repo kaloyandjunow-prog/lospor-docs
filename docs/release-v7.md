@@ -9,18 +9,20 @@ PWA before the API is healthy on its production domain.
 
 ## Repository order
 
-1. Tag and push `lospor-core` as `v7.0.0`.
-2. Update API, web, and mobile/PWA to the immutable Core tag and verify clean
-   installs.
-3. Tag and push `lospor-api`, `lospor-app`, `lospor-mobile`, and
-   `lospor-docs`.
+1. Commit, tag, and push Core first (for this release, `v7.3.0`).
+2. Update API, web, mobile/PWA, and Database Browser to that immutable Core tag;
+   refresh lockfiles and verify clean installs.
+3. Commit and tag web, mobile/PWA, Database Browser, and docs.
+4. Commit the API release manifest with the exact six tags.
+5. Push the API tag last. Its tag event automatically runs the cross-repository
+   release gate against those immutable refs.
 
-For reliability releases, run the cross-repository release gate before creating
-tags. It checks out the selected Core, API, web, mobile/PWA, and documentation
-refs; performs clean installs; migrates a temporary PostgreSQL database; runs
-the real concurrency and export tests; builds every repository; exercises the
-critical web flow and PWA offline draft recovery; and produces an Android
-export. A failed gate blocks tags and deployment.
+The gate can also be run manually before tags as a preflight. It performs clean
+installs, migrates a temporary PostgreSQL database, runs real concurrency and
+export tests, builds every repository, exercises critical web and PWA flows,
+and produces an Android export. A failed automatic tag gate blocks deployment
+and release promotion; correct the release and create a new patch tag rather
+than moving a published tag.
 
 ## API deployment
 
