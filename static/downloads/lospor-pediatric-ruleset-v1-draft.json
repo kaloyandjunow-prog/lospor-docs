@@ -1,0 +1,4571 @@
+{
+  "schemaVersion": 1,
+  "generatedFrom": "@lospor/core/platform-clinical-drafts",
+  "id": "lospor-pediatrics-v1",
+  "key": "LOSPOR_PEDIATRICS",
+  "name": "LOSPOR Pediatric Rules — evidence draft",
+  "description": "Inactive, source-backed pediatric platform draft. Drug runtime profiles are emitted only when the current route-only model can preserve the reviewed constraints. Fluid profiles preserve the canonical bag surface and add the reviewed pediatric Rate behavior; the full catalog remains editable through ruleset hierarchy.",
+  "clinicalMode": "PEDIATRIC",
+  "version": 1,
+  "publishable": false,
+  "blockers": [
+    "181 pediatric drug policies still require clinical governance approval",
+    "Weight-banded drug selection, cumulative/repeat limits, monitoring gates and preparation matrices remain schema exceptions"
+  ],
+  "rules": [
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:PROPOFOL",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Propofol",
+        "labelEn": "Propofol",
+        "labelBg": "Propofol",
+        "inn": null,
+        "category": "Neuro / ICP / anticonvulsants",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/5492/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:ETOMIDATE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Etomidate",
+        "labelEn": "Etomidate",
+        "labelBg": "Etomidate",
+        "inn": null,
+        "category": "Intravenous hypnotics / general anesthetics",
+        "disposition": "SCHEMA_BLOCKED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "Evidence supports pediatric use, but the current route-only profile cannot retain all required age/weight, cumulative-dose, monitoring, paired-drug, formulation or protocol constraints. Keep manual until those constraints are executable and auditable.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/15214/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:KETAMINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Ketamine",
+        "labelEn": "Ketamine",
+        "labelBg": "Ketamine",
+        "inn": null,
+        "category": "Regional anesthesia adjuvants",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/2420/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:ESKETAMINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Esketamine",
+        "labelEn": "Esketamine",
+        "labelBg": "Esketamine",
+        "inn": null,
+        "category": "Intravenous hypnotics / general anesthetics",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:THIOPENTAL_THIOPENTONE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Thiopental / Thiopentone",
+        "labelEn": "Thiopental / Thiopentone",
+        "labelBg": "Thiopental / Thiopentone",
+        "inn": null,
+        "category": "Neuro / ICP / anticonvulsants",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/9376/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:METHOHEXITAL",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Methohexital",
+        "labelEn": "Methohexital",
+        "labelBg": "Methohexital",
+        "inn": null,
+        "category": "Intravenous hypnotics / general anesthetics",
+        "disposition": "SCHEMA_BLOCKED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "Evidence supports pediatric use, but the current route-only profile cannot retain all required age/weight, cumulative-dose, monitoring, paired-drug, formulation or protocol constraints. Keep manual until those constraints are executable and auditable.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=eccd8340-ead3-4363-8902-0c19d33aa2ac&version=17"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:MIDAZOLAM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Midazolam",
+        "labelEn": "Midazolam",
+        "labelBg": "Midazolam",
+        "inn": null,
+        "category": "Neuro / ICP / anticonvulsants",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/13192/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:DIAZEPAM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Diazepam",
+        "labelEn": "Diazepam",
+        "labelBg": "Diazepam",
+        "inn": null,
+        "category": "Neuro / ICP / anticonvulsants",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/6274/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:LORAZEPAM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Lorazepam",
+        "labelEn": "Lorazepam",
+        "labelBg": "Lorazepam",
+        "inn": null,
+        "category": "Neuro / ICP / anticonvulsants",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:REMIMAZOLAM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Remimazolam",
+        "labelEn": "Remimazolam",
+        "labelBg": "Remimazolam",
+        "inn": null,
+        "category": "Sedatives / anxiolytics / alpha-2 agonists",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/12746/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:DEXMEDETOMIDINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Dexmedetomidine",
+        "labelEn": "Dexmedetomidine",
+        "labelBg": "Dexmedetomidine",
+        "inn": null,
+        "category": "Regional anesthesia adjuvants",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:CLONIDINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Clonidine",
+        "labelEn": "Clonidine",
+        "labelBg": "Clonidine",
+        "inn": null,
+        "category": "Regional anesthesia adjuvants",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/100410/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:DROPERIDOL",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Droperidol",
+        "labelEn": "Droperidol",
+        "labelBg": "Droperidol",
+        "inn": null,
+        "category": "Antiemetics / prokinetics",
+        "disposition": "SCHEMA_BLOCKED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "Evidence supports pediatric use, but the current route-only profile cannot retain all required age/weight, cumulative-dose, monitoring, paired-drug, formulation or protocol constraints. Keep manual until those constraints are executable and auditable.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/7310/smpc",
+        "https://www.ashp.org/-/media/assets/policy-guidelines/docs/endorsed-documents/endorsed-documents-fourth-consensus-guidelines-postop-nausea-vomiting.ashx?la=en"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:HALOPERIDOL",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Haloperidol",
+        "labelEn": "Haloperidol",
+        "labelBg": "Haloperidol",
+        "inn": null,
+        "category": "Antiemetics / prokinetics",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/101458/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:PROMETHAZINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Promethazine",
+        "labelEn": "Promethazine",
+        "labelBg": "Promethazine",
+        "inn": null,
+        "category": "Anaphylaxis / allergy adjuncts",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/1100/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:FENTANYL",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Fentanyl",
+        "labelEn": "Fentanyl",
+        "labelBg": "Fentanyl",
+        "inn": null,
+        "category": "Regional anesthesia adjuvants",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/3387/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:SUFENTANIL",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Sufentanil",
+        "labelEn": "Sufentanil",
+        "labelBg": "Sufentanil",
+        "inn": null,
+        "category": "Regional anesthesia adjuvants",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.bfarm.de/DE/Arzneimittel/Zulassung/Arzneimittel-fuer-Kinder/Empfehlungen/Fach-und-Gebrauchsinformationen/sufentanil.html"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:REMIFENTANIL",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Remifentanil",
+        "labelEn": "Remifentanil",
+        "labelBg": "Remifentanil",
+        "inn": null,
+        "category": "Opioid analgesics",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/795/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:ALFENTANIL",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Alfentanil",
+        "labelEn": "Alfentanil",
+        "labelBg": "Alfentanil",
+        "inn": null,
+        "category": "Opioid analgesics",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/6427/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:MORPHINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Morphine",
+        "labelEn": "Morphine",
+        "labelBg": "Morphine",
+        "inn": null,
+        "category": "Regional anesthesia adjuvants",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/3576/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:HYDROMORPHONE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Hydromorphone",
+        "labelEn": "Hydromorphone",
+        "labelBg": "Hydromorphone",
+        "inn": null,
+        "category": "Opioid analgesics",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Pediatric authorization, concentration or regimen varies by exact product or jurisdiction. Require the stocked product and an institution-approved formulary rule before exposing a profile.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://medikamente.basg.gv.at/documents/135565__DOTC_FACH_INFO.pdf",
+        "https://www.medicines.org.uk/emc/product/7685/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:OXYCODONE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Oxycodone",
+        "labelEn": "Oxycodone",
+        "labelBg": "Oxycodone",
+        "inn": null,
+        "category": "Opioid analgesics",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Pediatric authorization, concentration or regimen varies by exact product or jurisdiction. Require the stocked product and an institution-approved formulary rule before exposing a profile.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/12680/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:METHADONE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Methadone",
+        "labelEn": "Methadone",
+        "labelBg": "Methadone",
+        "inn": null,
+        "category": "Opioid analgesics",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/3578/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:PETHIDINE_MEPERIDINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Pethidine / Meperidine",
+        "labelEn": "Pethidine / Meperidine",
+        "labelBg": "Pethidine / Meperidine",
+        "inn": null,
+        "category": "Opioid analgesics",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/6596/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:TRAMADOL",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Tramadol",
+        "labelEn": "Tramadol",
+        "labelBg": "Tramadol",
+        "inn": null,
+        "category": "Opioid analgesics",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:NALBUPHINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Nalbuphine",
+        "labelEn": "Nalbuphine",
+        "labelBg": "Nalbuphine",
+        "inn": null,
+        "category": "Opioid analgesics",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Pediatric authorization, concentration or regimen varies by exact product or jurisdiction. Require the stocked product and an institution-approved formulary rule before exposing a profile.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.ema.europa.eu/en/documents/psusa/nalbuphine-cmdh-scientific-conclusions-grounds-variation-amendments-product-information-timetable-implementation-ema-94832-2024_en.pdf"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:BUTORPHANOL",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Butorphanol",
+        "labelEn": "Butorphanol",
+        "labelBg": "Butorphanol",
+        "inn": null,
+        "category": "Opioid analgesics",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=9822ca3f-aee2-46e5-8a96-495400e65d10"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:BUPRENORPHINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Buprenorphine",
+        "labelEn": "Buprenorphine",
+        "labelBg": "Buprenorphine",
+        "inn": null,
+        "category": "Regional anesthesia adjuvants",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Pediatric authorization, concentration or regimen varies by exact product or jurisdiction. Require the stocked product and an institution-approved formulary rule before exposing a profile.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=23aa1bb3-cecf-4e62-29bb-48488bb66fc3"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:DIAMORPHINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Diamorphine",
+        "labelEn": "Diamorphine",
+        "labelBg": "Diamorphine",
+        "inn": null,
+        "category": "Regional anesthesia adjuvants",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Pediatric authorization, concentration or regimen varies by exact product or jurisdiction. Require the stocked product and an institution-approved formulary rule before exposing a profile.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/1466/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:PARACETAMOL_ACETAMINOPHEN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Paracetamol / Acetaminophen",
+        "labelEn": "Paracetamol / Acetaminophen",
+        "labelBg": "Paracetamol / Acetaminophen",
+        "inn": null,
+        "category": "Non-opioid analgesics / analgesic adjuncts",
+        "disposition": "SCHEMA_BLOCKED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "Evidence supports pediatric use, but the current route-only profile cannot retain all required age/weight, cumulative-dose, monitoring, paired-drug, formulation or protocol constraints. Keep manual until those constraints are executable and auditable.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/15148/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:METAMIZOLE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Metamizole",
+        "labelEn": "Metamizole",
+        "labelBg": "Metamizole",
+        "inn": null,
+        "category": "Other",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Pediatric authorization, concentration or regimen varies by exact product or jurisdiction. Require the stocked product and an institution-approved formulary rule before exposing a profile.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.ema.europa.eu/en/documents/referral/metamizole-article-31-referral-annex-iii_en.pdf",
+        "https://www.anm.ro/_/_RCP/RCP_12649_14.11.19.pdf"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:KETOROLAC",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Ketorolac",
+        "labelEn": "Ketorolac",
+        "labelBg": "Ketorolac",
+        "inn": null,
+        "category": "Non-opioid analgesics / analgesic adjuncts",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Pediatric authorization, concentration or regimen varies by exact product or jurisdiction. Require the stocked product and an institution-approved formulary rule before exposing a profile.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/14193/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:DICLOFENAC",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Diclofenac",
+        "labelEn": "Diclofenac",
+        "labelBg": "Diclofenac",
+        "inn": null,
+        "category": "Non-opioid analgesics / analgesic adjuncts",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/1043/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:IBUPROFEN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Ibuprofen",
+        "labelEn": "Ibuprofen",
+        "labelBg": "Ibuprofen",
+        "inn": null,
+        "category": "Non-opioid analgesics / analgesic adjuncts",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Pediatric authorization, concentration or regimen varies by exact product or jurisdiction. Require the stocked product and an institution-approved formulary rule before exposing a profile.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/4560/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:DEXKETOPROFEN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Dexketoprofen",
+        "labelEn": "Dexketoprofen",
+        "labelBg": "Dexketoprofen",
+        "inn": null,
+        "category": "Non-opioid analgesics / analgesic adjuncts",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://cima.aemps.es/cima/dochtml/ft/64888/FT_64888.html"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:KETOPROFEN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Ketoprofen",
+        "labelEn": "Ketoprofen",
+        "labelBg": "Ketoprofen",
+        "inn": null,
+        "category": "Non-opioid analgesics / analgesic adjuncts",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Pediatric authorization, concentration or regimen varies by exact product or jurisdiction. Require the stocked product and an institution-approved formulary rule before exposing a profile.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://cima.aemps.es/cima/dochtml/ft/55857/FichaTecnica_55857.html"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:PARECOXIB",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Parecoxib",
+        "labelEn": "Parecoxib",
+        "labelBg": "Parecoxib",
+        "inn": null,
+        "category": "Non-opioid analgesics / analgesic adjuncts",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/1606/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:LORNOXICAM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Lornoxicam",
+        "labelEn": "Lornoxicam",
+        "labelBg": "Lornoxicam",
+        "inn": null,
+        "category": "Non-opioid analgesics / analgesic adjuncts",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://cima.aemps.es/cima/dochtml/ft/78274/FT_78274.html"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:TENOXICAM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Tenoxicam",
+        "labelEn": "Tenoxicam",
+        "labelBg": "Tenoxicam",
+        "inn": null,
+        "category": "Non-opioid analgesics / analgesic adjuncts",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://ndi.fda.moph.go.th/uploads/drug_detail_corporation/doc/word/1163/9bd4a015f166f3eafec737266142a742-a1.pdf"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:NEFOPAM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Nefopam",
+        "labelEn": "Nefopam",
+        "labelBg": "Nefopam",
+        "inn": null,
+        "category": "Non-opioid analgesics / analgesic adjuncts",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Pediatric authorization, concentration or regimen varies by exact product or jurisdiction. Require the stocked product and an institution-approved formulary rule before exposing a profile.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/15926/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:MAGNESIUM_SULFATE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Magnesium sulfate",
+        "labelEn": "Magnesium sulfate",
+        "labelBg": "Magnesium sulfate",
+        "inn": null,
+        "category": "Neuro / ICP / anticonvulsants",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:LIDOCAINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Lidocaine",
+        "labelEn": "Lidocaine",
+        "labelBg": "Lidocaine",
+        "inn": null,
+        "category": "Other",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:SUCCINYLCHOLINE_SUXAMETHONIUM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Succinylcholine / Suxamethonium",
+        "labelEn": "Succinylcholine / Suxamethonium",
+        "labelBg": "Succinylcholine / Suxamethonium",
+        "inn": null,
+        "category": "Emergency drugs / antidotes / rescue agents",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/5189/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:ROCURONIUM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Rocuronium",
+        "labelEn": "Rocuronium",
+        "labelBg": "Rocuronium",
+        "inn": null,
+        "category": "Emergency drugs / antidotes / rescue agents",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/10504/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:VECURONIUM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Vecuronium",
+        "labelEn": "Vecuronium",
+        "labelBg": "Vecuronium",
+        "inn": null,
+        "category": "Neuromuscular blocking drugs",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/14772/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:PANCURONIUM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Pancuronium",
+        "labelEn": "Pancuronium",
+        "labelBg": "Pancuronium",
+        "inn": null,
+        "category": "Neuromuscular blocking drugs",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:PIPECURONIUM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Pipecuronium",
+        "labelEn": "Pipecuronium",
+        "labelBg": "Pipecuronium",
+        "inn": null,
+        "category": "Neuromuscular blocking drugs",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:CISATRACURIUM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Cisatracurium",
+        "labelEn": "Cisatracurium",
+        "labelBg": "Cisatracurium",
+        "inn": null,
+        "category": "Neuromuscular blocking drugs",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/12629/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:ATRACURIUM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Atracurium",
+        "labelEn": "Atracurium",
+        "labelBg": "Atracurium",
+        "inn": null,
+        "category": "Neuromuscular blocking drugs",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/12628/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:MIVACURIUM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Mivacurium",
+        "labelEn": "Mivacurium",
+        "labelBg": "Mivacurium",
+        "inn": null,
+        "category": "Neuromuscular blocking drugs",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:SUGAMMADEX",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Sugammadex",
+        "labelEn": "Sugammadex",
+        "labelBg": "Sugammadex",
+        "inn": null,
+        "category": "Emergency drugs / antidotes / rescue agents",
+        "disposition": "SCHEMA_BLOCKED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "Evidence supports pediatric use, but the current route-only profile cannot retain all required age/weight, cumulative-dose, monitoring, paired-drug, formulation or protocol constraints. Keep manual until those constraints are executable and auditable.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/100727/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:NEOSTIGMINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Neostigmine",
+        "labelEn": "Neostigmine",
+        "labelBg": "Neostigmine",
+        "inn": null,
+        "category": "Emergency drugs / antidotes / rescue agents",
+        "disposition": "SCHEMA_BLOCKED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "Evidence supports pediatric use, but the current route-only profile cannot retain all required age/weight, cumulative-dose, monitoring, paired-drug, formulation or protocol constraints. Keep manual until those constraints are executable and auditable.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/6268/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:GLYCOPYRROLATE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Glycopyrrolate",
+        "labelEn": "Glycopyrrolate",
+        "labelBg": "Glycopyrrolate",
+        "inn": null,
+        "category": "Emergency drugs / antidotes / rescue agents",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/3389/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:ATROPINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Atropine",
+        "labelEn": "Atropine",
+        "labelBg": "Atropine",
+        "inn": null,
+        "category": "Emergency drugs / antidotes / rescue agents",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:SCOPOLAMINE_HYOSCINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Scopolamine / Hyoscine",
+        "labelEn": "Scopolamine / Hyoscine",
+        "labelBg": "Scopolamine / Hyoscine",
+        "inn": null,
+        "category": "Antiemetics / prokinetics",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:HYOSCINE_BUTYLBROMIDE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Hyoscine butylbromide",
+        "labelEn": "Hyoscine butylbromide",
+        "labelBg": "Hyoscine butylbromide",
+        "inn": null,
+        "category": "Acid suppression / aspiration prophylaxis / GI adjuncts",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:BUPIVACAINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Bupivacaine",
+        "labelEn": "Bupivacaine",
+        "labelBg": "Bupivacaine",
+        "inn": null,
+        "category": "Local/regional anesthetics",
+        "disposition": "SCHEMA_BLOCKED",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "Evidence supports pediatric use, but the current route-only profile cannot retain all required age/weight, cumulative-dose, monitoring, paired-drug, formulation or protocol constraints. Keep manual until those constraints are executable and auditable.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:LEVOBUPIVACAINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Levobupivacaine",
+        "labelEn": "Levobupivacaine",
+        "labelBg": "Levobupivacaine",
+        "inn": null,
+        "category": "Local/regional anesthetics",
+        "disposition": "SCHEMA_BLOCKED",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "Evidence supports pediatric use, but the current route-only profile cannot retain all required age/weight, cumulative-dose, monitoring, paired-drug, formulation or protocol constraints. Keep manual until those constraints are executable and auditable.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:ROPIVACAINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Ropivacaine",
+        "labelEn": "Ropivacaine",
+        "labelBg": "Ropivacaine",
+        "inn": null,
+        "category": "Local/regional anesthetics",
+        "disposition": "SCHEMA_BLOCKED",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "Evidence supports pediatric use, but the current route-only profile cannot retain all required age/weight, cumulative-dose, monitoring, paired-drug, formulation or protocol constraints. Keep manual until those constraints are executable and auditable.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:MEPIVACAINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Mepivacaine",
+        "labelEn": "Mepivacaine",
+        "labelBg": "Mepivacaine",
+        "inn": null,
+        "category": "Local/regional anesthetics",
+        "disposition": "SCHEMA_BLOCKED",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "Evidence supports pediatric use, but the current route-only profile cannot retain all required age/weight, cumulative-dose, monitoring, paired-drug, formulation or protocol constraints. Keep manual until those constraints are executable and auditable.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:PRILOCAINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Prilocaine",
+        "labelEn": "Prilocaine",
+        "labelBg": "Prilocaine",
+        "inn": null,
+        "category": "Local/regional anesthetics",
+        "disposition": "SCHEMA_BLOCKED",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "Evidence supports pediatric use, but the current route-only profile cannot retain all required age/weight, cumulative-dose, monitoring, paired-drug, formulation or protocol constraints. Keep manual until those constraints are executable and auditable.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:CHLOROPROCAINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Chloroprocaine",
+        "labelEn": "Chloroprocaine",
+        "labelBg": "Chloroprocaine",
+        "inn": null,
+        "category": "Local/regional anesthetics",
+        "disposition": "SCHEMA_BLOCKED",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "Evidence supports pediatric use, but the current route-only profile cannot retain all required age/weight, cumulative-dose, monitoring, paired-drug, formulation or protocol constraints. Keep manual until those constraints are executable and auditable.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:TETRACAINE_AMETHOCAINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Tetracaine / Amethocaine",
+        "labelEn": "Tetracaine / Amethocaine",
+        "labelBg": "Tetracaine / Amethocaine",
+        "inn": null,
+        "category": "Topical airway / nasal / ENT agents",
+        "disposition": "SCHEMA_BLOCKED",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "Evidence supports pediatric use, but the current route-only profile cannot retain all required age/weight, cumulative-dose, monitoring, paired-drug, formulation or protocol constraints. Keep manual until those constraints are executable and auditable.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:PHENYLEPHRINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Phenylephrine",
+        "labelEn": "Phenylephrine",
+        "labelBg": "Phenylephrine",
+        "inn": null,
+        "category": "Vasoactive drugs - vasopressors / vasoconstrictors",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:NOREPINEPHRINE_NORADRENALINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Norepinephrine / Noradrenaline",
+        "labelEn": "Norepinephrine / Noradrenaline",
+        "labelBg": "Norepinephrine / Noradrenaline",
+        "inn": null,
+        "category": "Anaphylaxis / allergy adjuncts",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/5353/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:EPINEPHRINE_ADRENALINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Epinephrine / Adrenaline",
+        "labelEn": "Epinephrine / Adrenaline",
+        "labelBg": "Epinephrine / Adrenaline",
+        "inn": null,
+        "category": "Anaphylaxis / allergy adjuncts",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:EPHEDRINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Ephedrine",
+        "labelEn": "Ephedrine",
+        "labelBg": "Ephedrine",
+        "inn": null,
+        "category": "Vasoactive drugs - vasopressors / vasoconstrictors",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:METARAMINOL",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Metaraminol",
+        "labelEn": "Metaraminol",
+        "labelBg": "Metaraminol",
+        "inn": null,
+        "category": "Vasoactive drugs - vasopressors / vasoconstrictors",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:VASOPRESSIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Vasopressin",
+        "labelEn": "Vasopressin",
+        "labelBg": "Vasopressin",
+        "inn": null,
+        "category": "Anaphylaxis / allergy adjuncts",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/10362/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:TERLIPRESSIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Terlipressin",
+        "labelEn": "Terlipressin",
+        "labelBg": "Terlipressin",
+        "inn": null,
+        "category": "Vasoactive drugs - vasopressors / vasoconstrictors",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/101175/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:METHYLENE_BLUE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Methylene blue",
+        "labelEn": "Methylene blue",
+        "labelBg": "Methylene blue",
+        "inn": null,
+        "category": "Miscellaneous perioperative adjuncts",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:HYDROXOCOBALAMIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Hydroxocobalamin",
+        "labelEn": "Hydroxocobalamin",
+        "labelBg": "Hydroxocobalamin",
+        "inn": null,
+        "category": "Emergency drugs / antidotes / rescue agents",
+        "disposition": "SCHEMA_BLOCKED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "Evidence supports pediatric use, but the current route-only profile cannot retain all required age/weight, cumulative-dose, monitoring, paired-drug, formulation or protocol constraints. Keep manual until those constraints are executable and auditable.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/4786/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:MILRINONE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Milrinone",
+        "labelEn": "Milrinone",
+        "labelBg": "Milrinone",
+        "inn": null,
+        "category": "Vasoactive drugs - inotropes / inodilators",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:LEVOSIMENDAN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Levosimendan",
+        "labelEn": "Levosimendan",
+        "labelBg": "Levosimendan",
+        "inn": null,
+        "category": "Vasoactive drugs - inotropes / inodilators",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://spc.fimea.fi/indox/nam/html/nam/humspc/2/23533602.pdf"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:GLUCAGON",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Glucagon",
+        "labelEn": "Glucagon",
+        "labelBg": "Glucagon",
+        "inn": null,
+        "category": "Anaphylaxis / allergy adjuncts",
+        "disposition": "SCHEMA_BLOCKED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "Evidence supports pediatric use, but the current route-only profile cannot retain all required age/weight, cumulative-dose, monitoring, paired-drug, formulation or protocol constraints. Keep manual until those constraints are executable and auditable.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/1289/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:CALCIUM_CHLORIDE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Calcium chloride",
+        "labelEn": "Calcium chloride",
+        "labelBg": "Calcium chloride",
+        "inn": null,
+        "category": "Emergency drugs / antidotes / rescue agents",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:CALCIUM_GLUCONATE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Calcium gluconate",
+        "labelEn": "Calcium gluconate",
+        "labelBg": "Calcium gluconate",
+        "inn": null,
+        "category": "Emergency drugs / antidotes / rescue agents",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:DIGOXIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Digoxin",
+        "labelEn": "Digoxin",
+        "labelBg": "Digoxin",
+        "inn": null,
+        "category": "Antiarrhythmics / cardiac rate control",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:NITROGLYCERIN_GLYCERYL_TRINITRATE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Nitroglycerin / Glyceryl trinitrate",
+        "labelEn": "Nitroglycerin / Glyceryl trinitrate",
+        "labelBg": "Nitroglycerin / Glyceryl trinitrate",
+        "inn": null,
+        "category": "Emergency drugs / antidotes / rescue agents",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/100623/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:ESMOLOL",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Esmolol",
+        "labelEn": "Esmolol",
+        "labelBg": "Esmolol",
+        "inn": null,
+        "category": "Antiarrhythmics / cardiac rate control",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/3057/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:LABETALOL",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Labetalol",
+        "labelEn": "Labetalol",
+        "labelBg": "Labetalol",
+        "inn": null,
+        "category": "Antiarrhythmics / cardiac rate control",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/10155/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:METOPROLOL",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Metoprolol",
+        "labelEn": "Metoprolol",
+        "labelBg": "Metoprolol",
+        "inn": null,
+        "category": "Antiarrhythmics / cardiac rate control",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/866/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:PROPRANOLOL",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Propranolol",
+        "labelEn": "Propranolol",
+        "labelBg": "Propranolol",
+        "inn": null,
+        "category": "Vasoactive drugs - antihypertensives / vasodilators",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:HYDRALAZINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Hydralazine",
+        "labelEn": "Hydralazine",
+        "labelBg": "Hydralazine",
+        "inn": null,
+        "category": "Vasoactive drugs - antihypertensives / vasodilators",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:SILDENAFIL",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Sildenafil",
+        "labelEn": "Sildenafil",
+        "labelBg": "Sildenafil",
+        "inn": null,
+        "category": "Vasoactive drugs - antihypertensives / vasodilators",
+        "disposition": "SCHEMA_BLOCKED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "Evidence supports pediatric use, but the current route-only profile cannot retain all required age/weight, cumulative-dose, monitoring, paired-drug, formulation or protocol constraints. Keep manual until those constraints are executable and auditable.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/2850/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:ADENOSINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Adenosine",
+        "labelEn": "Adenosine",
+        "labelBg": "Adenosine",
+        "inn": null,
+        "category": "Neuro / ICP / anticonvulsants",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:AMIODARONE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Amiodarone",
+        "labelEn": "Amiodarone",
+        "labelBg": "Amiodarone",
+        "inn": null,
+        "category": "Emergency drugs / antidotes / rescue agents",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:DILTIAZEM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Diltiazem",
+        "labelEn": "Diltiazem",
+        "labelBg": "Diltiazem",
+        "inn": null,
+        "category": "Antiarrhythmics / cardiac rate control",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5e36488b-8f2d-4dc9-b803-af1829e6fdd0"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:VERAPAMIL",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Verapamil",
+        "labelEn": "Verapamil",
+        "labelBg": "Verapamil",
+        "inn": null,
+        "category": "Antiarrhythmics / cardiac rate control",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:ONDANSETRON",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Ondansetron",
+        "labelEn": "Ondansetron",
+        "labelBg": "Ondansetron",
+        "inn": null,
+        "category": "Acid suppression / aspiration prophylaxis / GI adjuncts",
+        "disposition": "AUTOFILL_PROFILE",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "A route-only starting profile is represented in this draft from an official product label. It remains inactive pending clinical governance approval.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/8482/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:GRANISETRON",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Granisetron",
+        "labelEn": "Granisetron",
+        "labelBg": "Granisetron",
+        "inn": null,
+        "category": "Antiemetics / prokinetics",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/6423/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:PALONOSETRON",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Palonosetron",
+        "labelEn": "Palonosetron",
+        "labelBg": "Palonosetron",
+        "inn": null,
+        "category": "Antiemetics / prokinetics",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/12627/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:TROPISETRON",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Tropisetron",
+        "labelEn": "Tropisetron",
+        "labelBg": "Tropisetron",
+        "inn": null,
+        "category": "Antiemetics / prokinetics",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medsafe.govt.nz/Profs/datasheet/t/tropisetronaftinj.pdf"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:DEXAMETHASONE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Dexamethasone",
+        "labelEn": "Dexamethasone",
+        "labelBg": "Dexamethasone",
+        "inn": null,
+        "category": "Anaphylaxis / allergy adjuncts",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:METOCLOPRAMIDE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Metoclopramide",
+        "labelEn": "Metoclopramide",
+        "labelBg": "Metoclopramide",
+        "inn": null,
+        "category": "Acid suppression / aspiration prophylaxis / GI adjuncts",
+        "disposition": "SCHEMA_BLOCKED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "Evidence supports pediatric use, but the current route-only profile cannot retain all required age/weight, cumulative-dose, monitoring, paired-drug, formulation or protocol constraints. Keep manual until those constraints are executable and auditable.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/6283/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:CYCLIZINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Cyclizine",
+        "labelEn": "Cyclizine",
+        "labelBg": "Cyclizine",
+        "inn": null,
+        "category": "Antiemetics / prokinetics",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/9275/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:DIMENHYDRINATE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Dimenhydrinate",
+        "labelEn": "Dimenhydrinate",
+        "labelBg": "Dimenhydrinate",
+        "inn": null,
+        "category": "Antiemetics / prokinetics",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Pediatric authorization, concentration or regimen varies by exact product or jurisdiction. Require the stocked product and an institution-approved formulary rule before exposing a profile.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://dailymed.nlm.nih.gov/dailymed/getFile.cfm?setid=bc71539e-1a33-4709-8a24-c2894e8dbc1c&type=pdf"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:FOSAPREPITANT",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Fosaprepitant",
+        "labelEn": "Fosaprepitant",
+        "labelBg": "Fosaprepitant",
+        "inn": null,
+        "category": "Antiemetics / prokinetics",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/5947/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:OCTREOTIDE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Octreotide",
+        "labelEn": "Octreotide",
+        "labelBg": "Octreotide",
+        "inn": null,
+        "category": "Endocrine / metabolic / electrolytes",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/376/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:CEFAZOLIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Cefazolin",
+        "labelEn": "Cefazolin",
+        "labelBg": "Cefazolin",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:CEFUROXIME",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Cefuroxime",
+        "labelEn": "Cefuroxime",
+        "labelBg": "Cefuroxime",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:CEFTRIAXONE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Ceftriaxone",
+        "labelEn": "Ceftriaxone",
+        "labelBg": "Ceftriaxone",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:CEFOTAXIME",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Cefotaxime",
+        "labelEn": "Cefotaxime",
+        "labelBg": "Cefotaxime",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:CEFOXITIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Cefoxitin",
+        "labelEn": "Cefoxitin",
+        "labelBg": "Cefoxitin",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:CEFOTETAN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Cefotetan",
+        "labelEn": "Cefotetan",
+        "labelBg": "Cefotetan",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:CEFTAZIDIME",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Ceftazidime",
+        "labelEn": "Ceftazidime",
+        "labelBg": "Ceftazidime",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:CEFEPIME",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Cefepime",
+        "labelEn": "Cefepime",
+        "labelBg": "Cefepime",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:CEFTAROLINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Ceftaroline",
+        "labelEn": "Ceftaroline",
+        "labelBg": "Ceftaroline",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:AMPICILLIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Ampicillin",
+        "labelEn": "Ampicillin",
+        "labelBg": "Ampicillin",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:AMOXICILLIN_CLAVULANATE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Amoxicillin-clavulanate",
+        "labelEn": "Amoxicillin-clavulanate",
+        "labelBg": "Amoxicillin-clavulanate",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:AMPICILLIN_SULBACTAM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Ampicillin-sulbactam",
+        "labelEn": "Ampicillin-sulbactam",
+        "labelBg": "Ampicillin-sulbactam",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:PIPERACILLIN_TAZOBACTAM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Piperacillin-tazobactam",
+        "labelEn": "Piperacillin-tazobactam",
+        "labelBg": "Piperacillin-tazobactam",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:FLUCLOXACILLIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Flucloxacillin",
+        "labelEn": "Flucloxacillin",
+        "labelBg": "Flucloxacillin",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:OXACILLIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Oxacillin",
+        "labelEn": "Oxacillin",
+        "labelBg": "Oxacillin",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:NAFCILLIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Nafcillin",
+        "labelEn": "Nafcillin",
+        "labelBg": "Nafcillin",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:CLINDAMYCIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Clindamycin",
+        "labelEn": "Clindamycin",
+        "labelBg": "Clindamycin",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:VANCOMYCIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Vancomycin",
+        "labelEn": "Vancomycin",
+        "labelBg": "Vancomycin",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:TEICOPLANIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Teicoplanin",
+        "labelEn": "Teicoplanin",
+        "labelBg": "Teicoplanin",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:GENTAMICIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Gentamicin",
+        "labelEn": "Gentamicin",
+        "labelBg": "Gentamicin",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:TOBRAMYCIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Tobramycin",
+        "labelEn": "Tobramycin",
+        "labelBg": "Tobramycin",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:AMIKACIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Amikacin",
+        "labelEn": "Amikacin",
+        "labelBg": "Amikacin",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:METRONIDAZOLE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Metronidazole",
+        "labelEn": "Metronidazole",
+        "labelBg": "Metronidazole",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:CIPROFLOXACIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Ciprofloxacin",
+        "labelEn": "Ciprofloxacin",
+        "labelBg": "Ciprofloxacin",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:LEVOFLOXACIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Levofloxacin",
+        "labelEn": "Levofloxacin",
+        "labelBg": "Levofloxacin",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:MOXIFLOXACIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Moxifloxacin",
+        "labelEn": "Moxifloxacin",
+        "labelBg": "Moxifloxacin",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:ERTAPENEM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Ertapenem",
+        "labelEn": "Ertapenem",
+        "labelBg": "Ertapenem",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:MEROPENEM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Meropenem",
+        "labelEn": "Meropenem",
+        "labelBg": "Meropenem",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:IMIPENEM_CILASTATIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Imipenem-cilastatin",
+        "labelEn": "Imipenem-cilastatin",
+        "labelBg": "Imipenem-cilastatin",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:AZTREONAM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Aztreonam",
+        "labelEn": "Aztreonam",
+        "labelBg": "Aztreonam",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:LINEZOLID",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Linezolid",
+        "labelEn": "Linezolid",
+        "labelBg": "Linezolid",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:DAPTOMYCIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Daptomycin",
+        "labelEn": "Daptomycin",
+        "labelBg": "Daptomycin",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:TIGECYCLINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Tigecycline",
+        "labelEn": "Tigecycline",
+        "labelBg": "Tigecycline",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:DOXYCYCLINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Doxycycline",
+        "labelEn": "Doxycycline",
+        "labelBg": "Doxycycline",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:AZITHROMYCIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Azithromycin",
+        "labelEn": "Azithromycin",
+        "labelBg": "Azithromycin",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:FLUCONAZOLE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Fluconazole",
+        "labelEn": "Fluconazole",
+        "labelBg": "Fluconazole",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:VORICONAZOLE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Voriconazole",
+        "labelEn": "Voriconazole",
+        "labelBg": "Voriconazole",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:ANIDULAFUNGIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Anidulafungin",
+        "labelEn": "Anidulafungin",
+        "labelBg": "Anidulafungin",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:CASPOFUNGIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Caspofungin",
+        "labelEn": "Caspofungin",
+        "labelBg": "Caspofungin",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:MICAFUNGIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Micafungin",
+        "labelEn": "Micafungin",
+        "labelBg": "Micafungin",
+        "inn": null,
+        "category": "Antimicrobials often given intraoperatively",
+        "disposition": "FORMULARY_REQUIRED",
+        "reviewStatus": "LOCAL_POLICY_REQUIRED",
+        "rationaleEn": "Route alone cannot select a pediatric antimicrobial regimen. Indication, procedure/site, expected pathogens, local resistance, cultures or colonisation, allergy, age or gestation, renal function, infusion timing, redosing and therapeutic drug monitoring may change the regimen. Platform scope therefore provides no antimicrobial autofill or quick-dose pills; an institution may add only an AMS/ID/pharmacy-approved local protocol with provenance and a review date.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.childrens.health.qld.gov.au/__data/assets/pdf_file/0036/176895/gdl-01064.pdf",
+        "https://www.nice.org.uk/guidance/ng125/chapter/recommendations",
+        "https://www.gov.uk/government/publications/antimicrobial-stewardship-start-smart-then-focus/start-smart-then-focus-antimicrobial-stewardship-toolkit-for-inpatient-care-settings",
+        "https://www.who.int/publications/i/item/9789240062382"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:PROTAMINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Protamine",
+        "labelEn": "Protamine",
+        "labelBg": "Protamine",
+        "inn": null,
+        "category": "Emergency drugs / antidotes / rescue agents",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/8/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:UNFRACTIONATED_HEPARIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Unfractionated heparin",
+        "labelEn": "Unfractionated heparin",
+        "labelBg": "Unfractionated heparin",
+        "inn": null,
+        "category": "Hemostasis / anticoagulation / transfusion pharmacology",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:TRANEXAMIC_ACID",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Tranexamic acid",
+        "labelEn": "Tranexamic acid",
+        "labelBg": "Tranexamic acid",
+        "inn": null,
+        "category": "Neuro / ICP / anticonvulsants",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:DESMOPRESSIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Desmopressin",
+        "labelEn": "Desmopressin",
+        "labelBg": "Desmopressin",
+        "inn": null,
+        "category": "Neuro / ICP / anticonvulsants",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:VITAMIN_K_PHYTOMENADIONE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Vitamin K / Phytomenadione",
+        "labelEn": "Vitamin K / Phytomenadione",
+        "labelBg": "Vitamin K / Phytomenadione",
+        "inn": null,
+        "category": "Hemostasis / anticoagulation / transfusion pharmacology",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:FIBRINOGEN_CONCENTRATE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Fibrinogen concentrate",
+        "labelEn": "Fibrinogen concentrate",
+        "labelBg": "Fibrinogen concentrate",
+        "inn": null,
+        "category": "Hemostasis / anticoagulation / transfusion pharmacology",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:PROTHROMBIN_COMPLEX_CONCENTRATE_4_FACTOR",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Prothrombin complex concentrate 4-factor",
+        "labelEn": "Prothrombin complex concentrate 4-factor",
+        "labelBg": "Prothrombin complex concentrate 4-factor",
+        "inn": null,
+        "category": "Emergency drugs / antidotes / rescue agents",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/6354/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:ACTIVATED_FACTOR_VII_EPTACOG_ALFA",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Activated factor VII / Eptacog alfa",
+        "labelEn": "Activated factor VII / Eptacog alfa",
+        "labelBg": "Activated factor VII / Eptacog alfa",
+        "inn": null,
+        "category": "Hemostasis / anticoagulation / transfusion pharmacology",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:BIVALIRUDIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Bivalirudin",
+        "labelEn": "Bivalirudin",
+        "labelBg": "Bivalirudin",
+        "inn": null,
+        "category": "Hemostasis / anticoagulation / transfusion pharmacology",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/100183/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:ALTEPLASE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Alteplase",
+        "labelEn": "Alteplase",
+        "labelBg": "Alteplase",
+        "inn": null,
+        "category": "Hemostasis / anticoagulation / transfusion pharmacology",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:TENECTEPLASE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Tenecteplase",
+        "labelEn": "Tenecteplase",
+        "labelBg": "Tenecteplase",
+        "inn": null,
+        "category": "Hemostasis / anticoagulation / transfusion pharmacology",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/15859/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:OXYTOCIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Oxytocin",
+        "labelEn": "Oxytocin",
+        "labelBg": "Oxytocin",
+        "inn": null,
+        "category": "Obstetric uterotonics / tocolytics",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "Obstetric-only agent; excluded from the pediatric platform selector unless a separate pediatric indication and product are reviewed.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:CARBETOCIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Carbetocin",
+        "labelEn": "Carbetocin",
+        "labelBg": "Carbetocin",
+        "inn": null,
+        "category": "Obstetric uterotonics / tocolytics",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "Obstetric-only agent; excluded from the pediatric platform selector unless a separate pediatric indication and product are reviewed.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:METHYLERGOMETRINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Methylergometrine",
+        "labelEn": "Methylergometrine",
+        "labelBg": "Methylergometrine",
+        "inn": null,
+        "category": "Other",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "Obstetric-only agent; excluded from the pediatric platform selector unless a separate pediatric indication and product are reviewed.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:CARBOPROST",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Carboprost",
+        "labelEn": "Carboprost",
+        "labelBg": "Carboprost",
+        "inn": null,
+        "category": "Obstetric uterotonics / tocolytics",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "Obstetric-only agent; excluded from the pediatric platform selector unless a separate pediatric indication and product are reviewed.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:MISOPROSTOL",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Misoprostol",
+        "labelEn": "Misoprostol",
+        "labelBg": "Misoprostol",
+        "inn": null,
+        "category": "Obstetric uterotonics / tocolytics",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "Obstetric-only agent; excluded from the pediatric platform selector unless a separate pediatric indication and product are reviewed.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:TERBUTALINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Terbutaline",
+        "labelEn": "Terbutaline",
+        "labelBg": "Terbutaline",
+        "inn": null,
+        "category": "Respiratory drugs / bronchodilators",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:REGULAR_INSULIN_ACTRAPID",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Regular insulin / Actrapid",
+        "labelEn": "Regular insulin / Actrapid",
+        "labelBg": "Regular insulin / Actrapid",
+        "inn": null,
+        "category": "Endocrine / metabolic / electrolytes",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:HYDROCORTISONE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Hydrocortisone",
+        "labelEn": "Hydrocortisone",
+        "labelBg": "Hydrocortisone",
+        "inn": null,
+        "category": "Anaphylaxis / allergy adjuncts",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:METHYLPREDNISOLONE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Methylprednisolone",
+        "labelEn": "Methylprednisolone",
+        "labelBg": "Methylprednisolone",
+        "inn": null,
+        "category": "Anaphylaxis / allergy adjuncts",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:SODIUM_BICARBONATE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Sodium bicarbonate",
+        "labelEn": "Sodium bicarbonate",
+        "labelBg": "Sodium bicarbonate",
+        "inn": null,
+        "category": "Emergency drugs / antidotes / rescue agents",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:POTASSIUM_CHLORIDE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Potassium chloride",
+        "labelEn": "Potassium chloride",
+        "labelBg": "Potassium chloride",
+        "inn": null,
+        "category": "Endocrine / metabolic / electrolytes",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:POTASSIUM_PHOSPHATE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Potassium phosphate",
+        "labelEn": "Potassium phosphate",
+        "labelBg": "Potassium phosphate",
+        "inn": null,
+        "category": "Endocrine / metabolic / electrolytes",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:SODIUM_PHOSPHATE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Sodium phosphate",
+        "labelEn": "Sodium phosphate",
+        "labelBg": "Sodium phosphate",
+        "inn": null,
+        "category": "Endocrine / metabolic / electrolytes",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:SODIUM_CHLORIDE_HYPERTONIC_3",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Sodium chloride hypertonic (3%)",
+        "labelEn": "Sodium chloride hypertonic (3%)",
+        "labelBg": "Sodium chloride hypertonic (3%)",
+        "inn": null,
+        "category": "Other",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:FUROSEMIDE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Furosemide",
+        "labelEn": "Furosemide",
+        "labelBg": "Furosemide",
+        "inn": null,
+        "category": "Neuro / ICP / anticonvulsants",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:SALBUTAMOL_ALBUTEROL",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Salbutamol / Albuterol",
+        "labelEn": "Salbutamol / Albuterol",
+        "labelBg": "Salbutamol / Albuterol",
+        "inn": null,
+        "category": "Anaphylaxis / allergy adjuncts",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:AMINOPHYLLINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Aminophylline",
+        "labelEn": "Aminophylline",
+        "labelBg": "Aminophylline",
+        "inn": null,
+        "category": "Respiratory drugs / bronchodilators",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:THEOPHYLLINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Theophylline",
+        "labelEn": "Theophylline",
+        "labelBg": "Theophylline",
+        "inn": null,
+        "category": "Respiratory drugs / bronchodilators",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:ACETYLCYSTEINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Acetylcysteine",
+        "labelEn": "Acetylcysteine",
+        "labelBg": "Acetylcysteine",
+        "inn": null,
+        "category": "Topical airway / nasal / ENT agents",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:NALOXONE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Naloxone",
+        "labelEn": "Naloxone",
+        "labelBg": "Naloxone",
+        "inn": null,
+        "category": "Emergency drugs / antidotes / rescue agents",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:FLUMAZENIL",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Flumazenil",
+        "labelEn": "Flumazenil",
+        "labelBg": "Flumazenil",
+        "inn": null,
+        "category": "Emergency drugs / antidotes / rescue agents",
+        "disposition": "SCHEMA_BLOCKED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "Evidence supports pediatric use, but the current route-only profile cannot retain all required age/weight, cumulative-dose, monitoring, paired-drug, formulation or protocol constraints. Keep manual until those constraints are executable and auditable.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/6300/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:DANTROLENE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Dantrolene",
+        "labelEn": "Dantrolene",
+        "labelBg": "Dantrolene",
+        "inn": null,
+        "category": "Emergency drugs / antidotes / rescue agents",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:PHYSOSTIGMINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Physostigmine",
+        "labelEn": "Physostigmine",
+        "labelBg": "Physostigmine",
+        "inn": null,
+        "category": "Emergency drugs / antidotes / rescue agents",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:PRALIDOXIME",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Pralidoxime",
+        "labelEn": "Pralidoxime",
+        "labelBg": "Pralidoxime",
+        "inn": null,
+        "category": "Emergency drugs / antidotes / rescue agents",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:HYALURONIDASE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Hyaluronidase",
+        "labelEn": "Hyaluronidase",
+        "labelBg": "Hyaluronidase",
+        "inn": null,
+        "category": "Emergency drugs / antidotes / rescue agents",
+        "disposition": "PENDING_RESEARCH",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "No route-only platform pediatric policy has yet completed evidence and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:LEVETIRACETAM",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Levetiracetam",
+        "labelEn": "Levetiracetam",
+        "labelBg": "Levetiracetam",
+        "inn": null,
+        "category": "Neuro / ICP / anticonvulsants",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:PHENOBARBITAL",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Phenobarbital",
+        "labelEn": "Phenobarbital",
+        "labelBg": "Phenobarbital",
+        "inn": null,
+        "category": "Neuro / ICP / anticonvulsants",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:PHENYTOIN",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Phenytoin",
+        "labelEn": "Phenytoin",
+        "labelBg": "Phenytoin",
+        "inn": null,
+        "category": "Neuro / ICP / anticonvulsants",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:VALPROIC_ACID",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Valproic acid",
+        "labelEn": "Valproic acid",
+        "labelBg": "Valproic acid",
+        "inn": null,
+        "category": "Other",
+        "disposition": "MANUAL_NO_PROFILE",
+        "reviewStatus": "PENDING",
+        "rationaleEn": "The same route has materially different legitimate pediatric regimens. Keep manual entry until the selector can distinguish the required clinical context without guessing.",
+        "rationaleBg": null
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:CHLORPHENAMINE_CHLORPHENIRAMINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Chlorphenamine / Chlorpheniramine",
+        "labelEn": "Chlorphenamine / Chlorpheniramine",
+        "labelBg": "Chlorphenamine / Chlorpheniramine",
+        "inn": null,
+        "category": "Anaphylaxis / allergy adjuncts",
+        "disposition": "AUTOFILL_PROFILE",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "A route-only starting profile is represented in this draft from an official product label. It remains inactive pending clinical governance approval.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/10595/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_POLICY:GALANTAMINE",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_POLICY",
+        "medicationKey": "Galantamine",
+        "labelEn": "Galantamine",
+        "labelBg": "Galantamine",
+        "inn": null,
+        "category": "Other",
+        "disposition": "EXCLUDED",
+        "reviewStatus": "EVIDENCE_REVIEWED",
+        "rationaleEn": "No platform pediatric perioperative profile is supported by the cited product information. An institution may revisit only with an exact locally authorized product and governance review.",
+        "rationaleBg": null
+      },
+      "sourceRefs": [
+        "https://www.anm.ro/_/_RCP/RCP_13381_07.08.20.pdf"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_PROFILE:ONDANSETRON:30.436875-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_PROFILE",
+        "medicationKey": "Ondansetron",
+        "labelEn": "Ondansetron",
+        "labelBg": "Ondansetron",
+        "inn": "ondansetron",
+        "category": "Acid suppression / aspiration prophylaxis / GI adjuncts",
+        "profile": {
+          "kind": "bolus",
+          "mode": "dose",
+          "min": 0,
+          "max": 4,
+          "step": 0.1,
+          "rounding": "nearest_step",
+          "quickValues": [],
+          "unit": "mg",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "concentrationOptions": [
+            "2 mg/mL"
+          ],
+          "concentrationUnit": "MG_PER_ML",
+          "defaultConcentration": "2 mg/mL",
+          "weightBasis": "none",
+          "hint": "Perioperative PONV draft; treatment evidence is absent below 2 years.",
+          "doseCalc": {
+            "perKg": 0.1,
+            "basis": "TBW",
+            "roundTo": 0.1,
+            "cap": 4
+          }
+        },
+        "unit": {
+          "amount": "MG",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mg",
+          "ucumCode": "mg"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 30.436875,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/8482/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_PROFILE:CHLORPHENAMINE_CHLORPHENIRAMINE:30.436875-365.2425",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_PROFILE",
+        "medicationKey": "Chlorphenamine / Chlorpheniramine",
+        "labelEn": "Chlorphenamine / Chlorpheniramine",
+        "labelBg": "Chlorphenamine / Chlorpheniramine",
+        "inn": "chlorphenamine",
+        "category": "Anaphylaxis / allergy adjuncts",
+        "profile": {
+          "kind": "bolus",
+          "mode": "dose",
+          "min": 0,
+          "max": 20,
+          "step": 0.1,
+          "rounding": "nearest_step",
+          "quickValues": [],
+          "unit": "mg",
+          "routes": [
+            "IV",
+            "IM",
+            "SC"
+          ],
+          "defaultRoute": "IV",
+          "concentrationOptions": [
+            "1 mg/mL",
+            "10 mg/mL"
+          ],
+          "concentrationUnit": "MG_PER_ML",
+          "defaultConcentration": "1 mg/mL",
+          "weightBasis": "none",
+          "doseCalc": {
+            "perKg": 0.25,
+            "basis": "TBW",
+            "roundTo": 0.1
+          }
+        },
+        "unit": {
+          "amount": "MG",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mg",
+          "ucumCode": "mg"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 30.436875,
+        "maximumAgeDaysExclusive": 365.2425
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/10595/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_DRUG_PROFILE:CHLORPHENAMINE_CHLORPHENIRAMINE:365.2425-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_DRUG_PROFILE",
+        "medicationKey": "Chlorphenamine / Chlorpheniramine",
+        "labelEn": "Chlorphenamine / Chlorpheniramine",
+        "labelBg": "Chlorphenamine / Chlorpheniramine",
+        "inn": "chlorphenamine",
+        "category": "Anaphylaxis / allergy adjuncts",
+        "profile": {
+          "kind": "bolus",
+          "mode": "dose",
+          "min": 0,
+          "max": 20,
+          "step": 0.1,
+          "rounding": "nearest_step",
+          "quickValues": [],
+          "unit": "mg",
+          "routes": [
+            "IV",
+            "IM",
+            "SC"
+          ],
+          "defaultRoute": "IV",
+          "concentrationOptions": [
+            "10 mg/mL"
+          ],
+          "concentrationUnit": "MG_PER_ML",
+          "defaultConcentration": "10 mg/mL",
+          "weightBasis": "none",
+          "doseCalc": {
+            "perKg": 0.2,
+            "basis": "TBW",
+            "roundTo": 0.1
+          }
+        },
+        "unit": {
+          "amount": "MG",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mg",
+          "ucumCode": "mg"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 365.2425,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": [
+        "https://www.medicines.org.uk/emc/product/10595/smpc"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:HES:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "HES",
+        "labelEn": "HES",
+        "labelBg": "HES",
+        "category": "Colloids",
+        "profile": {
+          "kind": "fluid",
+          "mode": "concentration",
+          "min": 0,
+          "max": 2000,
+          "step": 50,
+          "rounding": "nearest_step",
+          "quickValues": [
+            250,
+            500,
+            1000,
+            1500
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "concentrationOptions": [
+            "6%",
+            "10%"
+          ],
+          "defaultConcentration": "10%",
+          "weightBasis": "none",
+          "fluidEntryModes": [
+            "VOLUME",
+            "RATE"
+          ],
+          "defaultFluidEntryMode": "RATE",
+          "fluidRate": {
+            "min": 1,
+            "max": 200,
+            "step": 1,
+            "allowManualOutsideRange": true
+          }
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:GELATIN_4:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "Gelatin 4%",
+        "labelEn": "Gelatin 4%",
+        "labelBg": "Gelatin 4%",
+        "category": "Colloids",
+        "profile": {
+          "kind": "fluid",
+          "mode": "dose",
+          "min": 0,
+          "max": 2000,
+          "step": 50,
+          "rounding": "nearest_step",
+          "quickValues": [
+            250,
+            500,
+            1000,
+            1500
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "weightBasis": "none",
+          "fluidEntryModes": [
+            "VOLUME",
+            "RATE"
+          ],
+          "defaultFluidEntryMode": "RATE",
+          "fluidRate": {
+            "min": 1,
+            "max": 200,
+            "step": 1,
+            "allowManualOutsideRange": true
+          }
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:ALBUMIN_5:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "Albumin 5%",
+        "labelEn": "Albumin 5%",
+        "labelBg": "Albumin 5%",
+        "category": "Colloids",
+        "profile": {
+          "kind": "fluid",
+          "mode": "dose",
+          "min": 0,
+          "max": 1000,
+          "step": 50,
+          "rounding": "nearest_step",
+          "quickValues": [
+            100,
+            250,
+            500
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "weightBasis": "none",
+          "fluidEntryModes": [
+            "VOLUME",
+            "RATE"
+          ],
+          "defaultFluidEntryMode": "RATE",
+          "fluidRate": {
+            "min": 1,
+            "max": 200,
+            "step": 1,
+            "allowManualOutsideRange": true
+          }
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:ALBUMIN_20:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "Albumin 20%",
+        "labelEn": "Albumin 20%",
+        "labelBg": "Albumin 20%",
+        "category": "Colloids",
+        "profile": {
+          "kind": "fluid",
+          "mode": "dose",
+          "min": 0,
+          "max": 200,
+          "step": 10,
+          "rounding": "nearest_step",
+          "quickValues": [
+            50,
+            100,
+            200
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "weightBasis": "none",
+          "fluidEntryModes": [
+            "VOLUME",
+            "RATE"
+          ],
+          "defaultFluidEntryMode": "RATE",
+          "fluidRate": {
+            "min": 1,
+            "max": 200,
+            "step": 1,
+            "allowManualOutsideRange": true
+          }
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:ALBUMIN_25:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "Albumin 25%",
+        "labelEn": "Albumin 25%",
+        "labelBg": "Albumin 25%",
+        "category": "Colloids",
+        "profile": {
+          "kind": "fluid",
+          "mode": "dose",
+          "min": 0,
+          "max": 200,
+          "step": 10,
+          "rounding": "nearest_step",
+          "quickValues": [
+            50,
+            100,
+            200
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "weightBasis": "none",
+          "fluidEntryModes": [
+            "VOLUME",
+            "RATE"
+          ],
+          "defaultFluidEntryMode": "RATE",
+          "fluidRate": {
+            "min": 1,
+            "max": 200,
+            "step": 1,
+            "allowManualOutsideRange": true
+          }
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:MANNITOL:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "Mannitol",
+        "labelEn": "Mannitol",
+        "labelBg": "Mannitol",
+        "category": "Other",
+        "profile": {
+          "kind": "fluid",
+          "mode": "concentration",
+          "min": 0,
+          "max": 1000,
+          "step": 50,
+          "rounding": "nearest_step",
+          "quickValues": [
+            100,
+            250,
+            500
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "concentrationOptions": [
+            "10%",
+            "15%"
+          ],
+          "weightBasis": "none",
+          "suggestedVolume": 50,
+          "fluidEntryModes": [
+            "VOLUME",
+            "RATE"
+          ],
+          "defaultFluidEntryMode": "RATE",
+          "fluidRate": {
+            "min": 1,
+            "max": 200,
+            "step": 1,
+            "allowManualOutsideRange": true
+          }
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:LIPID_EMULSION_20:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "Lipid emulsion 20%",
+        "labelEn": "Lipid emulsion 20%",
+        "labelBg": "Lipid emulsion 20%",
+        "category": "Other",
+        "profile": {
+          "kind": "fluid",
+          "mode": "dose",
+          "min": 0,
+          "max": 1000,
+          "step": 10,
+          "rounding": "nearest_step",
+          "quickValues": [
+            50,
+            100,
+            150
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "weightBasis": "none",
+          "hint": "1.5 mL/kg TBW",
+          "doseCalc": {
+            "perKg": 1.5,
+            "basis": "TBW",
+            "roundTo": 10
+          },
+          "fluidEntryModes": [
+            "VOLUME",
+            "RATE"
+          ],
+          "defaultFluidEntryMode": "RATE",
+          "fluidRate": {
+            "min": 1,
+            "max": 200,
+            "step": 1,
+            "allowManualOutsideRange": true
+          }
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:SALINE:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "Saline",
+        "labelEn": "Saline",
+        "labelBg": "Saline",
+        "category": "Crystalloids",
+        "profile": {
+          "kind": "fluid",
+          "mode": "concentration",
+          "min": 0,
+          "max": 2000,
+          "step": 100,
+          "rounding": "nearest_step",
+          "quickValues": [
+            250,
+            500,
+            1000,
+            2000
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "concentrationOptions": [
+            "0.225%",
+            "0.45%",
+            "0.9%",
+            "3%",
+            "20%"
+          ],
+          "defaultConcentration": "0.9%",
+          "weightBasis": "none",
+          "suggestedVolume": 500,
+          "fluidEntryModes": [
+            "VOLUME",
+            "RATE"
+          ],
+          "defaultFluidEntryMode": "RATE",
+          "fluidRate": {
+            "min": 1,
+            "max": 200,
+            "step": 1,
+            "allowManualOutsideRange": true,
+            "calculation": "HOLLIDAY_SEGAR_4_2_1"
+          }
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": [
+        "https://www.nice.org.uk/guidance/ng29/chapter/Recommendations"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:LACTATED_RINGER_S_HARTMANN_S:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "Lactated Ringer's / Hartmann's",
+        "labelEn": "Lactated Ringer's / Hartmann's",
+        "labelBg": "Lactated Ringer's / Hartmann's",
+        "category": "Crystalloids",
+        "profile": {
+          "kind": "fluid",
+          "mode": "dose",
+          "min": 0,
+          "max": 2000,
+          "step": 100,
+          "rounding": "nearest_step",
+          "quickValues": [
+            250,
+            500,
+            1000,
+            2000
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "weightBasis": "none",
+          "suggestedVolume": 500,
+          "fluidEntryModes": [
+            "VOLUME",
+            "RATE"
+          ],
+          "defaultFluidEntryMode": "RATE",
+          "fluidRate": {
+            "min": 1,
+            "max": 200,
+            "step": 1,
+            "allowManualOutsideRange": true,
+            "calculation": "HOLLIDAY_SEGAR_4_2_1"
+          }
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": [
+        "https://www.nice.org.uk/guidance/ng29/chapter/Recommendations"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:PLASMA_LYTE:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "Plasma-Lyte",
+        "labelEn": "Plasma-Lyte",
+        "labelBg": "Plasma-Lyte",
+        "category": "Crystalloids",
+        "profile": {
+          "kind": "fluid",
+          "mode": "dose",
+          "min": 0,
+          "max": 2000,
+          "step": 100,
+          "rounding": "nearest_step",
+          "quickValues": [
+            250,
+            500,
+            1000,
+            2000
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "weightBasis": "none",
+          "suggestedVolume": 500,
+          "fluidEntryModes": [
+            "VOLUME",
+            "RATE"
+          ],
+          "defaultFluidEntryMode": "RATE",
+          "fluidRate": {
+            "min": 1,
+            "max": 200,
+            "step": 1,
+            "allowManualOutsideRange": true,
+            "calculation": "HOLLIDAY_SEGAR_4_2_1"
+          }
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": [
+        "https://www.nice.org.uk/guidance/ng29/chapter/Recommendations"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:RINGER_S_ACETATE:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "Ringer's acetate",
+        "labelEn": "Ringer's acetate",
+        "labelBg": "Ringer's acetate",
+        "category": "Crystalloids",
+        "profile": {
+          "kind": "fluid",
+          "mode": "dose",
+          "min": 0,
+          "max": 2000,
+          "step": 100,
+          "rounding": "nearest_step",
+          "quickValues": [
+            250,
+            500,
+            1000,
+            2000
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "weightBasis": "none",
+          "suggestedVolume": 500,
+          "fluidEntryModes": [
+            "VOLUME",
+            "RATE"
+          ],
+          "defaultFluidEntryMode": "RATE",
+          "fluidRate": {
+            "min": 1,
+            "max": 200,
+            "step": 1,
+            "allowManualOutsideRange": true,
+            "calculation": "HOLLIDAY_SEGAR_4_2_1"
+          }
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": [
+        "https://www.nice.org.uk/guidance/ng29/chapter/Recommendations"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:DEXTROSE_5_D5W:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "Dextrose 5% (D5W)",
+        "labelEn": "Dextrose 5% (D5W)",
+        "labelBg": "Dextrose 5% (D5W)",
+        "category": "Crystalloids",
+        "profile": {
+          "kind": "fluid",
+          "mode": "dose",
+          "min": 0,
+          "max": 2000,
+          "step": 100,
+          "rounding": "nearest_step",
+          "quickValues": [
+            250,
+            500,
+            1000,
+            2000
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "weightBasis": "none",
+          "suggestedVolume": 500,
+          "fluidEntryModes": [
+            "VOLUME",
+            "RATE"
+          ],
+          "defaultFluidEntryMode": "RATE",
+          "fluidRate": {
+            "min": 1,
+            "max": 200,
+            "step": 1,
+            "allowManualOutsideRange": true,
+            "calculation": "HOLLIDAY_SEGAR_4_2_1"
+          }
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": [
+        "https://www.nice.org.uk/guidance/ng29/chapter/Recommendations"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:DEXTROSE_5_IN_0_9_SALINE_D5NS:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "Dextrose 5% in 0.9% saline (D5NS)",
+        "labelEn": "Dextrose 5% in 0.9% saline (D5NS)",
+        "labelBg": "Dextrose 5% in 0.9% saline (D5NS)",
+        "category": "Crystalloids",
+        "profile": {
+          "kind": "fluid",
+          "mode": "dose",
+          "min": 0,
+          "max": 2000,
+          "step": 100,
+          "rounding": "nearest_step",
+          "quickValues": [
+            250,
+            500,
+            1000,
+            2000
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "weightBasis": "none",
+          "suggestedVolume": 500,
+          "fluidEntryModes": [
+            "VOLUME",
+            "RATE"
+          ],
+          "defaultFluidEntryMode": "RATE",
+          "fluidRate": {
+            "min": 1,
+            "max": 200,
+            "step": 1,
+            "allowManualOutsideRange": true,
+            "calculation": "HOLLIDAY_SEGAR_4_2_1"
+          }
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": [
+        "https://www.nice.org.uk/guidance/ng29/chapter/Recommendations"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:DEXTROSE_5_IN_0_45_SALINE_D5_1_2NS:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "Dextrose 5% in 0.45% saline (D5 1/2NS)",
+        "labelEn": "Dextrose 5% in 0.45% saline (D5 1/2NS)",
+        "labelBg": "Dextrose 5% in 0.45% saline (D5 1/2NS)",
+        "category": "Crystalloids",
+        "profile": {
+          "kind": "fluid",
+          "mode": "dose",
+          "min": 0,
+          "max": 2000,
+          "step": 100,
+          "rounding": "nearest_step",
+          "quickValues": [
+            250,
+            500,
+            1000,
+            2000
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "weightBasis": "none",
+          "suggestedVolume": 500,
+          "fluidEntryModes": [
+            "VOLUME",
+            "RATE"
+          ],
+          "defaultFluidEntryMode": "RATE",
+          "fluidRate": {
+            "min": 1,
+            "max": 200,
+            "step": 1,
+            "allowManualOutsideRange": true,
+            "calculation": "HOLLIDAY_SEGAR_4_2_1"
+          }
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": [
+        "https://www.nice.org.uk/guidance/ng29/chapter/Recommendations"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:DEXTROSE_5_IN_LACTATED_RINGER_S_D5LR:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "Dextrose 5% in Lactated Ringer's (D5LR)",
+        "labelEn": "Dextrose 5% in Lactated Ringer's (D5LR)",
+        "labelBg": "Dextrose 5% in Lactated Ringer's (D5LR)",
+        "category": "Crystalloids",
+        "profile": {
+          "kind": "fluid",
+          "mode": "dose",
+          "min": 0,
+          "max": 2000,
+          "step": 100,
+          "rounding": "nearest_step",
+          "quickValues": [
+            250,
+            500,
+            1000,
+            2000
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "weightBasis": "none",
+          "suggestedVolume": 500,
+          "fluidEntryModes": [
+            "VOLUME",
+            "RATE"
+          ],
+          "defaultFluidEntryMode": "RATE",
+          "fluidRate": {
+            "min": 1,
+            "max": 200,
+            "step": 1,
+            "allowManualOutsideRange": true,
+            "calculation": "HOLLIDAY_SEGAR_4_2_1"
+          }
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": [
+        "https://www.nice.org.uk/guidance/ng29/chapter/Recommendations"
+      ]
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:DEXTROSE_10_D10W:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "Dextrose 10% (D10W)",
+        "labelEn": "Dextrose 10% (D10W)",
+        "labelBg": "Dextrose 10% (D10W)",
+        "category": "Crystalloids",
+        "profile": {
+          "kind": "fluid",
+          "mode": "dose",
+          "min": 0,
+          "max": 1000,
+          "step": 50,
+          "rounding": "nearest_step",
+          "quickValues": [
+            100,
+            250,
+            500,
+            1000
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "weightBasis": "none",
+          "suggestedVolume": 250,
+          "fluidEntryModes": [
+            "VOLUME",
+            "RATE"
+          ],
+          "defaultFluidEntryMode": "RATE",
+          "fluidRate": {
+            "min": 1,
+            "max": 200,
+            "step": 1,
+            "allowManualOutsideRange": true
+          }
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:PACKED_RED_BLOOD_CELLS_PRBC:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "Packed red blood cells (PRBC)",
+        "labelEn": "Packed red blood cells (PRBC)",
+        "labelBg": "Packed red blood cells (PRBC)",
+        "category": "Blood products",
+        "profile": {
+          "kind": "fluid",
+          "mode": "dose",
+          "min": 0,
+          "max": 1000,
+          "step": 10,
+          "rounding": "nearest_step",
+          "quickValues": [
+            150,
+            250,
+            350,
+            1000
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "weightBasis": "none",
+          "suggestedVolume": 250,
+          "fluidEntryModes": [
+            "VOLUME"
+          ],
+          "defaultFluidEntryMode": "VOLUME"
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:FRESH_FROZEN_PLASMA_FFP:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "Fresh frozen plasma (FFP)",
+        "labelEn": "Fresh frozen plasma (FFP)",
+        "labelBg": "Fresh frozen plasma (FFP)",
+        "category": "Blood products",
+        "profile": {
+          "kind": "fluid",
+          "mode": "dose",
+          "min": 0,
+          "max": 1000,
+          "step": 10,
+          "rounding": "nearest_step",
+          "quickValues": [
+            200,
+            250,
+            1000
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "weightBasis": "none",
+          "suggestedVolume": 250,
+          "fluidEntryModes": [
+            "VOLUME"
+          ],
+          "defaultFluidEntryMode": "VOLUME"
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:PLATELETS:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "Platelets",
+        "labelEn": "Platelets",
+        "labelBg": "Platelets",
+        "category": "Blood products",
+        "profile": {
+          "kind": "fluid",
+          "mode": "dose",
+          "min": 0,
+          "max": 500,
+          "step": 10,
+          "rounding": "nearest_step",
+          "quickValues": [
+            200,
+            300,
+            500
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "weightBasis": "none",
+          "suggestedVolume": 300,
+          "fluidEntryModes": [
+            "VOLUME"
+          ],
+          "defaultFluidEntryMode": "VOLUME"
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:CRYOPRECIPITATE:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "Cryoprecipitate",
+        "labelEn": "Cryoprecipitate",
+        "labelBg": "Cryoprecipitate",
+        "category": "Blood products",
+        "profile": {
+          "kind": "fluid",
+          "mode": "dose",
+          "min": 0,
+          "max": 250,
+          "step": 10,
+          "rounding": "nearest_step",
+          "quickValues": [
+            50,
+            100,
+            150,
+            250
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "weightBasis": "none",
+          "suggestedVolume": 100,
+          "fluidEntryModes": [
+            "VOLUME"
+          ],
+          "defaultFluidEntryMode": "VOLUME"
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:WHOLE_BLOOD:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "Whole blood",
+        "labelEn": "Whole blood",
+        "labelBg": "Whole blood",
+        "category": "Blood products",
+        "profile": {
+          "kind": "fluid",
+          "mode": "dose",
+          "min": 0,
+          "max": 500,
+          "step": 10,
+          "rounding": "nearest_step",
+          "quickValues": [
+            200,
+            350,
+            500
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "weightBasis": "none",
+          "suggestedVolume": 350,
+          "fluidEntryModes": [
+            "VOLUME"
+          ],
+          "defaultFluidEntryMode": "VOLUME"
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": []
+    },
+    {
+      "ruleKey": "PEDIATRIC_FLUID_PROFILE:CELL_SALVAGE_AUTOLOGOUS_BLOOD:0-6574.365",
+      "payload": {
+        "kind": "PEDIATRIC_FLUID_PROFILE",
+        "itemKey": "Cell salvage / autologous blood",
+        "labelEn": "Cell salvage / autologous blood",
+        "labelBg": "Cell salvage / autologous blood",
+        "category": "Blood products",
+        "profile": {
+          "kind": "fluid",
+          "mode": "dose",
+          "min": 0,
+          "max": 1500,
+          "step": 10,
+          "rounding": "nearest_step",
+          "quickValues": [
+            250,
+            500,
+            1000,
+            1500
+          ],
+          "unit": "mL",
+          "routes": [
+            "IV"
+          ],
+          "defaultRoute": "IV",
+          "weightBasis": "none",
+          "suggestedVolume": 500,
+          "fluidEntryModes": [
+            "VOLUME"
+          ],
+          "defaultFluidEntryMode": "VOLUME"
+        },
+        "unit": {
+          "amount": "ML",
+          "bodyBasis": "NONE",
+          "timeBasis": "NONE",
+          "display": "mL",
+          "ucumCode": "mL"
+        },
+        "routeUnits": {},
+        "minimumAgeDays": 0,
+        "maximumAgeDaysExclusive": 6574.365
+      },
+      "sourceRefs": []
+    }
+  ]
+}

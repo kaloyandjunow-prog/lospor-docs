@@ -86,6 +86,16 @@ Record the fresh gas flow and composition:
 - **Carrier gas** — Air or N₂O (oxygen is always implicit)
 - **FiO₂** — inspired oxygen fraction (%)
 
+### Pediatric safeguards
+
+Pediatric cases never inherit adult drug doses, infusion rates,
+concentrations, fluid quick values, gas settings, volatile-agent settings,
+equipment calculations, or ventilation settings. Manual charting remains
+available. A suggested value is shown only when its exact pediatric profile
+has completed clinical review.
+
+See [Pediatric mode](../pediatric-mode.md).
+
 ### Drugs (bolus)
 
 Click **+ Drug** in the timetable to log a bolus drug administration:

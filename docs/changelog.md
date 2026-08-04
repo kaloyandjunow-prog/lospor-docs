@@ -8,6 +8,31 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## Unreleased - Pediatric mode
+
+- Added an explicit Adult/Pediatric mode with exact age in days, months, or
+  years. LOSPOR deliberately does not collect gestational or postmenstrual
+  age; chronological age and recorded body size are the available dose
+  context.
+- Added shared pediatric ASA/POVOC/COLDS, fasting, pain, vital-reference,
+  BSA, maintenance-fluid, and resuscitation rules.
+- Added mode-specific complete clinical rulesets with immutable publication,
+  copy provenance, and deterministic personal, institution, then platform
+  precedence. Adult and Pediatric selections are independent and never fall
+  back across modes.
+- Added the canonical Adult platform baseline (`LOSPORADULTS Rules`) from the
+  existing drug, infusion, fluid, and equipment library. Web provides the
+  editing workbench; mobile/PWA show the effective selections read-only.
+- Added canonical administration routes, dose components, concentration
+  units, and internal UCUM codes shared by Core, API, web, PWA, and mobile.
+- Added pediatric web, PWA, Android, and Database Browser workflows, including
+  exact chronological-age filters and bilingual labels.
+- Adult dose, rate, fluid, gas, volatile-agent, airway-equipment, ventilation,
+  blood-volume, bleeding, and local-anaesthetic defaults are blocked in
+  pediatric mode unless a reviewed pediatric profile exists.
+- Production remains disabled until the full clinical manifest is reviewed.
+
+---
 ## [7.3.0] - 2026-07-28
 
 - Finalization and clinical writes now serialize on one PostgreSQL case lock,

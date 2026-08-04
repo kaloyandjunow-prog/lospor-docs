@@ -13,6 +13,18 @@ On mobile, the preoperative form opens with a **section dashboard**. It shows se
 
 A sticky **section rail** at the top lets you jump between sections without going back to the dashboard. A side scroll indicator marks your position in longer sections.
 
+## Pediatric cases
+
+Select **Pediatric** for patients from birth to under 18 years and record age
+in days, months, or years. For a child under one year, answer whether the child
+was born prematurely. If yes, enter gestational age at birth as completed
+weeks plus additional days. LOSPOR calculates postmenstrual age; it is
+read-only. Pediatric mode uses ASA, POVOC, conditional COLDS, age-aware vital
+references, pediatric fasting, BSA, maintenance-fluid, and resuscitation
+tools. Adult RCRI, Apfel, and STOP-BANG are hidden.
+
+See [Pediatric mode](../pediatric-mode.md) for safety limits and rollout status.
+
 ## Patient demographics
 
 Enter the patient's:
