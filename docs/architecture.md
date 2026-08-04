@@ -59,6 +59,10 @@ Core owns rules that must produce the same clinical answer on every client:
 - monitoring, airway, technique, and option metadata;
 - timetable projection, active infusions/fluids/gases/agents, totals, and
   semantic event descriptions;
+- pediatric mode, precise chronological age, pediatric risk/fasting/pain rules,
+  reviewed pediatric calculators, and clinical-rule provenance;
+- mode-specific clinical rulesets, canonical administration routes, dose-unit
+  metadata, and deterministic platform/institution/personal precedence;
 - status derivation, account policy, search contracts, units, and summaries;
 - option caching, locks, polling, revision/conflict handling, and autosave
   decisions; and
@@ -67,6 +71,17 @@ Core owns rules that must produce the same clinical answer on every client:
 Core has no React, Expo, Next.js, Prisma, storage, or network implementation.
 Clients keep translations, layout, animation, haptics, and device storage. The
 API keeps database queries and external service adapters.
+
+## Clinical ruleset boundary
+
+Core defines and validates complete Adult and Pediatric rulesets. The API owns
+their persistence, publication, ownership, and selection. Web owns the editing
+workbench; mobile and PWA expose the effective selection read-only.
+
+For each clinical mode, one published ruleset is resolved in this order:
+personal, institution, platform. Rules are not merged across levels, and
+Pediatric never falls back to Adult. Published versions are immutable; changes
+are made by copying a version into a new draft.
 
 ## Locking and offline safety
 

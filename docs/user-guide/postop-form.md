@@ -36,6 +36,12 @@ The total is calculated automatically and displayed with a colour indicator:
 - **Pain NRS** — Numeric Rating Scale 0–10 (slider)
 - **PONV** — Postoperative nausea and vomiting (Yes/No)
 
+## Pediatric recovery
+
+Pediatric cases retain the Modified Aldrete score. Pain may be documented with
+FLACC, Faces Pain Scale - Revised, or NRS according to self-report ability.
+PAED is optional.
+
 ## Postoperative state at discharge (disposition)
 
 Select where the patient is discharged to:
