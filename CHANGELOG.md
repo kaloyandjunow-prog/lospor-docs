@@ -1,5 +1,15 @@
 # Changelog - LOSPOR Docs
 
+## [8.3.0] - 2026-08-05
+
+### Changed
+
+- Self-hosting is rewritten as a deployment guide built around the appliance,
+  rather than instructions that started three services with `npm run dev`. It
+  covers the environment variables a real installation needs — including
+  `PEDIATRIC_MODE_ENABLED` — first-administrator bootstrap, and backup and
+  restore as a procedure rather than a sentence.
+
 ## [8.2.1] - 2026-08-05
 
 ### Changed
