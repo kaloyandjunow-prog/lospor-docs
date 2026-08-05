@@ -1,5 +1,11 @@
 # Changelog - LOSPOR Docs
 
+## [8.2.1] - 2026-08-05
+
+### Changed
+
+- Version alignment with the 8.2.1 release train.
+
 ## [8.2.0] - 2026-08-05
 
 ### Fixed
