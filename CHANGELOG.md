@@ -1,5 +1,21 @@
 # Changelog - LOSPOR Docs
 
+## [8.4.0] - 2026-08-06
+
+### Added
+
+- **Working offline** — a new page stating plainly what can be done with no
+  connection and what cannot: case documentation and diagnosis, procedure and
+  drug search all continue; signing in, finalising and anything that queries
+  other data do not. It also covers the version stamp carried by the bundled
+  vocabulary and why a code chosen offline records which copy produced it.
+
+### Changed
+
+- The autosave page describes what happens when the server cannot be reached:
+  the shortened timeout, writing straight to the queue after a failure, and why
+  an unsent save is queued rather than lost.
+
 ## [8.3.3] - 2026-08-06
 
 ### Added

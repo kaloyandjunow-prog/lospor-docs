@@ -70,6 +70,31 @@ The probable-name check is skipped only for structured selections from the
 ICD-10, procedure, medication, and allergy catalogues. EGN, long-number, date,
 and email checks still apply to those labels.
 
+## When the server cannot be reached
+
+A save always reaches durable storage on the device before any network request is
+attempted, so an unsent save is queued rather than lost. That property is what
+lets the application stop trying quickly.
+
+Until 8.4.0 every save waited the full network timeout — eight seconds — before
+concluding it was offline, and intraoperative writes are serialised per case, so
+one unreachable save delayed everything queued behind it, and the next save paid
+the same cost again. The application spent seconds arriving at an answer it
+already had.
+
+Now the timeout is three seconds, and after a failure the application writes
+straight to the queue without attempting the network until a short interval has
+passed. It clears that state the moment any request reaches the server — even an
+error response proves the network is up — and whenever the application returns
+to the foreground, since the connection may well have changed while it was away.
+
+The interval is deliberately shorter than the periodic flush, so every flush
+still makes one genuine attempt and a recovered connection is picked up on the
+next cycle rather than being locked out.
+
+Settings → Diagnostics shows whether the application currently considers the
+server reachable, and how many edits are waiting.
+
 ## Operational notes
 
 - Schema migration: `20260723000000_autosave_manager_revisions`

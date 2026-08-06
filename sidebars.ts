@@ -19,6 +19,7 @@ const sidebars: SidebarsConfig = {
       ],
     },
     "admin-guide",
+    "offline-mode",
     "pediatric-mode",
     "clinical-rules",
     "pediatric-platform-draft",

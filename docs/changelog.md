@@ -8,6 +8,53 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 8.4.0 - Diagnosis and procedure search without a connection
+
+### Diagnosis and procedure search now work offline
+
+Both pickers were network-only. With no connection they returned an empty list,
+which reads as *"there is no such diagnosis"* rather than *"there is no
+network"* — and because a case cannot be finalised without a diagnosis, a case
+could be documented in full offline and only then found to be unfinishable.
+
+The mobile application now carries the whole ICD-10 vocabulary — 16,175 codes
+with Bulgarian and English labels — and the full procedure list. Ranking moved
+into the shared clinical core, so offline results are the *same* results the
+server returns rather than an approximation; this is verified against the live
+database rather than assumed.
+
+Results that came from the device say so, and fields with no offline copy say
+that too, so an empty list is never mistaken for an answer.
+
+Anything chosen offline records which version of the vocabulary produced it. A
+code is stored as text and nothing rejects one that has since been retired, so
+without that stamp a case coded from an old copy would be indistinguishable from
+a current one.
+
+### The application stops waiting to discover it is offline
+
+Every save used to wait eight seconds before concluding the server was
+unreachable, and intraoperative writes are serialised per case — so one
+unreachable save held up everything behind it, and the next save paid the cost
+again. Saves now write straight to the queue after a failure and stop attempting
+the network briefly, resuming as soon as any request succeeds. Nothing is lost:
+an unsent save was always queued first.
+
+### Fewer redundant redraws during a case
+
+The intraoperative screen refreshed itself every ten seconds whether or not
+anything had changed — rebuilding the whole timetable and re-rendering the
+screen to display an elapsed time that reads in whole minutes. It now redraws
+when the minute changes or the timetable actually advances.
+
+### A diagnostics screen
+
+Settings → Diagnostics reports queued edits, whether the server is reachable,
+the vocabulary version on the device, and how long recent intraoperative tab
+switches took. Performance problems on a phone cannot be measured remotely; this
+turns an impression into a number.
+
+---
 ## 8.3.3 - Blood pressure entry and slider handling
 
 - Dragging a vital slider no longer changes tab part-way through. The
