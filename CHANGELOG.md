@@ -1,5 +1,20 @@
 # Changelog - LOSPOR Docs
 
+## [8.3.3] - 2026-08-06
+
+### Added
+
+- Pediatric mode gains a **Premedication** section: how a dose is resolved from
+  the child's weight and age, the four outcomes a drug and route can produce
+  (calculated, withheld, manual, needs a weight), the capping and rounding
+  rules, and which weight basis is used. This shipped in 8.3.2 with no
+  documentation at all.
+
+### Changed
+
+- The public changelog covers 8.3.2 and 8.3.3, including the web app having
+  previously offered children adult premedication doses.
+
 ## [8.3.2] - 2026-08-06
 
 ### Changed

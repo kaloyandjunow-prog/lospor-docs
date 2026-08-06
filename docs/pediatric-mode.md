@@ -85,6 +85,46 @@ The initial Pediatric selection is intentionally empty. Until the platform
 owner populates and publishes reviewed profiles, the application continues to
 show safe manual-entry paths rather than inventing pediatric defaults.
 
+## Premedication
+
+Premedication is dosed from the child's own weight and age. The premedication
+catalogue itself holds fixed adult amounts — midazolam 7.5 mg, paracetamol 1 g —
+with no weight term at all, so it cannot be shown to a child unchanged. Every
+entry is rebuilt before it is offered.
+
+A drug and route resolves to exactly one of four outcomes, and the distinction
+between them is the point:
+
+- **A calculated dose**, with the arithmetic that produced it shown beside it —
+  `0.5 mg/kg × 14 kg`, and the cap when the cap applied. The number can be
+  checked at a glance rather than trusted.
+- **Withheld**, with the reason, where the drug should not be given to a child at
+  all: codeine at any pediatric age, aspirin under sixteen, tramadol under
+  twelve, ibuprofen under three months. These stay visible and disabled rather
+  than disappearing from the list, because "not for this child, and here is why"
+  is more useful than an absence.
+- **Manual entry**, where no pediatric rule covers that drug or route. LOSPOR
+  does not fall back to the adult amount; the clinician enters a verified dose.
+- **A request for a weight**, where a rule exists but the weight to apply it to
+  has not been recorded. No dose is shown and none is assumed.
+
+Doses are capped at the usual adult dose, so the arithmetic can never exceed
+what an adult would receive, and are rounded to an amount that can actually be
+given. Where a drug has a practical minimum — atropine is not given below
+100 mcg — a computed dose below it is raised, never above the cap.
+
+Weight-based dosing uses actual body weight unless the drug is conventionally
+dosed on ideal body weight, in which case McLaren ideal body weight is used when
+height and sex are recorded and measured weight otherwise. The response records
+which weight was used.
+
+The same resolver serves the web app and the mobile app, so the two cannot
+disagree about a dose for the same child.
+
+These are starting points for a prescriber, not instructions. They are
+conventional pediatric premedication values, and every prescription is confirmed
+clinically.
+
 ## Postoperative workflow
 
 Modified Aldrete remains available. Pediatric pain documentation selects among

@@ -8,6 +8,46 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 8.3.3 - Blood pressure entry and slider handling
+
+- Dragging a vital slider no longer changes tab part-way through. The
+  intraoperative tab swipe claimed any horizontal movement and the slider gave
+  the gesture up, so the screen changed while a value was being set.
+- A three-digit blood pressure no longer truncates. Blood pressure sits in two
+  columns, which leaves the value about 61 pixels between the two buttons —
+  `130 mmHg` needed 88. The unit now sits below the field, which is what
+  actually created the room; reducing the type alone did not, at any legible
+  size. Applied to every vital field, in preoperative assessment and recovery.
+
+---
+## 8.3.2 - Pediatric premedication
+
+- **Premedication is dosed for the child.** Nineteen drugs resolve from recorded
+  weight and age, capped at the adult dose, with the arithmetic shown beside the
+  number. Drugs that should not be given to a child are withheld with the
+  reason; drugs with no pediatric rule ask for a hand-entered dose rather than
+  offering the adult amount; a child with no recorded weight gets a prompt for
+  one rather than a dose. See [Pediatric mode](./pediatric-mode.md).
+- Intranasal dexmedetomidine, 4 mcg/kg capped at 200 mcg, added to the
+  premedication catalogue.
+- **Premedication for a child was previously dosed as an adult on the web app**,
+  which took a drug list and a dose table with no clinical mode, weight or age.
+  Both clients now use the same resolver.
+- A haematocrit reported as a fraction is converted to a percentage. Analysers
+  commonly print `0.41`, sometimes unlabelled and sometimes labelled `%`
+  regardless; the latter previously passed through as though already canonical.
+  This is confined to haematocrit, where the two scales cannot overlap — it is
+  deliberately not applied to reticulocytes or eosinophils, which are normally
+  below 1%.
+- A laboratory value that could not be converted is no longer labelled with the
+  canonical unit, which had put a number and a unit on screen that did not
+  belong together.
+- Pediatric drug and infusion menus regained their scenario categories.
+- Equipment suggestions are translated and no longer clipped.
+- Device preferences no longer follow one clinician into another's account on a
+  shared phone or tablet.
+
+---
 ## Unreleased - Pediatric mode
 
 - Added an explicit Adult/Pediatric mode with exact age in days, months, or
