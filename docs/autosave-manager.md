@@ -76,21 +76,41 @@ A save always reaches durable storage on the device before any network request i
 attempted, so an unsent save is queued rather than lost. That property is what
 lets the application stop trying quickly.
 
-Until 8.4.0 every save waited the full network timeout — eight seconds — before
-concluding it was offline, and intraoperative writes are serialised per case, so
-one unreachable save delayed everything queued behind it, and the next save paid
-the same cost again. The application spent seconds arriving at an answer it
-already had.
+Until 8.4.0 every save waited the full network timeout before concluding it was
+offline, and intraoperative writes are serialised per case, so one unreachable
+save delayed everything queued behind it — and the next save paid the same cost
+again. The application spent seconds repeatedly arriving at an answer it already
+had.
 
-Now the timeout is three seconds, and after a failure the application writes
-straight to the queue without attempting the network until a short interval has
-passed. It clears that state the moment any request reaches the server — even an
-error response proves the network is up — and whenever the application returns
-to the foreground, since the connection may well have changed while it was away.
+The timeout stayed at eight seconds; what changed is that the wait is now paid
+**once**. After a failure the application writes straight to the queue without
+attempting the network until a short cooldown has passed. It clears that state
+the moment any request reaches the server — even an error response proves the
+network is up — and whenever the application returns to the foreground, since
+the connection may well have changed while it was away.
 
-The interval is deliberately shorter than the periodic flush, so every flush
+The cooldown is deliberately shorter than the periodic flush, so every flush
 still makes one genuine attempt and a recovered connection is picked up on the
 next cycle rather than being locked out.
+
+Eight seconds is deliberate. A shorter limit was tried and reverted in 8.5.0: a
+healthy save over mobile data can exceed three seconds, and the abort was then
+read as a network failure, so the application announced itself offline while it
+was online and saving normally. Telling a clinician their work is not reaching
+the server, when it is, is worse than waiting a few more seconds.
+
+## A poll that never answers
+
+Background syncing runs on a single-flight poller: one poll at a time, the next
+scheduled once the previous finishes. Until 8.5.0 that rescheduling happened only
+when the in-flight poll completed, and a request with no timeout could fail to
+complete at all — leaving the loop permanently asleep. Queued work then sat until
+the clinician pressed sync by hand, and reopening the application did not help,
+because it joined the same stuck attempt.
+
+Polls now run under a watchdog. One that overruns is abandoned so the loop always
+re-arms, and an abandoned poll that finishes late cannot disturb the poll that
+replaced it.
 
 Settings → Diagnostics shows whether the application currently considers the
 server reachable, and how many edits are waiting.

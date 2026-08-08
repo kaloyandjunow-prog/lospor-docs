@@ -8,6 +8,62 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 8.5.0 - The intraoperative screen gets out of the way
+
+### Switching intraoperative tabs is roughly fifty times faster
+
+Moving between tabs during a case took well over a second, and every tab felt the
+same regardless of how much it displayed. The cause was that each switch
+re-rendered all fourteen bottom sheets — drugs, infusions, fluids, agents, vitals
+and the rest — even though every one of them was closed. Nothing was drawn on
+screen, so nothing looked wrong, but each was still filtering the drug catalogue,
+building scenario lists and calculating doses.
+
+Measured on the device, the closed sheets accounted for 1335–1652 ms of every
+switch; the tab actually being opened took 5–41 ms. Only the open sheet renders
+now.
+
+### The preoperative form no longer slows down as you fill it in
+
+Every keystroke compared all 106 form fields against their previous values by
+serialising both — over two hundred serialisations per character, across data
+that grew with every diagnosis, medication and laboratory value added. So the
+form became progressively less responsive the more of the patient you recorded,
+which is exactly backwards. The comparison it was making only concerned
+yes/no fields, and now costs nothing.
+
+### Saving no longer reports "Offline" while online
+
+A save that took longer than a few seconds — ordinary over mobile data — was
+being treated as a failed connection, so the application announced itself offline
+while it was saving perfectly well. It now waits properly before drawing that
+conclusion, and having drawn it once, queues subsequent work immediately rather
+than waiting again each time.
+
+### Background syncing cannot silently stop
+
+A single request that never answered could leave the background sync asleep for
+the rest of a session — queued work sat until someone pressed sync by hand. Polls
+now run under a watchdog, so the loop always recovers. The same fix restores live
+case updates in the web application, which stopped refreshing under the same
+conditions.
+
+### The application does less work behind the scenes
+
+Every call to the server performed three encrypted Android keystore operations —
+reading back the sign-in token and recording two diagnostic timestamps — on the
+path of every save, every poll and every event recorded during a case. None of it
+was necessary.
+
+### Diagnostics
+
+Settings → Diagnostics now reports where time goes during a case: how long tab
+switches take and which part of the work accounts for it, alongside queued edits,
+whether the server is reachable, and the offline vocabulary version. This is what
+identified the sheet rendering above, after several plausible explanations turned
+out to be wrong.
+
+---
 ## 8.4.0 - Diagnosis and procedure search without a connection
 
 ### Diagnosis and procedure search now work offline

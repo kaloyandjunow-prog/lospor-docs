@@ -1,5 +1,18 @@
 # Changelog - LOSPOR Docs
 
+## [8.5.0] - 2026-08-07
+
+### Changed
+
+- The public changelog covers 8.5.0: intraoperative tab switching, the
+  preoperative form no longer slowing as it fills, saving no longer reporting
+  "Offline" while online, background sync that cannot silently stop, and the
+  diagnostics screen.
+- The autosave page gains a section on a poll that never answers, and corrects
+  the network timeout: it remains eight seconds. A three-second limit was tried
+  and reverted, because a healthy save over mobile data can exceed it and the
+  abort was then reported to the clinician as being offline.
+
 ## [8.4.0] - 2026-08-06
 
 ### Added
