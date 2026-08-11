@@ -8,6 +8,78 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.0.0 - The same question gets the same answer everywhere
+
+### A child matched by two dosing rules is now told so
+
+Where two approved paediatric dose bands both covered the same child — an age
+range and a weight range that overlap — the phone sorted the candidates and
+used the first one. The web app refused. The same child, on the same ruleset,
+could therefore be suggested a different dose depending on which device was in
+your hand.
+
+Neither device now guesses. The overlap is stated on screen, no dose is
+suggested, and no clinical rule is recorded against whatever you enter, because
+no rule was used. You can still record the dose you judge correct — an earlier
+version of this fix refused to invent a dose and then also refused to accept a
+typed one, which left the sheet unusable. Stating a conflict and enforcing it
+are different things.
+
+### Infusion routes a ruleset has withdrawn are no longer offered
+
+Selecting one produced an empty box with no explanation. A drug could also
+disappear from the list entirely when only its *default* route had been
+withdrawn, even though another usable route remained.
+
+### Work you had already saved is no longer lost when you reopen a case
+
+Reopening an unfinished case silently cleared several fields that had been
+saved — including whether the surgery was elective, and the AI consent flag.
+Everything that was saved now comes back.
+
+Two related corrections: a patient not yet scored in recovery was displayed as
+0 out of 10, the worst possible Aldrete, in alarm red, because an unrecorded
+score was treated as a real one. And a recovery save the server had refused
+still advanced to the summary and started the countdown that closes the case,
+so work that had not been accepted looked finished.
+
+### The benchmark screen no longer answers questions it cannot answer
+
+The benchmark tool offered fourteen measurements and could calculate five. The
+other nine returned an empty chart — indistinguishable from "no patients
+matched your filters" and from "withheld because too few cases to report
+safely". Three very different answers looked identical, and the most natural
+reading of a blank is a finding about your data.
+
+The menu now lists only what can be calculated, and the two remaining empty
+states say which one they are. Where some periods are withheld for small
+numbers, the chart is still drawn and the withheld periods are counted for you.
+
+### Research exports: numbers are now exported as numbers
+
+Twenty-two scored variables — the Aldrete subscores and total, RCRI, Apfel,
+STOP-BANG, POVOC, COLDS, PAED, the paediatric pain scales, anaesthesia
+duration, fluid totals and others — were documented as numeric but written into
+a free-text column. Anyone analysing them had to convert text back to numbers
+and hope the conversion matched ours.
+
+Two further corrections matter for anyone who has already planned an analysis:
+
+- A pain score was being exported under the standard OMOP concept for **body
+  temperature**, inherited from the vitals mapping. Pooled with other sites, a
+  pain score of 2 would have answered a temperature query as 2 °C. It is now
+  exported under its own LOINC code.
+- Seventeen documented value ranges were narrower than what the application
+  actually accepts — age documented as 0–120 while accepting up to 149,
+  oxygen saturation documented as 50–100 while accepting 0. Filtering on a
+  published range would have silently excluded real records. The documentation
+  now states the ranges the software enforces.
+
+The data dictionary and the export are checked against each other
+automatically, so a variable can no longer be documented under one name and
+exported under another.
+
+---
 ## 8.5.0 - The intraoperative screen gets out of the way
 
 ### Switching intraoperative tabs is roughly fifty times faster
