@@ -1,5 +1,20 @@
 # Changelog - LOSPOR Docs
 
+## [9.0.0] - 2026-08-11
+
+### Added
+
+- A 9.0.0 entry on the public changelog page covering what changed for the
+  people using the system: paediatric dose conflicts being stated rather than
+  resolved by sort order, reopened cases keeping what was saved, an unassessed
+  recovery no longer displayed as the worst possible score, the benchmark
+  screen offering only what it can calculate, and the research export writing
+  numbers as numbers.
+- Two corrections flagged explicitly for anyone who has already planned an
+  analysis: the pain score that was exported under the OMOP concept for body
+  temperature, and seventeen documented ranges that were narrower than the
+  ranges the software accepts.
+
 ## [8.5.0] - 2026-08-07
 
 ### Changed
