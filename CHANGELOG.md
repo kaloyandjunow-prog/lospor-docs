@@ -1,5 +1,11 @@
 # Changelog - LOSPOR Docs
 
+## [9.1.1] - 2026-08-17
+
+### Changed
+
+- Version alignment with the 9.1.1 API fix.
+
 ## [9.1.0] - 2026-08-16
 
 ### Changed
