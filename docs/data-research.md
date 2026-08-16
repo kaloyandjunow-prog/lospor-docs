@@ -99,12 +99,27 @@ Normalized rows also carry source/provenance metadata such as user input, web/mo
 The OMOP export is an OMOP CDM v5.4-oriented research export. It now reads normalized rows and active event rows instead of raw legacy blobs.
 
 The export includes:
-- visit occurrence with institution/care-site source value
+- care site as its own table, referenced by visit occurrence through `care_site_id`
+- person and observation period, the CDM root tables
+- visit occurrence
 - condition occurrence from diagnoses and comorbidities
-- procedure occurrence from planned procedures and vascular access
-- measurement rows for preop/postop vitals, labs, intraop vitals, glucose, and gas settings
-- drug exposure rows for medications, bolus drugs, premedication, agents, and infusions where applicable
-- observations for ASA, scores, selections, complications, handover, disposition, and other app-local concepts
+- procedure occurrence from every planned procedure, the anaesthesia technique,
+  vascular access, and the act of placing an instrumented airway
+- measurement rows for preop/postop vitals, labs, intraop vitals, glucose, and gas settings,
+  carrying `value_source_value` for results the laboratory reported as text and
+  `range_low` / `range_high` for the reference range the result was judged against
+- drug exposure rows for medications, bolus drugs, premedication, agents, and infusions,
+  with `drug_exposure_end_date` paired from stop events for continuous administrations
+- observations for ASA, scores, selections, complications, handover, disposition, the
+  preoperative history and airway examination, airway devices and ventilation, drug
+  allergies, and other app-local concepts
+
+Clinical yes/no questions are exported for a recorded "no" as well as a "yes".
+No row means the question was never asked, which is a different claim about a
+patient than a negative finding.
+
+An allergy is exported as an observation, never as a drug exposure. A substance
+a patient reacts to is not one they were given.
 
 Known OMOP concept IDs are stored/exported where confidently mapped. Filtered Athena CSV import can enrich LOINC, ICD-10, and ATC mappings through local OMOP vocabulary tables without storing the full Athena bundle. Otherwise LOSPOR exports source vocabulary, source code, and source labels with an explicit source-only/unmapped status. Fake OMOP IDs are not used.
 

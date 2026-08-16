@@ -1,5 +1,19 @@
 # Changelog - LOSPOR Docs
 
+## [9.1.0] - 2026-08-16
+
+### Changed
+
+- `data-research.md` describes the OMOP export as it now stands: care site as
+  its own table, person and observation period, every planned procedure and the
+  airway placement act, the reference range and source text on measurements, and
+  drug exposure end dates.
+- Documented that a clinical yes/no question is exported for a recorded "no" as
+  well as a "yes", and that no row means the question was never asked — a
+  different claim about a patient than a negative finding.
+- Documented that an allergy is exported as an observation and never as a drug
+  exposure.
+
 ## [9.0.0] - 2026-08-11
 
 ### Added
