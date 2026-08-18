@@ -16,6 +16,13 @@ LOSPOR stores perioperative data for clinical documentation, audit, personal por
 - Comorbidities: ICD-10-coded tags with English/Bulgarian labels.
 - Medication history and medication allergy rows, including `Medication.kind = CURRENT` or `ALLERGY`.
 - Risk scores: ASA, RCRI, Apfel, STOP-BANG, and their component inputs.
+
+  The component inputs are three-valued: yes, no, and not asked. A criterion
+  nobody put to the patient is stored as null, not as a negative, and does not
+  count toward the score — so a score is a lower bound when some of its criteria
+  were never asked. Analyses that treat a null as a "no" are counting something
+  the register did not measure; the component inputs are exported precisely so
+  that distinction is available to you.
 - Airway assessment: Mallampati, mouth opening, thyromental distance, neck mobility, ULBT, Cormack-Lehane, difficult-airway history, and airway features.
 - Free-text clinical notes where needed: team notes, physical exam report, difficult-airway notes. These are character-limited and PII-checked server-side.
 - Vitals: BP, HR, SpO2, temperature, respiratory rate, including unable-to-obtain flags where available.

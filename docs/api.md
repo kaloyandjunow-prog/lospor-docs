@@ -56,6 +56,20 @@ to section revisions. Research manifest v2 stores all of them, so a child-row
 change cannot pass export snapshot validation merely because a parent timestamp
 was unchanged.
 
+A save built on a stale revision is refused with `409` and the server's current
+version of the section. A client that means to overwrite it anyway — a queued
+offline save is stale by definition — sends `overrideConflict` in the body, or
+the `x-lospor-override-conflict` header. That is recorded: an audit entry names
+the sections overwritten, the revision the client believed it held, and the
+revision it discarded. Setting the flag when there was no conflict records
+nothing.
+
+Finalization appends rather than overwrites. Each finalization of a case is its
+own record, carrying who performed it and, for a correction, why and which
+record it supersedes. A database trigger rejects UPDATE and DELETE, so a case
+that was finalized, unfinalized, corrected and finalized again retains what was
+first attested to.
+
 ## Export completeness
 
 OMOP batches above 5000 matching cases return HTTP 422 with
