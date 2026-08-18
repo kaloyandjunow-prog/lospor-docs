@@ -8,6 +8,71 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.2.0 - The record says what it does not know
+
+### A risk score now says how much of it was asked
+
+RCRI, Apfel and STOP-BANG count a criterion nobody asked about as absent. That
+is deliberate: a question never put to a patient must not push a score upward.
+But the card showed a bare number and a colour band, so "RCRI 1 — low" looked
+identical whether five criteria had been answered "no" or never asked at all.
+
+Each score now says how many of its criteria were answered, and only when some
+were not. The number and the band are unchanged — a partial score is still the
+best estimate available, as long as it says what it rests on.
+
+Researchers get the same distinction: the component inputs export as yes, no, or
+not asked, so an analysis can tell a negative finding from an absent one.
+
+### A case cannot be moved to another hospital
+
+Transferring a case to a colleague at a different institution used to rewrite
+which hospital the case belonged to. The printed protocol, the record, and the
+`care_site` in the OMOP export then all said the operation had happened
+somewhere it had not.
+
+Transfers stay within the institution now, for administrators too. A finalised
+case cannot be transferred at all — unfinalise it first, so the change is
+captured rather than applied underneath an attested record.
+
+### Finalising a case no longer overwrites the last time you finalised it
+
+Finalising froze a copy of the record. Unfinalising, correcting something and
+finalising again replaced that copy, so what was first attested to was gone.
+Each finalisation is now its own record, and the database refuses to alter or
+delete one. A correction supersedes; it does not erase.
+
+### Overwriting a colleague's edits is recorded
+
+Saving over a newer version was possible without any trace that a conflict had
+occurred. It is still possible — a save queued while offline is out of date by
+definition, and refusing it would lose work — but it is now recorded: which
+sections were overwritten, and which version was discarded.
+
+### Removing an account keeps the cases
+
+An administrator removing an account previously failed outright for any
+clinician who had recorded a case, and where it succeeded it destroyed the
+record of what that account had been permitted to see.
+
+The account is now marked deleted, every session ends immediately, and it is
+anonymised after thirty days. The clinical records it authored are untouched and
+keep their author.
+
+---
+## 9.1.0 - A question you did not ask is not a "no"
+
+Clinical yes/no questions became three-valued: yes, no, and not asked. An
+untouched field and a recorded negative used to reach the register as the same
+answer, and a study counting them together was counting something it had not
+measured. Both the web form and the phone app now ask as a pair of answers, say
+when a question has not been asked, and let a mis-tap be cleared.
+
+Existing records were deliberately left as they are. Rewriting them would have
+discarded the genuine "no" answers among them, and that distinction cannot be
+recovered afterwards.
+
+---
 ## 9.0.0 - The same question gets the same answer everywhere
 
 ### A child matched by two dosing rules is now told so

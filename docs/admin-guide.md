@@ -40,6 +40,16 @@ You can transfer any case in your institution to any member of the **same instit
 
 The transfer is immediate.
 
+**A case never leaves the institution that recorded it.** This is a property of
+the system rather than a limit on your role: administrators cannot do it either.
+A case's institution is where the operation took place — it appears on the
+printed protocol and becomes the `care_site` in the OMOP export — so moving it
+would make the record claim the operation happened somewhere it did not.
+
+**A finalised case cannot be transferred.** Unfinalise it first, so the change is
+captured in a new finalisation record rather than applied underneath the
+existing one.
+
 ## Admin panel
 
 Administrators have access to the **Admin** page (visible in the navigation bar as a shield icon).
@@ -55,8 +65,23 @@ All pending HOD role requests are listed here. For each request:
 A table of all registered users is shown with their name, email, institution, and current role. Administrators can:
 - Promote a Member to HOD
 - Demote an HOD to Member
+- Remove an account
 
 Admin roles cannot be changed through the UI.
+
+### Removing an account
+
+Removing an account does not erase it immediately. It is marked deleted, every
+existing session is invalidated at once — not only the one currently open — and
+the account can no longer sign in.
+
+Thirty days later the account is anonymised: its name and email are replaced and
+its password is destroyed. Until then the removal can be reversed.
+
+The clinical records the account authored are untouched, and keep their author.
+Cases are the department's record of an operation, not the account's property,
+and an anaesthetic record with no attributable author is worth considerably less
+than one naming a clinician who has since left.
 
 ## OMOP CDM export
 
