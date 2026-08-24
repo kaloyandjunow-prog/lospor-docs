@@ -1,5 +1,17 @@
 # Changelog - LOSPOR Docs
 
+## [9.3.1] - 2026-08-24
+
+### Added
+
+- Public changelog entries for 9.3.0 and 9.3.1: the 1.2.0 wave (Bulgarian-first
+  localization, Hospital username sign-in, administrator two-factor sign-in,
+  dose guidance no longer reading as a recommendation, the bilingual audit
+  vocabulary, account suspend/delete/restore, versioned Terms/Privacy
+  acceptance, and time-boxed research self-authorization) and the fixes that
+  followed it (the offline "unsynced" vs "could not be saved" wording, and the
+  exported PWA's API proxy).
+
 ## [9.1.1] - 2026-08-17
 
 ### Changed

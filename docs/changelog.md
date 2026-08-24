@@ -8,6 +8,140 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.3.1 - The offline vitals were never lost, but the phone said they were
+
+### A phone offline mid-case now says "unsynced," not "could not be saved"
+
+A vital recorded while the phone had no signal was already doing the right
+thing: it stayed queued and replayed automatically the moment the connection
+came back. But the screen didn't say that. It showed the same alarming
+message as a genuine rejection — "The case could not be saved. Check the
+connection and try again" — for an entry that was never in any danger.
+
+The two situations are told apart now. A save that is actually stuck offline
+reads "unsynced," matching what is true: it is waiting, not lost.
+
+### An exported PWA now actually reaches the API, instead of quietly not
+
+The installable web app talks to the API through its own address so a browser
+never needs a separate login token. A gap in that address's setup meant a
+freshly exported PWA could silently answer every request with its own start
+page instead of forwarding it — including the sign-in request itself, which
+still came back looking like success. The clinician appeared to be signed in
+in a build that had never reached the server at all.
+
+The exported PWA now proxies every one of those requests to the API for
+real, and a client that only ever received its own start page back is now
+treated as signed out rather than as logged in.
+
+---
+## 9.3.0 - A case remembers who created it, even after it changes hands
+
+### A transferred case keeps its author on record
+
+Who wrote a case and who is currently responsible for it used to be the same
+field. Handing a case to a colleague — or a HOD moving it during a
+reorganization — quietly rewrote who had authored it. The person who ran the
+anaesthetic and finished the record was no longer named as either.
+
+Authorship is now permanent and separate from the current assignee. The
+clinician who created a case keeps read-only access to it after a handover,
+even though someone else now owns it.
+
+### The interface asks which language you speak before it asks anything else
+
+Web, the phone app, and the exported PWA now default to Bulgarian, with
+English available from the same prominent selector on the sign-in screen
+before any credential is entered. A completed login adopts the account's
+saved language; an explicit choice made at sign-in is written back to that
+account for next time. Every authenticated clinical screen was carried
+through this pass — the live intraoperative timetable, the irreversible
+end/discontinue/continue prompts, keyboard shortcuts, fluid-conflict
+handling, and the clinical-rule editors included. What was left in English on
+purpose — drug names, standardized scores, units, and other controlled
+clinical terms — is an explicit, reviewed list, not an oversight.
+
+### A hospital can require its own usernames instead of email
+
+The public Cloud demo keeps ordinary email sign-in, self-registration, and
+email-based password recovery exactly as before. A Hospital deployment can
+instead require a case-preserving, administrator-issued username with no
+email fallback at all — registration and email-recovery links disappear from
+that build entirely, and a missing or contradictory server answer about which
+mode is active fails closed rather than guessing.
+
+### Administrators can turn on two-factor sign-in
+
+A clinical administrator's account can now require an authenticator app in
+addition to a password. First sign-in walks through enrollment — scan a code
+or enter a key by hand — and hands back exactly ten one-time recovery codes;
+the screen will not let the administrator move on until they confirm the
+codes were saved. The six-digit code and recovery-code secrets never touch
+browser storage and are discarded the moment the sign-in finishes, one way or
+the other. Ordinary clinician sign-in is unaffected, and the public demo
+stays on single-step login unless a deployment explicitly turns this on.
+
+### Dose guidance stopped reading like a recommendation
+
+Premedication, bolus, and infusion panels used to show a configured range, a
+source note, and quick-pick dose buttons alongside the entry field — worded
+and laid out like the app was suggesting a dose. It wasn't meant to be read
+that way, but it was reasonable to read it that way.
+
+The range prose, the source note, and the quick-pick buttons are gone from
+those panels. A calculated starting value is still offered and stays
+editable, and a withheld-drug or manual-entry safety message still shows when
+it applies, but nothing on screen now looks like a recommendation.
+
+### Every audit entry has a real name, in both languages
+
+The administrator audit log used to show whichever internal code a client
+happened to hard-code for an event, which drifted out of step with new event
+types over time and never had a Bulgarian label. The log now reads from one
+registry the server owns: every entry, in Bulgarian or English, with a filter
+that only ever offers a code that is actually registered. An older entry
+whose code has since been retired still shows its raw value rather than
+disappearing.
+
+### An account can be suspended or removed without erasing who did what
+
+Continuing the change in 9.2.0 that stopped deleting an account from also
+deleting the record of what it had done: an administrator can now suspend,
+delete, or restore an account as distinct, reversible states, with the exact
+timestamps that separate an invited, active, suspended, deletion-pending, and
+recovery-required account. A deleted account is anonymised after thirty
+days, not immediately — restoring it inside that window requires the
+returning clinician to set a new password before signing in again. The last
+remaining clinical administrator on a deployment cannot be demoted, deleted,
+or converted away, so a hospital can never end up with none.
+
+### Terms and Privacy acceptance is now a real, checkable record
+
+Registering used to record a bare "accepted" flag. It now records exactly
+which version of Terms and which version of Privacy were shown, in which
+language, and their content hash — checked against the API's own copy at the
+moment of registration, so a client cannot silently submit a hash for text
+the clinician never actually saw. Existing accounts are not retroactively
+treated as having accepted anything; nothing is invented on their behalf.
+
+### Research access is granted for hours, not indefinitely
+
+A researcher can self-authorize aggregate-only access to a cohort for at most
+eight hours, and at most once in any rolling day — export, row-level
+inspection, OMOP mapping, and sharing are outside what that self-authorization
+covers. Case labels in the research Browser use a stable, unlinkable
+pseudonym; the underlying case ID, case code, and patient number are never
+rendered there, in an aggregate view or an inspectable one.
+
+### A saved research cohort no longer disappears under someone else's edit
+
+Editing a shared cohort's filters could previously overwrite a colleague's
+more recent change with no warning either way. Saving now checks the version
+you started from and refuses — with a visible conflict, not a silent loss —
+if someone else changed it first. A cohort's sharing visibility is also no
+longer rewritten as a side effect of an unrelated metadata edit.
+
+---
 ## 9.2.0 - The record says what it does not know
 
 ### A risk score now says how much of it was asked
