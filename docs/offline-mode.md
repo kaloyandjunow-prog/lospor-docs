@@ -82,6 +82,21 @@ one delay per save. It resumes as soon as a request succeeds.
 Where an edit conflicts with a newer change made elsewhere, it is held and
 reported rather than overwriting the newer record.
 
+### What is never queued
+
+An edit the server refuses on clinical grounds is not queued, because retrying
+it cannot succeed — the answer would be the same every time. Recording an age
+under eighteen as an adult case is the clearest example. These are shown as
+something to correct now, on the field concerned, and are held back from the
+queue so they cannot be replayed indefinitely behind a message about waiting
+for a connection.
+
+Only the refused fields are held. An edit that changed the weight *and* tripped
+one of these rules still saves the weight.
+
+The distinction is deliberate: "waiting for a connection" must mean exactly
+that, or it stops being information.
+
 ## Limits worth knowing
 
 - Offline procedure search matches on the procedure group, its domain, and the

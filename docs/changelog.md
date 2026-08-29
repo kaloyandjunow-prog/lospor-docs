@@ -8,6 +8,50 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.4.0 - Correcting a case from paediatric to adult no longer strands it
+
+### A case corrected to adult now saves, instead of sitting on "saved locally"
+
+If a case was started in paediatric mode and then corrected to adult — because
+the patient was an adult all along — the change could never be saved. The
+screen reported "saved locally, waiting for connection" and kept trying, while
+the server was reachable and answering the whole time.
+
+The cause was that switching to adult did not actually tell the server to
+forget the paediatric age. It simply stopped mentioning it. The server kept the
+precise age it already had, that age continued to say "this is a child", and it
+declined the change every time it was resent. Nothing about retrying could ever
+help, but the wording invited the clinician to wait for a connection that was
+never the problem.
+
+Switching now clears the stored age explicitly, and the save goes through.
+
+The age limit itself is unchanged: a patient genuinely under eighteen still
+cannot be recorded as an adult. What is fixed is correcting the age and the
+mode together.
+
+### The warning about the wrong mode no longer sounds like a personal-data alert
+
+When one of these refusals did reach the screen, it borrowed the wording used
+for entries that contain identifying information — so a clinician correcting an
+age was told the age field contained personal data. Age and mode problems now
+say what they actually are.
+
+### "Switch mode" now says which mode it will switch to
+
+The button beside the warning gave no destination. Sitting next to a message
+about the mode you had just chosen, it read as an offer to overrule that
+warning, when it does the opposite. It now reads "Switch to paediatric mode" or
+"Switch to adult mode".
+
+### Registration: the guide said institution was optional. It is required.
+
+The Getting Started guide told new users they could skip choosing an
+institution. Registration has always required one. The guide now says so, and
+explains what to do if your institution is not on the list: register with the
+closest one, then request the correct department from Settings.
+
+---
 ## 9.3.1 - The offline vitals were never lost, but the phone said they were
 
 ### A phone offline mid-case now says "unsynced," not "could not be saved"
