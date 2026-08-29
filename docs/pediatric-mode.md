@@ -30,6 +30,27 @@ An age below 18 cannot be saved as an adult case. The clinician must switch the
 case to pediatric mode or correct the age. A pediatric case cannot be saved
 with an age of 18 years or older.
 
+The warning offers an action naming the mode it will move the case to — "Switch
+to pediatric mode" or "Switch to adult mode". It performs the correction the
+warning describes; it is not a way to record an age the rule refuses.
+
+### Correcting a case that was started in the wrong mode
+
+A case opened in pediatric mode for a patient who is in fact an adult can be
+switched to Adult. Doing so clears the precise pediatric age — the value and
+its unit — because that stored age, not the displayed one, is what decides the
+mode. The case then asks for the adult age again rather than converting the old
+value, so the recorded age is always one a clinician entered and read.
+
+Changing the age *unit* within pediatric mode clears the value for the same
+reason: the field asks for the age again in the new unit instead of silently
+converting it.
+
+If a correction is refused, it is refused for a clinical reason and says so —
+an age below eighteen cannot be recorded as adult however the case was started.
+These refusals are shown as something to correct now, never as work waiting for
+a connection.
+
 ## Preoperative workflow
 
 Pediatric preoperative assessment retains ASA physical status and adds:

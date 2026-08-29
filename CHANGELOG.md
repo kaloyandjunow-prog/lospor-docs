@@ -1,5 +1,24 @@
 # Changelog - LOSPOR Docs
 
+## [9.4.0] - 2026-08-29
+
+### Fixed
+
+- The Getting Started guide said institution was optional at registration. It
+  is required — the registration schema rejects both an empty institution and
+  the no-institution sentinel — so a clinician following the guide was told a
+  mandatory choice could be skipped. The guide now states the requirement and
+  explains the path when an institution is not listed: register with the
+  closest one, then request the correct department from Settings, where an
+  administrator reviews it.
+
+### Added
+
+- Public changelog entry for 9.4.0: the paediatric-to-adult correction that
+  could strand a case on "saved locally", the refusal wording that borrowed the
+  personal-data message, the mode button that did not name its destination, and
+  this registration correction.
+
 ## [9.3.1] - 2026-08-24
 
 ### Added

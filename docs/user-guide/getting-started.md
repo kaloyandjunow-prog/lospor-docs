@@ -14,9 +14,16 @@ title: Getting Started
    - Professional title (e.g. Dr., Assoc. Prof.)
    - Email address
    - Password (minimum 8 characters, must include uppercase, number, and special character)
-   - **Country** and **Institution** — institution is optional; Bulgarian NHIF institutions are included
+   - **Country** and **Institution** — both are required; you must choose an institution from the list, which includes Bulgarian NHIF institutions
 4. Accept the **Terms of Use, Privacy Policy, and Medical Disclaimer** (required)
 5. Click **Create account**
+
+:::tip Your institution is not in the list
+Registration cannot be completed without choosing one, so pick the closest
+listed institution to create your account. Once you are signed in, open
+**Settings** and request to join the correct department — an administrator
+reviews the request, and you will see it marked as awaiting approval until then.
+:::
 
 You will receive a **verification email** with a link (valid for 24 hours). Click it to verify your email address — you can log in as soon as your email is verified. If the email doesn't arrive, check your spam folder or request a new link from the login page.
 

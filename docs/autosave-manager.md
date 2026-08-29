@@ -62,6 +62,14 @@ If the server detects likely identifying information, Autosave Manager keeps
 that field on the device and shows the reason beside it. Other safe fields in
 the same form can still save.
 
+The same mechanism carries clinical refusals that a retry cannot fix — recording
+an age under eighteen as an adult case, or a paediatric case without a usable
+age. They are held back from the queue for the same reason as a privacy
+rejection: the server's answer would not change, so replaying it only produces a
+message about waiting for a connection that will never help. Their wording is
+distinct from the privacy wording, so a clinician correcting an age is never
+told that the age field contains personal data.
+
 The rejected text is not repeatedly sent. It stays blocked until the clinician
 changes that field, then LOSPOR tries it once again. Reopening the case restores
 the local blocked text over the server copy so it is not lost.
