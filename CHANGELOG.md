@@ -1,5 +1,37 @@
 # Changelog - LOSPOR Docs
 
+## [9.9.5] - 2026-09-08
+
+Aligns the site with the product after a ten-release gap, and corrects two
+statements that would have led a reader wrong.
+
+### Fixed
+
+- **The postoperative guide promised automatic closure that no longer
+  happens.** It said the case is permanently finalised when the review period
+  ends. On the hosted service that is only true while the case is open in front
+  of you: the countdown finalises from the screen, so closing the tab leaves the
+  case awaiting review until someone returns to it. The guide now names all
+  three ways a case actually gets finalised, and says plainly that a hospital
+  appliance is different — there a background job closes expired cases every
+  five minutes whether or not anyone is looking.
+
+- **Self-hosting omitted a scheduled job, so a self-hoster silently got no
+  automatic case closure.** The page listed the retention purge and the research
+  export worker and never mentioned `/v1/internal/close-expired-cases`, which
+  did not appear anywhere on this site. It was survivable while the hosted
+  deployment ran the job; it no longer does. "Data retention" is now "Scheduled
+  jobs", listing all three with their cadence and authorization, and explaining
+  why the closure sweep needs minutes rather than a nightly run.
+
+### Added
+
+- **Ten releases of changelog.** The site stopped at 9.4.0 while the product
+  reached 9.9.5. The entries cover the case-status corrections, the submission
+  failures that used to look like successes, the allocation rule that differed
+  between web and phone, lab-scan consent moving to the clinical record, and the
+  printed record no longer clipping.
+
 ## [9.4.0] - 2026-08-29
 
 ### Fixed

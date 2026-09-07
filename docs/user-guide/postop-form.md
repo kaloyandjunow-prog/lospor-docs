@@ -83,11 +83,34 @@ After submitting postop, a **30-minute review period** begins. During this time:
 - Changes save automatically — only the fields you changed are sent, and saves made without a connection are kept locally and synced when it returns
 - The timer continues running even if you leave the page and return
 
-When the review period ends (or you click **Close Now**), the case is permanently finalised:
+When the case is finalised it is permanent:
 - Status changes to **Case finished** on the dashboard
 - No further editing is possible
 - LOSPOR prompts **"Print case?"** — on the web this opens a dedicated print page; on a phone the record is downloaded as a PDF and handed to your share sheet. Also reachable any time via the **Print case** button on the case list/summary, or long-press on mobile. See [Protocol & Printing](./printing.md).
 
+### When finalisation actually happens
+
+Three ways, and the difference matters if you close the tab:
+
+- **You click Close Now.** Immediate, and the surest option.
+- **The countdown reaches zero while you have the case open.** The banner finalises it in front of you.
+- **You reopen a case whose window has already elapsed.** It finalises the moment the case loads.
+
+If you submit postop and then navigate away before the window ends, the case
+stays **Awaiting review** until someone opens it again or closes it explicitly.
+The countdown itself is anchored to the server, so leaving and returning does
+not restart it — but nothing finalises the case while nobody is looking at it.
+
 :::tip
-Use the review window to verify the summary looks correct before closing. Once the case is finished, the two-page record is one click away.
+If you want the case definitively closed, click **Close Now** rather than
+leaving the timer to run. Use the review window to verify the summary looks
+correct first — once the case is finished, the two-page record is one click
+away.
+:::
+
+:::note
+On a **hospital appliance** this is different: a background job finalises
+expired cases every five minutes, whether or not anyone has the case open. The
+behaviour described above is for the hosted service. See
+[Self-hosting](../self-hosting.md#scheduled-jobs) if you run LOSPOR yourself.
 :::

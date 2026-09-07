@@ -8,6 +8,146 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.9.5 - A case that was not submitted no longer looks like one that was
+
+### Reaching the summary is no longer proof the case was accepted
+
+Submitting the postoperative form asks the server to start the closure
+countdown. If the server refused — because the case was not complete enough to
+close — both the web app and the phone ignored the refusal and carried on to
+the summary anyway.
+
+That summary is the screen that says the case is finished. Behind it the case
+was still in progress with no countdown running, and nothing on the screen
+distinguished the two. Nothing would have told the clinician later either.
+
+A refusal now keeps you on the postoperative form and says what is missing.
+
+### Automatic closure is a hospital-appliance feature
+
+On a hospital appliance a background job finalises expired cases every five
+minutes, whether or not anyone is looking at them.
+
+The hosted service has no such job. There, a case is finalised when you click
+**Close Now**, when the countdown reaches zero while you have the case open, or
+when you next open a case whose window has already elapsed. A case you submit
+and then navigate away from stays **Awaiting review** until someone returns to
+it. The postoperative guide now says so plainly.
+
+---
+## 9.9.4 - The dashboard tells the truth about which cases are closing
+
+### A case in its closure window was labelled "Awaiting postop"
+
+The dashboard never checked for the awaiting-review status. It looked at
+whether the intraoperative record had an end time first — and a case inside its
+30-minute window has one, along with a completed postoperative form — so it was
+shown in the state it had just left. The one status that is time-critical was
+the one displayed wrongly. It now reads **Awaiting review**.
+
+### The countdown could start on a case that could never close
+
+Submitting for review checked only the recovery score and the discharge
+destination. Finalisation checks considerably more: the preoperative sections,
+an intraoperative record with both times and a technique, and the postoperative
+form. A case could therefore enter the review window and promise a closure that
+could not happen.
+
+Both now ask the same question, and a refusal names what is missing.
+
+### One ward's unfinished paperwork could stop closure for everyone
+
+The job that closes expired cases takes the twenty-five oldest and works
+through them. A case it could not close kept its place in that queue, so it was
+picked up again on every run, for ever. Twenty-five such cases meant the
+twenty-sixth was never reached — and nothing reported it.
+
+A case that cannot be closed is now set aside for a while and retried later, so
+the cases behind it are always reached.
+
+### "Awaiting allocation" meant two different things
+
+The web dashboard and the phone disagreed about when a case was ready to
+schedule. The web app wanted a diagnosis and ignored age and sex; the phone did
+the reverse. The same case could read as ready on one and not the other.
+
+There is now one rule, used by both: diagnosis, planned procedure, ASA grade,
+age and sex.
+
+### The phone's "Awaiting Postop" count matched no list
+
+The number on the tab counted cases whose operation had finished. The list
+underneath showed every case with any intraoperative record at all, including
+those still in theatre. The tab therefore showed a smaller number than the list
+it labelled. Both now mean the same thing.
+
+---
+## 9.9.0 - Finishing postop is what starts the countdown, not an autosave
+
+### The closure countdown starts when you say you are done
+
+The 30-minute window used to begin whenever an autosave happened to complete
+the last postoperative field. Continuing to type could start the clock on a
+case you were still writing. Reaching the summary — a deliberate act — is now
+what starts it.
+
+### The countdown is no longer shown before the case has actually entered review
+
+The banner could appear before the server had confirmed the case was awaiting
+review, showing a countdown for something that had not begun.
+
+---
+## 9.8.0 - The printed record stops cutting itself short
+
+### Both pages continue instead of clipping
+
+The two-page anaesthetic record silently cut off anything that did not fit
+rather than carrying it to the next page. Long cases lost the end of what they
+had recorded.
+
+### Investigations are recorded as intraoperative
+
+Investigations on the printed record now sit with the intraoperative section,
+which is where they are taken.
+
+---
+## 9.7.1 - The phone reported the wrong version of itself
+
+The application sent version 8.0.0 to the server regardless of the version it
+actually was. The server compares that number before permitting paediatric
+work, so an app that was perfectly current could be told it was too old to
+record a child.
+
+---
+## 9.7.0 - Maintenance
+
+No clinician-visible change.
+
+---
+## 9.6.0 - Lab scanning asks the record for consent, not the app
+
+Scanning a laboratory report sends a photograph of a printout that carries the
+patient's name and national identifier in its header, and cannot be redacted.
+
+The route used to accept the application's own word that consent had been
+given. It now reads the consent recorded on the case and ignores anything the
+client claims — the same way the monitor scanner has always worked. A report
+cannot be sent for a case whose record does not carry consent.
+
+---
+## 9.5.0 - The lab scanner was offered without consent, and an export leaked
+
+### The scanner appeared whether or not AI use had been agreed
+
+The lab-report scanner was offered on every case, including those where
+external AI processing had not been consented to.
+
+### A redaction defect affected research exports
+
+Corrected in the API. It applied whether or not external AI was ever enabled.
+
+
+---
 ## 9.4.0 - Correcting a case from paediatric to adult no longer strands it
 
 ### A case corrected to adult now saves, instead of sitting on "saved locally"

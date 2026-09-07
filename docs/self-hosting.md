@@ -205,8 +205,8 @@ minimum:
   regardless.
 - **Bind the services to localhost** and let the proxy be the only thing
   listening publicly.
-- **Scheduled jobs** — see [Data retention](#data-retention). Nothing runs them
-  for you outside Vercel.
+- **Scheduled jobs** — see [Scheduled jobs](#scheduled-jobs). Three of them, and
+  nothing runs them for you outside Vercel.
 
 The appliance does all of this already, which is the argument for using it.
 
@@ -306,23 +306,51 @@ completed a cross-device case test.
 
 The web `/api/*` proxy supports V6 clients for the documented compatibility
 window. Removing it early would break old installed applications.
-## Data retention
+## Scheduled jobs
 
-The API's `vercel.json` calls `/v1/internal/purge-deleted` nightly. Non-Vercel
-installations must call the same endpoint from their scheduler with:
+Three jobs must run on a schedule. Nothing runs them for you, and two of the
+three fail silently — the register keeps accepting cases and simply stops doing
+something it promised.
 
-```text
-Authorization: Bearer <CRON_SECRET>
-```
+| Job | Endpoint | Cadence | Authorization |
+| --- | --- | --- | --- |
+| Close expired cases | `/v1/internal/close-expired-cases` | every 5 minutes | `Bearer <CRON_SECRET>` |
+| Retention purge | `/v1/internal/purge-deleted` | nightly | `Bearer <CRON_SECRET>` |
+| Research export worker | `/v1/internal/research-exports/process` | nightly | `Bearer <RESEARCH_EXPORT_WORKER_SECRET>` |
 
-The endpoint refuses to run when the secret is absent or wrong.
+All three refuse to run when their secret is absent or wrong.
 
-Non-Vercel installations must also schedule
-`/v1/internal/research-exports/process` with
-`Authorization: Bearer <RESEARCH_EXPORT_WORKER_SECRET>`. That job processes
-queued exports, removes abandoned private working objects, and deletes
-downloadable artifacts after `RESEARCH_EXPORT_RETENTION_DAYS`. Export metadata
-and checksums remain for audit and reproducibility.
+### Closing expired cases
+
+A case submitted for review is finalised automatically when its 30-minute
+review window elapses. **This job is what does that.** Without it, a case is
+finalised only when a clinician has it open as the countdown expires, or opens
+it again afterwards — so a case nobody returns to stays **Awaiting review**
+indefinitely.
+
+Five minutes is the cadence the feature needs: a thirty-minute window wants a
+sweep measured in minutes, and running it nightly is not a slower version of
+the feature, it is the absence of it.
+
+The job is deliberately **not** in the API's `vercel.json`. Vercel charges for
+sub-daily cron schedules and rejects the whole deployment without them, so the
+entry there did not run slowly — it stopped the API being published at all. The
+hosted service therefore does not run this sweep; a hospital appliance runs it
+every five minutes from its delivery worker.
+
+### Retention purge
+
+The API's `vercel.json` calls `/v1/internal/purge-deleted` nightly. It
+anonymises accounts deleted more than 30 days ago and prunes the rate-limit
+rows tied to them. The delay exists so an accidental deletion can be reversed;
+after it, the erasure is permanent and deliberately not recoverable.
+
+### Research export worker
+
+`/v1/internal/research-exports/process` processes queued exports, removes
+abandoned private working objects, and deletes downloadable artifacts after
+`RESEARCH_EXPORT_RETENTION_DAYS`. Export metadata and checksums remain for
+audit and reproducibility.
 
 ## Licence
 
