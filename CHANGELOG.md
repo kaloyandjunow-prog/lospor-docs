@@ -1,5 +1,19 @@
 # Changelog - LOSPOR Docs
 
+## [9.9.6] - 2026-09-12
+
+### Fixed
+
+- **Self-hosting showed the appliance installer running as an ordinary user.**
+  `./scripts/install.sh` was written bare. It ends by writing and starting the
+  appliance's systemd units, and the scripts that install them refuse to run as
+  anyone but root, so the command as documented could not complete. It did not
+  stop cleanly at the end either: it broke partway on the first root-owned path
+  it reached and reported that path rather than the missing privilege. The
+  installer and the update command are now both shown with `sudo`, with the
+  reason given. The appliance's own guides carry the same correction in
+  lospor-hospital 1.3.3.
+
 ## [9.9.5] - 2026-09-08
 
 Aligns the site with the product after a ten-release gap, and corrects two

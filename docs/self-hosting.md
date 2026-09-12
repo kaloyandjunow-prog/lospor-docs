@@ -20,15 +20,20 @@ the Research Browser, pinned to reviewed upstream versions recorded in
 `UPSTREAM_VERSIONS.json`, with PostgreSQL alongside them.
 
 ```sh
-./scripts/install.sh
+sudo ./scripts/install.sh
 ```
 
 That creates the database, applies migrations, generates secrets, creates the
 first administrator, and brings the services up behind TLS.
 
+It runs as root because it finishes by writing and starting the appliance's
+systemd units, and the scripts that install them refuse to run as anyone else.
+Run as an ordinary user it stops partway, on whichever root-owned path it
+reaches first, reporting that path rather than the missing privilege.
+
 | Task | Command |
 |---|---|
-| Update to a newer bundle | `./scripts/update.sh` |
+| Update to a newer bundle | `sudo ./scripts/update.sh` |
 | Take a backup | `./scripts/backup-now.sh` |
 | Restore one | `./scripts/restore-backup.sh` |
 | Check a running install | `./scripts/doctor.sh` |
