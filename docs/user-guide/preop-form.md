@@ -47,7 +47,9 @@ Both comma (`8,5`) and dot (`8.5`) decimals are accepted.
 ## Case details
 
 - **Diagnosis** — search by ICD-10 code, English label, Bulgarian label, or clinical synonym. The local ICD-10 database is enriched with ICD-10CM clinical synonyms (e.g. searching "heart attack" returns I21 Acute myocardial infarction). Results show the clinical group name as the primary label and the ICD code below it.
-- **Planned procedure** — search for the surgical procedure. Results show the procedure group as the primary label and the procedure code and domain below it.
+- **Planned procedure** — search for the surgical procedure. Results show the procedure group as the primary label and its section below it. The group alone is a valid answer.
+- **Exact operation** *(optional)* — once a group is chosen, the field below it lists the ICD-10-PCS operations inside that group (open or laparoscopic, whole or partial, and so on). Type a few words to narrow the list, then pick one. The list works offline too. The exact operation is what research uses: a group alone has no research code, an exact operation has its own. The record and the printed sheet then name it, for example "Cholecystectomy: Resection of Gallbladder, Percutaneous Endoscopic Approach [0FT44ZZ]".
+- **A procedure imported from the hospital system** *(hospital appliance)* — shows the hospital's own code and wording. Operations that the hospital code points to are listed first and marked; picking one keeps the hospital's code beside it. A hospital code a clinician has reviewed and confirmed to mean exactly one operation arrives already set to that operation.
 - **Team notes** *(optional)* — free text for roles, theatre number, or any case-specific reminders. Do not enter names or ID numbers here.
 
 On mobile, both searches use **inline dropdown autocomplete** — results appear below the search field without opening a separate screen.
@@ -137,7 +139,7 @@ All entered lab results appear in the printed protocol.
 
 ## Premedication
 
-Record evening and morning premedication if prescribed.
+Record premedication in two phases: **The day before** (the day before surgery) and **Morning before surgery**. Pick the drug, dose and route; there is no clock time. For research each entry is exported as its coded drug, dated the day before or the day of the operation.
 
 ## AI pre-operative advisor
 

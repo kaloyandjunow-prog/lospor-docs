@@ -1,5 +1,21 @@
 # Changelog - LOSPOR Docs
 
+## [Unreleased]
+
+### Changed
+
+- **The guides describe the exact planned operation, premedication phases and
+  coded fluids.** The preoperative guide covers choosing the ICD-10-PCS
+  operation below the procedure group (online and offline) and how an imported
+  hospital procedure is shown; premedication is "The day before" and "Morning
+  before surgery". The intraoperative guide says to pick a fluid's product and
+  strength, and that blood is entered unit by unit. Data & Research describes
+  one condition row per OMOP concept, the exact-operation research code, fluids
+  coded by product and strength, blood units as device rows with volume plus a
+  transfusion, premedication dated by phase, and the research numbers bundled
+  with each release (SNOMED CT as concept numbers only). The site changelog
+  gains an "Upcoming" section for these.
+
 ## [9.9.6] - 2026-09-12
 
 ### Fixed

@@ -8,6 +8,43 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## Upcoming - Research codes for the exact operation, fluids and premedication
+
+These changes are in the product repositories and ship with the next release.
+
+### Choose the exact operation
+
+The planned procedure is still searched by group, and the group alone is still
+a valid answer. Below it you can now pick the exact ICD-10-PCS operation inside
+that group, online or offline. That operation is its own research code, so a
+laparoscopic and an open cholecystectomy stop looking the same in a research
+export, and the record and printed sheet name the operation that was chosen.
+
+On a hospital appliance, a procedure imported from the hospital system keeps
+the hospital's code and wording, and the operations that code points to are
+offered first.
+
+### Premedication is two phases, and a coded drug
+
+Premedication is recorded as **The day before** and **Morning before
+surgery**. Each entry exports as its coded drug, dated the day before or the
+day of the operation, instead of one line of text no analysis could read.
+
+### Fluids and blood are coded by what was given
+
+Saline, Hartmann's, Plasma-Lyte and the other crystalloids used to export with
+no research code, because they share one ATC code. Each fluid is now coded as
+the exact product at the strength given. Each blood unit exports as the product
+with its volume and as its transfusion; packed red cells previously carried the
+code of a technetium tracer.
+
+### Research numbers without a terminology import
+
+The research numbers for operations, diagnoses, laboratory tests and catalogue
+drugs ship with the release, so every site exports standard concepts from the
+start. For SNOMED CT only OMOP's concept numbers are included.
+
+---
 ## 9.9.5 - A case that was not submitted no longer looks like one that was
 
 ### Reaching the summary is no longer proof the case was accepted

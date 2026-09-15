@@ -119,6 +119,8 @@ Record the volatile agent (Sevoflurane, Desflurane, or Isoflurane) used during t
 
 Add fluid boluses or infusions with type (crystalloid, colloid, blood product) and volume. Each appears as a dotted bar in the event strip.
 
+Pick the product itself and, where offered, its strength (saline 0.9% or 3%, HES 6% or 10%, mannitol 10% or 15%): the research export codes each fluid by exactly that, so a litre of saline and a litre of Hartmann's are told apart. Blood products are entered one unit at a time, by volume; each unit is exported as the product given and its transfusion.
+
 ## Position
 
 Select the patient position(s) used during the case: Supine, Prone, Lateral, Gynecological, Trendelenburg, Beach chair, Lithotomy, Jackknife, etc.
