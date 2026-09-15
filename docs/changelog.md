@@ -8,9 +8,7 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
-## Upcoming - Research codes for the exact operation, fluids and premedication
-
-These changes are in the product repositories and ship with the next release.
+## 9.10.0 - Research codes for the exact operation, fluids and premedication
 
 ### Choose the exact operation
 
@@ -43,6 +41,18 @@ code of a technetium tracer.
 The research numbers for operations, diagnoses, laboratory tests and catalogue
 drugs ship with the release, so every site exports standard concepts from the
 start. For SNOMED CT only OMOP's concept numbers are included.
+
+### The AI advisor and lab scanning work again
+
+The cloud API's default AI models had been retired by the provider, so every
+AI feature — the advisor, lab-photo reading, and vitals-scan reading — failed
+as soon as a site configured a key. The defaults are current models again.
+
+### Offline diagnosis search works right after installing the mobile app
+
+The offline diagnosis list used to become available only after a device had
+already searched it online once. A phone that goes offline before that first
+search now has it from the moment the app finishes installing.
 
 ---
 ## 9.9.5 - A case that was not submitted no longer looks like one that was
