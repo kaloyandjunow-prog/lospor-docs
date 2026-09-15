@@ -12,7 +12,7 @@ LOSPOR stores perioperative data for clinical documentation, audit, personal por
 ### Preoperative data
 - Demographics: age, sex, height, weight, BMI, blood group, Rh factor.
 - Diagnosis: ICD-10 code with English and Bulgarian labels.
-- Planned procedure: procedure code/group/domain and description.
+- Planned procedure: the procedure group, and optionally the exact ICD-10-PCS operation the clinician chose within it. A procedure imported from a hospital system keeps the hospital's code (for example КСМП) and wording beside it.
 - Comorbidities: ICD-10-coded tags with English/Bulgarian labels.
 - Medication history and medication allergy rows, including `Medication.kind = CURRENT` or `ALLERGY`.
 - Risk scores: ASA, RCRI, Apfel, STOP-BANG, and their component inputs.
@@ -32,7 +32,7 @@ LOSPOR stores perioperative data for clinical documentation, audit, personal por
 - Timing: month/year, start time, end time, duration.
 - Techniques, position, airway devices/tools, ventilation modes, monitoring modalities.
 - Vascular access rows with site, size, unit, depth, lumens, and pre-existing flag.
-- Premedication rows for evening/morning entries.
+- Premedication rows by phase: the day before surgery, or the morning before surgery. Each row carries the drug, its WHO ATC code, dose, unit and route; there is no clock time.
 - Append-only event timeline: vitals, serum/peripheral glucose, bolus drugs, infusion starts/rate changes/stops, fluid starts/stops, inhalational agent starts/stops, fresh gas flow changes, and clinical events.
 - Fresh gas flow over time: FGF L/min, carrier gas, FiO2, calculated FiAir, and calculated FiN2O. FiO2 is clamped to 21-100%; O2-only is FiO2 100%.
 - Fluids, urine, blood products, complications, and event notes.
@@ -109,14 +109,26 @@ The export includes:
 - care site as its own table, referenced by visit occurrence through `care_site_id`
 - person and observation period, the CDM root tables
 - visit occurrence
-- condition occurrence from diagnoses and comorbidities
+- condition occurrence from diagnoses and comorbidities. An ICD-10 code that
+  OMOP splits into several concepts (E11.2: type 2 diabetes, and a kidney
+  disorder due to it) exports one row per concept with the same source value
 - procedure occurrence from every planned procedure, the anaesthesia technique,
-  vascular access, and the act of placing an instrumented airway
+  vascular access, the act of placing an instrumented airway, and each blood
+  unit's transfusion. A planned procedure carries its standard concept only when
+  the clinician chose the exact ICD-10-PCS operation; a group alone exports
+  concept 0 with the group in the source value
 - measurement rows for preop/postop vitals, labs, intraop vitals, glucose, and gas settings,
   carrying `value_source_value` for results the laboratory reported as text and
   `range_low` / `range_high` for the reference range the result was judged against
-- drug exposure rows for medications, bolus drugs, premedication, agents, and infusions,
-  with `drug_exposure_end_date` paired from stop events for continuous administrations
+- drug exposure rows for medications, bolus drugs, premedication, agents, infusions and IV
+  fluids, with `drug_exposure_end_date` paired from stop events for continuous
+  administrations. A fluid is coded as the clinical drug at the strength given, from a
+  hand-checked table, because fluids share ATC codes (saline, Hartmann's and Plasma-Lyte
+  are all B05BB01). Premedication is dated the day before (D-1) or the day of the operation
+- device exposure rows for instrumented airway devices and for each blood unit, the unit
+  carrying its product concept and its volume as `quantity` in mL (`unit_concept_id`
+  8587). Cell salvage has no product concept and exports as the autotransfusion procedure,
+  with its volume as an observation
 - observations for ASA, scores, selections, complications, handover, disposition, the
   preoperative history and airway examination, airway devices and ventilation, drug
   allergies, and other app-local concepts
@@ -128,7 +140,9 @@ patient than a negative finding.
 An allergy is exported as an observation, never as a drug exposure. A substance
 a patient reacts to is not one they were given.
 
-Known OMOP concept IDs are stored/exported where confidently mapped. Filtered Athena CSV import can enrich LOINC, ICD-10, and ATC mappings through local OMOP vocabulary tables without storing the full Athena bundle. Otherwise LOSPOR exports source vocabulary, source code, and source labels with an explicit source-only/unmapped status. Fake OMOP IDs are not used.
+Known OMOP concept IDs are stored/exported where confidently mapped. The concept is fixed when the case is saved, so exporting a case twice gives the same file, and a finalized case is never rewritten when vocabularies change.
+
+The research numbers LOSPOR needs ship with every release, so a site exports standard concepts without importing any terminology: the ICD-10-PCS operations, the OMOP concept ids of LOSPOR's ICD-10 codes, the LOINC codes of its laboratory tests, and the RxNorm targets of its catalogue drugs' ATC codes. For SNOMED CT only the OMOP concept numbers are bundled, never SNOMED codes or descriptions. The Bulgarian national ICD-10 extensions have no concept of their own and export as source codes; they do not borrow their parent code's concept. A filtered Athena CSV import can still enrich mappings through local OMOP vocabulary tables, and wins where it resolves a code. Otherwise LOSPOR exports source vocabulary, source code, and source labels with an explicit source-only/unmapped status. Fake OMOP IDs are not used.
 
 Each export includes a manifest with app/schema version, concept-map version, row counts, mapping summary, de-identification notes, and quality warnings. Governed export manifest v2 also freezes the parent clinical/event/relational revisions and every section revision for each finalized case. App exports warn rather than block when source-only mappings, missing field-status rows, exact timestamps, or institution linkage are present. Downloadable research artifacts are retained for 30 days by default; their checksum, row count, source version, and audit history remain after the file expires.
 
