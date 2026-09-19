@@ -68,7 +68,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `© ${new Date().getFullYear()} LOSPOR · AGPL-3.0 licence · designed with GDPR principles`,
+      copyright: `© ${new Date().getFullYear()} LOSPOR · A PeriOp Laboratories product · AGPL-3.0 licence · designed with GDPR principles`,
     },
     prism: {
       theme: prismThemes.github,
