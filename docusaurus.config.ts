@@ -10,11 +10,25 @@ const config: Config = {
   baseUrl: "/",
   onBrokenLinks: "warn",
   markdown: {
+    // .md is CommonMark, .mdx is MDX. Nothing on this site uses MDX, and the
+    // documentation is full of angle brackets that are text rather than JSX --
+    // "Bearer <CRON_SECRET>" in the self-hosting tables, "SHA256:<43 base64
+    // characters>" in the appliance's release validation -- which MDX refuses
+    // to parse as anything but a tag.
+    format: "detect",
     hooks: {
       onBrokenMarkdownLinks: "warn",
     },
   },
-  i18n: { defaultLocale: "en", locales: ["en"] },
+
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "bg"],
+    localeConfigs: {
+      en: { label: "English" },
+      bg: { label: "Български" },
+    },
+  },
 
   presets: [
     [
@@ -45,6 +59,7 @@ const config: Config = {
         { type: "docSidebar", sidebarId: "userSidebar", position: "left", label: "User Guide" },
         { to: "/self-hosting", label: "Self-hosting", position: "left" },
         { to: "/data-research", label: "Data & Research", position: "left" },
+        { type: "localeDropdown", position: "right" },
         { href: "https://app.lospor.org", label: "Open App", position: "right" },
         { href: "https://github.com/kaloyandjunow-prog/lospor-app", label: "GitHub", position: "right" },
       ],

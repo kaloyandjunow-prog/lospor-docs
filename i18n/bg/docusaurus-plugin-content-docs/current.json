@@ -1,0 +1,14 @@
+{
+  "version.label": {
+    "message": "Текуща",
+    "description": "The label for version current"
+  },
+  "sidebar.userSidebar.category.User Guide": {
+    "message": "Ръководство за потребителя",
+    "description": "The label for category 'User Guide' in sidebar 'userSidebar'"
+  },
+  "sidebar.userSidebar.category.Hospital Appliance": {
+    "message": "Болнична система",
+    "description": "The label for category 'Hospital Appliance' in sidebar 'userSidebar'"
+  }
+}
