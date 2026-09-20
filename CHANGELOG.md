@@ -4,14 +4,25 @@
 
 ### Changed
 
-- **The appliance guides describe LOSPOR Hospital 1.4.2.** The worked examples
-  in "Updates and compatibility" and "Release validation" name 1.4.2 rather
+- **The appliance guides describe LOSPOR Hospital 1.4.3.** The worked examples
+  in "Updates and compatibility" and "Release validation" name 1.4.3 rather
   than 1.4.0, in both languages. The upgrade guide now also says why a site on
-  1.4.0 or 1.4.1 has to use the offline path to reach 1.4.2: those releases
+  1.4.0 or 1.4.1 has to use the offline path to reach a current release: those releases
   carry their own copy of the published-asset check, which predates the
   Windows kit now published beside the installable assets, so they refuse
   every release that carries one — from the console as much as from the status
   page.
+
+- **This release carries two appliance versions.** 1.4.2 and 1.4.3 were
+  published a day apart and the 1.4.2 pages had not gone out yet, so both
+  are described here.
+
+- **What 1.4.3 changed for an operator.** Hospital controls in the status
+  page is now four tabs rather than one long scroll, so EHR integration,
+  research and Central, clinical guidance and external AI each have their
+  own address. The EHR import screen also gained a button under the patient
+  number that asks the hospital system for that patient, instead of the
+  lookup only happening as a side effect of the form saving itself.
 
 ### Fixed
 
