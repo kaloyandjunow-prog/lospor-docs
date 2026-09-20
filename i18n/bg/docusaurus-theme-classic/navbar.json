@@ -1,0 +1,30 @@
+{
+  "title": {
+    "message": "Документация на LOSPOR",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "LOSPOR",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.User Guide": {
+    "message": "Ръководство за потребителя",
+    "description": "Navbar item with label User Guide"
+  },
+  "item.label.Self-hosting": {
+    "message": "Собствена инсталация",
+    "description": "Navbar item with label Self-hosting"
+  },
+  "item.label.Data & Research": {
+    "message": "Данни и изследвания",
+    "description": "Navbar item with label Data & Research"
+  },
+  "item.label.Open App": {
+    "message": "Отвори приложението",
+    "description": "Navbar item with label Open App"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}
