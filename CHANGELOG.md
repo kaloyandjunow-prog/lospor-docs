@@ -1,5 +1,48 @@
 # Changelog - LOSPOR Docs
 
+## [9.10.3] - 2026-09-21
+
+### Changed
+
+- **LOSPOR Hospital 1.4.4 is out, and it is mostly about updating.** 1.4.3
+  could not be installed from the status page at all: the update agent extracts
+  a release under a stricter umask than an operator's shell does, so the
+  release tree landed readable only by root and the first script a container
+  needed could not be opened. The activation stopped after pulling every image
+  and running the migrations, and reported only that it had "stopped part way"
+  — the reason was written to a root-only log that nothing pointed at. Both are
+  fixed: the extraction is pinned to the same umask the installer uses, and a
+  failed activation now puts its reason in the agent's journal and in
+  `recover ... inspect`.
+
+  A site still on 1.4.2 or 1.4.3 reaches 1.4.4 the same way it always could —
+  the offline path does not use the part that was broken.
+
+- **Importing a patient from the hospital system works the way you would
+  expect it to.** Typing a record number and pressing *Fetch patient data* is
+  now the whole interaction; before, the lookup needed a saved case, and a case
+  could not be saved without an age, a height and a weight — the answers the
+  hospital was about to provide. Asking a second time about the same patient,
+  on a different case, no longer reports that the hospital holds nothing for
+  them. Where a site permits national identifiers, a number can now be marked
+  as an ЕГН rather than every number being looked up as an ИЗ №.
+
+- **Two things an import used to drop quietly.** A sex arriving for a patient
+  whose case recorded "unknown" was treated as a disagreement with a value the
+  clinician had chosen, so it was never offered for acceptance. An age
+  belonging to the other clinical mode is still refused — switching mode clears
+  the adult risk scores and the vitals, which an import does not get to decide
+  — but the review row now actually performs the switch when asked, instead of
+  offering a control that did nothing.
+
+### Fixed
+
+- **The fetch button no longer appears where it cannot work.** A watched folder
+  and an HL7 feed are pushed by the hospital; only FHIR answers a question. On
+  those sites the button produced "the hospital system holds nothing for this
+  patient" every time, which is true and reads exactly like a patient with no
+  history.
+
 ## [9.10.2] - 2026-09-20
 
 ### Changed
