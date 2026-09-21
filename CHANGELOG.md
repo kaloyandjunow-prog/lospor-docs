@@ -1,5 +1,51 @@
 # Changelog - LOSPOR Docs
 
+## [9.10.2] - 2026-09-20
+
+### Changed
+
+- **The appliance guides describe LOSPOR Hospital 1.4.3.** The worked examples
+  in "Updates and compatibility" and "Release validation" name 1.4.3 rather
+  than 1.4.0, in both languages. The upgrade guide now also says why a site on
+  1.4.0 or 1.4.1 has to use the offline path to reach a current release: those releases
+  carry their own copy of the published-asset check, which predates the
+  Windows kit now published beside the installable assets, so they refuse
+  every release that carries one — from the console as much as from the status
+  page.
+
+- **This release carries two appliance versions.** 1.4.2 and 1.4.3 were
+  published a day apart and the 1.4.2 pages had not gone out yet, so both
+  are described here.
+
+- **What 1.4.3 changed for an operator.** Hospital controls in the status
+  page is now four tabs rather than one long scroll, so EHR integration,
+  research and Central, clinical guidance and external AI each have their
+  own address. The EHR import screen also gained a button under the patient
+  number that asks the hospital system for that patient, instead of the
+  lookup only happening as a side effect of the form saving itself.
+
+### Fixed
+
+- **Three appliance guides had drifted from the appliance's own copies.**
+  "Research control", "Central status control" and "Privacy-safe host
+  observability" were reconciled against lospor-hospital, which is the source
+  of these pages. Two of them carried hand-written "see the Bulgarian version"
+  links pointing at `.bg.md` files that do not exist on this site, and the
+  host-observability page linked to itself in place of its language switcher.
+  The locale dropdown is how readers change language here.
+
+## [9.10.1] - 2026-09-20
+
+### Added
+
+- **Bilingual documentation.** All 22 public guides are available in Bulgarian
+  alongside English, the site opens in Bulgarian with a locale dropdown, and
+  the 22 appliance guides are bundled into the site in both languages. The
+  changelog itself stays in English: it is a historical record, most useful
+  verbatim, and a translated copy would be a second text to keep consistent
+  with the first for no gain.
+- PeriOp Laboratories is named as the publisher in the footer.
+
 ## [9.10.0] - 2026-09-15
 
 ### Changed

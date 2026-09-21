@@ -1,5 +1,3 @@
-[Български](host-observability.md)
-
 # Privacy-safe host observability
 
 The Status container cannot safely infer host storage, host time
