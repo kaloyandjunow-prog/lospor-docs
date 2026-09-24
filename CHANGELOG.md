@@ -1,5 +1,15 @@
 # Changelog - LOSPOR Docs
 
+## [9.10.5] - 2026-09-24
+
+### Added
+
+- **Hospital 1.4.8 preoperative profile administration.** Document the
+  Status controls for enabling, disabling, reordering, and requiring bundled
+  questions, immutable profile publication, case pinning, and explicit profile
+  adoption. The appliance remains the source of the Hospital-specific
+  runtime behavior; the serverless repositories continue to serve as demos
+  and are upstream-vendored into the appliance release.
 ## [9.10.4] - 2026-09-23
 
 ### Added
