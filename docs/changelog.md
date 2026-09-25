@@ -8,6 +8,19 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.11.5 - Small fixes from a release sweep
+
+- **An accepted suggestion keeps its source.** Accepting a suggestion from
+  the hospital record, then saving anything else on the form, turned it into
+  your own answer and dropped the link to the record. For unintentional
+  weight loss that link is what keeps research from counting it twice.
+- **"Non-smoker (auto)" on the phone is ticked only when smoking was answered
+  No,** matching the Apfel score.
+- **A local draft on the phone can no longer overwrite a newer edit** while
+  the preoperative form is open.
+- **Submitting a case that was already finalised elsewhere says so** and
+  opens the case, on the web and on the phone.
+
 ## 9.11.4 - Autosave never puts back an older value
 
 ### A background save could overwrite a newer edit

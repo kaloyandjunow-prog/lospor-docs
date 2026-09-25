@@ -1,5 +1,11 @@
 # Changelog - LOSPOR Docs
 
+## [9.11.5] - 2026-09-25
+
+### Changed
+
+- **Changelog entry for 9.11.5.**
+
 ## [9.11.4] - 2026-09-25
 
 ### Changed
