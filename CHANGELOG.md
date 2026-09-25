@@ -1,5 +1,14 @@
 # Changelog - LOSPOR Docs
 
+## [9.11.4] - 2026-09-25
+
+### Changed
+
+- **Autosave and intraoperative saving for 9.11.4.** How autosave works gains
+  "One sender per change" (why a background save could overwrite a newer edit,
+  and the rule that stops it); the intraoperative form guide says when each
+  section is sent. Changelog entry for 9.11.4. English and Bulgarian.
+
 ## [9.11.0] - 2026-09-25
 
 ### Added

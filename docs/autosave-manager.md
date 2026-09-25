@@ -50,6 +50,20 @@ the user edited. If another device advanced it first, the server returns the
 newer revision. LOSPOR retries the changed fields once against that revision.
 Different fields can therefore merge without replacing the complete form.
 
+## One sender per change
+
+The change written after an edit and the periodic background sync both send
+what is waiting in the tray. Until 9.11.4 they could pick up the same change at
+the same moment and send it twice. The late copy was refused as out of date,
+sent again on the newer revision, and overwrote anything saved in between: the
+screen showed the new value while the server kept the old one.
+
+Each section of a case now has one sender at a time; the other waits and then
+finds the change already sent. An edit written to the tray while a save is on
+its way is never removed or replaced by that save. After a success it is sent
+next, on the revision the save produced; after a failure it stays in the tray
+exactly as written.
+
 ## Reopening and finalizing
 
 When a case is reopened, LOSPOR loads the server copy and reapplies anything

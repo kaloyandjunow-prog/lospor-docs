@@ -147,6 +147,11 @@ Free text field for intraoperative complications. Common complications (hypotens
 
 The intraoperative form auto-saves continuously. Vital signs entered in the timetable are stored the same robust way on web and mobile — each 5-minute column is persisted as its own record the moment you finish typing it, so nothing depends on leaving the page open. If the connection drops, changes queue locally and sync automatically when it returns.
 
+Each section is sent only when something in it changes. Premedication saves as
+you add, remove or mark it N/A. Urine output and blood loss save shortly after
+you enter them, and at once when you leave the tab or the form. Opening the
+form or switching tabs sends nothing.
+
 When complete, click **Save & continue** to proceed to the postoperative form.
 
 ## Mobile
