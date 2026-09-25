@@ -1,5 +1,17 @@
 # Changelog - LOSPOR Docs
 
+## [9.11.0] - 2026-09-25
+
+### Added
+
+- **Preoperative questions for Hospital 1.4.8.** A new appliance page describes
+  the bundled catalogue, the one in-place profile administered from Status,
+  what clinicians see, and what happens when a question is switched on or off
+  during a case. The preoperative form guide gains the added questions,
+  follow-ups, required questions and record suggestions; Data & Research
+  documents the answer rows and their OMOP export; the Research Browser page
+  lists the coded pickers and new filters. English and Bulgarian.
+
 ## [9.10.4] - 2026-09-23
 
 ### Added

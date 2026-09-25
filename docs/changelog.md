@@ -8,6 +8,50 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.11.0 - The hospital chooses its preoperative questions
+
+### Questions from a catalogue, switched on by the hospital
+
+LOSPOR now ships a catalogue of 75 preoperative questions: the 30 behind the
+standard form, and 45 more for adults and children, from recent respiratory
+infection and exercise tolerance to pregnancy, prematurity and difficult
+venous access. On a hospital appliance the administrator chooses in Status
+which are asked, in what order, and which are required. The standard questions
+start on, the others off, and none is required.
+
+The web app and the phone show each added question as a Yes / No row in its
+own section, with follow-up questions only after a Yes. A suggestion from the
+imported hospital record can be accepted or rejected, and is offered only
+while the question is unanswered, so it never replaces your answer. If the
+hospital switches off a standard question, a risk score that needs it says it
+is not available instead of understating the risk.
+
+A change applies to cases in progress from their next load. Answers already
+given are kept. Required questions are checked when you continue to the
+intraoperative form, never on a draft save. See
+[Preoperative questions](appliance/preoperative-profile.md).
+
+### Every answer is one research row
+
+Each preoperative question is stored as one answer row per case, which is
+what research and OMOP read. Each question carries its own research code, and
+"left blank" is distinguishable from "not on the form". A finalized case's
+answers cannot be changed.
+
+### A refused save no longer looks like it is waiting to sync
+
+When the server refused a preoperative save, the app showed it as saved
+locally and waiting for a connection, and it never went through. A refused
+save is now shown as refused, beside the field that caused it.
+
+### The research browser uses codes instead of free text
+
+ASA class, procedure group, monitoring, drugs and mapping status are chosen
+from coded lists. New filters cover a preoperative answer, drugs given during
+the operation and, on a hospital appliance, data accepted from the hospital
+system. The case page shows medications, preoperative answers and quality
+warnings.
+
 ## 9.10.0 - Research codes for the exact operation, fluids and premedication
 
 ### Choose the exact operation

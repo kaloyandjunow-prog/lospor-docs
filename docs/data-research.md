@@ -28,6 +28,23 @@ LOSPOR stores perioperative data for clinical documentation, audit, personal por
 - Vitals: BP, HR, SpO2, temperature, respiratory rate, including unable-to-obtain flags where available.
 - Laboratory results: canonical lab name, value, parsed numeric value, canonical unit, LOINC code, reference range, abnormal flag, source, and timestamp where available.
 
+### Preoperative questions {#preoperative-questions}
+
+Every question of the preoperative catalogue is also stored as one answer row
+per case (`PreopAssessmentAnswer`), and these rows are what research and OMOP
+read. That includes the baseline questions behind the standard controls, whose
+form fields remain as a compatibility copy.
+
+- A question that is switched on for the case has a row: `YES`, `NO`,
+  `UNKNOWN`, `NOT_APPLICABLE`, or `NOT_ASKED` when it was on the form and
+  left blank. A question that was off has no row, so "not on the form" and
+  "left blank" stay distinguishable.
+- Each row records who answered it: the clinician, or an accepted suggestion
+  from the hospital record, with the rule and the record it came from.
+- An answer given before the hospital switched the question off is kept; an
+  answer recorded while it was off is kept and marked as such.
+- Rows of a finalized case cannot be changed.
+
 ### Intraoperative data
 - Timing: month/year, start time, end time, duration.
 - Techniques, position, airway devices/tools, ventilation modes, monitoring modalities.
@@ -117,6 +134,12 @@ The export includes:
   unit's transfusion. A planned procedure carries its standard concept only when
   the clinician chose the exact ICD-10-PCS operation; a group alone exports
   concept 0 with the group in the source value
+- observation rows for each answered preoperative question, from its answer
+  row: the question's concept from the catalogue (0 with the
+  `LOSPOR:PREOP_<question>` source value where no standard concept says what
+  the question asks), and the answer as `value_as_concept_id` Yes 4188539 or
+  No 4188540. `NOT_ASKED` exports nothing. Unintentional weight loss exports
+  as a condition, and the planned urgency as a procedure modifier
 - measurement rows for preop/postop vitals, labs, intraop vitals, glucose, and gas settings,
   carrying `value_source_value` for results the laboratory reported as text and
   `range_low` / `range_high` for the reference range the result was judged against
