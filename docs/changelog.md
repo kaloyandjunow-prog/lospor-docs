@@ -8,6 +8,27 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.11.4 - Autosave never puts back an older value
+
+### A background save could overwrite a newer edit
+
+The save made after an edit and the periodic background sync could send the
+same change twice. The late copy was refused as out of date, sent again, and
+overwrote whatever had been saved in between: the screen showed the new value
+while the server kept the old one. Each section of a case now has one sender at
+a time, and an edit made while a save is on its way is kept and sent after it.
+On the web the duplicate could instead show a conflict dialog for a change
+nobody else had made; that is gone too. See
+[How autosave works](autosave-manager.md).
+
+### The intraoperative form saves only what changed
+
+On the phone, opening the intraoperative form re-sent the whole airway section
+unchanged, and leaving the Premedication tab re-sent both premedication lists.
+Neither happens any more. Urine output and blood loss were saved only when you
+switched tabs, so a figure could be lost if the form was left another way; they
+now save shortly after you enter them.
+
 ## 9.11.0 - The hospital chooses its preoperative questions
 
 ### Questions from a catalogue, switched on by the hospital
