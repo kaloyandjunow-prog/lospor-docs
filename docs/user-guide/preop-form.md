@@ -101,6 +101,39 @@ The following scores are **calculated automatically** as you fill in the relevan
 | **Apfel** (0–4) | Postoperative nausea and vomiting (PONV) |
 | **STOP-BANG** (0–8) | Obstructive sleep apnoea risk |
 
+### When a score is not available
+
+On a hospital appliance, the hospital can switch off a standard question. A
+score that needs a switched-off answer shows **not available** instead of a
+number, because counting an unasked criterion as "no" would understate the
+risk.
+
+## Questions your hospital adds *(hospital appliance)*
+
+A hospital appliance can ask more than the standard form. Its administrator
+chooses the questions from a catalogue that ships with LOSPOR (see
+[Preoperative questions](../appliance/preoperative-profile.md)); no one can
+type in a question of their own.
+
+- Each added question appears as a **Yes / No** row in the section it belongs
+  to: most in the anamnesis, swallowing and sleep-related breathing under the
+  airway, a pacemaker or ICD and difficult venous access under the
+  examination, pregnancy and breastfeeding with the patient details. Some also
+  offer **Unknown** or **N/A**.
+- A **follow-up** question appears only after you answer **Yes** to the
+  question above it. Answering anything else removes it and its answer.
+- A question marked **\*** is required. A draft always saves; required
+  questions are checked when you continue to the intraoperative form.
+- **From the record: Yes?** under a question is a suggestion drawn from the
+  imported hospital record. Accept it to use it as the answer, or reject it.
+  It is offered only while the question is unanswered, so it never replaces
+  your own answer.
+- A counter at the top of each section shows how many of its questions are
+  answered.
+
+The questions and their order are the same on the web and on the phone, and in
+the tabbed and the scrolled layout.
+
 ## Laboratory results
 
 The Labs section contains a catalogue of 100+ perioperative-relevant tests organised across nine categories:
@@ -157,4 +190,6 @@ The preoperative form auto-saves as you work: taps on pills, toggles, and checkb
 
 If the connection drops, your changes are kept locally and sync automatically when it returns — a "saves waiting" badge appears in the header (web) or the sync indicator shows queued (mobile) until everything has reached the server.
 
-When all mandatory fields are complete, click **Save & continue** or **Continue to intraoperative** to move to the intraoperative form. If required fields are missing, the app shows which fields need attention.
+When all mandatory fields are complete, click **Save & continue** or **Continue to intraoperative** to move to the intraoperative form. If required fields are missing, the app shows which fields need attention. On a hospital appliance, required questions the hospital added are checked at the same moment, and the app lists any that are still unanswered.
+
+If the server refuses a save (for example a value it will not accept), the app says so beside the field rather than showing the change as waiting to sync.

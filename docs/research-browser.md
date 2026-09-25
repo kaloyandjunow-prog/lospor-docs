@@ -15,8 +15,14 @@ connects directly to PostgreSQL and never accepts arbitrary SQL.
 - build structured cohorts from demographics, ICD-10 diagnoses and
   comorbidities, procedures, techniques, airway management, medications,
   complications, outcomes, and completeness;
+- choose ASA class, procedure group, monitoring, drug (by ATC class or exact
+  code) and mapping status from coded pickers rather than typing text;
+- filter on a preoperative answer, on drugs given during the operation, and,
+  on a hospital appliance, on whether the clinician accepted data imported
+  from the hospital system;
 - compare two cohorts using the same semantic metrics;
-- inspect pseudonymous cases without clinician identities, free-text notes, or
+- inspect pseudonymous cases, including their medications, preoperative
+  answers with their source and research code, and quality warnings, without clinician identities, free-text notes, or
   exact case dates;
 - review terminology mapping, finalization snapshots, field completeness,
   relational drift, and impossible timelines;
