@@ -8,6 +8,35 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.12.1 - Fixes to the intraoperative timeline
+
+### The web chart no longer saves over and over
+
+With a case open, the web page could keep switching between the
+preoperative and intraoperative steps and save each time, several times a
+second. It now loads once and saves only what you change.
+
+### A case open on another screen stays read-only there
+
+The web page watching another screen's edit said nothing would be saved but
+still saved. It now saves nothing until you take over editing.
+
+### Resume after reopening an ended case
+
+Resume is offered for 30 minutes after the end also when the case is opened
+again, and at any time for a case ended automatically after 48 hours. On the
+phone, an ended case opened again showed as still running and offered End
+case, which moved the end time; it now shows as ended.
+
+### Smaller fixes
+
+- A case with only a typed start time can be charted on the web again.
+- The web case duration counts from the real start.
+- An entry the server refuses is said so on the web and taken off the chart.
+- The phone sign-in no longer briefly says its configuration could not be
+  verified.
+
+---
 ## 9.12.0 - One intraoperative timeline everywhere
 
 ### Times are taken from the row you enter them in

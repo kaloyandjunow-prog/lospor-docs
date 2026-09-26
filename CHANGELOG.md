@@ -1,5 +1,12 @@
 # Changelog - LOSPOR Docs
 
+## [9.12.1] - 2026-09-26
+
+### Changed
+
+- User guide (EN/BG): Resume after reopening an ended case, Resume at any time
+  after an automatic end, and a case open on another screen; changelog 9.12.1.
+
 ## [9.12.0] - 2026-09-26
 
 ### Changed
