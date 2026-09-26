@@ -63,6 +63,44 @@ Add each IV line, central line, or epidural catheter:
 
 The timetable is the visual heart of LOSPOR. It displays everything that happens during the case on a shared timeline, with columns representing 5-minute intervals.
 
+### How times are recorded
+
+The chart is built from the entries you save, and every screen, the printout
+and the research export read it the same way.
+
+- **An entry takes the time of the row you make it in.** In the row the orange
+  "now" line is in, the exact minute is recorded; in any other row, the start
+  of that row. A stop entered in the 21:30 row records 21:30, even if you tap
+  it at 22:19.
+- **A running infusion, fluid or agent ends at the "now" line**, not a row
+  beyond it, and its total counts only the time it actually ran.
+- **Entries that cannot be right are refused, with a message:** a stop before
+  its start, a change or stop of something that is not running, a stop placed
+  before a later change of the same item, and vital signs in the future.
+  Restarting something you stopped is fine.
+- **Deleting a start deletes its rate changes and its stop with it.**
+
+### Planned entries
+
+You can enter a drug, an event, a start or a stop for a later time, for
+example a block planned ten minutes ahead. It is shown as a marker (dashed on
+the web) and counts for nothing until its time comes; then it counts as given.
+A stop planned for later is marked on the running bar.
+
+### Ending and resuming the case
+
+**End case** lists everything still running. For each, choose **Stop** (it
+stops at the end time) or **Continue postoperatively** (it keeps running into
+recovery, and every total, such as fluid volumes and infusion amounts, is
+counted only up to the end time). Any planned entry still after the end must
+be marked **Happened** (moved to the end) or **Didn't happen** (deleted); the
+case cannot be finalised while one remains. **Resume** offers to take back the
+stops End case made.
+
+A case started 48 hours ago that was never ended and is not open on any screen
+ends on its own, at its last recorded entry. It says so when you open it, and
+**Resume** takes the end back.
+
 ### Vital signs
 
 Click a column in the **vital signs graph** to enter or edit values for that time point:
@@ -115,6 +153,8 @@ Add a continuous infusion with start time, end time, drug name, rate, and unit. 
 
 Record the volatile agent (Sevoflurane, Desflurane, or Isoflurane) used during the case. It appears as a shaded bar across the case duration.
 
+Two or more agents can run at once, each on its own bar (its own lane on the web). Starting an agent while another runs asks whether to **switch** (the other is stopped at the same time) or **run both**.
+
 ### IV fluids
 
 Add fluid boluses or infusions with type (crystalloid, colloid, blood product) and volume. Each appears as a dotted bar in the event strip.
@@ -128,6 +168,8 @@ Select the patient position(s) used during the case: Supine, Prone, Lateral, Gyn
 ## Premedication
 
 Record the premedication given before the procedure (if different from what was prescribed in the preoperative form).
+
+Each drug has its own dose, range and step for each route. Changing the route replaces the dose with that route's own, even a dose you typed: oral and intravenous doses of the same drug differ up to tenfold. Adult ketamine is recorded as the calculated mg from the recorded weight. Home medicines (warfarin, insulin, levothyroxine, a clonidine patch) start empty, as prescribed. A tablet strength the stepper cannot reach can always be typed.
 
 ## Fluid balance
 

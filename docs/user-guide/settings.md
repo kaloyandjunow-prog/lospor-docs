@@ -40,7 +40,7 @@ Full profile editing (name, title, email) is available from the web app under Se
 Switch between **English** and **Bulgarian** (Български). The change applies immediately across the entire app.
 
 #### Theme
-Choose **Light** or **Dark** mode. Dark mode is the default.
+Choose **Light** or **Dark** mode. Dark mode is the default. On the phone the light theme covers the whole app, including the intraoperative screen, and matches the web; the change applies at once.
 
 #### Preop layout *(mobile)*
 - **Sections** — opens each section of the preoperative form in a focused editor (default)
@@ -60,7 +60,10 @@ Choose up to 8 favourite bolus drugs and up to 8 favourite infusions. These are 
 #### Auto-fill vitals
 Master switch for automatic intraoperative vital carry-forward. When enabled,
 LOSPOR copies the previous EtCO2, SpO2, and temperature into each missed empty
-5-minute timetable column as time advances.
+5-minute timetable column as time advances. Copied values are marked "auto" in
+the event log. Autofill never fills the future or past the case end, and it
+pauses after 60 minutes without a manual entry, asking whether the case is
+still running.
 
 #### Auto-fill BP & HR
 Child option that requires **Auto-fill vitals**. It also carries forward
@@ -68,8 +71,8 @@ systolic blood pressure, diastolic blood pressure, and heart rate.
 
 #### Backfill on reopen
 Child option that requires **Auto-fill vitals**. When an in-progress case is
-reopened, LOSPOR fills empty timetable columns between the last recorded vitals
-and the current time.
+reopened, LOSPOR offers to fill the empty columns of the last 30 minutes, never
+further back.
 
 Turning off **Auto-fill vitals** also turns off the child options on web and
 mobile, so hidden stale settings cannot generate observations later.
