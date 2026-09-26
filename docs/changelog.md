@@ -47,8 +47,10 @@ back the stops End case made.
 
 ### A forgotten case ends itself after 48 hours
 
-A case started 48 hours ago, never ended and not open on any screen, ends at
-its last recorded entry. It says so when opened, and Resume takes it back.
+A case started 48 hours ago, never ended, with nothing saved to it for 48
+hours and not open on any screen, ends at its last recorded entry. A case you
+are charting afterwards, with a start typed days back, is never ended while
+you work on it. It says so when opened, and Resume takes it back.
 
 ### Vitals autofill
 
