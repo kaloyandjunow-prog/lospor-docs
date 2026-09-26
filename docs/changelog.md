@@ -8,6 +8,68 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.12.0 - One intraoperative timeline everywhere
+
+### Times are taken from the row you enter them in
+
+A stop or a rate change entered in an earlier row now records that row's
+time, not the moment you pressed the button. In the row "now" falls in, the
+exact minute is recorded. A running infusion or fluid ends at the "now" line
+instead of one row past it, which also stops its total counting five minutes
+too many.
+
+### Entries that cannot be right are refused
+
+A stop before its start, a change or stop of something that is not running,
+a stop placed before a later change of the same item, and a vital in the
+future are not saved, on the phone, on the web and on the server, and you are
+told why. Restarting a stopped item is fine. Deleting a start deletes its
+changes and its stop.
+
+### Planned entries
+
+You can enter a drug, an event or a start for a later time. It is shown as a
+marker and counts for nothing until its time comes. A stop planned for later
+marks the running bar. When you end the case, any entry still after the end
+must be marked as happened or not before the case can be finalised.
+
+### Several volatile agents
+
+Two or more agents can run at once. Starting one while another runs asks
+whether to switch (stopping the other) or run both.
+
+### End case and Resume
+
+Only the items you mark Stop are stopped, at the end time. Items continued
+postoperatively keep running into recovery, and every total (fluid volumes,
+infusion amounts) is counted only up to the end time. Resume offers to take
+back the stops End case made.
+
+### A forgotten case ends itself after 48 hours
+
+A case started 48 hours ago, never ended, with nothing saved to it for 48
+hours and not open on any screen, ends at its last recorded entry. A case you
+are charting afterwards, with a start typed days back, is never ended while
+you work on it. It says so when opened, and Resume takes it back.
+
+### Vitals autofill
+
+Autofill now also works after reopening a case, offering at most the last 30
+minutes. It never fills the future or past the end, marks what it filled, and
+pauses after 60 minutes without a manual entry to ask whether the case is
+still running.
+
+### Premedication
+
+Every drug has its own dose, range and step for each route, and changing the
+route replaces the dose, even one you typed. Adult ketamine is recorded as the
+calculated mg; home medicines start empty. Ranitidine is retired.
+
+### A light theme on the phone
+
+The phone app has a full light theme matching the web, including the
+intraoperative screen, and switching applies immediately.
+
 ## 9.11.5 - Small fixes from a release sweep
 
 - **An accepted suggestion keeps its source.** Accepting a suggestion from
