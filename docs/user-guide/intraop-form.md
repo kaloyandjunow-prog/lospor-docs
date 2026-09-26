@@ -94,14 +94,22 @@ stops at the end time) or **Continue postoperatively** (it keeps running into
 recovery, and every total, such as fluid volumes and infusion amounts, is
 counted only up to the end time). Any planned entry still after the end must
 be marked **Happened** (moved to the end) or **Didn't happen** (deleted); the
-case cannot be finalised while one remains. **Resume** offers to take back the
-stops End case made.
+case cannot be finalised while one remains.
+
+**Resume** is offered for 30 minutes after the end, also when the case is
+opened again later, and offers to take back the stops End case made.
 
 A case started 48 hours ago that was never ended, has had nothing saved to it
 for 48 hours and is not open on any screen ends on its own, at its last
-recorded entry. A case charted afterwards, with a start typed days back, is
-never ended while you work on it. It says so when you open it, and
-**Resume** takes the end back.
+recorded entry. It says so when you open it, and **Resume** takes the end back
+at any time. A case charted afterwards, with a start typed days back, is never
+ended while you work on it.
+
+### A case open on another screen
+
+One screen edits a case at a time. Any other screen with the case open says
+who is editing it and saves nothing, including chart entries and vitals
+autofill; choose **Take over editing** to change the case there.
 
 ### Vital signs
 
