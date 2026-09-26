@@ -1,5 +1,14 @@
 # Changelog - LOSPOR Docs
 
+## [9.12.0] - 2026-09-26
+
+### Changed
+
+- **Changelog entry for 9.12.0** (Hospital 1.4.9): the shared intraoperative
+  timeline rules, planned entries, several volatile agents, End case and
+  Resume, the 48-hour automatic end, premedication per route and the PWA light
+  theme.
+
 ## [9.11.5] - 2026-09-25
 
 ### Changed
