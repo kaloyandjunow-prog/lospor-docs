@@ -79,13 +79,30 @@ and the research export read it the same way.
   before a later change of the same item, and vital signs in the future.
   Restarting something you stopped is fine.
 - **Deleting a start deletes its rate changes and its stop with it.**
+- **"Now" is the server's time, not your device's.** A phone or computer whose
+  clock is a few minutes off still puts the now line, and what is planned or
+  given, where they belong. A time you pick is never changed.
 
 ### Planned entries
 
-You can enter a drug, an event, a start or a stop for a later time, for
-example a block planned ten minutes ahead. It is shown as a marker (dashed on
-the web) and counts for nothing until its time comes; then it counts as given.
-A stop planned for later is marked on the running bar.
+You can enter a drug, an event, a start, a rate or gas change, or a stop for a
+later time, for example a block planned ten minutes ahead. It is shown as a
+marker (dashed) and counts for nothing, in no total, until its time comes;
+then it counts as given from its own minute. A stop planned for later is
+marked on the running bar.
+
+### A stop entered ahead of its time
+
+Stopping something for a time still to come (you expect the infusion to run
+for another half hour) keeps the bar running until then. When that time
+comes you are asked, above the chart and in the stop's own row:
+
+- **Stopped** — it stopped at that time.
+- **Still running** — the stop is taken back and the bar runs on.
+
+The question stays until it is answered. End case asks it too, and a case
+cannot be finalised while one is open. Moving the stop to a new time asks
+again when that time comes.
 
 ### Ending and resuming the case
 
@@ -93,8 +110,9 @@ A stop planned for later is marked on the running bar.
 stops at the end time) or **Continue postoperatively** (it keeps running into
 recovery, and every total, such as fluid volumes and infusion amounts, is
 counted only up to the end time). Any planned entry still after the end must
-be marked **Happened** (moved to the end) or **Didn't happen** (deleted); the
-case cannot be finalised while one remains.
+be marked **Happened** (moved to the end) or **Didn't happen** (deleted), and a
+stop entered ahead that is still unanswered is asked about there too; the case
+cannot be finalised while one remains.
 
 **Resume** is offered for 30 minutes after the end, also when the case is
 opened again later, and offers to take back the stops End case made.
@@ -110,6 +128,22 @@ ended while you work on it.
 One screen edits a case at a time. Any other screen with the case open says
 who is editing it and saves nothing, including chart entries and vitals
 autofill; choose **Take over editing** to change the case there.
+
+If the same entry was changed on two screens (one of them offline), the change
+made last wins, whichever reaches the server first. The other is listed as
+refused, saying so.
+
+### Whether each entry is saved
+
+Every item on the chart says whether it has reached the server: a small clock
+while it waits or is being sent, nothing once it is saved, and a red cross if
+the server refused it. Changes are sent in the order you made them, so a
+deletion never arrives before the entry it deletes.
+
+A refused change is listed above the chart, with its time, what it was and
+why (for example, a later change made on another screen), until you mark it
+**Seen**. While part of a total has not reached the server yet, the total is
+shown with "≈"; the number itself does not change.
 
 ### Vital signs
 
@@ -158,6 +192,15 @@ Click **+ Drug** in the timetable to log a bolus drug administration:
 ### Infusions
 
 Add a continuous infusion with start time, end time, drug name, rate, and unit. Mobile/PWA uses the same scenario/favourites/browse pattern as bolus drugs. It appears as a hatched bar spanning the infusion duration.
+
+**Totals** use the patient's own measurements. A per-kg drug is counted on the
+ideal body weight or the actual weight, as the hospital's drug library sets
+for that drug; the choice is recorded when the infusion starts, so a later
+change to the library does not alter what was given. A per-m² drug is counted
+on body surface area. A total counts the minutes the infusion actually ran and
+adds mg and mcg together. If a drug set to ideal weight has only the actual
+weight to go on, the total says so with "(TBW)". The same total is shown on
+the phone, the web and the printed record.
 
 ### Volatile agents
 

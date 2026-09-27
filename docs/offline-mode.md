@@ -82,6 +82,12 @@ one delay per save. It resumes as soon as a request succeeds.
 Where an edit conflicts with a newer change made elsewhere, it is held and
 reported rather than overwriting the newer record.
 
+Timetable entries are sent in the order they were made, and each shows a small
+clock on the chart until it is saved. Deleting or editing an entry that has
+not been sent yet changes it on the device; nothing about a deleted one is
+ever sent. For a timetable entry changed on two screens, the change made last
+wins, and the other is listed on the chart as refused.
+
 ### What is never queued
 
 An edit the server refuses on clinical grounds is not queued, because retrying

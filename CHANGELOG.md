@@ -1,5 +1,18 @@
 # Changelog - LOSPOR Docs
 
+## [9.13.0] - 2026-09-28
+
+### Changed
+
+- User guide (EN/BG): planned rate and gas changes, stops entered ahead of
+  their time, whether each entry is saved, the last change made across
+  screens, the server's "now", infusion totals, and the printed record in
+  Bulgarian and in the case's time zone.
+- How autosave works, Working offline and API (EN/BG): one order per case, the
+  last change made wins, `X-LOSPOR-Server-Time`, `X-Lospor-Made-At` and
+  `412 SUPERSEDED`, `recordedAt` and `stopConfirmed`.
+- Changelog 9.13.0.
+
 ## [9.12.1] - 2026-09-26
 
 ### Changed

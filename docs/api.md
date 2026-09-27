@@ -70,6 +70,25 @@ record it supersedes. A database trigger rejects UPDATE and DELETE, so a case
 that was finalized, unfinalized, corrected and finalized again retains what was
 first attested to.
 
+## Server time and the last change made
+
+Every response carries `X-LOSPOR-Server-Time`: the server's clock in epoch
+milliseconds, exposed to browsers through CORS. Clients use it to correct
+"now" on the intraoperative timeline; it is never applied to an entered time.
+
+Timetable event writes (`POST /v1/cases/{id}/events`, `PUT` and `DELETE
+/v1/cases/{id}/events/{eventId}`) accept `X-Lospor-Made-At`, when the change
+was made on the device. It is capped at two minutes past the server's now. A
+write made before the entry's latest change is refused with `412` and
+`{ "code": "SUPERSEDED" }`: the last change made wins across devices, not the
+last to arrive. Writes without the header count as made when they arrive.
+Events written before 9.13.0 carry no time and never refuse.
+
+Events may carry `recordedAt` (when the entry was made, an ISO instant with
+offset) and `stopConfirmed`. A stop dated more than a minute after it was
+entered is asked about when its time comes; finalization refuses a case with
+such a stop unanswered (`unconfirmed_stops`).
+
 ## Export completeness
 
 OMOP batches above 5000 matching cases return HTTP 422 with

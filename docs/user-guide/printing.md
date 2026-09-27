@@ -15,7 +15,7 @@ The operation is charted **like a classic paper record**:
 - **Header** — institution name, month/year, procedure, diagnosis + ICD code, patient demographics (age, sex, blood group, ASA), and blank identity fields (fill in by hand after printing)
 - **Key-facts row** — technique, airway, ventilation, agent, position, timing, monitoring, IV access as compact chips
 - **Intraoperative timetable** — vitals graph (every recorded point), clinical events flagged on the chart, **numbered drug pins** (① ② ③ …) at the exact administration time, a numeric vitals table (BP/HR/SpO₂/EtCO₂/Temp), and bars for agent, infusions, gas (FGF/FiO₂), fluids, and patient position. A case up to ~5 hours is one full-height chart; **longer cases continue onto a second half-height chart on the same page** ("CONTINUED"), just like a paper chart continuing onto a second grid — nothing is repeated and nothing gets squeezed. The numeric table samples at a comfortable interval per chart (e.g. every 15 min on a 12-hour case) while the graph, drugs and events always keep their exact recorded times.
-- **Drug administration log** — every numbered pin resolved: time, drug, dose, plus totals per drug
+- **Drug administration log** — every numbered pin resolved: time (the dose's own minute, in the case's time zone), drug, dose, plus totals per drug on the patient's weights; an infusion whose stop is still unconfirmed says so beside its total
 - **Fluid balance**, **intraop notes**, and blank signature lines
 
 ### Page 2 — Pre- and Postoperative
@@ -68,6 +68,14 @@ The PDF is generated in the language you are using — if the app is set to Bulg
 For a **finished** case, tapping the timetable on the case summary opens a **read-only timetable viewer** — the same chart as the printed record (traces, event flags, numbered drug pins, the vitals table and all lanes) with the drug administration log below it. The case stays locked; nothing here can be edited. Cases still in progress open the live intraoperative screen instead.
 
 **Pinch to zoom**, or use the **− / +** buttons, to change how much detail the vitals table shows. Zoomed in you get every 5-minute reading; zoomed out it thins to the coarser sampling used on the printed record, and a badge shows the current interval (for example "q15 min"). The graph traces, drugs, events and lanes always show **every** recorded point at every zoom level — zooming changes readability, never the data. The printed record is unaffected by how you zoom.
+
+## Language
+
+A record printed from a Bulgarian screen is in Bulgarian: the month, headings,
+duration, page numbers, the footer date and the fluid balance (кристалоиди,
+колоиди, биопродукти, диуреза, кръвозагуба). Units and drug names stay as they
+were charted. Every time on the record, the footer date included, is in the
+case's own time zone, whatever the printing computer's.
 
 ## Layout
 

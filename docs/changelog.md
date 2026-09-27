@@ -8,6 +8,58 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.13.0 - Planned, given and saved, the same on every screen
+
+### Everything still to come counts for nothing until it happens
+
+A drug, an event, a start, a rate or gas change or a stop entered for a later
+time is drawn as planned and left out of every total until its time comes.
+Rate and gas changes for later were dropped from the chart before.
+
+### A stop entered ahead of its time is asked about
+
+When its time comes you are asked, above the chart, in the stop's row and at
+End case: stopped, or still running. A case cannot be finalised while one is
+unanswered.
+
+### Every entry says whether it is saved
+
+A small clock while it waits or is sent, a red cross if refused, nothing once
+saved. Changes go in the order they were made; a deletion can no longer reach
+the server before its entry and let the entry come back. Refusals are listed
+with what and why until marked seen, and totals show "≈" while part of them
+is unsaved.
+
+### The last change made wins across screens
+
+An entry changed on two screens keeps the change made last, whichever arrives
+first. The other is listed as refused.
+
+### "Now" is the server's time
+
+The now line, and what counts as planned or given, follow the server's clock,
+so a device a few minutes off no longer misplaces them. Times you pick are
+never changed.
+
+### Infusion totals on the patient's own weights
+
+Per-kg drugs on ideal or actual weight as the hospital's library sets (recorded
+when the infusion starts), per-m² drugs on body surface area, real running
+time, mg and mcg together. The phone, the web and the printout agree.
+
+### The printed record
+
+Doses at their own minute and the footer date in the case's time zone, and a
+Bulgarian record in Bulgarian (units and drug names as charted).
+
+### Smaller fixes
+
+- Bars end at their real minute inside the cell.
+- АН сист / АН диас on a Bulgarian screen.
+- The phone's intraop screen no longer stops on opening a case.
+- An entry deleted while it was being sent no longer comes back.
+
+---
 ## 9.12.1 - Fixes to the intraoperative timeline
 
 ### The web chart no longer saves over and over

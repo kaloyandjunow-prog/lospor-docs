@@ -43,6 +43,16 @@ invent timestamps for their saved columns. A legacy snapshot is converted to
 events only when a trustworthy `startedAt` exists, and conversion is rejected
 if it would synthesize future observations.
 
+### "Now" comes from the server
+
+What is planned and what is given, which column "now" is in, and when an entry
+was made are all decided against "now". Every API response carries the
+server's clock (`X-LOSPOR-Server-Time`, epoch milliseconds), and each app
+corrects its "now" by how far the device is from it. The correction is a
+difference of two instants: no time of day is parsed and no time zone takes
+part, so a server hosted in another zone cannot shift anything. A time the
+clinician picked is never passed through it.
+
 ## Two devices
 
 Each case section has an increasing revision number. A save says which revision
@@ -63,6 +73,31 @@ finds the change already sent. An edit written to the tray while a save is on
 its way is never removed or replaced by that save. After a success it is sent
 next, on the revision the save produced; after a failure it stays in the tray
 exactly as written.
+
+## One order per case
+
+A case's unsent timetable changes (new entries, edits, deletions) are sent in
+one order, the order they were made in, and a pass stops at the first change
+that cannot go yet. Before 9.13.0 new entries and edits were sent separately,
+so a deletion could reach the server before the entry it deleted, be refused as
+"not found", and the entry came back.
+
+A change to an entry that has not left the device is made to it there, under
+the case's write lock: deleting it cancels it and nothing is sent; editing it
+changes what will be sent. An entry already on its way is deleted after it
+arrives.
+
+A change the server refuses for good (a timeline rule, a later change made
+elsewhere, no permission) is taken out of the queue, never resent, and listed
+on the chart with what it was and why until the clinician marks it seen.
+
+## The last change made wins
+
+Each timetable change carries when it was made (`X-Lospor-Made-At`, from the
+corrected clock). The server keeps the change made last, not the one that
+arrived last: an edit or deletion made before the entry's latest change, and
+an add sent again after a later change, are refused with `412 SUPERSEDED`.
+An edit made before a deletion cannot bring the entry back.
 
 ## Reopening and finalizing
 
