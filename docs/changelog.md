@@ -22,7 +22,11 @@ Also fixed: the hospital import review shows the values it offers in your
 language (sex, age unit, yes/no answers, a medication's route) and dates a
 result by the day it was taken where you are. An ended case reopened later
 shows how long it lasted, and its chart on the phone opens at the case end
-instead of among empty rows after it.
+instead of among empty rows after it. On the phone, the Resume countdown and
+autofilled vitals follow the server's clock, as the chart does, so a phone
+whose clock is wrong no longer shortens or stretches the 30 minutes to
+resume, or fills a row before its time. On the web, the chart's lab dialog
+offers the lab scan to a case that has AI consent.
 
 ---
 ## 9.13.0 - Planned, given and saved, the same on every screen
