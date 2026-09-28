@@ -18,6 +18,12 @@ the same infusion. Before, the row showed nothing running, and the only way
 was to start the drug again: two infusions, both counted. Rows after a
 planned stop, and an ended case, show nothing running on.
 
+Also fixed: the hospital import review shows the values it offers in your
+language (sex, age unit, yes/no answers, a medication's route) and dates a
+result by the day it was taken where you are. An ended case reopened later
+shows how long it lasted, and its chart on the phone opens at the case end
+instead of among empty rows after it.
+
 ---
 ## 9.13.0 - Planned, given and saved, the same on every screen
 

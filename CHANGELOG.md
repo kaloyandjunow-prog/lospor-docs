@@ -5,7 +5,8 @@
 ### Changed
 
 - User guide (EN/BG): running items continue into the rows after now, where a
-  change or stop can be planned on them; changelog 9.13.1.
+  change or stop can be planned on them; changelog 9.13.1, including the
+  import review and ended-case fixes.
 
 ## [9.13.0] - 2026-09-28
 
