@@ -1,5 +1,12 @@
 # Changelog - LOSPOR Docs
 
+## [9.13.2] - 2026-09-28
+
+### Changed
+
+- Changelog 9.13.2: planned changes name their time, watching mode is
+  read-only on the phone, sign-in keeps the account's language.
+
 ## [9.13.1] - 2026-09-28
 
 ### Changed
