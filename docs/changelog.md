@@ -8,6 +8,17 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.13.1 - Plan a change on what is already running
+
+Opening a later row of a live case now shows what will still be running
+there, dashed: on the phone as the row's running items, on the web as the
+running bar continuing after now. Choosing it opens that item's usual sheet
+or menu dated to that row, so a rate change for 15:55 is a planned change of
+the same infusion. Before, the row showed nothing running, and the only way
+was to start the drug again: two infusions, both counted. Rows after a
+planned stop, and an ended case, show nothing running on.
+
+---
 ## 9.13.0 - Planned, given and saved, the same on every screen
 
 ### Everything still to come counts for nothing until it happens

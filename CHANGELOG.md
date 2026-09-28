@@ -1,5 +1,12 @@
 # Changelog - LOSPOR Docs
 
+## [9.13.1] - 2026-09-28
+
+### Changed
+
+- User guide (EN/BG): running items continue into the rows after now, where a
+  change or stop can be planned on them; changelog 9.13.1.
+
 ## [9.13.0] - 2026-09-28
 
 ### Changed

@@ -91,6 +91,13 @@ marker (dashed) and counts for nothing, in no total, until its time comes;
 then it counts as given from its own minute. A stop planned for later is
 marked on the running bar.
 
+To plan a change to something already running, open a later row: what will
+still be running then is shown there, dashed (on the web, the running bar
+continues past now). Choose it to change its rate or settings, or stop it, at
+that row. This changes the same infusion; do not start the drug again, which
+would add a second infusion counted alongside the first. Nothing runs on past
+a planned stop or after the case has ended.
+
 ### A stop entered ahead of its time
 
 Stopping something for a time still to come (you expect the infusion to run
