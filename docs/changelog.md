@@ -8,6 +8,17 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.13.2 - A planned change says when
+
+A change planned from a later row now names its time: on the phone the rate
+sheet reads "Propofol · at 14:35" and the note after it "planned for 14:35",
+and the closed row shows "Change planned · Propofol 10"; on the web the
+infusion menu and the rate dialog name the time too. A phone watching a case
+that another device holds no longer changes it: take over first. Signing in
+on the phone no longer changes your account's language unless you pick one on
+the sign-in screen.
+
+---
 ## 9.13.1 - Plan a change on what is already running
 
 Opening a later row of a live case now shows what will still be running

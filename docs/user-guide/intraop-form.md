@@ -96,7 +96,8 @@ still be running then is shown there, dashed (on the web, the running bar
 continues past now). Choose it to change its rate or settings, or stop it, at
 that row. This changes the same infusion; do not start the drug again, which
 would add a second infusion counted alongside the first. Nothing runs on past
-a planned stop or after the case has ended.
+a planned stop or after the case has ended. A planned change names its time
+("Propofol · at 14:35"), and a closed row shows what is planned there.
 
 ### A stop entered ahead of its time
 
