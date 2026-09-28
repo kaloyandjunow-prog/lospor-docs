@@ -1,5 +1,13 @@
 # Changelog - LOSPOR Docs
 
+## [9.13.3] - 2026-09-28
+
+### Changed
+
+- Changelog 9.13.3: one medication list from the national register, offline
+  medication search on the phone, combination products exported as the
+  combination.
+
 ## [9.13.2] - 2026-09-28
 
 ### Changed

@@ -8,6 +8,20 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.13.3 - One medication list, from the national register
+
+Home medications and allergies are now chosen from one list: the national
+register of medicinal products (NHIS CL009, 6,901 products with the codes a
+hospital system sends) plus the 787 products it lacks from LOSPOR's earlier
+list. The search finds a product by name, substance or ATC code and shows each
+product once. On the phone it also works with no connection, from the same
+list. For research exports, each medication keeps its ATC code and is linked to
+RxNorm through it, now for 1,414 ATC codes. A combination product now exports
+as the combination: its own RxNorm concept where one fits (valsartan with
+hydrochlorothiazide tablets), otherwise one row per ingredient. Before, some
+exported as one of their ingredients and others as no concept at all.
+
+---
 ## 9.13.2 - A planned change says when
 
 A change planned from a later row now names its time: on the phone the rate
