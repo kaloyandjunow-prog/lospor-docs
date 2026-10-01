@@ -25,7 +25,11 @@ the appliance. A new question or a changed definition needs a software
 release.
 
 On a new installation the baseline questions are on, the additions are off,
-and no question is required.
+and every question is recommended rather than required. “Recommended” means
+that leaving it unanswered does not stop the clinician continuing to the
+intraoperative record. An administrator can make any individual switched-on
+question required; the setting is per question, not a blanket rule for all 30
+baseline questions.
 
 ## What an administrator can change
 
@@ -72,6 +76,10 @@ progress:
 A draft always saves, whatever is unanswered. Required questions are checked
 when the clinician continues to the intraoperative record: the app lists the
 required questions still unanswered and stays on the preoperative form.
+Recommended questions remain visible and are recorded when answered, but do
+not block that transition. Finalization has a separate completeness check for
+the clinical sections; when it refuses a case, the web and phone explain the
+known missing section rather than displaying an internal protocol value.
 
 ## Research
 

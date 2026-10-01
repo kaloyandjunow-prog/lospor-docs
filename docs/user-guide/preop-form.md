@@ -124,6 +124,9 @@ type in a question of their own.
   question above it. Answering anything else removes it and its answer.
 - A question marked **\*** is required. A draft always saves; required
   questions are checked when you continue to the intraoperative form.
+- Questions without **\*** are recommended only: leaving one blank does not
+  stop you continuing. The hospital administrator can set this independently
+  for each enabled question, including the 30 baseline questions.
 - **From the record: Yes?** under a question is a suggestion drawn from the
   imported hospital record. Accept it to use it as the answer, or reject it.
   It is offered only while the question is unanswered, so it never replaces
@@ -191,5 +194,10 @@ The preoperative form auto-saves as you work: taps on pills, toggles, and checkb
 If the connection drops, your changes are kept locally and sync automatically when it returns — a "saves waiting" badge appears in the header (web) or the sync indicator shows queued (mobile) until everything has reached the server.
 
 When all mandatory fields are complete, click **Save & continue** or **Continue to intraoperative** to move to the intraoperative form. If required fields are missing, the app shows which fields need attention. On a hospital appliance, required questions the hospital added are checked at the same moment, and the app lists any that are still unanswered.
+
+Reaching the summary is not the same as finalizing the case. **Close Now**
+runs the server's completeness check. If preoperative demographics are still
+missing, the summary names that issue (age, sex, height, or weight) so you can
+return to the preoperative form and correct it.
 
 If the server refuses a save (for example a value it will not accept), the app says so beside the field rather than showing the change as waiting to sync.
