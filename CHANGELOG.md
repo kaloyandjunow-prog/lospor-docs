@@ -1,5 +1,22 @@
 # Changelog - LOSPOR Docs
 
+## [9.13.6] - 2026-10-01
+
+### Changed
+
+- Finalization feedback is now consistent between the web app and the PWA. If
+  the server refuses to close a case because its preoperative demographics are
+  incomplete, the clinician sees the actual missing-demographics explanation;
+  unknown protocol details remain behind the generic message.
+- Clarified the Hospital preoperative-question policy: the 30 bundled baseline
+  questions are enabled on a new installation and are recommended by default,
+  but an administrator may mark each enabled question required independently.
+  Required questions block only the move to intraoperative; a draft still
+  saves, and recommended questions do not block that transition.
+- Documented that the finalization regression coverage includes the real
+  summary-page action, and that the idle intraoperative-chart test uses virtual
+  time so CI retries do not spend 20 wall-clock seconds on an unchanged case.
+
 ## [9.13.3] - 2026-09-28
 
 ### Changed
