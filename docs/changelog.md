@@ -8,6 +8,24 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.13.8 - Finalizing says what is missing
+
+When a case cannot be finalized, the message now names the reason: the case
+has not been ended, the start time is missing, there are chart entries after
+the case end, or an infusion stop has not been confirmed. Before, these all
+read "check all required fields". An unfinished section of an existing
+preoperative assessment is reported as incomplete rather than missing. The
+dashboard's "today" and "this month" tiles are counted directly in the
+database. The phone app moves to the latest Expo SDK 56 patch release.
+
+Earlier in this series (9.13.4 to 9.13.7): a child's case is checked against
+the pediatric rules the case was recorded under, even when the preoperative
+record does not repeat its mode; finalization names incomplete demographics;
+a case moves to "in progress" as soon as an anaesthesia start is recorded,
+whichever way it was entered; and Next.js and several dependencies were
+updated for security fixes.
+
+---
 ## 9.13.3 - One medication list, from the national register
 
 Home medications and allergies are now chosen from one list: the national
