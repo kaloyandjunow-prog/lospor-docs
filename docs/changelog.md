@@ -16,7 +16,7 @@ the case end, or an infusion stop has not been confirmed. Before, these all
 read "check all required fields". An unfinished section of an existing
 preoperative assessment is reported as incomplete rather than missing. The
 dashboard's "today" and "this month" tiles are counted directly in the
-database.
+database. The phone app moves to the latest Expo SDK 56 patch release.
 
 Earlier in this series (9.13.4 to 9.13.7): a child's case is checked against
 the pediatric rules the case was recorded under, even when the preoperative

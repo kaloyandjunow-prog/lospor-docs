@@ -5,7 +5,7 @@
 ### Changed
 
 - Changelog 9.13.8: finalization refusals named precisely; dashboard counts
-  in the database.
+  in the database; the phone app on the latest Expo SDK 56 patch.
 
 ## [9.13.6] - 2026-10-01
 
