@@ -1,5 +1,12 @@
 # Changelog - LOSPOR Docs
 
+## [9.13.8] - 2026-10-03
+
+### Changed
+
+- Changelog 9.13.8: finalization refusals named precisely; dashboard counts
+  in the database.
+
 ## [9.13.6] - 2026-10-01
 
 ### Changed
