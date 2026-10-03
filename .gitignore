@@ -8,3 +8,15 @@ build/
 !.dev.vars.example
 .env*
 !.env.example
+
+# Local secrets, logs, scratch and agent state
+.env
+.env.*
+!.env.*.example
+*.log
+.tmp-*
+.DS_Store
+Thumbs.db
+.claude/
+.codex/
+coverage/
