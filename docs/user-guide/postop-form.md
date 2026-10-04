@@ -88,6 +88,18 @@ When the case is finalised it is permanent:
 - No further editing is possible
 - LOSPOR prompts **"Print case?"** — on the web this opens a dedicated print page; on a phone the record is downloaded as a PDF and handed to your share sheet. Also reachable any time via the **Print case** button on the case list/summary, or long-press on mobile. See [Protocol & Printing](./printing.md).
 
+### What still stops finalisation
+
+The case summary lists, before you press anything, everything that would stop
+the case from being finalised: a missing ASA class, no vital signs on the
+chart, an Aldrete score with a component unanswered, and so on. Each item says
+which form it belongs to and goes straight to the section where it is fixed.
+**Close Now** shows how many items still block. Below them, items that do not
+block but deserve a look are listed separately.
+
+If the server still refuses to finalise, its reasons are shown in the same
+list, so you never get a bare "check all required fields".
+
 ### When finalisation actually happens
 
 Three ways, and the difference matters if you close the tab:
