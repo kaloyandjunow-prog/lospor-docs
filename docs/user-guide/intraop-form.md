@@ -122,6 +122,12 @@ be marked **Happened** (moved to the end) or **Didn't happen** (deleted), and a
 stop entered ahead that is still unanswered is asked about there too; the case
 cannot be finalised while one remains.
 
+Before it ends anything, **End case** checks the intraoperative record the way
+finalisation will. Anything that would stop the case from being finalised,
+such as a missing technique or no vital signs on the chart, is listed first,
+each with a link to where it is fixed, and the case is not ended until it is
+put right. Items that only deserve a look ask once and let you end the case.
+
 **Resume** is offered for 30 minutes after the end, also when the case is
 opened again later, and offers to take back the stops End case made.
 
@@ -209,6 +215,27 @@ on body surface area. A total counts the minutes the infusion actually ran and
 adds mg and mcg together. If a drug set to ideal weight has only the actual
 weight to go on, the total says so with "(TBW)". The same total is shown on
 the phone, the web and the printed record.
+
+### Recorded allergies
+
+A bolus or an infusion is checked against the allergies recorded in the
+preoperative form, whether typed there or accepted from the hospital system.
+If the drug matches one, LOSPOR asks before it is charted, naming the allergy
+and how it matches: **the same drug**, **the same drug class** (for example
+ampicillin with a penicillin allergy) or **a possible cross-reaction** (for
+example a cephalosporin with a penicillin allergy, or between neuromuscular
+blockers).
+
+- **Give anyway** charts the dose with a note that you saw the allergy. A
+  repeat of that dose keeps the note.
+- **Don't give** charts nothing. A declined infusion is never shown as
+  running.
+
+The check never blocks: the decision is yours. Allergies it cannot recognise
+(an unfamiliar name with no drug code) are listed as **not checked
+automatically**, beside the preoperative summary on the web and on the
+Equipment tab on the phone. A dose that matches an allergy and has no note
+appears as an item worth a look before finalisation.
 
 ### Volatile agents
 

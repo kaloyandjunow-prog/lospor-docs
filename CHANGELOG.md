@@ -1,5 +1,18 @@
 # Changelog - LOSPOR Docs
 
+## [9.14.0] - 2026-10-04
+
+### Added
+
+- User guide: the readiness list before finalising (postop form) and End
+  case's check (intraop form), and the allergy check when a drug is given
+  (intraop form), in English and Bulgarian.
+
+### Changed
+
+- Changelog 9.14.0: readiness, the allergy check, and an imported age that
+  switches the clinical mode.
+
 ## [9.13.8] - 2026-10-03
 
 ### Changed

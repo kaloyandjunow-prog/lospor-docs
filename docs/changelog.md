@@ -8,6 +8,33 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.14.0 - Readiness before finalising, allergies checked when a drug is given
+
+**What stops finalisation is listed up front.** The case summary shows every
+item that would stop the case from being finalised, each with a link to the
+section where it is fixed, and **Close Now** shows how many remain. Items that
+only deserve a look are listed apart. **End case** checks the intraoperative
+items first. See [Postoperative form](./user-guide/postop-form.md#what-still-stops-finalisation).
+
+**Drugs are checked against recorded allergies.** A bolus or infusion that
+matches an allergy typed in preop or accepted from the hospital system asks
+first, naming the allergy and whether it is the same drug, the same class or a
+possible cross-reaction. **Give anyway** records on the dose that you saw it;
+**Don't give** charts nothing. It never blocks. See
+[Intraoperative form](./user-guide/intraop-form.md#recorded-allergies).
+
+### An imported age sets the mode
+
+A child's age imported from the hospital system into a case that was still in
+adult mode could not be added: the review asked for paediatric mode first, and
+switching did not release it. The age is now added like any other value, and
+adding it switches the case to paediatric mode, or an adult age to adult mode.
+The switch clears what the mode toggle always clears, and the imported values
+are written after it, so none of them are lost. The review says what will be
+cleared before you add anything.
+
+---
+
 ## 9.13.8 - Finalizing says what is missing
 
 When a case cannot be finalized, the message now names the reason: the case
