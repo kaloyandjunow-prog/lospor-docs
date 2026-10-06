@@ -6,6 +6,9 @@
 
 - User guide: Undo after deleting an entry on the phone's timetable (intraop
   form). Changelog entry for 9.14.2.
+- Data and research, Autosave Manager (en, bg): identifying text is refused at
+  save on the cloud service only; a hospital appliance stores free text as typed
+  and cleans it whenever it leaves.
 
 ## [9.14.1] - 2026-10-06
 

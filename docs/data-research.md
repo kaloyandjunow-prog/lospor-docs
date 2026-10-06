@@ -24,7 +24,7 @@ LOSPOR stores perioperative data for clinical documentation, audit, personal por
   the register did not measure; the component inputs are exported precisely so
   that distinction is available to you.
 - Airway assessment: Mallampati, mouth opening, thyromental distance, neck mobility, ULBT, Cormack-Lehane, difficult-airway history, and airway features.
-- Free-text clinical notes where needed: team notes, physical exam report, difficult-airway notes. These are character-limited and PII-checked server-side.
+- Free-text clinical notes where needed: team notes, physical exam report, difficult-airway notes. These are character-limited. On the cloud service identifying text in them is refused when it is saved. On a hospital appliance it is stored as typed, inside the hospital, and free text is cleaned of names, dates, ЕГН, long numbers and email addresses whenever it leaves: in OMOP and research exports, in Central delivery and in what is sent to the AI advisor. Coded fields (diagnoses, procedures, drug and allergy lists) leave as they are.
 - Vitals: BP, HR, SpO2, temperature, respiratory rate, including unable-to-obtain flags where available.
 - Laboratory results: canonical lab name, value, parsed numeric value, canonical unit, LOINC code, reference range, abnormal flag, source, and timestamp where available.
 
@@ -67,7 +67,7 @@ The following are intentionally never uploaded or stored:
 - Hospital file number or patient ID number.
 - Exact date of surgery; month/year and clinical timestamps are used instead.
 - Surgeon, anaesthesiologist, or nurse names as structured fields.
-- Free text that triggers the server-side PII detector.
+- On the cloud service, free text that triggers the server-side PII detector.
 
 The printable protocol leaves patient identity fields blank. Clinicians fill those fields by hand after printing if needed for the local paper record.
 

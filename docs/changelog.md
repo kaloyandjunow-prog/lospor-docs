@@ -21,6 +21,13 @@ now name it in the reader's language; a detail typed in brackets is kept.
 **Bulgarian descriptions** under the patient positions and the Mallampati,
 upper lip bite and Cormack-Lehane classes.
 
+**Clinical text is no longer refused as identifying on a hospital appliance.**
+Phrases such as "Ритмична Сърдечна дейност" or an ECG date were read as a name
+or a date and the save was refused. On a hospital appliance free text is now
+stored as typed and cleaned whenever it leaves; the cloud service still refuses
+it at save. Exports clean free text only: diagnoses, procedures and drug names
+leave as they are. See [Data and research](./data-research.md).
+
 ---
 ## 9.14.1 - Fixes from the first hospital test
 

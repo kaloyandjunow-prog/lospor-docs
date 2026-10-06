@@ -107,9 +107,11 @@ contains unsynced changes.
 
 ## A field rejected for privacy
 
-If the server detects likely identifying information, Autosave Manager keeps
-that field on the device and shows the reason beside it. Other safe fields in
-the same form can still save.
+On the cloud service, if the server detects likely identifying information,
+Autosave Manager keeps that field on the device and shows the reason beside it.
+Other safe fields in the same form can still save. A hospital appliance does not
+refuse it: the text stays inside the hospital as typed and is cleaned whenever
+it leaves (see Data and research).
 
 The same mechanism carries clinical refusals that a retry cannot fix — recording
 an age under eighteen as an adult case, or a paediatric case without a usable
