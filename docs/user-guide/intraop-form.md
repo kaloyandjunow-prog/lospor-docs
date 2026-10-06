@@ -78,7 +78,10 @@ and the research export read it the same way.
   its start, a change or stop of something that is not running, a stop placed
   before a later change of the same item, and vital signs in the future.
   Restarting something you stopped is fine.
-- **Deleting a start deletes its rate changes and its stop with it.**
+- **Deleting a start deletes its rate changes and its stop with it.** On the
+  phone, a delete offers **Undo** in the bar above the timetable, as an add
+  does; Undo puts the entry back at the same time, a start with its changes and
+  stop. On the web, **Ctrl+Z** undoes the last change, a delete included.
 - **"Now" is the server's time, not your device's.** A phone or computer whose
   clock is a few minutes off still puts the now line, and what is planned or
   given, where they belong. A time you pick is never changed.
