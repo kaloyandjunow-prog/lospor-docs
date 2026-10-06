@@ -8,6 +8,20 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.14.2 - Bulgarian event names and descriptions, Undo after a delete
+
+**Events in Bulgarian.** An event added in Bulgarian showed an English pill on
+the phone's timetable, and some event names stayed in English on the web. Both
+now name it in the reader's language; a detail typed in brackets is kept.
+
+**Undo after a delete (phone).** Deleting an entry on the timetable now offers
+**Undo**, as adding one does. See
+[Intraoperative form](./user-guide/intraop-form.md#how-times-are-recorded).
+
+**Bulgarian descriptions** under the patient positions and the Mallampati,
+upper lip bite and Cormack-Lehane classes.
+
+---
 ## 9.14.1 - Fixes from the first hospital test
 
 **A second case for the same patient gets the hospital's data again.** On a
