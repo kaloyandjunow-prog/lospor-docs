@@ -1,5 +1,13 @@
 # Changelog - LOSPOR Docs
 
+## [9.14.1] - 2026-10-06
+
+### Changed
+
+- User guide: the allergy question comes only once the case has started, and
+  opens as a sheet on the phone (intraop form); Continue lists every missing
+  required field at once (preop form). Changelog entry for 9.14.1.
+
 ## [9.14.0] - 2026-10-04
 
 ### Added
