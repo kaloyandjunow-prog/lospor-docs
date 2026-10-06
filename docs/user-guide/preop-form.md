@@ -193,7 +193,7 @@ The preoperative form auto-saves as you work: taps on pills, toggles, and checkb
 
 If the connection drops, your changes are kept locally and sync automatically when it returns — a "saves waiting" badge appears in the header (web) or the sync indicator shows queued (mobile) until everything has reached the server.
 
-When all mandatory fields are complete, click **Save & continue** or **Continue to intraoperative** to move to the intraoperative form. If required fields are missing, the app shows which fields need attention. On a hospital appliance, required questions the hospital added are checked at the same moment, and the app lists any that are still unanswered.
+When all mandatory fields are complete, click **Save & continue** or **Continue to intraoperative** to move to the intraoperative form. If required fields are missing, the app lists all of them at once, in the order of the form, and opens the form at the first. On a hospital appliance, required questions the hospital added are checked at the same moment, and the app lists any that are still unanswered.
 
 Reaching the summary is not the same as finalizing the case. **Close Now**
 runs the server's completeness check. If preoperative demographics are still

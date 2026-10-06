@@ -231,6 +231,11 @@ blockers).
 - **Don't give** charts nothing. A declined infusion is never shown as
   running.
 
+The question comes only for a dose that can be charted: on a case that has
+not been started yet, the dose is refused first with "start the case first".
+On the phone the question opens as a sheet with the same two buttons; closing
+the sheet any other way counts as **Don't give**.
+
 The check never blocks: the decision is yours. Allergies it cannot recognise
 (an unfamiliar name with no drug code) are listed as **not checked
 automatically**, beside the preoperative summary on the web and on the

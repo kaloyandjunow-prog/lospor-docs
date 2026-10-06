@@ -8,6 +8,23 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.14.1 - Fixes from the first hospital test
+
+**A second case for the same patient gets the hospital's data again.** On a
+hospital appliance, looking up a patient for a new case after importing the same
+patient onto an earlier case said the hospital system held nothing. It now
+fetches a fresh copy; a value refused inside a case is still never offered again.
+
+**The allergy question comes only for a dose that can be given.** On a case not
+yet started, the dose is refused first; before, the allergy was asked about and
+then the dose refused. On the phone the question now shows **Give anyway** and
+**Don't give** instead of OK and Cancel. See
+[Intraoperative form](./user-guide/intraop-form.md#recorded-allergies).
+
+**Continue names every missing required field at once (phone).** It used to
+list a few and name the rest one notice later.
+
+---
 ## 9.14.0 - Readiness before finalising, allergies checked when a drug is given
 
 **What stops finalisation is listed up front.** The case summary shows every
