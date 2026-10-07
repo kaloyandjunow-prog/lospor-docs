@@ -172,6 +172,8 @@ Click a column in the **vital signs graph** to enter or edit values for that tim
 
 The graph updates in real time as you enter data.
 
+**Values worth a second look** are marked in amber with a short note, without blocking the save: systolic pressure below 60 or above 300 mmHg, diastolic above 150 mmHg, heart rate below 40 or above 250, SpO₂ below 80 %, EtCO₂ below 25 or above 60 mmHg (3.3 and 8 kPa), and temperature below 28 or above 41 °C.
+
 **AI monitor scan:** click the camera icon to upload or photograph your anaesthesia monitor screen. Mistral AI reads the display and extracts visible vital signs values into the entry fields. Review before saving.
 
 :::info Privacy

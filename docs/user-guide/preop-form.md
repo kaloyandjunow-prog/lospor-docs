@@ -161,7 +161,7 @@ The Labs section contains a catalogue of 100+ perioperative-relevant tests organ
 
 ### AI lab scan
 
-Click **Scan lab report** to upload a photo or scan of a printed laboratory result. Mistral AI reads the image and extracts test names, values, and units into a preview panel. Check the results you want to import and click **Add selected**. Tests already in your list are skipped automatically.
+Scanning needs the case's AI consent: tick **Allow AI assistance for this case** (see [AI assistance](#ai-assistance-and-the-pre-operative-advisor)). Without it the phone says so in place of the camera buttons. Click **Scan lab report** to upload a photo or scan of a printed laboratory result. Mistral AI reads the image and extracts test names, values, and units into a preview panel. Check the results you want to import and click **Add selected**. Tests already in your list are skipped automatically.
 
 The AI scan recognises only tests in the LOSPOR catalogue and normalises all values to canonical units (e.g. Hb in g/L, glucose in mmol/L). Any result the AI extracts that does not match a catalogue entry is silently discarded — only recognised, correctly-named results are shown in the review panel.
 
@@ -177,11 +177,13 @@ All entered lab results appear in the printed protocol.
 
 Record premedication in two phases: **The day before** (the day before surgery) and **Morning before surgery**. Pick the drug, dose and route; there is no clock time. For research each entry is exported as its coded drug, dated the day before or the day of the operation.
 
-## AI pre-operative advisor
+## AI assistance and the pre-operative advisor
 
-At the bottom of the preoperative form, you can optionally enable the **AI clinical analysis** for this case. It is **disabled by default**.
+At the bottom of the preoperative form, **Allow AI assistance for this case** records the case's consent to AI. It is **off by default**, and it covers every AI feature the hospital has switched on: the lab report scan, the monitor scan and the advisor. It is shown whenever at least one of them is on, paediatric cases included; with every AI feature off it is not shown at all.
 
-When enabled, click the **AI Clinical Analysis** button to receive a structured pre-operative assessment covering ASA classification, technique recommendation, airway management, preparation, and drug considerations.
+If a scan fails, the message names the reason: no consent on the case, an image that is too large or of the wrong type, too many scans in the last hour, an AI model the hospital must change in Status, AI not set up, or a reading that took too long.
+
+The advisor is for adults only. With consent given, click the **AI Clinical Analysis** button to receive a structured pre-operative assessment covering ASA classification, technique recommendation, airway management, preparation, and drug considerations.
 
 :::info Privacy
 Only structured clinical fields are sent to the configured AI provider. Free-text fields (team notes, airway notes, family history details) are never forwarded. Your consent is recorded in the audit log.

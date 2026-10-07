@@ -8,6 +8,25 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.14.3 - AI consent for every case, clearer scan errors, more vital-sign warnings
+
+**"The image could not be read" when consent was missing.** A lab or monitor
+scan on a case without AI consent was refused, and the phone reported every
+refusal as an unreadable photo. The consent now sits on its own, shown whenever
+any AI feature is on, so paediatric cases can scan too (the advisor stays
+adult-only). Scan errors name their cause. See
+[Preoperative form](./user-guide/preop-form.md#ai-assistance-and-the-pre-operative-advisor).
+
+**SpO₂, EtCO₂ and low blood pressure warnings.** The timetable now asks for a
+second look at SpO₂ below 80 %, EtCO₂ below 25 or above 60 mmHg, and systolic
+pressure below 60 mmHg, as it already did for heart rate and temperature. See
+[Intraoperative form](./user-guide/intraop-form.md#vital-signs).
+
+**Retired AI models (hospital).** Status no longer offers Mistral Medium 3.1
+and Small 3.2, which Mistral retired; an appliance set to either uses the
+default model instead.
+
+---
 ## 9.14.2 - Bulgarian event names and descriptions, Undo after a delete
 
 **Events in Bulgarian.** An event added in Bulgarian showed an English pill on

@@ -1,5 +1,13 @@
 # Changelog - LOSPOR Docs
 
+## [9.14.3] - 2026-10-07
+
+### Changed
+
+- User guide: the case's AI consent covers every AI feature, scan error
+  messages (preop form); warnings for SpO2, EtCO2 and low systolic pressure
+  (intraop form). Changelog entry for 9.14.3.
+
 ## [9.14.2] - 2026-10-06
 
 ### Changed
