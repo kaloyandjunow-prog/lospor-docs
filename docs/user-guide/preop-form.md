@@ -137,6 +137,11 @@ type in a question of their own.
 The questions and their order are the same on the web and on the phone, and in
 the tabbed and the scrolled layout.
 
+The hospital has one profile for adults and one for children. A paediatric
+case follows the children's profile and an adult case the adults', so the same
+question can be required for children and optional for adults. Switching a
+case's mode switches the form to the other profile's questions straight away.
+
 ## Laboratory results
 
 The Labs section contains a catalogue of 100+ perioperative-relevant tests organised across nine categories:
