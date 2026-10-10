@@ -8,6 +8,13 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.14.4 - Security updates
+
+Dependency updates for the web app, API, phone app and this site: Next.js,
+proxy-addr, sharp, source-map-js, shell-quote and others. Nothing changes in how
+LOSPOR works.
+
+---
 ## 9.14.3 - AI consent for every case, clearer scan errors, more vital-sign warnings
 
 **"The image could not be read" when consent was missing.** A lab or monitor
