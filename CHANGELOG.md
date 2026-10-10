@@ -1,5 +1,13 @@
 # Changelog - LOSPOR Docs
 
+## [9.14.4] - 2026-10-10
+
+### Security
+
+- Build tooling updated in range (proxy-addr, shell-quote, source-map-js,
+  js-yaml, nanoid, fast-uri and others). The published site is unchanged.
+  Changelog entry for 9.14.4.
+
 ## [9.14.3] - 2026-10-07
 
 ### Changed
