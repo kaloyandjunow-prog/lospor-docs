@@ -1,10 +1,20 @@
 # Preoperative questions
 
 LOSPOR ships one catalogue of preoperative questions, versioned with the
-Hospital release. Each appliance has one profile that says which of those
-questions its clinicians are asked, in what order, and which are required.
-Status changes that profile in place. There is no second definition source and
-there are no profile versions.
+Hospital release. Each appliance has two profiles, one for adults and one for
+children, that say which of those questions its clinicians are asked, in what
+order, and which are required. A case follows the profile of its mode: an
+adult case the adult profile, a paediatric case the children's. Status changes
+each profile in place. There is no second definition source and there are no
+profile versions.
+
+A question asked of both adults and children, such as latex allergy, has its
+own settings in each profile: it can be required for children and optional
+for adults, or switched off for one and on for the other.
+
+Until 9.14.5 one profile served both. On the upgrade the children's profile
+starts as a copy of it, so nothing an administrator chose changes until they
+change it.
 
 ## The catalogue
 
@@ -33,16 +43,24 @@ baseline questions.
 
 ## What an administrator can change
 
-From **Status → Hospital controls → Clinical**, an administrator can:
+From the preoperative form page in Status, an administrator picks **Adults**
+or **Children** and, for that profile, can:
 
 - switch a question on or off, including a baseline question;
 - make a switched-on question required or optional;
-- change the order, by dragging or with the up and down buttons; and
+- change the order of the added questions, by dragging or with the up and
+  down buttons; and
 - preview the form in use.
 
-Saving needs the administrator password and a reason, and is audited. The API
-refuses an incomplete catalogue, duplicate positions, unknown questions, and a
-question that is required while switched off.
+Each view lists only the questions that population is asked. The baseline
+questions keep their fixed place in the form, next to the scores they feed,
+so they are listed apart from the added questions and cannot be moved; the
+order applies to the added questions within each form section.
+
+Saving changes one profile, needs the administrator password and a reason,
+and is audited. The API refuses an incomplete list, duplicate positions,
+unknown questions, a question the population is never asked, and a question
+that is required while switched off.
 
 ## What clinicians see
 

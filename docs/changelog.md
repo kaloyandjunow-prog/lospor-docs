@@ -8,6 +8,16 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.14.5 - Separate preoperative questions for adults and children
+
+A hospital now has one preoperative profile for adults and one for children.
+Each says which questions are asked, in what order and which are required, so
+a question can be required for children and optional for adults. A case
+follows the profile of its mode, on the web and on the phone. On the upgrade
+the children's profile starts as a copy of the existing one, so nothing
+changes until an administrator changes it.
+
+---
 ## 9.14.4 - Security updates
 
 Dependency updates for the web app, API, phone app and this site: Next.js,

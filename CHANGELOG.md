@@ -1,5 +1,13 @@
 # Changelog - LOSPOR Docs
 
+## [9.14.5] - 2026-10-11
+
+### Changed
+
+- Preoperative questions: one profile for adults and one for children, and
+  the order applying to the added questions. User guide and appliance page in
+  English and Bulgarian. Changelog entry for 9.14.5.
+
 ## [9.14.4] - 2026-10-10
 
 ### Security
