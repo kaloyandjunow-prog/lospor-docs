@@ -8,6 +8,78 @@ title: Changelog
 All notable changes to LOSPOR are documented here.
 
 ---
+## 9.15.0 - Target-controlled infusions, both infusion rates, preop summary and consent
+
+**Target-controlled infusions.** Propofol, remifentanil, sufentanil and
+alfentanil can be started as a target-controlled infusion (TCI) on the web and
+on the phone.
+
+- **What you choose:** the model, whether it targets the plasma (Cp) or the
+  effect site (Ce), and the syringe. For Eleveld propofol you also say whether
+  an opioid is given with it.
+- **Models:** Marsh, Schnider, Eleveld, Paedfusor and Kataria for propofol;
+  Minto and Eleveld for remifentanil; Gepts for sufentanil; Maitre for
+  alfentanil.
+- **Before you start:** LOSPOR shows what the pump will give in the first
+  10 minutes and per hour after.
+- **During the case:** a change asks for a new target, and the predicted
+  concentration is shown on the chart.
+- **Totals:** the amount given is worked out from the model and the patient's
+  age, weight, height and sex. The pump's own total, entered on the stop or
+  later, counts instead. Every total says which it is, and the research
+  export keeps both.
+
+**Both rates of an infusion.** An infusion records its dose rate and its pump
+rate (mL/hr), worked out from the syringe strength.
+
+- **Units:** the rate can be entered in the drug's own unit, its other dose
+  unit or mL/hr.
+- **Fluid balance:** the millilitres given through drug infusions now count in
+  it.
+- **Children's local anaesthetics:** epidural and perineural infusions are
+  entered in mL/kg/hr, limited by a dose for each age band.
+- **Other strengths:** a strength typed with Other is entered with a slider in
+  the drug's own range.
+- **Buttons that are off:** every button that is off says why.
+
+**Preop summary and written consent.** A hospital can switch on a summary page
+between the preoperative and intraoperative records, and a printable written
+consent.
+
+- **Print layouts:** five, A to E, chosen in Status.
+- **Questionnaire:** every layout prints the whole questionnaire, every answer
+  included.
+- **Consent texts:** the texts are versioned, and each print records which
+  text was on the sheet.
+- **Planned anaesthesia:** it can be recorded at the preop visit, and the
+  consent and the summary use it.
+
+**Preoperative assessment.**
+
+- **Gupta:** a Gupta MICA cardiac risk card, which the hospital switches on.
+- **ASA:** an ASA suggestion drawn from the coded conditions, shown until a
+  class is chosen.
+- **Apfel:** bands that follow the PONV consensus.
+- **Children's fasting:** recorded as nil-by-mouth hours for each intake, with
+  the APAGBI minimums in one tap.
+- **New questions:** previous ICU stay, alcohol use (asked from 14), and a
+  child's vaccination in the last two weeks.
+
+**Dates and language.**
+
+- **Dates:** the start and end of surgery have a date beside the time, and
+  the printed record shows the day of the case.
+- **Research data:** the export is dated and timed on the theatre's clock.
+- **Bulgarian names:** five switches in Settings show drug, infusion, agent
+  and fluid names in Bulgarian.
+- **Bulgarian screens:** they use "Оценка по ASA", "Модифицирана скала на
+  Алдрет" and the record's abbreviations АН / СЧ / ДЧ / Темп.
+
+**Clinical rule sets v3.** These are the updated adult and paediatric
+suggestions: 15 more infusions, regional adjuvants with their own doses, and a
+suggestion for every paediatric band. The released v2 baselines are unchanged.
+
+---
 ## 9.14.5 - Separate preoperative questions for adults and children
 
 A hospital now has one preoperative profile for adults and one for children.

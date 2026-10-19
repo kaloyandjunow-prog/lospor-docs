@@ -77,6 +77,38 @@ policy rows. It remains unpublished and unselected until every policy has been
 clinically approved. See [Pediatric platform draft](./pediatric-platform-draft.md).
 Manual documentation remains available; Adult suggestions are never reused.
 
+### Rule sets v3 (9.15.0)
+
+Release 9.15.0 adds an adult v3 (267 rules; v2 has 251) and a paediatric v3
+(367 rules; v2 has 335).
+
+- **Upgrade:** both are installed on the upgrade beside v2, in the same
+  transaction.
+- **Selection:** the platform selection moves from v2 to v3 only where the
+  1.2.0 release made it. A ruleset an institution or a clinician selected
+  stays selected.
+- **v2 unchanged:** the v2 rows stay exactly as installed, and their
+  fingerprints still verify.
+
+What v3 changes:
+
+- **Drug groups:** drugs are regrouped by their primary use, and the colours
+  follow the group.
+- **Regional adjuvants:** their own intrathecal, epidural and perineural
+  doses. A route with its own settings never borrows another route's
+  calculation.
+- **15 more infusions:** midazolam, remimazolam, clonidine, thiopental,
+  morphine, urapidil, methylene blue, tranexamic acid, potassium chloride,
+  calcium gluconate and chloride, sodium bicarbonate, hydrocortisone,
+  pantoprazole and somatostatin. Also epidural fentanyl (mcg/hr).
+- **Units:** amiodarone in mg/hr, and magnesium sulfate for children in
+  mg/kg/hr.
+- **Children:**
+  - every drug and infusion band gets a suggestion, a range and pills;
+  - local anaesthetic infusions are entered in mL/kg/hr, limited by dose;
+  - some drugs are hidden for children only, for example ibuprofen under
+    3 months and obstetric drugs under 12 years.
+
 ## Offline behavior
 
 Clients cache the last successfully downloaded published ruleset separately

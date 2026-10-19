@@ -7,17 +7,29 @@ title: Intraoperative Form
 
 The intraoperative form is where you document the anaesthesia in real time — or fill it in retrospectively. The centrepiece is the **live intraoperative timetable**.
 
-## Month/year and timing
+## Timing
 
-- **Month / Year** — select the month and year of the procedure. No exact date is stored.
-- **Start time** — click **Start Case** to stamp the current time automatically, or type it manually (HH:MM format)
-- **End time** — click **End Case** when the procedure finishes, or enter manually
+- **Start time**: click **Start Case** to stamp the current time, or type it
+  (HH:MM).
+- **End time**: click **End Case** when the procedure finishes, or type it.
+
+Each time has a **date** beside it, set with a day stepper (‹ Today ›):
+
+- **Start date:** left at Today, a typed start time later than the current
+  time is taken as yesterday. Step the date back, up to 14 days, to chart a
+  case afterwards.
+- **End date:** follows the start, or the next day when the end time is
+  earlier than the start time. It can be stepped up to two days after the
+  start, but never to a moment before the start.
+- **Long cases:** a case longer than 24 hours shows a warning to check the end
+  date.
+- **Case month:** taken from the start date.
+- **Printed record:** shows the day of the case, and says so when the end
+  falls on a later day.
+
+All dates and times are those of the case's own time zone.
 
 When **Start Case** is clicked, a live orange clock bar appears in the timetable and the case status changes to **In theatre** on the dashboard.
-
-:::tip Midnight crossing
-If the case crosses midnight (e.g. starts at 23:30, ends at 01:45), click the **+1 day** button next to the end time to indicate the case ran into the following day.
-:::
 
 ## Anaesthesia technique
 
@@ -212,6 +224,84 @@ Click **+ Drug** in the timetable to log a bolus drug administration:
 
 Add a continuous infusion with start time, end time, drug name, rate, and unit. Mobile/PWA uses the same scenario/favourites/browse pattern as bolus drugs. It appears as a hatched bar spanning the infusion duration.
 
+**The syringe and both rates.**
+
+- **Syringe:** pick the syringe the pump holds from the hospital's presets
+  (for example "4 mg/50 mL"), or choose **Other** to set its amount and volume
+  with sliders.
+- **Units:** the rate can be entered in the drug's own unit, its other dose
+  unit (for example mcg/min beside mcg/kg/min, or mcg/kg/min beside mg/kg/hr
+  for propofol), or as the pump rate in **mL/hr**. Switching unit carries the
+  value across.
+- **Both saved:** the other rate is read out beside the box, and both are
+  saved.
+- **Volume:** with a syringe chosen, the millilitres given count in the fluid
+  balance. Without one there is no mL total, never a guess.
+
+A local anaesthetic infusion for a child is entered in **mL/kg/hr** at the
+strength picked:
+
+- **Limit:** the slider's maximum follows the strength, so the dose never
+  passes the limit for the child's age: 0.2 mg/kg/hr under 3 months, 0.3 up
+  to 1 year and 0.4 from 1 year.
+- **Readout:** the pump rate and the dose are read out, and the pump rate can
+  be typed instead.
+
+When Start is off, the screen says why: no rate, no strength, or no
+formulation.
+
+### Target-controlled infusions (TCI)
+
+Propofol, remifentanil, sufentanil and alfentanil can be started as **Rate** or
+**TCI**. Choose TCI, then:
+
+- **Model**:
+
+  | Drug | Adults | Children |
+  |------|--------|----------|
+  | Propofol | Marsh, Schnider, Eleveld | Paedfusor, Kataria, Eleveld |
+  | Remifentanil | Minto, Eleveld | Eleveld |
+  | Sufentanil | Gepts | none |
+  | Alfentanil | Maitre | none |
+
+  A model that cannot be used for this patient is greyed out, with the reason:
+  for example Schnider or Minto in obesity, where their lean-body-mass formula
+  fails. A patient outside the population a model was built on gets a warning,
+  not a refusal.
+- **Cp or Ce**: whether the pump targets the plasma or the effect-site
+  concentration.
+- **Given with an opioid** (Eleveld propofol only): the model's published
+  switch, on by default.
+- **Syringe and target**: the target is entered like a dose, in mcg/mL for
+  propofol and ng/mL for the opioids. Before you start, LOSPOR shows about how
+  much the pump will give in the first 10 minutes and per hour after that.
+
+**During the case:**
+
+- **Change target:** **Change** asks for a **New target**.
+- **On the web:** the bar reads "Ce 4 mcg/mL · Schnider", with a thin dashed
+  line for the predicted concentration.
+- **On the phone:** tap a row to see the target and the predicted value at
+  that time ("Propofol Ce 4 mcg/mL ≈3.6").
+
+**The total.** The amount given is worked out from the model, the targets and
+the patient's age, weight, height and sex, as a pump would give it (up to
+1200 mL/h).
+
+- **Pump total:** the pump's own total can be entered in mL or in mg/mcg.
+  - **On the web:** from the infusion's menu, on the stop or at any time
+    after it.
+  - **On the phone:** on the **Stop** sheet, or in **End case**.
+
+  When entered, it counts, and the model's calculation is shown beside it.
+- **Missing patient data:** without age, weight, height and sex in the preop,
+  the total says that it needs them.
+- **mL without a syringe:** a pump total in mL with no syringe recorded cannot
+  become an amount, and the total says so.
+
+LOSPOR documents a TCI; it never drives a pump. The pump's own total is the one
+to trust.
+
 **Totals** use the patient's own measurements. A per-kg drug is counted on the
 ideal body weight or the actual weight, as the hospital's drug library sets
 for that drug; the choice is recorded when the infusion starts, so a later
@@ -275,9 +365,12 @@ At the bottom of the form, a summary of total fluids is automatically calculated
 - Crystalloids (mL)
 - Colloids (mL)
 - Blood products (mL)
+- Drug infusions (mL), from each infusion's pump rate (or its TCI total) where
+  the syringe is known
 - Urine output (mL)
 
-You can also enter these directly.
+The total in adds the drug infusions to the fluids. You can also enter urine
+output and blood loss directly.
 
 ## Complications
 

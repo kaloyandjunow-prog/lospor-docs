@@ -42,6 +42,16 @@ Switch between **English** and **Bulgarian** (Български). The change ap
 #### Theme
 Choose **Light** or **Dark** mode. Dark mode is the default. On the phone the light theme covers the whole app, including the intraoperative screen, and matches the web; the change applies at once.
 
+#### Bulgarian names
+When the language is Bulgarian, five switches choose which lists show their
+Bulgarian names instead of the international (English) ones: **Premedication**,
+**Intraoperative drugs**, **Infusions**, **Inhalational agents**, and **Fluids
+and blood products**. All are off by default and are saved with your account.
+
+The names change on the chart, in the allergy warning and on the printed
+record, including a PDF the server builds. Records keep the catalogue name;
+only what is shown changes.
+
 #### Preop layout *(mobile)*
 - **Sections** — opens each section of the preoperative form in a focused editor (default)
 - **Scroll** — all sections on a single scrollable page

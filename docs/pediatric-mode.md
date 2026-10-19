@@ -57,14 +57,19 @@ Pediatric preoperative assessment retains ASA physical status and adds:
 
 - POVOC risk;
 - conditional COLDS respiratory risk;
-- age-aware soft vital-sign references;
-- APAGBI fasting assessment;
-- Mosteller body surface area;
-- NICE maintenance-fluid calculation; and
-- RCUK resuscitation calculation.
+- age-aware soft vital-sign references; and
+- the nil-by-mouth assignment: for each intake, how many hours before surgery
+  the child stops, with the APAGBI 2023 minimums (1 / 3 / 4 / 6 h) in one tap
+  and a shorter assignment flagged.
 
-Adult-only RCRI, Apfel, and STOP-BANG scores are hidden and cleared in
+Adult-only RCRI, Apfel, STOP-BANG and Gupta scores are hidden and cleared in
 pediatric mode.
+
+Mosteller body surface area, the NICE maintenance fluid and the RCUK
+resuscitation doses are worked out from the record and shown in the
+intraoperative record, not entered at preop. The shock dose follows RCUK 2025:
+4 J/kg, rising to 8 J/kg from the fifth shock, never above 360 J. Once surgery
+has started, the nil-by-mouth assignment is shown there as clock times.
 
 Reference ranges from an uploaded laboratory report take precedence over
 default catalog ranges. AI may extract structured values from a report, but
@@ -105,6 +110,23 @@ table or requiring a reference.
 The initial Pediatric selection is intentionally empty. Until the platform
 owner populates and publishes reviewed profiles, the application continues to
 show safe manual-entry paths rather than inventing pediatric defaults.
+
+### Children's infusions
+
+- **Local anaesthetics:** epidural and perineural infusions of bupivacaine,
+  levobupivacaine and ropivacaine are entered in mL/kg/hr at the strength
+  picked. The slider's maximum keeps the dose under the limit for the
+  child's age: 0.2 mg/kg/hr under 3 months, 0.3 to 1 year and 0.4 from
+  1 year. The pump rate and the dose are read out.
+- **TCI:** a target-controlled infusion offers the children's models:
+  Paedfusor, Kataria and Eleveld for propofol, and Eleveld for remifentanil. A
+  model whose formulas give impossible values for the child (Kataria in an
+  infant) cannot be chosen.
+
+Rule set v3 gives every paediatric drug and infusion band a suggestion, a
+range and pills. It also hides some drugs for children only, for example
+ibuprofen under 3 months, obstetric drugs under 12 years, and propofol
+infusions under 1 month.
 
 ## Premedication
 

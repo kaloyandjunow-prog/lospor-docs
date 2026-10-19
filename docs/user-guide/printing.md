@@ -12,10 +12,10 @@ When a case is **finished** (closed after the postop form), LOSPOR generates a *
 ### Page 1 — Intraoperative
 
 The operation is charted **like a classic paper record**:
-- **Header** — institution name, month/year, procedure, diagnosis + ICD code, patient demographics (age, sex, blood group, ASA), and blank identity fields (fill in by hand after printing)
+- **Header** — institution name, the day of the case (the month alone for older cases, and a note when the end fell on a later day), procedure, diagnosis + ICD code, patient demographics (age, sex, blood group, ASA), and blank identity fields (fill in by hand after printing)
 - **Key-facts row** — technique, airway, ventilation, agent, position, timing, monitoring, IV access as compact chips
 - **Intraoperative timetable** — vitals graph (every recorded point), clinical events flagged on the chart, **numbered drug pins** (① ② ③ …) at the exact administration time, a numeric vitals table (BP/HR/SpO₂/EtCO₂/Temp), and bars for agent, infusions, gas (FGF/FiO₂), fluids, and patient position. A case up to ~5 hours is one full-height chart; **longer cases continue onto a second half-height chart on the same page** ("CONTINUED"), just like a paper chart continuing onto a second grid — nothing is repeated and nothing gets squeezed. The numeric table samples at a comfortable interval per chart (e.g. every 15 min on a 12-hour case) while the graph, drugs and events always keep their exact recorded times.
-- **Drug administration log** — every numbered pin resolved: time (the dose's own minute, in the case's time zone), drug, dose, plus totals per drug on the patient's weights; an infusion whose stop is still unconfirmed says so beside its total
+- **Drug administration log** — every numbered pin resolved: time (the dose's own minute, in the case's time zone), drug, dose, plus totals per drug on the patient's weights, and the mL each infusion gave where its syringe is known; an infusion whose stop is still unconfirmed says so beside its total. A target-controlled infusion shows its target and model ("Ce 4 mcg/mL · Schnider"), and its total says whether it came from the pump or the model
 - **Fluid balance**, **intraop notes**, and blank signature lines
 
 ### Page 2 — Pre- and Postoperative
@@ -62,6 +62,44 @@ Tap **Print case** and LOSPOR downloads the ready-made A4 PDF in the background,
 - or print it to any printer your phone can reach.
 
 The PDF is generated in the language you are using — if the app is set to Bulgarian, the record's labels arrive in Bulgarian.
+
+## The preop summary and written consent
+
+When the hospital switches them on (see
+[Preop summary and consent](../appliance/preop-documents.md)), the preop
+summary page can print an A4 portrait sheet, and with it the hospital's
+written consent for anaesthesia.
+
+- **On the web**, **Print** opens the print page, with **Download PDF** and
+  **Print** as for the record.
+- **On a phone**, the PDF is built on the server and opens in the share
+  sheet.
+
+The hospital chooses one of five layouts:
+
+| Layout | What prints |
+|--------|-------------|
+| **A** | The ward's Document №2, sections I to V, with every answer LOSPOR holds printed in and the rest left for the pen; the consent follows in full |
+| **B** (default) | A summary for the colleague taking over, then the whole consent in two columns |
+| **C** | The consent describes only the techniques you tick before printing, and general anaesthesia as the fallback, each with a box for the patient's initials |
+| **D** | A dense summary on the front, the consent as a word-for-word table on the back (double-sided) |
+| **E** | The hospital's copy with the summary and signatures, and a large-print page with the fasting instructions and the full consent for the patient to take home |
+
+Every layout:
+
+- **Questionnaire:** prints the whole questionnaire with every answer, "no"
+  and unanswered included.
+- **Planned anaesthesia:** prints it, when recorded.
+- **Fasting:** for a child, the fasting hours assigned at the visit.
+- **Signers:** the consent names who signs, by the patient's age (Закон за
+  здравето чл. 87). Under 14 a parent signs; from 14 to 18 the patient and a
+  parent both sign.
+- **Identity:** as on the record, the patient's name and ID are left blank
+  for the pen.
+
+Each consent print is recorded on the case, with the version and fingerprint
+of the text on the sheet, its layout and, for layout C, the techniques it
+described. A finalised case takes no new print record.
 
 ## Viewing the chart on a phone
 

@@ -1,5 +1,46 @@
 # Changelog - LOSPOR Docs
 
+## [9.15.0] - 2026-10-19
+
+### Added
+
+- New appliance page, **Preop summary and consent**: the two switches, the
+  five print layouts, the consent texts and their versions, how to write a
+  text, and who signs.
+- **User guide:**
+  - target-controlled infusions;
+  - the syringe and both infusion rates;
+  - children's local anaesthetic infusions;
+  - the date beside the start and end;
+  - drug infusions in the fluid balance;
+  - the ASA suggestion, Gupta and Apfel bands;
+  - planned anaesthesia;
+  - nil by mouth for a child;
+  - the preop summary and what prints;
+  - Bulgarian name switches.
+- **Paediatric mode:** fasting assignments, the calculations in intraop,
+  children's infusions and TCI models, and rule set v3.
+- **Clinical rules:** rule sets v3.
+- **Preoperative questions:** the catalogue of 82 and the questions added in
+  9.15.0.
+- **Data & Research:**
+  - scores as raw counts;
+  - the ASA suggestion and planned anaesthesia;
+  - both infusion rates and TCI;
+  - export dates and times on the theatre's clock.
+
+Every page is in English and Bulgarian. Changelog entry for 9.15.0.
+
+### Fixed
+
+- Data & Research said the exact date of surgery is not stored. The date and
+  time of anaesthesia have been stored since the time model; the page now
+  says date of birth is what is not stored.
+- The intraoperative form described month/year dropdowns and a +1 day button
+  that are gone.
+
+## [9.14.5] - 2026-10-11
+
 ## [9.14.5] - 2026-10-11
 
 ### Changed
