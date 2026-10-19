@@ -1,5 +1,12 @@
 # Changelog - LOSPOR Docs
 
+## [9.15.1] - 2026-10-20
+
+### Changed
+
+- **User guide, intraop timing:** the phone's Start at sheet has the same
+  start date stepper as the Time tab (EN and BG).
+
 ## [9.15.0] - 2026-10-19
 
 ### Added

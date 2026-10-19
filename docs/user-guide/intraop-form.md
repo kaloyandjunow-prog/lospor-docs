@@ -17,7 +17,8 @@ Each time has a **date** beside it, set with a day stepper (‹ Today ›):
 
 - **Start date:** left at Today, a typed start time later than the current
   time is taken as yesterday. Step the date back, up to 14 days, to chart a
-  case afterwards.
+  case afterwards. On the phone, the **Start at** sheet has the same date
+  stepper.
 - **End date:** follows the start, or the next day when the end time is
   earlier than the start time. It can be stepped up to two days after the
   start, but never to a moment before the start.
