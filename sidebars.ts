@@ -53,6 +53,7 @@ const sidebars: SidebarsConfig = {
         "appliance/external-ai-control",
         "appliance/clinical-guidance-policy",
         "appliance/preoperative-profile",
+        "appliance/preop-documents",
         "appliance/audit-evidence",
         "appliance/secret-rotation",
         "appliance/release-validation",

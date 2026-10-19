@@ -18,16 +18,30 @@ change it.
 
 ## The catalogue
 
-The catalogue has 75 questions:
+The catalogue has 82 questions:
 
 - the 30 **baseline** questions (`BASE_*`) behind the standard form controls:
   allergies, family and personal anaesthetic history, dentition, habits, the
   RCRI, Apfel, STOP-BANG and POVOC factors, and the COLDS switch; and
-- 45 **additions** for adults and children, for example recent respiratory
+- 52 **additions** for adults and children, for example recent respiratory
   infection, exercise tolerance, falls, venous thromboembolism, abnormal
   bleeding, transfusion history, dysphagia, pacemaker or ICD, pregnancy,
   breastfeeding, prematurity, oxygen dependence and difficult venous access.
   Several have follow-up questions that are asked only after a Yes.
+
+Added in 9.15.0, all off until an administrator switches them on:
+
+- **Previous ICU admission**, for adults and children.
+- **Alcohol use**, with follow-ups for heavy or daily drinking and previous
+  withdrawal, asked only from 14 years: a younger patient's form, required
+  check and summary leave it out.
+- **Vaccination in the last 2 weeks**, for children.
+- **Abnormal bleeding and transfusion history**, now asked of children too.
+- **Gupta's functional status and procedure type**, for adults. They are
+  choice questions with their own options rather than Yes/No. With both on,
+  the form shows the Gupta MICA cardiac risk card. Only the answers are
+  stored; the risk is worked out from them, with the age, ASA and
+  creatinine.
 
 Each question has a fixed form section, a population (adult, pediatric or
 both), its answer options and its research code. None of this can be edited on

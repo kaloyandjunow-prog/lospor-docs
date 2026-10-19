@@ -23,6 +23,21 @@ LOSPOR stores perioperative data for clinical documentation, audit, personal por
   were never asked. Analyses that treat a null as a "no" are counting something
   the register did not measure; the component inputs are exported precisely so
   that distinction is available to you.
+
+  Scores are stored and exported as raw counts (RCRI 0–6, Apfel 0–4,
+  STOP-BANG 0–8, POVOC, COLDS, PAED). A band is a reading of the count by one
+  guideline, so it is added at display time and never frozen into the data.
+  The POVOC risk percentage and the Gupta MICA risk are derived on export from
+  their inputs and are not stored.
+- ASA suggestion: the class the suggestion rules proposed from the coded
+  conditions and BMI, the rules that decided it and the rule-table version,
+  stored beside the class the clinician chose.
+- Planned anaesthesia (optional): techniques, airway devices and instruments,
+  lines, and planned ventilation after the operation.
+- Paediatric nil by mouth: one assignment per intake, in hours before surgery,
+  with the policy it was assigned under.
+- Preop documents: each printed consent records the version and fingerprint of
+  its text, the print layout and, for layout C, the techniques described.
 - Airway assessment: Mallampati, mouth opening, thyromental distance, neck mobility, ULBT, Cormack-Lehane, difficult-airway history, and airway features.
 - Free-text clinical notes where needed: team notes, physical exam report, difficult-airway notes. These are character-limited. On the cloud service identifying text in them is refused when it is saved. On a hospital appliance it is stored as typed, inside the hospital, and free text is cleaned of names, dates, ЕГН, long numbers and email addresses whenever it leaves: in OMOP and research exports, in Central delivery and in what is sent to the AI advisor. Coded fields (diagnoses, procedures, drug and allergy lists) leave as they are.
 - Vitals: BP, HR, SpO2, temperature, respiratory rate, including unable-to-obtain flags where available.
@@ -46,10 +61,17 @@ form fields remain as a compatibility copy.
 - Rows of a finalized case cannot be changed.
 
 ### Intraoperative data
-- Timing: month/year, start time, end time, duration.
+- Timing: the start and end of anaesthesia as moments in time, with the
+  case's time zone, the case month and the duration.
 - Techniques, position, airway devices/tools, ventilation modes, monitoring modalities.
 - Vascular access rows with site, size, unit, depth, lumens, and pre-existing flag.
 - Premedication rows by phase: the day before surgery, or the morning before surgery. Each row carries the drug, its WHO ATC code, dose, unit and route; there is no clock time.
+- Drug infusions record both rates: the dose rate and, where the syringe
+  strength is known, the pump rate in mL/h with the strength. A
+  target-controlled infusion records its model, site (Cp or Ce), the opioid
+  switch, each target, and the pump's own total when entered. The millilitres
+  given through infusions are stored as `infusionsMl` and count in the fluid
+  balance.
 - Append-only event timeline: vitals, serum/peripheral glucose, bolus drugs, infusion starts/rate changes/stops, fluid starts/stops, inhalational agent starts/stops, fresh gas flow changes, and clinical events.
 - Fresh gas flow over time: FGF L/min, carrier gas, FiO2, calculated FiAir, and calculated FiN2O. FiO2 is clamped to 21-100%; O2-only is FiO2 100%.
 - Fluids, urine, blood products, complications, and event notes.
@@ -65,7 +87,8 @@ The following are intentionally never uploaded or stored:
 - Patient name.
 - Patient national ID / EGN.
 - Hospital file number or patient ID number.
-- Exact date of surgery; month/year and clinical timestamps are used instead.
+- Date of birth; the age at the procedure is stored instead. (The date and
+  time of the anaesthesia are stored, because the chart is a timeline.)
 - Surgeon, anaesthesiologist, or nurse names as structured fields.
 - On the cloud service, free text that triggers the server-side PII detector.
 
@@ -162,6 +185,28 @@ patient than a negative finding.
 
 An allergy is exported as an observation, never as a drug exposure. A substance
 a patient reacts to is not one they were given.
+
+**Dates and times are the theatre's clock.**
+
+- **Dates:** every `*_date` is the local calendar date in the case's time
+  zone.
+- **Times:** every `*_datetime` is the local time with its UTC offset, for
+  example `2026-06-02T01:30:00+03:00` for a case begun at 01:30 in Sofia. It
+  is the same moment as the UTC instant, readable as the clock in theatre.
+- **No zone:** a case that never recorded its zone is in UTC.
+
+**A target-controlled infusion** exports as one drug exposure:
+
+- **Dose:** the amount given, which is the pump's own total when entered and
+  otherwise the model's calculation.
+- **Beside it, observations:** the model (`LOSPOR:TCI_MODEL`), the site, the
+  opioid switch, every target (`LOSPOR:TCI_TARGET`), and both the calculated
+  and the pump total.
+- **mL without a syringe:** a pump total in mL with no syringe strength cannot
+  become an amount, and is kept as `LOSPOR:TCI_TOTAL_PUMP_ML`.
+
+**Infusion volume.** The drug-infusion millilitres export as
+`LOSPOR:DRUG_INFUSIONS_ML`, with each infusion's pump rate and strength.
 
 Known OMOP concept IDs are stored/exported where confidently mapped. The concept is fixed when the case is saved, so exporting a case twice gives the same file, and a finalized case is never rewritten when vocabularies change.
 

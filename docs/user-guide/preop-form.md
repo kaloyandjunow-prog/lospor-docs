@@ -20,8 +20,23 @@ in days, months, or years. For a child under one year, answer whether the child
 was born prematurely. If yes, enter gestational age at birth as completed
 weeks plus additional days. LOSPOR calculates postmenstrual age; it is
 read-only. Pediatric mode uses ASA, POVOC, conditional COLDS, age-aware vital
-references, pediatric fasting, BSA, maintenance-fluid, and resuscitation
-tools. Adult RCRI, Apfel, and STOP-BANG are hidden.
+references and the nil-by-mouth assignment (below). Adult RCRI, Apfel, STOP-BANG
+and Gupta are hidden. Body surface area, maintenance fluid and the
+resuscitation doses are worked out from the record and shown in the
+intraoperative record.
+
+### Nil by mouth for a child
+
+For each intake (clear fluids, breast milk, infant formula, solid food or
+cow's milk), record how many hours before surgery the child stops. This is
+the instruction given at the visit, not a record of the last meal.
+
+- **One tap:** **Assign APAGBI 2023 hours** fills in the minimums: 1, 3, 4 and 6
+  hours.
+- **Shorter assignments** are flagged.
+- **Clock times:** once surgery has started, the intraoperative record shows
+  the assignment as clock times ("clear fluids until 07:30").
+- **Consent:** the printed consent's fasting list uses these hours.
 
 See [Pediatric mode](../pediatric-mode.md) for safety limits and rollout status.
 
@@ -93,13 +108,48 @@ Record the patient's vital signs at the time of assessment:
 
 **ASA classification** (required) — I through VI, with an emergency modifier (ASA-E).
 
+**ASA suggestion.** From the coded diagnoses and comorbidities (WHO ICD-10)
+and the BMI, LOSPOR suggests a class and names the conditions behind it, in
+your language.
+
+- **When it shows:** it stays until you choose a class. It is shown only when
+  there is evidence: nothing coded and a normal BMI suggests nothing, not
+  ASA I.
+- **Children:** the adult BMI rule does not apply to them.
+- **Research:** the suggestion is stored beside the class you chose, so
+  research can see how often the two agree.
+
 The following scores are **calculated automatically** as you fill in the relevant sections of the form:
 
 | Score | What it predicts |
 |-------|-----------------|
 | **RCRI** (0–6) | Major adverse cardiac events |
-| **Apfel** (0–4) | Postoperative nausea and vomiting (PONV) |
+| **Apfel** (0–4) | Postoperative nausea and vomiting (PONV): about 10, 20, 40, 60 and 80 % for 0 to 4 factors; 0 is low, 1–2 medium, 3 or more high (PONV consensus guidelines) |
 | **STOP-BANG** (0–8) | Obstructive sleep apnoea risk |
+
+Each score's colour follows its own band.
+
+### Gupta cardiac risk *(when the hospital switches it on)*
+
+The Gupta MICA model estimates the risk of a myocardial infarction or cardiac
+arrest within 30 days of surgery, for adults.
+
+- **Questions:** the card appears when the hospital switches on its two
+  questions, functional status and procedure type.
+- **Other inputs:** age, ASA and creatinine come from the record. No
+  creatinine result counts as the model's "unknown".
+- **Procedure type:** offered from the planned procedure; you confirm it.
+- **Missing inputs:** a missing input is named, never guessed.
+- **Result:** a risk of 1 % or more reads as elevated. Only the inputs are
+  saved; the percentage is worked out wherever it is shown or exported.
+
+### Planned anaesthesia *(optional)*
+
+On the risk section you can record the anaesthesia planned at the visit, in
+the intraoperative record's own menus: the techniques, airway devices and
+instruments, lines, and whether ventilation is planned after the operation.
+The preop summary prints it, and the written consent fills its
+planned-anaesthesia line from it.
 
 ### When a score is not available
 
@@ -119,7 +169,10 @@ type in a question of their own.
   to: most in the anamnesis, swallowing and sleep-related breathing under the
   airway, a pacemaker or ICD and difficult venous access under the
   examination, pregnancy and breastfeeding with the patient details. Some also
-  offer **Unknown** or **N/A**.
+  offer **Unknown** or **N/A**. A few offer their own choices instead, such as
+  Gupta's functional status and procedure type.
+- A question asked only from an age (alcohol use, from 14) is left off a
+  younger patient's form, check and summary.
 - A **follow-up** question appears only after you answer **Yes** to the
   question above it. Answering anything else removes it and its answer.
 - A question marked **\*** is required. A draft always saves; required
@@ -141,6 +194,19 @@ The hospital has one profile for adults and one for children. A paediatric
 case follows the children's profile and an adult case the adults', so the same
 question can be required for children and optional for adults. Switching a
 case's mode switches the form to the other profile's questions straight away.
+
+## The preop summary *(when the hospital switches it on)*
+
+A hospital can add a summary page between the preoperative and intraoperative
+records. **Continue** then opens the summary, where you can:
+
+- keep the case or hand it over;
+- print the summary, and the written consent when the hospital uses it; and
+- start the intraoperative record, or go back and edit the preop.
+
+On a phone that is offline, the flow goes straight from preop to intraop. See
+[Protocol & Printing](./printing.md#the-preop-summary-and-written-consent) for
+what prints.
 
 ## Laboratory results
 
