@@ -5,6 +5,10 @@ title: Postoperative Form
 
 # Postoperative Form
 
+:::info Current guide
+This legacy page has moved. Read the current [Postoperative guide](https://guide.lospor.org/clinician/postop).
+:::
+
 The postoperative form documents the patient's recovery from anaesthesia in the recovery room (PACU).
 
 ## Modified Aldrete Score

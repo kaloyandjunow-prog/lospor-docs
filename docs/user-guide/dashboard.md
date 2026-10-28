@@ -5,6 +5,10 @@ title: Dashboard
 
 # Dashboard
 
+:::info Current guide
+This legacy page has moved. Read the current [Dashboard guide](https://guide.lospor.org/clinician/dashboard), which covers both the public demo and LOSPOR Hospital.
+:::
+
 The dashboard is your home screen in LOSPOR. It gives you a quick overview of your activity and provides access to all cases you are allowed to see.
 
 By default, the dashboard shows **All cases** in reverse chronological order. Members see their own cases. Heads of department see cases in their institution. Admins can see all cases.

@@ -1,5 +1,18 @@
 # Changelog - LOSPOR Docs
 
+## [Unreleased]
+
+### Changed
+
+- **User guide:** one guide now covers members, heads of department,
+  administrators and system administrators, with a deployment and
+  feature-capability matrix showing where the workflow changes.
+- **Moved guide:** the older technical user-guide pages now point readers to
+  the maintained guide at guide.lospor.org.
+- **Installation documentation:** the Bulgarian appliance instructions use
+  «Пускане в работа» consistently and describe the wizard's progress/details
+  and server-side installation steps.
+
 ## [9.15.1] - 2026-10-20
 
 ### Changed

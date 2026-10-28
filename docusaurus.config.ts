@@ -56,7 +56,7 @@ const config: Config = {
       title: "LOSPOR Docs",
       logo: { alt: "LOSPOR", src: "img/logo.png", style: { height: "36px", width: "auto" } },
       items: [
-        { type: "docSidebar", sidebarId: "userSidebar", position: "left", label: "User Guide" },
+        { href: "https://guide.lospor.org", label: "User Guide", position: "left" },
         { to: "/self-hosting", label: "Self-hosting", position: "left" },
         { to: "/data-research", label: "Data & Research", position: "left" },
         { type: "localeDropdown", position: "right" },
@@ -73,6 +73,7 @@ const config: Config = {
             { label: "Home", href: "https://lospor.org" },
             { label: "Protocol App", href: "https://app.lospor.org" },
             { label: "Documentation", href: "https://docs.lospor.org" },
+            { label: "User Guide", href: "https://guide.lospor.org" },
           ],
         },
         {

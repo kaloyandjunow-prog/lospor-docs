@@ -5,6 +5,10 @@ title: Case Handover
 
 # Case Handover
 
+:::info Current guide
+This legacy page has moved. Read the current [Case handover guide](https://guide.lospor.org/clinician/handover).
+:::
+
 LOSPOR allows you to transfer a case to a colleague within the same institution — for example, when a shift changes and a different anaesthesiologist takes over a case.
 
 ## Sending a handover

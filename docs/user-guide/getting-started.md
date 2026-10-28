@@ -5,6 +5,10 @@ title: Getting Started
 
 # Getting Started
 
+:::info Current guide
+This legacy page has moved. Start with [How the installation changes the workflow](https://guide.lospor.org/getting-started/demo-or-hospital), then follow the current guide.
+:::
+
 ## Creating an account
 
 1. Go to **[app.lospor.org](https://app.lospor.org)**

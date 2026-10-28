@@ -5,6 +5,10 @@ title: Intraoperative Form
 
 # Intraoperative Form
 
+:::info Current guide
+This legacy page has moved. Read the current [Intraoperative guide](https://guide.lospor.org/clinician/intraop), including the Hospital-only laboratory connection.
+:::
+
 The intraoperative form is where you document the anaesthesia in real time — or fill it in retrospectively. The centrepiece is the **live intraoperative timetable**.
 
 ## Timing
