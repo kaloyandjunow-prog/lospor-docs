@@ -5,8 +5,8 @@ const sidebars: SidebarsConfig = {
     "intro",
     {
       type: "category",
-      label: "User Guide",
-      collapsed: false,
+      label: "Legacy User Guide",
+      collapsed: true,
       items: [
         "user-guide/getting-started",
         "user-guide/dashboard",

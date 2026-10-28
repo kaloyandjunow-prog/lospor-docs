@@ -5,6 +5,10 @@ title: Preoperative Form
 
 # Preoperative Form
 
+:::info Current guide
+This legacy page has moved. Read the current [Preoperative guide](https://guide.lospor.org/clinician/preop), including Hospital patient number and EHR review.
+:::
+
 The preoperative form captures all pre-anaesthesia assessment data. It is the first step in every case.
 
 ## Mobile section dashboard
@@ -246,7 +250,7 @@ All entered lab results appear in the printed protocol.
 
 ## Premedication
 
-Record premedication in two phases: **The day before** (the day before surgery) and **Morning before surgery**. Pick the drug, dose and route; there is no clock time. For research each entry is exported as its coded drug, dated the day before or the day of the operation.
+Record premedication in two phases: **The night before surgery** and **The morning of surgery**. Pick the drug, dose and route; there is no clock time. For research each entry is exported as its coded drug, dated the day before or the day of the operation.
 
 ## AI assistance and the pre-operative advisor
 

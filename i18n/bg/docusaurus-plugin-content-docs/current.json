@@ -3,9 +3,9 @@
     "message": "Текуща",
     "description": "The label for version current"
   },
-  "sidebar.userSidebar.category.User Guide": {
-    "message": "Ръководство за потребителя",
-    "description": "The label for category 'User Guide' in sidebar 'userSidebar'"
+  "sidebar.userSidebar.category.Legacy User Guide": {
+    "message": "Старо ръководство за потребителя",
+    "description": "The label for category 'Legacy User Guide' in sidebar 'userSidebar'"
   },
   "sidebar.userSidebar.category.Hospital Appliance": {
     "message": "Болнична система",

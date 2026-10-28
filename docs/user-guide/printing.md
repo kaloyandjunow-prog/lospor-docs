@@ -5,6 +5,10 @@ title: Protocol & Printing
 
 # Protocol & Printing
 
+:::info Current guide
+This legacy page has moved. Read the current [Printing guide](https://guide.lospor.org/clinician/printing), including the difference between demo PDF and Hospital browser printing.
+:::
+
 When a case is **finished** (closed after the postop form), LOSPOR generates a **two-page anaesthesia record** that can be printed or saved as a PDF from a dedicated print page.
 
 ## The two-page record

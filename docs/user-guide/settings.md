@@ -5,6 +5,10 @@ title: Settings
 
 # Settings
 
+:::info Current guide
+This legacy page has moved. Read the current [Settings guide](https://guide.lospor.org/getting-started/settings).
+:::
+
 Access settings by tapping the **⚙** gear icon (web) or the person/gear icon in the navigation bar (mobile).
 
 ## Navigation
