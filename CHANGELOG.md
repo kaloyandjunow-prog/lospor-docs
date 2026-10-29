@@ -1,5 +1,12 @@
 # Changelog - LOSPOR Docs
 
+## [10.0.1] - 2026-10-29
+
+### Changed
+
+- **Maintenance release:** the documentation lint toolchain now uses ESLint
+  10.13.0; documentation content is unchanged.
+
 ## [10.0.0] - 2026-10-28
 
 ### Changed
