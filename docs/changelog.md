@@ -7,6 +7,28 @@ title: Changelog
 
 All notable changes to LOSPOR are documented here.
 
+## 10.2.0 - Smart intraoperative entry and automation
+
+**Smart and Legacy selectors.** Airway, vascular access, monitoring, equipment,
+technique, and event entry can each use a Smart surface or the complete Legacy
+surface. Both write the same canonical record.
+
+**Clinical record detail.** NIBP and IBP remain separate in the timetable and
+monitor scan; BIS and TOF scan values, technique sides, unilateral spinal,
+urinary catheter, failed/replaced airway attempts, and failed vascular lines
+are retained with their provenance.
+
+**Intraoperative prompts.** Likely-now events, synonym search, treatment cards,
+reading questions, reminders, and timed follow-ups are clinician prompts only.
+Case reminders are enabled by default when available and never write a record
+without a clinician action.
+
+**Succession provenance and dismissal.** A Likely-now event keeps the exact
+succession rule that led to it when charted. **Dismiss / Откажи** is saved as a
+case-scoped answer and is counted by Status; airway and vascular structured
+records are also deduplicated into succession evidence. PostgreSQL integration
+coverage now runs against a real migration-backed database in CI.
+
 ---
 ## 9.15.0 - Target-controlled infusions, both infusion rates, preop summary and consent
 

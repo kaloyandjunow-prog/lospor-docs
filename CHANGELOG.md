@@ -1,5 +1,26 @@
 # Changelog - LOSPOR Docs
 
+## [10.2.0] - 2026-11-02
+
+### Changed
+
+- **Bulgarian terminology:** user-facing guide text now consistently uses
+  «времева линия» for the interactive record and «жизнени показатели» for
+  vital signs, with the reviewed clinical labels and statuses.
+
+### Added
+
+- **Release documentation:** documented the intraoperative automation,
+  suggestions, clinical-rule baselines, data dictionary changes, and the
+  release verification contract for the 10.2.0 train.
+- **Fluid status workflow:** recorded the Smart Hybrid summary, the Legacy
+  compatibility choice, and the read-only boundary for timetable aggregates.
+- **Event log workflow:** recorded the Smart Timeline stream, its read-only
+  filters, and the Legacy compatibility choice for the existing event list.
+- **Context-linked automation:** documented individual account switches,
+  exact technique/side prompts, case-scoped Dismiss, and the distinction from
+  ordinary clinical questions that may use Not now.
+
 ## [10.0.2] - 2026-10-29
 
 ### Changed
