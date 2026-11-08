@@ -147,6 +147,8 @@ LOSPOR пази съвместими JSON/кеш данни за приложе�
 
 Износът по OMOP е изследователски износ, ориентиран към OMOP CDM v5.4. Той вече чете нормализираните редове и активните редове със събития, вместо необработени наследени блокове.
 
+Изследователският износ записва по един файл за таблица: `care_site`, `person`, `observation_period`, `visit_occurrence`, `condition_occurrence`, `drug_exposure`, `measurement`, `procedure_occurrence`, `device_exposure`, `observation` и `death`. По-ранните износи не включваха `care_site`, `device_exposure` и `death`.
+
 Износът включва:
 - мястото на грижа като отделна таблица, към която посещението препраща чрез `care_site_id`
 - лице и период на наблюдение, кореновите таблици на CDM

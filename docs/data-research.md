@@ -145,6 +145,8 @@ Normalized rows also carry source/provenance metadata such as user input, web/mo
 
 The OMOP export is an OMOP CDM v5.4-oriented research export. It now reads normalized rows and active event rows instead of raw legacy blobs.
 
+A research export writes one file per table: `care_site`, `person`, `observation_period`, `visit_occurrence`, `condition_occurrence`, `drug_exposure`, `measurement`, `procedure_occurrence`, `device_exposure`, `observation` and `death`. Earlier research exports omitted `care_site`, `device_exposure` and `death`.
+
 The export includes:
 - care site as its own table, referenced by visit occurrence through `care_site_id`
 - person and observation period, the CDM root tables
