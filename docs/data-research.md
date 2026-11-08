@@ -170,7 +170,13 @@ The export includes:
   fluids, with `drug_exposure_end_date` paired from stop events for continuous
   administrations. A fluid is coded as the clinical drug at the strength given, from a
   hand-checked table, because fluids share ATC codes (saline, Hartmann's and Plasma-Lyte
-  are all B05BB01). Premedication is dated the day before (D-1) or the day of the operation
+  are all B05BB01). Premedication is dated the day before (D-1) or the day of the operation.
+  An intraoperative dose carries the moment it was given (`drug_exposure_start_datetime`, and
+  `drug_exposure_end_datetime` for an infusion, fluid or agent that was stopped), so it can be
+  placed in the case; a dose tapped during a cardiac arrest and charted afterwards keeps its
+  day only, because its time was reconstructed. Every drug carries the standard route concept
+  (`route_concept_id`, SNOMED Route domain; 0 for a route that is not a known one) beside the
+  route as written in `route_source_value`
 - device exposure rows for instrumented airway devices and for each blood unit, the unit
   carrying its product concept and its volume as `quantity` in mL (`unit_concept_id`
   8587). Cell salvage has no product concept and exports as the autotransfusion procedure,
