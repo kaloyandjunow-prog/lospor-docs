@@ -183,6 +183,10 @@ The export includes:
   carrying its product concept and its volume as `quantity` in mL (`unit_concept_id`
   8587). Cell salvage has no product concept and exports as the autotransfusion procedure,
   with its volume as an observation
+- condition occurrences for complications that have a time, with a start and, for an
+  episode, an end datetime; an entry made from a treatment card (a drug, a fluid, a
+  gas change or a shock) carries a flag so the rate at which suggestions are taken can
+  be read
 - observations for ASA, scores, selections, complications, handover, disposition, the
   preoperative history and airway examination, airway devices and ventilation, drug
   allergies, and other app-local concepts

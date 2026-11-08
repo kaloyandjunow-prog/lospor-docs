@@ -9,6 +9,15 @@ All notable changes to LOSPOR are documented here.
 
 ## 10.2.0 - Smart intraoperative entry and automation
 
+**New documentation pages.** [The anaesthesia record](./anaesthesia-record.md),
+[Intraoperative events](./intraoperative-events.md),
+[Intraoperative suggestions](./intraoperative-suggestions.md),
+[Smart and Legacy selection](./smart-selection.md),
+[Client performance notes](./client-performance.md) and, for the appliance,
+[Intraoperative suggestions control](./appliance/intraoperative-suggestions-control.md).
+The API, architecture, research-export and Status pages and the printing guide
+are updated to match.
+
 **Smart and Legacy selectors.** Airway, vascular access, monitoring, equipment,
 technique, and event entry can each use a Smart surface or the complete Legacy
 surface. Both write the same canonical record.

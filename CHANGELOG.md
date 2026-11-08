@@ -10,6 +10,11 @@
 
 ### Added
 
+- **New pages (English and Bulgarian):** the anaesthesia record,
+  intraoperative events, intraoperative suggestions, Smart and Legacy
+  selection, client performance notes, and the Status control page for
+  intraoperative suggestions; the sidebar lists them. Updated: API, architecture,
+  research export, Status monitor and the printing guide (now the new record).
 - **Release documentation:** documented the intraoperative automation,
   suggestions, clinical-rule baselines, data dictionary changes, and the
   release verification contract for the 10.2.0 train.

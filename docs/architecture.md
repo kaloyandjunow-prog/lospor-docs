@@ -59,6 +59,12 @@ Core owns rules that must produce the same clinical answer on every client:
 - monitoring, airway, technique, and option metadata;
 - timetable projection, active infusions/fluids/gases/agents, totals, and
   semantic event descriptions;
+- the anaesthesia record's models (event log with deleted entries, whole-case
+  timetable, episodes, labels, chart layout) that the web, the print and the
+  phone each draw (see [The anaesthesia record](./anaesthesia-record.md));
+- intraoperative suggestions: treatment cards, questions, reminders, timed
+  follow-ups and learned succession
+  (see [Intraoperative suggestions](./intraoperative-suggestions.md));
 - pediatric mode, precise chronological age, pediatric risk/fasting/pain rules,
   reviewed pediatric calculators, and clinical-rule provenance;
 - mode-specific clinical rulesets, canonical administration routes, dose-unit
