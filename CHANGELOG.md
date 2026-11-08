@@ -20,6 +20,10 @@
 - **Context-linked automation:** documented individual account switches,
   exact technique/side prompts, case-scoped Dismiss, and the distinction from
   ordinary clinical questions that may use Not now.
+- **Changelog:** the 10.2.0 entry now also covers the anaesthesia record
+  (summary, print, phone and PWA), treatment cards and the Smart Prediction
+  System, timed complications and shocks, the new chart entries, the
+  intraoperative performance fix, Expo SDK 58 and the removed print sheets.
 
 ## [10.0.2] - 2026-10-29
 
