@@ -15,7 +15,7 @@ All notable changes to LOSPOR are documented here.
 [Smart and Legacy selection](./smart-selection.md),
 [Client performance notes](./client-performance.md) and, for the appliance,
 [Intraoperative suggestions control](./appliance/intraoperative-suggestions-control.md).
-The API, architecture, research-export and Status pages and the printing guide
+The clinical rules page describes the v4 rule sets, bundled and activated automatically. The API, architecture, research-export and Status pages and the printing guide
 are updated to match.
 
 **Smart and Legacy selectors.** Airway, vascular access, monitoring, equipment,
