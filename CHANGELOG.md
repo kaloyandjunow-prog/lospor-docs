@@ -1,5 +1,18 @@
 # Changelog - LOSPOR Docs
 
+## [10.3.0] - 2026-11-09
+
+### Changed
+
+- Released with the 10.3.0 train. No guide page changed: the planned procedure on the postoperative record became a
+  Status switch, and "Procedure done" still starts as the planned procedure unless the hospital switches it off.
+
+### Dependencies
+
+- `minimatch` is overridden to the patched 11.0.5 (GHSA-g3hv-75wg-m249), which clears the moderate findings. Five low
+  findings remain, all in the Docusaurus build chain (`@docusaurus/preset-classic`, `@svgr/*`, `deepmerge`); the only
+  "fix" npm offers is an older preset. Build time only: nothing in them is shipped in the built site.
+
 ## [10.2.0] - 2026-11-02
 
 ### Changed
