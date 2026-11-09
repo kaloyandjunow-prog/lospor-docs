@@ -145,6 +145,8 @@ Normalized rows also carry source/provenance metadata such as user input, web/mo
 
 The OMOP export is an OMOP CDM v5.4-oriented research export. It now reads normalized rows and active event rows instead of raw legacy blobs.
 
+A research export writes one file per table: `care_site`, `person`, `observation_period`, `visit_occurrence`, `condition_occurrence`, `drug_exposure`, `measurement`, `procedure_occurrence`, `device_exposure`, `observation` and `death`. Earlier research exports omitted `care_site`, `device_exposure` and `death`.
+
 The export includes:
 - care site as its own table, referenced by visit occurrence through `care_site_id`
 - person and observation period, the CDM root tables
@@ -170,11 +172,21 @@ The export includes:
   fluids, with `drug_exposure_end_date` paired from stop events for continuous
   administrations. A fluid is coded as the clinical drug at the strength given, from a
   hand-checked table, because fluids share ATC codes (saline, Hartmann's and Plasma-Lyte
-  are all B05BB01). Premedication is dated the day before (D-1) or the day of the operation
+  are all B05BB01). Premedication is dated the day before (D-1) or the day of the operation.
+  An intraoperative dose carries the moment it was given (`drug_exposure_start_datetime`, and
+  `drug_exposure_end_datetime` for an infusion, fluid or agent that was stopped), so it can be
+  placed in the case; a dose tapped during a cardiac arrest and charted afterwards keeps its
+  day only, because its time was reconstructed. Every drug carries the standard route concept
+  (`route_concept_id`, SNOMED Route domain; 0 for a route that is not a known one) beside the
+  route as written in `route_source_value`
 - device exposure rows for instrumented airway devices and for each blood unit, the unit
   carrying its product concept and its volume as `quantity` in mL (`unit_concept_id`
   8587). Cell salvage has no product concept and exports as the autotransfusion procedure,
   with its volume as an observation
+- condition occurrences for complications that have a time, with a start and, for an
+  episode, an end datetime; an entry made from a treatment card (a drug, a fluid, a
+  gas change or a shock) carries a flag so the rate at which suggestions are taken can
+  be read
 - observations for ASA, scores, selections, complications, handover, disposition, the
   preoperative history and airway examination, airway devices and ventilation, drug
   allergies, and other app-local concepts

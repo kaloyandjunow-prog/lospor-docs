@@ -1,5 +1,35 @@
 # Changelog - LOSPOR Docs
 
+## [10.2.0] - 2026-11-02
+
+### Changed
+
+- **Bulgarian terminology:** user-facing guide text now consistently uses
+  «времева линия» for the interactive record and «жизнени показатели» for
+  vital signs, with the reviewed clinical labels and statuses.
+
+### Added
+
+- **New pages (English and Bulgarian):** the anaesthesia record,
+  intraoperative events, intraoperative suggestions, Smart and Legacy
+  selection, client performance notes, and the Status control page for
+  intraoperative suggestions; the sidebar lists them. Updated: API, architecture,
+  research export, Status monitor and the printing guide (now the new record).
+- **Release documentation:** documented the intraoperative automation,
+  suggestions, clinical-rule baselines, data dictionary changes, and the
+  release verification contract for the 10.2.0 train.
+- **Fluid status workflow:** recorded the Smart Hybrid summary, the Legacy
+  compatibility choice, and the read-only boundary for timetable aggregates.
+- **Event log workflow:** recorded the Smart Timeline stream, its read-only
+  filters, and the Legacy compatibility choice for the existing event list.
+- **Context-linked automation:** documented individual account switches,
+  exact technique/side prompts, case-scoped Dismiss, and the distinction from
+  ordinary clinical questions that may use Not now.
+- **Changelog:** the 10.2.0 entry now also covers the anaesthesia record
+  (summary, print, phone and PWA), treatment cards and the Smart Prediction
+  System, timed complications and shocks, the new chart entries, the
+  intraoperative performance fix, Expo SDK 58 and the removed print sheets.
+
 ## [10.0.2] - 2026-10-29
 
 ### Changed

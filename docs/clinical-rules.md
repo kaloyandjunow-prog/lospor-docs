@@ -109,6 +109,29 @@ What v3 changes:
   - some drugs are hidden for children only, for example ibuprofen under
     3 months and obstetric drugs under 12 years.
 
+### Rule sets v4 (10.2.0)
+
+Release 10.2.0 changes the doses the intraoperative suggestions rely on. Because v3 is released and fingerprinted, the changes are not made in it: they come as a new adult v4 and a new paediatric v4, **bundled with the release and activated automatically**.
+
+- **Upgrade:** both are installed beside v3 in the same transaction, by the 10.2.0 release principal. The audit entry records the exact difference from v3.
+- **Selection:** the platform selection moves from v3 to v4 only where the 9.15.0 release itself made that selection. A ruleset an institution or a clinician selected stays selected.
+- **v2 and v3 unchanged:** their rows stay exactly as installed, and their fingerprints still verify.
+- **Cases already recorded:** a finalised case is never rewritten. Retired menu entries still read, name and export on the cases that recorded them.
+
+What v4 changes for adults:
+
+- **Adrenaline:** opens without a default dose (500 mcg was the intramuscular anaphylaxis dose); quick doses 10 / 50 / 100 / 1000 mcg; an intramuscular route.
+- **Sugammadex:** up to 2,000 mg (16 mg/kg rescue reversal).
+- **Paracetamol:** 15 mg/kg under 50 kg, 1 g from 50 kg.
+- **Salbutamol:** inhaled, in 0.1 mg puffs.
+- **Glucagon:** an intramuscular route for hypoglycaemia without venous access.
+- **Lipid emulsion 20%:** suggests 0.25 mL/kg/min (15 mL/kg/h) when run as a rate.
+- **Glucose:** one fluid at 5 / 10 / 20 / 40 %. Dextrose 5% and 10% leave the menus.
+
+What v4 changes for children: hydrocortisone 4 mg/kg capped at 100 mg at every age, furosemide capped at 40 mg, sugammadex to 2,000 mg, adrenaline intramuscular 10 mcg/kg capped at 500 mcg, salbutamol in single puffs, and blood products by weight (red cells and plasma 15 mL/kg, platelets 10, cryoprecipitate 5).
+
+Any further rule change needs a v5: a released baseline is never edited.
+
 ## Offline behavior
 
 Clients cache the last successfully downloaded published ruleset separately

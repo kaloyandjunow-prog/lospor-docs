@@ -9,35 +9,32 @@ title: Protocol & Printing
 This legacy page has moved. Read the current [Printing guide](https://guide.lospor.org/clinician/printing), including the difference between demo PDF and Hospital browser printing.
 :::
 
-When a case is **finished** (closed after the postop form), LOSPOR generates a **two-page anaesthesia record** that can be printed or saved as a PDF from a dedicated print page.
+When a case is **finished** (closed after the postop form), LOSPOR generates the **anaesthesia record** that can be printed or saved as a PDF from a dedicated print page. The record is the same document as the case summary on screen. See [The anaesthesia record](../anaesthesia-record.md) for how it is built.
 
-## The two-page record
+## The record
 
-### Page 1 — Intraoperative
+The record grows with the case: pages are never cut off. It is titled with the hospital's name and has three parts.
 
-The operation is charted **like a classic paper record**:
-- **Header** — institution name, the day of the case (the month alone for older cases, and a note when the end fell on a later day), procedure, diagnosis + ICD code, patient demographics (age, sex, blood group, ASA), and blank identity fields (fill in by hand after printing)
-- **Key-facts row** — technique, airway, ventilation, agent, position, timing, monitoring, IV access as compact chips
-- **Intraoperative timetable** — vitals graph (every recorded point), clinical events flagged on the chart, **numbered drug pins** (① ② ③ …) at the exact administration time, a numeric vitals table (BP/HR/SpO₂/EtCO₂/Temp), and bars for agent, infusions, gas (FGF/FiO₂), fluids, and patient position. A case up to ~5 hours is one full-height chart; **longer cases continue onto a second half-height chart on the same page** ("CONTINUED"), just like a paper chart continuing onto a second grid — nothing is repeated and nothing gets squeezed. The numeric table samples at a comfortable interval per chart (e.g. every 15 min on a 12-hour case) while the graph, drugs and events always keep their exact recorded times.
-- **Drug administration log** — every numbered pin resolved: time (the dose's own minute, in the case's time zone), drug, dose, plus totals per drug on the patient's weights, and the mL each infusion gave where its syringe is known; an infusion whose stop is still unconfirmed says so beside its total. A target-controlled infusion shows its target and model ("Ce 4 mcg/mL · Schnider"), and its total says whether it came from the pump or the model
-- **Fluid balance**, **intraop notes**, and blank signature lines
+### Portrait first page
 
-### Page 2 — Pre- and Postoperative
+- **Header** — the hospital, procedure, diagnosis + ICD code, the day of the case and the case code
+- **Patient and risk** — age, sex, blood group, height, weight, BMI, ASA, RCRI, Apfel, STOP-BANG, times
+- **Airway assessment, history and allergies** — all parameters, comorbidities, current medications, allergies including latex
+- **Airway, vascular access, technique and position** — devices and lines, with a failed attempt or a replacement kept and marked
+- **Event log** (Дневник) — every charted entry in time order: drugs, infusions, fluids, agents, gas, events and complications. A **deleted entry stays**, struck through, with the minute it was deleted
+- **Vitals** every five minutes (BP, HR, SpO₂, EtCO₂, temperature), a reading below 90 systolic in red
 
-The second page contains:
-- **Diagnosis** and **planned procedure** (full text)
-- **Risk scores** — ASA, RCRI, Apfel, STOP-BANG
-- **Airway assessment** — all parameters
-- **Preoperative vitals** — BP, HR, SpO₂, temperature, RR
-- **Height / weight / BMI**
-- **Comorbidities** — as labelled chips
-- **Current medications**
-- **Allergies** — including latex allergy flag
-- **Laboratory results**
-- **Postoperative recovery** — Aldrete score (all criteria + total), recovery vitals (BP, HR, SpO₂, temperature), pain NRS, PONV
-- **Disposition** — WARD / PACU / ICU with notes
-- **Handover instructions** — full text of all ticked items
-- **Signature lines** — anaesthesiologist, anaesthesia nurse, surgeon
+### One landscape page — the timetable
+
+The whole case on one chart, however long: the vitals graph, a **lane for every drug** with a diamond and the amount for each dose, bars for infusions, agents, gas (FGF) and fluids, the patient's position, and the episodes as shaded bands. A target-controlled infusion shows its target and model ("Ce 4 mcg/mL · Schnider").
+
+### Closing portrait page
+
+- **Episodes** with what was given during each
+- **Drug totals** per drug on the patient's weights, and the mL each infusion gave where its syringe is known; an infusion whose stop is still unconfirmed says so beside its total
+- **Fluid balance** and the intraoperative **laboratory results**
+- **Recovery** — Aldrete (all criteria + total), recovery vitals, pain, PONV, disposition and the handover instructions
+- **Name and ID** of the patient, left blank with room to write by hand, and the **signature lines** — anaesthesiologist, anaesthesia nurse, surgeon
 
 ## Printing
 
@@ -49,9 +46,9 @@ The record leaves patient identity fields blank. Fill in the patient's name and 
 
 ### On the web
 
-A dedicated print page opens with the two-page record ready, and two actions:
+A dedicated print page opens with the record ready, and two actions:
 
-- **Download PDF** — LOSPOR builds the finished **A4 landscape PDF on the server** and hands you the file. It always looks exactly like the printed record, on any device.
+- **Download PDF** — LOSPOR builds the finished **A4 PDF on the server** (portrait pages, one landscape page for the timetable) and hands you the file. It always looks exactly like the printed record, on any device.
 - **Print** — opens your browser's print dialog for printing directly to a printer. Set **Paper size** to A4, **Margins** to None, and enable **Background graphics**.
 
 ### On a phone
@@ -107,9 +104,9 @@ described. A finalised case takes no new print record.
 
 ## Viewing the chart on a phone
 
-For a **finished** case, tapping the timetable on the case summary opens a **read-only timetable viewer** — the same chart as the printed record (traces, event flags, numbered drug pins, the vitals table and all lanes) with the drug administration log below it. The case stays locked; nothing here can be edited. Cases still in progress open the live intraoperative screen instead.
+The case summary shows the same record as the printed one: a timetable card, the event log, the **vitals every five minutes behind a View table button**, and the episodes. For a **finished** case, tapping the timetable card opens the **read-only timetable viewer**: the whole case on one chart (the vitals graph and a lane for every drug), with the episodes, the event log and the vitals table below it. The same viewer opens from the **Chart** button on the intraoperative screen of a case in progress. The case stays locked; nothing here can be edited.
 
-**Pinch to zoom**, or use the **− / +** buttons, to change how much detail the vitals table shows. Zoomed in you get every 5-minute reading; zoomed out it thins to the coarser sampling used on the printed record, and a badge shows the current interval (for example "q15 min"). The graph traces, drugs, events and lanes always show **every** recorded point at every zoom level — zooming changes readability, never the data. The printed record is unaffected by how you zoom.
+**Pinch to zoom**, or use the **− / +** buttons, to widen the chart; it scrolls sideways. Zoom changes readability, never the data: every recorded dose, bar and reading is always drawn.
 
 ## Language
 
@@ -121,8 +118,8 @@ case's own time zone, whatever the printing computer's.
 
 ## Layout
 
-The record is designed to fit **exactly two A4 pages** — one sheet printed double-sided — for cases up to ~24 hours. Long cases split into two stacked charts (first half / second half) on the intraop page; only truly extreme cases add a continuation page.
+The record is portrait A4 with **one landscape page** for the timetable. Pages grow with the case; there is no fixed number of sheets, and nothing is clipped.
 
-## Dark mode
+## Light paper
 
-The **case summary and its timetable follow your theme** — dark in dark mode, paper-light in light mode. The printed record and the PDF deliberately always render as a white paper sheet, regardless of your theme setting.
+The record is **always white paper**, on screen and in the PDF, whatever your theme. The review bar above the summary follows your theme.

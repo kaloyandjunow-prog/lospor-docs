@@ -51,6 +51,24 @@ their readings are the ones an operator most often has to interpret without
 context: [Data retention purge](operations.md#data-retention) and
 [Automatic case closure](operations.md#automatic-case-closure).
 
+## Hospital name on the record
+
+The anaesthesia record is titled with the institution's own name, on screen and
+on paper, finished records included. On the **Clinical** control page, **Hospital
+name on the record** renames an institution. It asks for the appliance-operator
+password and a reason of at least ten characters and is audited
+(`HOSPITAL_NAME_UPDATE`, which keeps the previous and new name and no patient
+data). It changes the institution's own name, so the name changes wherever the
+institution is named. The online demo has no such control and shows the account's
+institution. See [The anaesthesia record](../anaesthesia-record.md).
+
+## Intraoperative suggestions
+
+The **SPS — Smart Prediction System** control page holds the hospital's decisions
+about the intraoperative suggestions: the master switch, each group and line, the
+vitals-question limits, the monitor reading intervals and the dantrolene vials in
+stock. See [Intraoperative suggestions control](./intraoperative-suggestions-control.md).
+
 ## Accounts and activation links
 
 Open **Accounts and activation links** from the Status dashboard while signed

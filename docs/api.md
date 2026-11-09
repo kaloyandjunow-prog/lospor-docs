@@ -113,3 +113,18 @@ private S3-compatible bucket. Configure an object-storage lifecycle rule to
 abort stale incomplete multipart uploads. The internal export worker isolates
 individual job failures and supports bounded batch recovery through the
 scheduled `/v1/internal/research-exports/process` route.
+
+## Case reads for the record
+
+`GET /v1/cases/{id}` accepts two optional parameters for the anaesthesia record:
+
+- `deleted=1` adds `deletedEvents`: the entries deleted from the case, as they
+  were, each with `deletedAt`, the minute it was deleted.
+- `view=timetable` is a narrow read for the timetable viewer: the chart, its
+  start and zone, and the procedure's name, without the questionnaire (about 13 KB
+  against 148 KB for a long demo case). It applies the same read rule as the full
+  read.
+
+`GET /v1/cases/{id}/print-data` always includes `deletedEvents`, and
+`GET /v1/cases/{id}/pdf` renders the record as an A4 PDF: portrait pages with one
+landscape page for the timetable. See [The anaesthesia record](./anaesthesia-record.md).

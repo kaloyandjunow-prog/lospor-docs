@@ -60,6 +60,13 @@ only what is shown changes.
 - **Sections** — opens each section of the preoperative form in a focused editor (default)
 - **Scroll** — all sections on a single scrollable page
 
+#### Intraoperative selector surfaces
+
+Choose **Smart selection** or **Legacy** separately for airway, vascular
+access, monitoring, equipment, technique, and events. Smart selection keeps
+the common path short and exposes the full list when needed; Legacy keeps the
+complete button-based layout. The choice affects presentation only.
+
 ### Automation
 
 #### Favourite intraoperative drugs and infusions

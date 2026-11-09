@@ -36,6 +36,15 @@ All dates and times are those of the case's own time zone.
 
 When **Start Case** is clicked, a live orange clock bar appears in the timetable and the case status changes to **In theatre** on the dashboard.
 
+## Smart or Legacy entry
+
+In Settings, choose **Smart selection** or **Legacy** independently for airway,
+vascular access, monitoring, equipment, technique, and events. Smart selection
+starts with the choices most relevant to the case and reveals the rest when
+needed; Legacy keeps the complete button list. Both surfaces write the same
+canonical data. Technique entry can include the side of a block or a unilateral
+spinal, and failed or replaced airway attempts stay in the history.
+
 ## Anaesthesia technique
 
 Select one or more techniques:
@@ -69,6 +78,10 @@ Tick all active monitoring modalities:
 - Standard: ECG, SpO₂, NIBP, EtCO₂, Temperature
 - Extended: IBP, CVP, PA catheter, TEE, BIS, Entropy, NIRS, SSEP/MEP, TOF/NMT, BGL, ABG
 - Other: Urinary catheter, Nasogastric tube
+
+NIBP (cuff pressure) and IBP (invasive arterial pressure) are separate chart
+rows and separate values in the monitor-photo scan. The scan can also return
+BIS and TOF values.
 
 ## Vascular access
 

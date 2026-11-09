@@ -7,6 +7,93 @@ title: Changelog
 
 All notable changes to LOSPOR are documented here.
 
+## 10.2.0 - Smart intraoperative entry and automation
+
+**New documentation pages.** [The anaesthesia record](./anaesthesia-record.md),
+[Intraoperative events](./intraoperative-events.md),
+[Intraoperative suggestions](./intraoperative-suggestions.md),
+[Smart and Legacy selection](./smart-selection.md),
+[Client performance notes](./client-performance.md) and, for the appliance,
+[Intraoperative suggestions control](./appliance/intraoperative-suggestions-control.md).
+The clinical rules page describes the v4 rule sets, bundled and activated automatically. The API, architecture, research-export and Status pages and the printing guide
+are updated to match.
+
+**Smart and Legacy selectors.** Airway, vascular access, monitoring, equipment,
+technique, and event entry can each use a Smart surface or the complete Legacy
+surface. Both write the same canonical record.
+
+**Clinical record detail.** NIBP and IBP remain separate in the timetable and
+monitor scan; BIS and TOF scan values, technique sides, unilateral spinal,
+urinary catheter, failed/replaced airway attempts, and failed vascular lines
+are retained with their provenance.
+
+**Intraoperative prompts.** Likely-now events, synonym search, treatment cards,
+reading questions, reminders, and timed follow-ups are clinician prompts only.
+Case reminders are enabled by default when available and never write a record
+without a clinician action.
+
+**Succession provenance and dismissal.** A Likely-now event keeps the exact
+succession rule that led to it when charted. **Dismiss / Откажи** is saved as a
+case-scoped answer and is counted by Status; airway and vascular structured
+records are also deduplicated into succession evidence. PostgreSQL integration
+coverage now runs against a real migration-backed database in CI.
+
+**The anaesthesia record.** The case summary, the printed record and the phone's
+timetable are now one document. A portrait first page holds the patient, risk,
+airway, access and technique, then the **event log** and the vitals every five
+minutes. One landscape page shows the **whole timetable**: the vitals graph, a
+lane for every drug with each dose beside its diamond, bars for infusions,
+agents, gas and fluids, and the episodes as bands. A closing page has the
+episodes with what was given, drug totals, fluid balance, laboratory results,
+recovery, then the patient's name and ID with room to write, and the
+signatures. The record is titled with the hospital's name and its pages grow
+with the case, so nothing is cut off.
+
+- **Deleted entries stay on the sheet,** struck through in the log with the
+  minute they were deleted. A deletion keeps no reason, so none is printed.
+- **Hospital name.** On a Hospital appliance the name is changed in Status
+  (Clinical page) with the Status password and a reason, and is audited. The
+  online demo shows the account's institution.
+- **Phone and PWA.** The summary shows the same timetable card, the log, the
+  vitals behind a "View table" button and the episodes. The read-only
+  timetable viewer (the Chart button) draws the same record on one chart and
+  zooms by pinch or − / +; it reads only the chart.
+- **Both languages.** Every fixed word comes from one Bulgarian and English
+  table: Дневник, Времева линия, Съдов достъп, Осигуряване на дих. пътища.
+
+**Treatment cards and the Smart Prediction System.** Each agreed complication
+has a card or checklist with doses prefilled for the patient, opened in place
+on its row. Reverse questions ask whether to log a complication at the time of
+a rescue drug, fluid or shock; readings, laboratory results, reminders and
+timed follow-ups (arrest rhythm checks and adrenaline, LAST, malignant
+hyperthermia dantrolene with the vials to draw, the tourniquet) share one
+waiting list. Each group is switched on in Status and each clinician can turn
+it off in Settings.
+
+**Timed complications, shocks and End at.** A complication has its own time and
+an optional end; a shock (1–360 J, synchronised or not) is charted from a
+defibrillator knob in one of three skins. The vitals questions use age-band
+limits from the hospital's own readings. A death in theatre sets the
+destination to Deceased and offers End case. Changing the end of an ended case
+needs a coded reason and is audited.
+
+**New chart entries.** A jet-ventilation lane, a tourniquet body picker, fresh
+gas flow 0–20 L/min, an arterial line beside the cuff (NIBP and IBP), BIS and
+TOF read from a monitor photo, and a urinary catheter as its own event.
+
+**A calmer intraoperative screen.** An open case no longer re-renders itself
+while nobody touches it: measured on a production build, 4.9 re-renders a
+second and 8–12 % of the main thread became 0.1 and about 1 %. Pressed, held
+and dragged controls no longer select text, and sliders cannot be swiped into
+a tab change.
+
+**Phone.** The app moves to Expo SDK 58 (React Native 0.88).
+
+**Removed.** The two fixed A4 landscape sheets and their continuation sheets,
+the half-case panel chart with numbered pins, and the cap on printed
+laboratory results are replaced by the record. Core's `print` and
+`written-event-list` entry points are removed.
+
 ---
 ## 9.15.0 - Target-controlled infusions, both infusion rates, preop summary and consent
 
